@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — A Few Quick Checks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .redflag-header-text {
+      font-size: 15px;
+      color: var(--ink-600);
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 89%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <p class="redflag-header-text">Almost there — just a couple of quick checks to make sure we're pointing you in the right direction.</p>
+
+    <div style="margin-bottom: 4px;">
+      <span class="section-label">Question 8 of 9</span>
+    </div>
+
+    <h1 class="question-title">Have you experienced any of the following recently?</h1>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 24px;">
+      <button class="chip" data-type="regular">Blood in my stool or when wiping</button>
+      <button class="chip" data-type="regular">Significant unexplained weight loss</button>
+      <button class="chip" data-type="regular">Symptoms that wake me up from sleep</button>
+      <button class="chip" data-type="regular">I'm over 50 and these symptoms are new or getting significantly worse</button>
+      <button class="chip chip-none" data-type="none">None of these — I don't have any of these symptoms</button>
+    </div>
+
+    <button class="next-btn" id="continueBtn">Continue</button>
+
+    <a href="q7.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    var chips = document.querySelectorAll('.chip');
+    var noneChip = document.querySelector('[data-type="none"]');
+    var continueBtn = document.getElementById('continueBtn');
+    var hasRedFlag = false;
+
+    function updateBtn() {
+      var anySelected = document.querySelector('.chip.selected');
+      if (anySelected) {
+        continueBtn.classList.add('visible');
+      } else {
+        continueBtn.classList.remove('visible');
+      }
+
+      // Check if any red flag chip is selected
+      hasRedFlag = false;
+      chips.forEach(function(chip) {
+        if (chip.getAttribute('data-type') === 'regular' && chip.classList.contains('selected')) {
+          hasRedFlag = true;
+        }
+      });
+    }
+
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var type = this.getAttribute('data-type');
+
+        if (type === 'none') {
+          var wasSelected = this.classList.contains('selected');
+          chips.forEach(function(c) {
+            c.classList.remove('selected');
+          });
+          if (!wasSelected) {
+            this.classList.add('selected');
+          }
+        } else {
+          // Deselect "none" chip
+          noneChip.classList.remove('selected');
+          this.classList.toggle('selected');
+        }
+
+        updateBtn();
+      });
+    });
+
+    continueBtn.addEventListener('click', function() {
+      if (hasRedFlag) {
+        window.location.href = 'redflag-stop.html';
+      } else {
+        window.location.href = 'reveal.html';
+      }
+    });
+  </script>
+</body>
+</html>

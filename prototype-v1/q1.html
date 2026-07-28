@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Your IBS Type</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      padding-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 11%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <div style="margin-bottom: 4px;">
+      <span class="section-label">Question 1 of 9</span>
+    </div>
+
+    <h1 class="question-title">What type of IBS do you have?</h1>
+
+    <div class="chips-container" style="margin-top: 24px;">
+      <button class="chip" data-next="q2.html">
+        IBS-D (diarrhoea-predominant)
+        <span class="chip-sub">Loose stools, urgency, frequency</span>
+      </button>
+      <button class="chip" data-next="q2.html">
+        IBS-C (constipation-predominant)
+        <span class="chip-sub">Hard stools, infrequent movements, bloating</span>
+      </button>
+      <button class="chip" data-next="q2.html">
+        IBS-M (mixed)
+        <span class="chip-sub">Alternating between both patterns</span>
+      </button>
+      <button class="chip" data-next="q2.html">
+        Not sure yet
+        <span class="chip-sub">I'll answer a few more questions to work it out</span>
+      </button>
+    </div>
+
+    <p class="micro-copy">Your answer shapes everything you see — be as accurate as you can. You can update this later.</p>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        document.querySelectorAll('.chip').forEach(function(c) {
+          c.classList.remove('selected');
+        });
+        this.classList.add('selected');
+        var next = this.getAttribute('data-next');
+        setTimeout(function() {
+          window.location.href = next;
+        }, 200);
+      });
+    });
+  </script>
+</body>
+</html>

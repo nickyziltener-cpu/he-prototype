@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anti-Inflammatory Diet · Trial 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #eef4f0 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Phase track ── */
+    .phase-track {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 16px -8px rgba(74,122,106,.18);
+    }
+    .phase-col {
+      flex: 1;
+    }
+    .phase-col.active .phase-label {
+      color: var(--evidence-high);
+    }
+    .phase-col.inactive .phase-label {
+      color: var(--ink-500);
+    }
+    .phase-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .phase-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 8px;
+    }
+    .phase-col.inactive .phase-title {
+      color: var(--ink-600);
+    }
+    .phase-dots {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 7px;
+    }
+    .phase-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+    }
+    .phase-dot.done {
+      background: var(--evidence-high);
+    }
+    .phase-dot.current {
+      background: var(--evidence-high);
+      box-shadow: 0 0 0 2px rgba(74,122,106,.25);
+    }
+    .phase-dot.empty {
+      background: rgba(74,122,106,.18);
+    }
+    .phase-dot.future {
+      background: rgba(42,31,48,.1);
+    }
+    .phase-sub {
+      font-size: 11px;
+      color: var(--ink-600);
+      line-height: 1.45;
+    }
+    .phase-col.active .phase-sub {
+      color: var(--ink-700);
+    }
+    .phase-divider {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      padding-top: 22px;
+      color: var(--ink-400);
+      flex-shrink: 0;
+    }
+    .phase-divider svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ── FODMAP food table ── */
+    .fodmap-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .fodmap-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(42,31,48,.06);
+    }
+    .fodmap-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .fodmap-group-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+      flex-shrink: 0;
+      width: 76px;
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+    .fodmap-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      flex: 1;
+    }
+    .fodmap-tag {
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(184,112,74,.08);
+      color: var(--ember-700);
+      padding: 3px 9px;
+      border-radius: 100px;
+      border: 1px solid rgba(184,112,74,.18);
+      white-space: nowrap;
+    }
+
+    /* ── Safe foods ── */
+    .safe-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .safe-tag {
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(74,122,106,.08);
+      color: var(--evidence-high);
+      padding: 3px 9px;
+      border-radius: 100px;
+      border: 1px solid rgba(74,122,106,.18);
+      white-space: nowrap;
+    }
+
+    /* ── Dietitian card ── */
+    .dietitian-card {
+      background: rgba(74,122,106,.07);
+      border: 1px solid rgba(74,122,106,.2);
+      border-radius: 18px;
+      padding: 18px 18px;
+    }
+    .dietitian-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--evidence-high);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .dietitian-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 6px;
+    }
+    .dietitian-body {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-700);
+      margin-bottom: 14px;
+    }
+    .dietitian-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .dietitian-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .dietitian-row-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(74,122,106,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--evidence-high);
+    }
+    .dietitian-row-icon svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    .dietitian-row-body {
+      flex: 1;
+    }
+    .dietitian-row-t {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 1px;
+    }
+    .dietitian-row-d {
+      font-size: 12px;
+      color: var(--ink-600);
+      line-height: 1.45;
+    }
+
+    /* ── Monash app callout ── */
+    .app-callout {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 14px;
+      padding: 13px 14px;
+    }
+    .app-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--sage-300), var(--sage-500));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .app-icon svg {
+      width: 18px; height: 18px;
+      stroke: #fff;
+      stroke-width: 2;
+      fill: none;
+    }
+    .app-callout-body {
+      flex: 1;
+    }
+    .app-callout-t {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 1px;
+    }
+    .app-callout-d {
+      font-size: 12px;
+      color: var(--ink-500);
+    }
+    .app-callout-cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--evidence-high);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-bottom:24px;">
+    <div class="flow-nav">
+      <a href="flow-b-plan.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Trial 2 of 3
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Diet
+      </span>
+      <span class="evchip-flow ev-med"><span class="ev-dot"></span>Some evidence</span>
+    </div>
+    <h1 class="flow-hero-title">Anti-inflammatory diet</h1>
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>Week 2 of 8</span>
+        <span>25%</span>
+      </div>
+      <div class="progress-bar-hero">
+        <div class="progress-fill-hero" style="width:25%;background:var(--evidence-high)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="flow-body detail-body">
+
+    <!-- Phase progress -->
+    <div class="phase-track ani">
+      <div class="phase-col active">
+        <span class="phase-label">Now</span>
+        <div class="phase-title">Dietary shift</div>
+        <div class="phase-dots">
+          <span class="phase-dot done"></span>
+          <span class="phase-dot current"></span>
+          <span class="phase-dot empty"></span>
+          <span class="phase-dot empty"></span>
+          <span class="phase-dot empty"></span>
+          <span class="phase-dot empty"></span>
+        </div>
+        <div class="phase-sub">Weeks 1–8 · Gradual shift<br>Week 2 · 6 weeks to go</div>
+      </div>
+      <div class="phase-divider">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </div>
+      <div class="phase-col inactive">
+        <span class="phase-label">Coming up</span>
+        <div class="phase-title">Review</div>
+        <div class="phase-dots">
+          <span class="phase-dot future"></span>
+          <span class="phase-dot future"></span>
+          <span class="phase-dot future"></span>
+        </div>
+        <div class="phase-sub">Week 8+ · Assess symptom change and decide what to keep long-term</div>
+      </div>
+    </div>
+
+    <!-- What to increase -->
+    <div class="detail-section ani">
+      <div class="detail-label">What to increase — anti-inflammatory foods</div>
+      <p class="detail-para" style="margin-bottom:14px;">No strict elimination. The goal is a gradual shift toward foods that reduce the inflammatory prostaglandins driving endo pain.</p>
+
+      <div class="fodmap-table">
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Omega-3</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Salmon</span>
+            <span class="safe-tag">Mackerel</span>
+            <span class="safe-tag">Sardines</span>
+            <span class="safe-tag">Walnuts</span>
+            <span class="safe-tag">Flaxseed</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Vegetables</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Leafy greens</span>
+            <span class="safe-tag">Broccoli</span>
+            <span class="safe-tag">Berries</span>
+            <span class="safe-tag">Turmeric</span>
+            <span class="safe-tag">Ginger</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Healthy fats</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Extra virgin olive oil</span>
+            <span class="safe-tag">Avocado</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Whole grains</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Oats</span>
+            <span class="safe-tag">Brown rice</span>
+            <span class="safe-tag">Quinoa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What to reduce -->
+    <div class="detail-section ani">
+      <div class="detail-label">What to reduce — pro-inflammatory foods</div>
+      <div class="fodmap-table">
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Meat</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Red meat</span>
+            <span class="fodmap-tag">Processed meat</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Sugar</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Refined sugar</span>
+            <span class="fodmap-tag">White bread</span>
+            <span class="fodmap-tag">Pastries</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Other</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Alcohol</span>
+            <span class="fodmap-tag">Trans fats</span>
+            <span class="fodmap-tag">Fried food</span>
+          </div>
+        </div>
+      </div>
+      <p class="detail-para sm" style="margin-top:10px;color:var(--ink-600);">Perfection isn't the goal — gradual, logged shifts are what let us see what's working for you specifically.</p>
+    </div>
+
+    <!-- Give it time -->
+    <div class="detail-section ani">
+      <div class="detail-label">Give it time</div>
+      <div class="time-card">
+        <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <p class="detail-para sm">Studies run for <strong>8 weeks</strong> before evaluating results. You're in week 2 — inflammation takes time to shift. Keep logging each week and we'll review together at week 8.</p>
+      </div>
+    </div>
+
+    <!-- Dietitian section -->
+    <div class="dietitian-card ani">
+      <div class="dietitian-label">Getting support</div>
+      <div class="dietitian-title">A dietitian can tailor this to your symptoms</div>
+      <div class="dietitian-body">Dietary changes for endo are more effective with professional guidance — someone who understands the link between inflammation and chronic pelvic pain.</div>
+      <div class="dietitian-rows">
+        <div class="dietitian-row">
+          <div class="dietitian-row-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="dietitian-row-body">
+            <div class="dietitian-row-t">NHS dietitian referral</div>
+            <div class="dietitian-row-d">Ask your GP for a referral — mention you have endometriosis and are interested in an anti-inflammatory dietary approach. Free on NHS.</div>
+          </div>
+        </div>
+        <div class="dietitian-row">
+          <div class="dietitian-row-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div class="dietitian-row-body">
+            <div class="dietitian-row-t">Find a specialist privately</div>
+            <div class="dietitian-row-d">Look for a dietitian with experience in chronic pain or women's health. Private sessions from ~£80.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;" class="ani">
+      <a href="flow-b-progress.html" style="font-size:13px;font-weight:600;color:var(--evidence-high);text-decoration:none;display:flex;align-items:center;gap:4px;">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        View progress
+      </a>
+      <a href="flow-b-manage.html" style="font-size:13px;font-weight:600;color:var(--ink-600);text-decoration:none;display:flex;align-items:center;gap:4px;">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Manage trial
+      </a>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-weekly-fodmap.html" class="cta-btn-full" style="background:var(--evidence-high);">
+      <svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M5 4v16"/></svg>
+      Review this week's adherence
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

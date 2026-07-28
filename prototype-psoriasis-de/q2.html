@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Dauer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .16; pointer-events: none; z-index: 0;
+    }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+    .chips-container, .question-sub, .back-link, .progress-bar-container { opacity: 0; animation: fade-in 1.0s ease-out 0.9s forwards; }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 42%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px; position: relative; z-index: 1;">
+    <h1 class="question-title">
+      <span class="hl-line">Wie lange lebst du</span>
+      <span class="hl-line">schon damit?</span>
+    </h1>
+    <p class="question-sub">Die Dauer kann beeinflussen, welche Behandlungsansätze am besten wirken.</p>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 24px;">
+      <button class="chip" data-duration="recent">Weniger als 3 Monate</button>
+      <button class="chip" data-duration="medium">3 Monate bis 1 Jahr</button>
+      <button class="chip" data-duration="established">1 bis 5 Jahre</button>
+      <button class="chip" data-duration="longstanding">Mehr als 5 Jahre</button>
+    </div>
+
+    <a href="javascript:history.back()" class="back-link">← Zurück</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        localStorage.setItem('psoriasis_duration', this.getAttribute('data-duration'));
+        window.location.href = 'q3.html';
+      });
+    });
+  </script>
+</body>
+</html>

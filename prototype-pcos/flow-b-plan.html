@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Plan · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f3ecf1 0%, #faf7f4 60%, #eef4f0 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 15%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+    .plan-hero { padding: 20px 24px 18px; position: relative; z-index: 1; }
+    .plan-hero-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--ink-900); margin-bottom: 6px; }
+    .plan-hero-sub { font-size: 13.5px; color: var(--ink-600); line-height: 1.5; }
+    .plan-body { padding: 0 24px; position: relative; z-index: 1; }
+    .phase-intro { background: rgba(224,122,150,0.08); border: 1px solid rgba(224,122,150,0.18); border-radius: 14px; padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--ink-700); margin-bottom: 18px; }
+    .phase-intro svg { width: 15px; height: 15px; stroke: var(--rose-500); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; margin-top: 1px; }
+    .treat-row { background: rgba(255,255,255,0.65); border: 1px solid rgba(42,31,48,0.10); border-radius: 18px; padding: 16px; margin-bottom: 10px; display: flex; gap: 14px; align-items: flex-start; cursor: grab; }
+    .treat-row.active-treat { border-color: rgba(224,122,150,0.40); background: rgba(224,122,150,0.06); }
+    .treat-num-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .treat-num { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+    .treat-num.n1 { background: linear-gradient(135deg, var(--rose-500), var(--rose-700)); color: #fff; }
+    .treat-num.n2, .treat-num.n3 { background: rgba(42,31,48,0.08); color: var(--ink-600); }
+    .treat-connector { width: 2px; flex: 1; min-height: 12px; background: linear-gradient(to bottom, rgba(224,122,150,0.3), rgba(42,31,48,0.08)); margin: 2px 0; }
+    .treat-body { flex: 1; min-width: 0; }
+    .treat-status { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+    .treat-status.current { color: var(--rose-500); }
+    .treat-status.next { color: var(--ink-500); }
+    .treat-name { font-size: 15.5px; font-weight: 700; color: var(--ink-900); margin-bottom: 4px; }
+    .treat-meta { font-size: 12.5px; color: var(--ink-600); }
+    .drag-hint { font-size: 11px; color: var(--ink-400); font-weight: 500; text-align: center; margin: 4px 0 16px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+    .drag-hint svg { width: 12px; height: 12px; fill: none; stroke: var(--ink-400); stroke-width: 2; }
+    .start-btn { width: 100%; background: var(--rose-500); color: #fff; border: none; border-radius: 14px; padding: 16px 20px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; margin-top: 8px; }
+    .start-btn svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
+    .spacer-tb { height: 80px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="plan-hero">
+    <div class="flow-count-pill" style="margin-bottom:10px;">Your treatment sequence</div>
+    <div class="plan-hero-title">Your plan</div>
+    <div class="plan-hero-sub">Start with the first treatment. After 8–12 weeks, you'll review progress and move to the next — or adjust.</div>
+  </div>
+
+  <div class="plan-body">
+
+    <!-- Foundation habits — always on -->
+    <div style="margin-bottom:18px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.7px;text-transform:uppercase;color:var(--ink-500);margin-bottom:10px;">Foundation habits · Always tracked</div>
+      <div style="background:rgba(107,154,139,0.08);border:1.5px solid rgba(107,154,139,0.22);border-radius:16px;padding:14px 16px;">
+        <div style="font-size:13px;color:var(--ink-700);line-height:1.55;margin-bottom:12px;">These habits are tracked as context throughout your plan — they're not a trial, they're your baseline. Your primary trial results are measured <em>against</em> these.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:16px;">🏃</span>
+            <span style="font-size:13px;font-weight:600;color:var(--ink-800);">Exercise</span>
+            <span style="font-size:12px;color:var(--ink-500);margin-left:auto;">Any movement daily</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:16px;">🥗</span>
+            <span style="font-size:13px;font-weight:600;color:var(--ink-800);">Low-GI eating</span>
+            <span style="font-size:12px;color:var(--ink-500);margin-left:auto;">Lower-GI food choices</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:16px;">🌙</span>
+            <span style="font-size:13px;font-weight:600;color:var(--ink-800);">Sleep</span>
+            <span style="font-size:12px;color:var(--ink-500);margin-left:auto;">7–8h target</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-intro">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      One primary trial at a time. This way you'll know exactly what's working — measured against your foundation habits.
+    </div>
+
+    <div id="treatList"></div>
+
+    <div class="drag-hint">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="9 5 12 2 15 5"/><polyline points="9 19 12 22 15 19"/></svg>
+      Drag to reorder your sequence
+    </div>
+
+    <a href="flow-b-prepare.html" class="start-btn">
+      Start with first treatment
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <a href="flow-a-shortlist.html" style="display:block;text-align:center;font-size:13px;color:var(--ink-600);text-decoration:none;margin-top:14px;padding-bottom:4px;">← Edit my shortlist</a>
+
+    <div class="spacer-tb"></div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="cycle-view.html" class="tab-item"><span class="tab-icon">◯</span>Cycle</a>
+    <a href="flow-b-plan.html" class="tab-item active"><span class="tab-icon">✦</span>My Plan</a>
+    <a href="flow-a-overview.html" class="tab-item"><span class="tab-icon">◉</span>Research</a>
+    <a href="#" class="tab-item"><span class="tab-icon">○</span>You</a>
+  </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script>
+var PLAN_KEY = 'pcos_planTreatments';
+var SEL_KEY = 'pcos_selectedTreatments';
+
+function getPlan() {
+  var p = localStorage.getItem(PLAN_KEY);
+  if (p) try { return JSON.parse(p); } catch(e) {}
+  var s = localStorage.getItem(SEL_KEY);
+  if (s) try { return JSON.parse(s); } catch(e) {}
+  return [
+    { id:'myo-inositol', name:'Myo-inositol' },
+    { id:'low-gi-diet', name:'Low-GI diet' },
+    { id:'exercise', name:'Exercise & resistance training' }
+  ];
+}
+
+function savePlan(a) { localStorage.setItem(PLAN_KEY, JSON.stringify(a)); }
+
+var DURATIONS = { 'myo-inositol':'8–12 weeks', 'low-gi-diet':'Ongoing dietary change', 'exercise':'Ongoing', 'metformin':'Ongoing (GP-reviewed)', 'default':'8–12 weeks' };
+function getDuration(id) { return DURATIONS[id] || DURATIONS['default']; }
+
+function render() {
+  var plan = getPlan();
+  var list = document.getElementById('treatList');
+  list.innerHTML = plan.map(function(t, i) {
+    var isFirst = i === 0;
+    var numClass = i === 0 ? 'n1' : (i === 1 ? 'n2' : 'n3');
+    var statusLabel = isFirst ? '<div class="treat-status current">Start here</div>' : '<div class="treat-status next">Next up</div>';
+    var connector = i < plan.length - 1 ? '<div class="treat-connector"></div>' : '';
+    return '<div class="treat-row' + (isFirst ? ' active-treat' : '') + '" data-id="' + t.id + '" data-name="' + t.name.replace(/"/g,'&quot;') + '">' +
+      '<div class="treat-num-wrap"><div class="treat-num ' + numClass + '">' + (i+1) + '</div>' + connector + '</div>' +
+      '<div class="treat-body">' + statusLabel +
+        '<div class="treat-name">' + t.name + '</div>' +
+        '<div class="treat-meta">' + getDuration(t.id) + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  if (typeof Sortable !== 'undefined') {
+    Sortable.create(list, {
+      animation: 160,
+      onEnd: function() {
+        var rows = list.querySelectorAll('.treat-row');
+        var newPlan = Array.from(rows).map(function(r) { return { id: r.getAttribute('data-id'), name: r.getAttribute('data-name') }; });
+        savePlan(newPlan);
+        render();
+      }
+    });
+  }
+}
+
+render();
+</script>
+</body>
+</html>

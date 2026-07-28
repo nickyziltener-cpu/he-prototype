@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prepare for Low FODMAP Diet · IBS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #eef4f0 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Expandable food groups ── */
+    .fodmap-table { display: flex; flex-direction: column; }
+    details.fodmap-group { border-bottom: 1px solid rgba(42,31,48,.06); }
+    details.fodmap-group:last-child { border-bottom: none; }
+    details.fodmap-group > summary {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      cursor: pointer;
+      list-style: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    details.fodmap-group > summary::-webkit-details-marker { display: none; }
+    details.fodmap-group > summary::marker { display: none; }
+    .fodmap-group-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-500); flex-shrink: 0;
+      width: 72px; padding-top: 4px; line-height: 1.4;
+    }
+    .fodmap-sum-body { flex: 1; min-width: 0; }
+    .fodmap-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .fodmap-tag {
+      font-size: 12px; font-weight: 600;
+      background: rgba(184,112,74,.08); color: var(--ember-700);
+      padding: 3px 9px; border-radius: 100px;
+      border: 1px solid rgba(184,112,74,.18); white-space: nowrap;
+    }
+    .fodmap-more-row {
+      display: flex; align-items: center;
+      justify-content: flex-end; margin-top: 6px;
+    }
+    .fodmap-more-cta {
+      font-size: 11px; font-weight: 600;
+      color: var(--ink-400);
+      display: flex; align-items: center; gap: 3px;
+    }
+    .fodmap-more-cta svg {
+      width: 11px; height: 11px;
+      stroke: currentColor; stroke-width: 2.5; fill: none;
+      transition: transform .2s ease;
+    }
+    details[open].fodmap-group > summary .fodmap-more-cta svg {
+      transform: rotate(180deg);
+    }
+    .fodmap-expanded {
+      padding: 0 0 12px 84px;
+    }
+    .fodmap-expanded-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 600;
+      color: var(--ink-400); letter-spacing: .12em;
+      text-transform: uppercase; margin-bottom: 7px;
+    }
+
+    /* ── Safe foods ── */
+    .safe-row { display: flex; flex-wrap: wrap; gap: 5px; }
+    .safe-tag {
+      font-size: 12px; font-weight: 600;
+      background: rgba(74,122,106,.08); color: var(--evidence-high);
+      padding: 3px 9px; border-radius: 100px;
+      border: 1px solid rgba(74,122,106,.18); white-space: nowrap;
+    }
+    details.safe-expand > summary { list-style: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    details.safe-expand > summary::-webkit-details-marker { display: none; }
+    details.safe-expand > summary::marker { display: none; }
+    .safe-expanded { margin-top: 8px; }
+    details[open].safe-expand > summary .fodmap-more-cta svg { transform: rotate(180deg); }
+
+    /* ── Monash app callout ── */
+    .app-callout { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.9); border-radius: 14px; padding: 13px 14px; }
+    .app-icon { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--sage-300), var(--sage-500)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .app-icon svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; fill: none; }
+    .app-callout-body { flex: 1; }
+    .app-callout-t { font-size: 13px; font-weight: 700; color: var(--ink-900); margin-bottom: 1px; }
+    .app-callout-d { font-size: 12px; color: var(--ink-500); }
+    .app-callout-cta { font-size: 12px; font-weight: 700; color: var(--evidence-high); flex-shrink: 0; }
+
+
+    /* ── Journal ready ── */
+    .journal-ready-box { background: rgba(168,200,181,.12); border: 1px solid rgba(107,154,139,.25); border-radius: 16px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+    .journal-ready-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--sage-300), var(--sage-500)); display: flex; align-items: center; justify-content: center; }
+    .journal-ready-icon svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; fill: none; }
+    .journal-ready-title { font-size: 13px; font-weight: 700; color: var(--sage-500); margin-bottom: 5px; }
+    .journal-ready-body { font-size: 13px; line-height: 1.55; color: var(--ink-700); }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-bottom:24px;">
+    <div class="flow-nav">
+      <a href="flow-b-plan.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        My Plan
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Diet
+      </span>
+      <span class="evchip-flow ev-strong"><span class="ev-dot"></span>Strong evidence</span>
+    </div>
+    <h1 class="flow-hero-title">Prepare for<br>Low FODMAP diet</h1>
+  </div>
+
+  <!-- Body -->
+  <div class="flow-body detail-body">
+
+    <!-- What it is -->
+    <div class="detail-section ani">
+      <div class="detail-label">What it is</div>
+      <p class="detail-para">FODMAP stands for a group of fermentable carbohydrates that feed gut bacteria and trigger symptoms in IBS. The diet works in two phases: a strict <strong>6-week elimination</strong> to calm symptoms, then a systematic <strong>reintroduction</strong> that pinpoints exactly which foods are your personal triggers.</p>
+    </div>
+
+    <!-- Exhaustive food list — expandable by group -->
+    <div class="detail-section ani">
+      <div class="detail-label">What to cut out — elimination phase</div>
+      <p class="detail-para sm" style="margin-bottom:14px;">Five FODMAP groups. Tap any group to see the full list. Portion sizes matter — the Monash app gives exact thresholds.</p>
+      <div class="fodmap-table">
+
+        <details class="fodmap-group">
+          <summary>
+            <div class="fodmap-group-name">Fructans</div>
+            <div class="fodmap-sum-body">
+              <div class="fodmap-tags">
+                <span class="fodmap-tag">Garlic</span>
+                <span class="fodmap-tag">Onion</span>
+                <span class="fodmap-tag">Wheat</span>
+                <span class="fodmap-tag">Rye</span>
+              </div>
+              <div class="fodmap-more-row">
+                <span class="fodmap-more-cta">+10 more <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+              </div>
+            </div>
+          </summary>
+          <div class="fodmap-expanded">
+            <div class="fodmap-expanded-label">Also includes</div>
+            <div class="fodmap-tags">
+              <span class="fodmap-tag">Shallots</span>
+              <span class="fodmap-tag">Spring onion (white)</span>
+              <span class="fodmap-tag">Leeks (white part)</span>
+              <span class="fodmap-tag">Artichokes</span>
+              <span class="fodmap-tag">Brussels sprouts</span>
+              <span class="fodmap-tag">Fennel bulb</span>
+              <span class="fodmap-tag">Beetroot</span>
+              <span class="fodmap-tag">Watermelon</span>
+              <span class="fodmap-tag">Dates</span>
+              <span class="fodmap-tag">Dried figs</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="fodmap-group">
+          <summary>
+            <div class="fodmap-group-name">Legumes &amp; GOS</div>
+            <div class="fodmap-sum-body">
+              <div class="fodmap-tags">
+                <span class="fodmap-tag">Chickpeas</span>
+                <span class="fodmap-tag">Lentils</span>
+                <span class="fodmap-tag">Kidney beans</span>
+              </div>
+              <div class="fodmap-more-row">
+                <span class="fodmap-more-cta">+7 more <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+              </div>
+            </div>
+          </summary>
+          <div class="fodmap-expanded">
+            <div class="fodmap-expanded-label">Also includes</div>
+            <div class="fodmap-tags">
+              <span class="fodmap-tag">Black beans</span>
+              <span class="fodmap-tag">Soybeans</span>
+              <span class="fodmap-tag">Edamame</span>
+              <span class="fodmap-tag">Soy milk (whole bean)</span>
+              <span class="fodmap-tag">Baked beans</span>
+              <span class="fodmap-tag">Broad beans</span>
+              <span class="fodmap-tag">Split peas</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="fodmap-group">
+          <summary>
+            <div class="fodmap-group-name">Lactose</div>
+            <div class="fodmap-sum-body">
+              <div class="fodmap-tags">
+                <span class="fodmap-tag">Cow's milk</span>
+                <span class="fodmap-tag">Yogurt</span>
+                <span class="fodmap-tag">Ice cream</span>
+              </div>
+              <div class="fodmap-more-row">
+                <span class="fodmap-more-cta">+7 more <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+              </div>
+            </div>
+          </summary>
+          <div class="fodmap-expanded">
+            <div class="fodmap-expanded-label">Also includes</div>
+            <div class="fodmap-tags">
+              <span class="fodmap-tag">Soft cheese</span>
+              <span class="fodmap-tag">Ricotta</span>
+              <span class="fodmap-tag">Cottage cheese</span>
+              <span class="fodmap-tag">Cream cheese</span>
+              <span class="fodmap-tag">Mascarpone</span>
+              <span class="fodmap-tag">Custard</span>
+              <span class="fodmap-tag">Sour cream</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="fodmap-group">
+          <summary>
+            <div class="fodmap-group-name">Fructose</div>
+            <div class="fodmap-sum-body">
+              <div class="fodmap-tags">
+                <span class="fodmap-tag">Apples</span>
+                <span class="fodmap-tag">Pears</span>
+                <span class="fodmap-tag">Mango</span>
+                <span class="fodmap-tag">Honey</span>
+              </div>
+              <div class="fodmap-more-row">
+                <span class="fodmap-more-cta">+6 more <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+              </div>
+            </div>
+          </summary>
+          <div class="fodmap-expanded">
+            <div class="fodmap-expanded-label">Also includes</div>
+            <div class="fodmap-tags">
+              <span class="fodmap-tag">Cherries</span>
+              <span class="fodmap-tag">Dried fruits (most)</span>
+              <span class="fodmap-tag">Agave syrup</span>
+              <span class="fodmap-tag">High-fructose corn syrup</span>
+              <span class="fodmap-tag">Fruit juice (concentrated)</span>
+              <span class="fodmap-tag">Figs (fresh)</span>
+            </div>
+          </div>
+        </details>
+
+        <details class="fodmap-group">
+          <summary>
+            <div class="fodmap-group-name">Polyols</div>
+            <div class="fodmap-sum-body">
+              <div class="fodmap-tags">
+                <span class="fodmap-tag">Peaches</span>
+                <span class="fodmap-tag">Plums</span>
+                <span class="fodmap-tag">Mushrooms</span>
+                <span class="fodmap-tag">Cauliflower</span>
+              </div>
+              <div class="fodmap-more-row">
+                <span class="fodmap-more-cta">+9 more <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+              </div>
+            </div>
+          </summary>
+          <div class="fodmap-expanded">
+            <div class="fodmap-expanded-label">Also includes</div>
+            <div class="fodmap-tags">
+              <span class="fodmap-tag">Nectarines</span>
+              <span class="fodmap-tag">Prunes</span>
+              <span class="fodmap-tag">Avocado (large portion)</span>
+              <span class="fodmap-tag">Blackberries</span>
+              <span class="fodmap-tag">Snow peas</span>
+              <span class="fodmap-tag">Sweet potato (large)</span>
+              <span class="fodmap-tag">Celery (large)</span>
+              <span class="fodmap-tag">Sugar-free gum</span>
+              <span class="fodmap-tag">Sorbitol / Xylitol / Mannitol</span>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- Safe foods -->
+    <div class="detail-section ani">
+      <div class="detail-label">Still on the menu</div>
+      <details class="safe-expand">
+        <summary>
+          <div class="safe-row">
+            <span class="safe-tag">Rice</span>
+            <span class="safe-tag">Oats</span>
+            <span class="safe-tag">Potatoes</span>
+            <span class="safe-tag">Eggs</span>
+            <span class="safe-tag">Meat &amp; fish</span>
+            <span class="safe-tag">Hard cheese</span>
+            <span class="safe-tag">Lactose-free milk</span>
+            <span class="safe-tag">Bananas</span>
+            <span class="safe-tag">Oranges</span>
+            <span class="safe-tag">Spinach</span>
+            <span class="safe-tag">Courgette</span>
+            <span class="safe-tag">Bell peppers</span>
+          </div>
+          <div class="fodmap-more-row" style="margin-top:8px;">
+            <span class="fodmap-more-cta">+25 more <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+          </div>
+        </summary>
+        <div class="safe-expanded">
+          <div class="safe-row">
+            <span class="safe-tag">Quinoa</span>
+            <span class="safe-tag">Polenta</span>
+            <span class="safe-tag">Chicken</span>
+            <span class="safe-tag">Beef</span>
+            <span class="safe-tag">Pork</span>
+            <span class="safe-tag">Tofu (firm)</span>
+            <span class="safe-tag">Lactose-free yogurt</span>
+            <span class="safe-tag">Almond milk</span>
+            <span class="safe-tag">Strawberries</span>
+            <span class="safe-tag">Blueberries</span>
+            <span class="safe-tag">Grapes</span>
+            <span class="safe-tag">Kiwi</span>
+            <span class="safe-tag">Raspberries</span>
+            <span class="safe-tag">Carrots</span>
+            <span class="safe-tag">Cucumber</span>
+            <span class="safe-tag">Tomatoes</span>
+            <span class="safe-tag">Aubergine</span>
+            <span class="safe-tag">Kale</span>
+            <span class="safe-tag">Spring onion (green)</span>
+            <span class="safe-tag">Sourdough (wheat-free)</span>
+            <span class="safe-tag">Gluten-free bread</span>
+            <span class="safe-tag">Maple syrup</span>
+            <span class="safe-tag">Olive oil</span>
+            <span class="safe-tag">Butter</span>
+            <span class="safe-tag">Most nuts (small portions)</span>
+          </div>
+        </div>
+      </details>
+      <p class="detail-para sm" style="margin-top:10px;color:var(--ink-600);">Most proteins, many vegetables, and several grains are fine. The Monash app is the definitive source for portion thresholds.</p>
+    </div>
+
+    <!-- How long -->
+    <div class="detail-section ani">
+      <div class="detail-label">How long it takes</div>
+      <div class="time-card">
+        <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <p class="detail-para sm">Studies run the elimination phase for <strong>6 weeks</strong>, then 3–9 weeks for systematic reintroduction. Most people notice a meaningful change by week 3 of elimination. Reintroduction is where the real learning happens — one food group at a time.</p>
+      </div>
+    </div>
+
+    <!-- Monash app -->
+    <div class="app-callout ani">
+      <div class="app-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/><path d="M9 12h6M9 16h4"/></svg>
+      </div>
+      <div class="app-callout-body">
+        <div class="app-callout-t">Monash FODMAP app</div>
+        <div class="app-callout-d">Gold-standard food checker · ~£8 · made by the research team that developed the diet</div>
+      </div>
+      <span class="app-callout-cta">Worth it →</span>
+    </div>
+
+    <!-- Recipe inspiration -->
+    <div class="app-callout ani">
+      <div class="app-icon" style="background:linear-gradient(135deg,#f0c898,#e8a060);">
+        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <div class="app-callout-body">
+        <div class="app-callout-t">Recipe inspiration</div>
+        <div class="app-callout-d">FODMAP-friendly meals loved by people on the same journey</div>
+      </div>
+      <span class="app-callout-cta">Browse →</span>
+    </div>
+
+    <!-- Dietitian recommendation -->
+    <div class="app-callout ani">
+      <div class="app-icon" style="background:linear-gradient(135deg,var(--plum-300,#c4a8d8),var(--plum-500,#8c6cab));">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="app-callout-body">
+        <div class="app-callout-t">Talk to a FODMAP dietitian</div>
+        <div class="app-callout-d">Studies show better outcomes with professional guidance — even one session helps</div>
+      </div>
+      <span class="app-callout-cta">Find one →</span>
+    </div>
+
+    <!-- Journal ready -->
+    <div class="journal-ready-box ani">
+      <div class="journal-ready-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div>
+        <div class="journal-ready-title">Your daily journal starts here</div>
+        <div class="journal-ready-body">When you tap below, we'll set up your daily check-in for this trial. Log how you ate and how you felt each day — at week 6, we'll review your results together.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-checkin-fodmap.html" class="cta-btn-full" style="background:var(--evidence-high);">
+      I'm ready to start the diet
+    </a>
+    <a href="flow-a-shortlist.html" class="secondary-link" style="margin-top:12px;">Choose another treatment?</a>
+  </div>
+
+</div>
+
+</body>
+</html>

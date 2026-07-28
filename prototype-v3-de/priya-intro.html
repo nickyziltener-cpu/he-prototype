@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Noch ein paar Fragen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--priya-band);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.25; transform: scale(1); }
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.14; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Priya branch: aurora top-right 260px 25%, ember bottom-right 180px 14% */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30px;
+      right: -40px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.2s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -30px;
+      right: -20px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, var(--ember-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.5s forwards;
+    }
+
+    .glass-card,
+    .back-link,
+    .progress-bar-container {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 17%;"></div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="glass-card" style="padding: 28px 24px; text-align: center;">
+      <span class="section-label" style="display: block; margin-bottom: 16px;">Noch ein paar Fragen</span>
+
+      <h1 class="question-title" style="text-align: center; font-size: 24px; margin-bottom: 16px;">Schauen wir uns deine Symptome genauer an</h1>
+
+      <p style="font-size: 15px; color: var(--ink-700); line-height: 1.65; margin-bottom: 16px;">Da du dir über deinen RDS-Typ noch nicht sicher bist, stellen wir dir 5 kurze Fragen zu deinen Symptomen. So können wir herausfinden, welcher Typ — falls zutreffend — zu deinem Muster passt, und dir die richtigen Informationen zeigen.</p>
+
+      <p class="micro-copy" style="margin-top: 0; margin-bottom: 28px;">Das dauert etwa 1 Minute. Du kannst jederzeit überspringen.</p>
+
+      <a href="q1a.html" class="btn-primary" style="margin-bottom: 16px;">Los geht's</a>
+      <a href="q2.html" class="back-link" style="margin-top: 12px; display: block; text-align: center; color: var(--ink-500);">Überspringen — zu den Hauptfragen</a>
+    </div>
+
+    <a href="q1.html" class="back-link" style="display: block; text-align: center; margin-top: 20px;">← Zurück</a>
+  </div>
+
+  <script>
+    // Flag this session as the Priya path
+    localStorage.setItem('priya', '1');
+  </script>
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>

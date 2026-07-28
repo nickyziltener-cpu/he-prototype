@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — How Long</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--onboarding-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.22; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.12; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Q1–Q2: ember top-right, 280px, 22% */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.2s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      left: -40px;
+      top: 30%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.5s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+
+    .chips-container,
+    .micro-copy,
+    .back-link,
+    .progress-bar-container {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 33%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <h1 class="question-title">
+      <span class="hl-line">How long have you been</span>
+      <span class="hl-line">living with IBS symptoms?</span>
+    </h1>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 24px;">
+      <button class="chip">Less than 6 months</button>
+      <button class="chip">6 months to 2 years</button>
+      <button class="chip">3–10 years</button>
+      <button class="chip">More than 10 years</button>
+    </div>
+
+    <a id="backLink" href="q1.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    var isPriya = sessionStorage.getItem('flow') === 'priya';
+    var nextPage = isPriya ? 'q1d.html' : 'q3.html';
+
+    document.getElementById('backLink').href = isPriya ? 'q1b.html' : 'q1.html';
+
+    var durationMap = {
+      'Less than 6 months': 'under6m',
+      '6 months to 2 years': '6m_2y',
+      '3–10 years': '3y_10y',
+      'More than 10 years': 'over10y'
+    };
+    var chips = document.querySelectorAll('.chip');
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        localStorage.setItem('rome_duration', durationMap[this.textContent.trim()] || 'unknown');
+        window.location.href = nextPage;
+      });
+    });
+  </script>
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>

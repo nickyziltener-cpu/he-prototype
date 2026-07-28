@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical &amp; Prescription Treatments · Psoriasis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #EEF2F8 0%, #F5F3EE 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(74,111,165,0.3) 0%, rgba(74,111,165,0.08) 30%, transparent 70%);
+      opacity: .50; pointer-events: none; z-index: 0;
+    }
+    .access-rx-dk {
+      display:inline-flex;align-items:center;font-size:11px;font-weight:600;
+      background:rgba(74,111,165,0.12);color:#2d4f7c;border-radius:6px;padding:2px 8px;
+      font-family:'JetBrains Mono',monospace;
+    }
+    .access-clinic-dk {
+      display:inline-flex;align-items:center;font-size:11px;font-weight:600;
+      background:rgba(120,80,160,0.10);color:#5a3490;border-radius:6px;padding:2px 8px;
+      font-family:'JetBrains Mono',monospace;
+    }
+    .rx-notice {
+      background:rgba(74,111,165,0.08);border:1px solid rgba(74,111,165,0.22);
+      border-radius:12px;padding:14px 16px;margin-bottom:4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="background:rgba(238,242,248,0.80);">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg" style="background:rgba(74,111,165,0.14);">
+        <svg viewBox="0 0 24 24" style="stroke:#4A6FA5;"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Medical &amp; prescription</h1>
+        <p class="flow-hero-sub tight">6 options — the most effective treatments available. All require a dermatologist. Use these screens to understand what they are and how to ask for them.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Access key -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;padding:8px 20px;position:relative;z-index:1;">
+    <span style="font-size:11px;color:var(--ink-600);margin-right:4px;font-family:'JetBrains Mono',monospace;font-weight:600;">ACCESS:</span>
+    <span class="access-rx-dk">Rx — dermatology</span>
+    <span class="access-clinic-dk">Clinic — outpatient</span>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="rx-notice ani">
+      <p style="font-size:13px;line-height:1.6;color:#2d4f7c;margin:0;">All treatments on this page require a dermatologist referral. In England, biologics require a PASI score ≥10 and DLQI score ≥10 (moderate-to-severe impact on quality of life). If you think you qualify, this page will help you have a more informed conversation at your next appointment.</p>
+    </div>
+
+    <!-- Phototherapy -->
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Phototherapy (NB-UVB)</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+            <span class="access-clinic-dk">Clinic</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Narrowband UVB phototherapy achieves 70% PASI75 in a 2025 meta-analysis of 1,322 patients — among the highest response rates of any non-biologic treatment. Delivered in dermatology outpatient sessions, typically 2–3× per week. The 2024 LITE randomised trial showed home phototherapy devices perform as well as clinic-based treatment. If you're not currently receiving this, ask your dermatologist — it's often skipped over in favour of immediate prescribing.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="phototherapy" data-treatment-name="Phototherapy (NB-UVB)"></button>
+      </div>
+    </div>
+
+    <!-- Methotrexate -->
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Methotrexate (oral systemic)</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+            <span class="access-rx-dk">Rx</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">The most widely used oral treatment for moderate-to-severe psoriasis worldwide. Taken once weekly as a tablet, alongside folic acid to reduce side effects. Requires regular liver function and blood monitoring. NICE first-line systemic treatment before biologics. A 2023 network meta-analysis confirms efficacy. Weight loss significantly improves methotrexate response — if you're on it and overweight, losing even 5–10% of body weight is worth discussing with your dermatologist.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="methotrexate" data-treatment-name="Methotrexate"></button>
+      </div>
+    </div>
+
+    <!-- Apremilast -->
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Apremilast (Otezla) — oral PDE4 inhibitor</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+            <span class="access-rx-dk">Rx</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">An oral daily tablet — no injections, no blood monitoring. Positioned between systemic treatment and biologics. PASI75 in around 33% of participants at 16 weeks (lower than biologics, but a valid step for moderate disease). ESTEEM 1 (n=844) and ESTEEM 2 (n=413) registration trials confirm efficacy. Often the right choice for people who want to avoid injections or haven't tolerated methotrexate. NICE-approved.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="apremilast" data-treatment-name="Apremilast (Otezla)"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra options':'Show 3 more options'">Show 3 more options</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <!-- IL-17 biologics -->
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">IL-17 inhibitors (secukinumab / ixekizumab)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+              <span class="access-rx-dk">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Among the most effective psoriasis treatments currently available. 70–74% of patients achieve PASI90 (90% skin clearance). Secukinumab (Cosentyx) and ixekizumab (Taltz) are both NICE-approved in England. Monthly injections after a loading phase. If you have moderate-to-severe psoriasis and haven't been offered these, ask directly — eligibility requires PASI ≥10 and DLQI ≥10.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="il17-biologics" data-treatment-name="IL-17 inhibitors (secukinumab / ixekizumab)"></button>
+        </div>
+      </div>
+
+      <!-- IL-23 biologics -->
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">IL-23 inhibitors (risankizumab / guselkumab)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+              <span class="access-rx-dk">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">The newest and potentially most durable biologics for psoriasis. Risankizumab (Skyrizi) has the best long-term remission data — drug survival analyses show the highest rates of staying on treatment at 3 and 5 years. PASI90 in ~73% at 16 weeks. Injections every 12 weeks after loading. If you've been on an older biologic for years with partial response, this generation is worth discussing. NICE-approved.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="il23-biologics" data-treatment-name="IL-23 inhibitors (risankizumab / guselkumab)"></button>
+        </div>
+      </div>
+
+      <!-- Cyclosporine -->
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Cyclosporine (short-term systemic)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+              <span class="access-rx-dk">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">A fast-acting oral treatment — often used to gain rapid control during a severe flare, particularly when someone needs clear skin quickly (e.g. a significant life event). Not recommended for long-term use due to kidney and blood pressure effects with time. Requires monitoring. Useful as a bridge while longer-term treatments are established. NICE-approved for moderate-to-severe psoriasis.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="cyclosporine" data-treatment-name="Cyclosporine"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:rgba(74,111,165,0.07);border:1px solid rgba(74,111,165,0.20);border-radius:12px;padding:14px 16px;margin-top:8px;" class="ani">
+      <p style="font-size:13px;line-height:1.6;color:var(--ink-700);">Reading the evidence on these treatments gives you better language for your dermatology appointments. You don't need to advocate for specific products — but knowing what the options are and why they differ helps you ask the right questions.</p>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

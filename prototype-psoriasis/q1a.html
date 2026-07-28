@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Your Symptoms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .16; pointer-events: none; z-index: 0;
+    }
+    @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .fade { opacity: 0; animation: fade-in 0.5s ease-out forwards; }
+    .fade:nth-child(1) { animation-delay: 0.1s; }
+    .fade:nth-child(2) { animation-delay: 0.2s; }
+    .fade:nth-child(3) { animation-delay: 0.28s; }
+    .fade:nth-child(4) { animation-delay: 0.35s; }
+
+    .multi-chip-grid { display: flex; flex-direction: column; gap: 8px; }
+    .multi-chip {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px; border: 1.5px solid rgba(44,31,14,0.14);
+      background: rgba(255,255,255,0.60); backdrop-filter: blur(10px);
+      border-radius: 10px; cursor: pointer; transition: border-color 0.12s ease, background 0.12s ease;
+      font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 500; color: var(--ink-900);
+      text-align: left;
+    }
+    .multi-chip.selected { background: rgba(196,123,43,0.10); border-color: var(--primary); }
+    .multi-chip-check {
+      width: 22px; height: 22px; border-radius: 6px; border: 2px solid rgba(44,31,14,0.20);
+      background: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: background 0.12s ease, border-color 0.12s ease;
+    }
+    .multi-chip.selected .multi-chip-check { background: var(--primary); border-color: var(--primary); }
+    .multi-chip-check svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 2.5; fill: none; opacity: 0; transition: opacity 0.1s ease; }
+    .multi-chip.selected .multi-chip-check svg { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 25%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px; position: relative; z-index: 1;">
+
+    <h1 class="question-title fade">Tell us what you're experiencing</h1>
+    <p class="question-sub fade">We'll use this to find the patterns that match your situation — and help you have a more informed conversation with your GP.</p>
+    <p class="micro-copy fade" style="margin-top: -8px; margin-bottom: 16px;">Select everything that sounds familiar</p>
+
+    <div class="multi-chip-grid fade" id="chipGrid">
+      <div class="multi-chip" data-val="raised_patches">
+        <div class="multi-chip-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        Red, raised patches of skin
+      </div>
+      <div class="multi-chip" data-val="scaling">
+        <div class="multi-chip-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        Silvery or white scaling
+      </div>
+      <div class="multi-chip" data-val="itch_burn">
+        <div class="multi-chip-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        Itching or burning sensation
+      </div>
+      <div class="multi-chip" data-val="cracking">
+        <div class="multi-chip-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        Skin that cracks or bleeds
+      </div>
+      <div class="multi-chip" data-val="classic_sites">
+        <div class="multi-chip-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        Symptoms on my elbows, knees, or scalp
+      </div>
+      <div class="multi-chip" data-val="flare_pattern">
+        <div class="multi-chip-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        Symptoms that come and go
+      </div>
+      <div class="multi-chip" data-val="nail_changes">
+        <div class="multi-chip-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        Nail changes (pitting, thickening, or lifting)
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <button class="btn-primary" id="continueBtn" onclick="saveAndContinue()">Continue</button>
+      <a href="q1.html" class="secondary-link">← Back</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.multi-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        this.classList.toggle('selected');
+      });
+    });
+
+    function saveAndContinue() {
+      var selected = [];
+      document.querySelectorAll('.multi-chip.selected').forEach(function(chip) {
+        selected.push(chip.getAttribute('data-val'));
+      });
+      localStorage.setItem('psoriasis_symptoms', JSON.stringify(selected));
+      window.location.href = 'q2.html';
+    }
+  </script>
+</body>
+</html>

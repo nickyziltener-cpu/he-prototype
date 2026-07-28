@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Let's Begin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .18; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -60px; left: -40px; width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .14; pointer-events: none; z-index: 0;
+    }
+    @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .fade { opacity: 0; animation: fade-in 0.5s ease-out forwards; }
+    .fade:nth-child(1) { animation-delay: 0.1s; }
+    .fade:nth-child(2) { animation-delay: 0.2s; }
+    .fade:nth-child(3) { animation-delay: 0.3s; }
+    .fade:nth-child(4) { animation-delay: 0.4s; }
+    .fade:nth-child(5) { animation-delay: 0.5s; }
+    .step-item-start { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-hairline); }
+    .step-item-start:last-of-type { border-bottom: none; }
+    .step-num-start { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-lt)); color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-title-start { font-size: 15px; font-weight: 700; color: var(--ink-900); margin-bottom: 3px; }
+    .step-desc-start { font-size: 13px; line-height: 1.55; color: var(--ink-600); }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper" style="padding-top: 52px; position: relative; z-index: 1;">
+
+    <div class="fade">
+      <span class="logo">Psoriasis Treatment Paths</span>
+    </div>
+
+    <h1 class="question-title fade" style="margin-top: 28px;">Here's what we're going to do</h1>
+    <p class="question-sub fade">A few questions, then your personalised evidence library. Takes about 3 minutes.</p>
+
+    <div class="glass-card fade" style="padding: 4px 20px 16px; margin-bottom: 28px;">
+      <div class="step-item-start">
+        <span class="step-num-start">1</span>
+        <div>
+          <div class="step-title-start">Tell us about your psoriasis</div>
+          <div class="step-desc-start">Diagnosis status, type, severity, how long you've had it, and what seems to trigger flares.</div>
+        </div>
+      </div>
+      <div class="step-item-start">
+        <span class="step-num-start">2</span>
+        <div>
+          <div class="step-title-start">We match you to the evidence</div>
+          <div class="step-desc-start">Every treatment is graded by the strength of the research behind it — specific to your psoriasis type and severity.</div>
+        </div>
+      </div>
+      <div class="step-item-start">
+        <span class="step-num-start">3</span>
+        <div>
+          <div class="step-title-start">You build your plan, one step at a time</div>
+          <div class="step-desc-start">Choose what to try first. We track your progress — so at the end of each trial you have real data, not guesswork.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-block glass-card fade" style="margin-bottom: 28px;">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--primary);stroke-width:2;fill:none;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        No personal data collected during the questionnaire.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--primary);stroke-width:2;fill:none;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Takes about 3 minutes.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--primary);stroke-width:2;fill:none;flex-shrink:0;"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg>
+        Everything is evidence-graded. Nothing is guesswork.
+      </div>
+    </div>
+
+    <div class="fade" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+      <a href="q1.html" class="btn-primary">Let's begin</a>
+      <a href="index.html" class="secondary-link">← Back</a>
+    </div>
+
+  </div>
+</body>
+</html>

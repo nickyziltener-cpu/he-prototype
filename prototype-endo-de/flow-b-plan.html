@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein Plan · Endometriose-Behandlungspfade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 65%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 18%, transparent 70%);
+      opacity: .38;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .28;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #planList .ptl-item:last-child .ptl-line { visibility: hidden; }
+    .drag-handle {
+      cursor: grab;
+      padding: 6px 4px;
+      color: var(--ink-400);
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      touch-action: none;
+    }
+    .drag-handle:active { cursor: grabbing; }
+    .drag-handle svg {
+      width: 14px;
+      height: 18px;
+      fill: currentColor;
+    }
+    .ptl-item--ghost { opacity: 0.35; }
+    .ptl-item--chosen .ptl-card {
+      box-shadow: 0 8px 28px rgba(42,31,48,0.14);
+      transform: scale(1.01);
+    }
+    .ptl-item--drag * { pointer-events: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero">
+    <div style="display:flex;align-items:center;margin-bottom:14px;">
+      <span class="flow-count-pill flow-count-pill--plum" style="margin-bottom:0;">✦ Plan erstellt</span>
+    </div>
+    <h1 class="flow-hero-title">Dein Plan</h1>
+    <p class="flow-hero-sub">Eine Studie nach der anderen — damit du weißt, was wirklich wirkt. Mit der Reihenfolge nicht zufrieden? Ziehe eine Behandlung, um die Sequenz neu anzuordnen.</p>
+  </div>
+
+  <div class="flow-body" style="padding-bottom:140px;">
+
+    <div id="planList" class="plan-timeline ani">
+
+      <!-- Studie 1 -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker active"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card active-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status active-st" data-pos-label>Fang hier an</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/></svg>
+              Lebensstil
+            </span>
+            <div class="drag-handle" title="Ziehen zum Neuanordnen">
+              <svg viewBox="0 0 10 16">
+                <circle cx="2.5" cy="2.5" r="1.5"/><circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
+                <circle cx="2.5" cy="13.5" r="1.5"/><circle cx="7.5" cy="13.5" r="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="ptl-card-title">Wärmetherapie</div>
+          <div class="ptl-card-meta">4 Wochen · Wärmekissen 15–35 € · kein Rezept erforderlich</div>
+          <div class="ptl-card-why">Geringster Aufwand, sofortige Symptomlinderung — idealer Ausgangspunkt.</div>
+          <a href="flow-b-prepare.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:700;color:var(--plum-500);text-decoration:none;" onclick="event.stopPropagation();">
+            Leitfaden ansehen
+            <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Studie 2 -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st" data-pos-label>Dann</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+              Ernährung
+            </span>
+            <div class="drag-handle" title="Ziehen zum Neuanordnen">
+              <svg viewBox="0 0 10 16">
+                <circle cx="2.5" cy="2.5" r="1.5"/><circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
+                <circle cx="2.5" cy="13.5" r="1.5"/><circle cx="7.5" cy="13.5" r="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="ptl-card-title">Entzündungshemmende Ernährung</div>
+          <div class="ptl-card-meta">~8 Wochen · Ernährungsumstellung · höherer Aufwand</div>
+          <div class="ptl-card-why">Zielt auf die Entzündung ab, die Endo-Schmerzen antreibt — der Extra-Aufwand lohnt sich.</div>
+          <a href="flow-b-prepare-fodmap.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:700;color:var(--ink-500);text-decoration:none;" onclick="event.stopPropagation();">
+            Leitfaden ansehen
+            <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Studie 3 -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st" data-pos-label>Zuletzt</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2"/></svg>
+              Geist &amp; Körper
+            </span>
+            <div class="drag-handle" title="Ziehen zum Neuanordnen">
+              <svg viewBox="0 0 10 16">
+                <circle cx="2.5" cy="2.5" r="1.5"/><circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
+                <circle cx="2.5" cy="13.5" r="1.5"/><circle cx="7.5" cy="13.5" r="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="ptl-card-title">Achtsamkeitsbasiertes Schmerzmanagement</div>
+          <div class="ptl-card-meta">8 Wochen · App oder therapeutisch begleitet · Online-Programme verfügbar</div>
+          <div class="ptl-card-why">Adressiert den Schmerz-Stress-Kreislauf, den chronische Endometriose erzeugt.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(251,238,229,0.7);border:1px solid rgba(214,162,100,0.3);border-radius:14px;padding:13px 14px;margin-bottom:2px;" class="ani">
+      <span style="font-size:15px;flex-shrink:0;margin-top:1px;">🧪</span>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:rgba(140,90,30,0.7);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Prototyp-Hinweis</div>
+        <div style="font-size:12px;color:var(--ink-600);line-height:1.55;">Dieser Plan verwendet <strong style="color:var(--ink-800);">Wärmetherapie, Entzündungshemmende Ernährung</strong> und <strong style="color:var(--ink-800);">Achtsamkeitsbasiertes Schmerzmanagement</strong>, um dir das vollständige Erlebnis zu zeigen. Andere Behandlungen, die du gespeichert hast, sind noch nicht vollständig entwickelt — in der echten App wird dein Plan genau das widerspiegeln, was du gewählt hast.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan.html" class="tab-item active">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+  <div class="cta-bar-sticky">
+    <a href="flow-b-prepare.html" class="cta-btn-full">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      <span data-cta-label>Studie 1 starten · Wärmetherapie</span>
+    </a>
+    <a href="flow-a-shortlist.html" class="secondary-link" style="margin-top:12px;">Eine andere Behandlung wählen?</a>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script>
+  var POSITION_LABELS = ['Fang hier an', 'Dann', 'Zuletzt'];
+
+  function updatePositionLabels() {
+    var items = document.querySelectorAll('#planList .ptl-item');
+    items.forEach(function(item, i) {
+      var label = item.querySelector('[data-pos-label]');
+      if (label) label.textContent = POSITION_LABELS[i] || 'Später';
+
+      var card   = item.querySelector('.ptl-card');
+      var status = item.querySelector('.ptl-status');
+      var marker = item.querySelector('.ptl-marker');
+
+      if (i === 0) {
+        card.classList.add('active-card');
+        if (status) status.className = 'ptl-status active-st';
+        if (marker) marker.className = 'ptl-marker active';
+      } else {
+        card.classList.remove('active-card');
+        if (status) status.className = 'ptl-status upcoming-st';
+        if (marker) marker.className = 'ptl-marker next';
+      }
+    });
+
+    var firstItem  = document.querySelector('#planList .ptl-item:first-child');
+    var firstName  = firstItem && firstItem.querySelector('.ptl-card-title');
+    var firstGuide = firstItem && firstItem.querySelector('a[href]');
+    var ctaLabel   = document.querySelector('[data-cta-label]');
+    var ctaBtn     = document.querySelector('.cta-btn-full');
+    if (firstName && ctaLabel) {
+      ctaLabel.textContent = 'Studie 1 starten · ' + firstName.textContent;
+    }
+    if (firstGuide && ctaBtn) {
+      ctaBtn.setAttribute('href', firstGuide.getAttribute('href'));
+    }
+  }
+
+  Sortable.create(document.getElementById('planList'), {
+    handle: '.drag-handle',
+    animation: 150,
+    ghostClass: 'ptl-item--ghost',
+    chosenClass: 'ptl-item--chosen',
+    dragClass: 'ptl-item--drag',
+    onEnd: updatePositionLabels
+  });
+</script>
+
+</body>
+</html>

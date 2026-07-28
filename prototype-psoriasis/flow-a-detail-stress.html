@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Management (MBSR) · Treatment Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #EFF5EC 0%, #FAF6F0 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(123,158,107,0.5) 0%, rgba(123,158,107,0.15) 30%, transparent 70%);
+      opacity: .40; pointer-events: none; z-index: 0;
+    }
+    #tryBtn { font-family: 'Manrope', sans-serif; font-size: inherit; cursor: pointer; border: none; width: 100%; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="background:rgba(240,245,238,0.72);">
+    <div class="flow-nav">
+      <a href="#" id="backBtn" class="flow-back" onclick="history.back(); return false;">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        <span id="backLabel">Back</span>
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Mind &amp; Body
+      </span>
+      <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+    </div>
+    <h1 class="flow-hero-title">Stress management (MBSR)</h1>
+    <p class="flow-hero-sub">Mindfulness-Based Stress Reduction was among the first psychological interventions to show measurable skin outcome improvements in psoriasis. Kabat-Zinn's landmark study found that <strong>patients who practised mindfulness during phototherapy cleared significantly faster than controls</strong> receiving only phototherapy.</p>
+  </div>
+
+  <div class="flow-body detail-body">
+
+    <div class="detail-section ani">
+      <div class="detail-label">Why stress matters in psoriasis</div>
+      <p class="detail-para">Psoriasis is deeply entangled with the stress response. Stress triggers the release of neuropeptides that activate skin immune cells (mast cells, dendritic cells), which in turn amplify the T-cell-driven inflammation responsible for plaques. The result is a bidirectional cycle: stress worsens psoriasis, and psoriasis — being a visible, stigmatised condition — generates further psychological stress. MBSR intervenes at the root of this cycle.</p>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">How research suggests using it</div>
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div>
+            <div class="step-title">Start with 10 minutes daily</div>
+            <div class="step-desc">Daily practice is more effective than longer but infrequent sessions. Even 10 minutes of body-scan or breath-focused meditation builds the neural pathways that reduce reactivity over time.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div>
+            <div class="step-title">Consider a structured 8-week MBSR programme</div>
+            <div class="step-desc">The original Kabat-Zinn protocol is an 8-week course — weekly 2.5-hour sessions plus daily home practice. Many NHS trusts offer MBSR via referral; online versions are also available.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div>
+            <div class="step-title">Practice during treatment sessions</div>
+            <div class="step-desc">Kabat-Zinn's original study used an audio-guided body scan during phototherapy. If you're receiving UVB, practising mindfulness during the session may accelerate benefit — the combination effect was the study's key finding.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">4</span>
+          <div>
+            <div class="step-title">Track flares alongside stress patterns</div>
+            <div class="step-desc">Journalling stress levels alongside flare patterns gives you concrete data on your personal stress-skin relationship — and reinforces motivation to maintain the practice.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Where this evidence comes from</div>
+      <div class="evsum-card">
+        <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+        <div class="evsum-line">Jon Kabat-Zinn's 1998 study (n=37) randomly assigned patients to phototherapy alone vs. phototherapy plus mindfulness audio guidance. The mindfulness group reached <strong>clinical clearing 4x faster</strong>. Subsequent systematic reviews have confirmed the stress-skin relationship and psychological intervention effects, though large RCTs remain limited.</div>
+        <div class="evsum-meaning">What this means — the Kabat-Zinn study is small by modern standards. The evidence grade is Good, not Strong, because the body of RCT evidence is still developing. But the plausibility of the mechanism is very high, the safety profile is excellent, and the quality-of-life benefits are consistent across studies regardless of skin outcome.</div>
+        <div class="sources-list">
+          <div class="source-row">
+            <span class="source-badge">RCT</span>
+            <span class="source-ref">Kabat-Zinn et al., 1998 · <em>Psychosomatic Medicine</em> 60(5):625–632</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/9773769/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">Systematic review</span>
+            <span class="source-ref">Tabolli et al., 2012 · Psychological interventions for psoriasis · <em>G Ital Dermatol Venereol</em></span>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">Review</span>
+            <span class="source-ref">Gupta & Gupta, 2013 · <em>Clinics in Dermatology</em> — Psychological stress and skin disease</span>
+          </div>
+        </div>
+        <p class="sources-note">Citations link to PubMed abstracts where available. Full papers may require journal access.</p>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Apps and resources</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Structured courses</div>
+          <div class="fodmap-items">NHS-referred MBSR · Palouse Mindfulness (free 8-week online MBSR) · Breathworks (UK-based mindfulness for health)</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Apps (all have free tiers)</div>
+          <div class="fodmap-items">Calm · Headspace · Insight Timer (free body scan library)</div>
+        </div>
+        <div class="fodmap-note">For psoriasis specifically, the body scan practice is the most studied format — it involves systematically moving attention through body sensations without judgment.</div>
+      </div>
+    </div>
+
+    <div class="callout-amber ani">
+      <div class="callout-label">This isn't "just relaxation"</div>
+      <p class="detail-para sm">Mindfulness gets dismissed as a soft intervention, but its mechanisms are neurobiological. Consistent practice measurably reduces cortisol and pro-inflammatory cytokines. For a condition driven by immune dysregulation, that's clinically meaningful — not just "feeling calmer". It also doesn't interfere with any other treatment you're using.</p>
+    </div>
+
+  </div>
+
+  <div class="cta-bar-sticky">
+    <button class="cta-btn-full" id="tryBtn"
+      data-treatment-id="stress-management"
+      data-treatment-name="Stress management (MBSR)">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg>
+      Save to my plan
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      var ref = document.referrer;
+      var label = ref.includes('flow-a-start') ? 'Start' : ref.includes('flow-a-mindbody') ? 'Mind & Body' : 'Back';
+      document.getElementById('backLabel').textContent = label;
+    })();
+  </script>
+  <script>
+    (function() {
+      var KEY  = 'psoriasis_selectedTreatments';
+      var TREATMENT_ID   = 'stress-management';
+      var TREATMENT_NAME = 'Stress management (MBSR)';
+      var btn = document.getElementById('tryBtn');
+      function render() {
+        var saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+        var isSaved = saved.some(function(t) { return t.id === TREATMENT_ID; });
+        if (isSaved) {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg> Saved · Remove';
+          btn.style.background = 'var(--accent)';
+        } else {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg> Save to my plan';
+          btn.style.background = '';
+        }
+      }
+      btn.addEventListener('click', function() {
+        var saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+        var idx = saved.findIndex(function(t) { return t.id === TREATMENT_ID; });
+        if (idx >= 0) { saved.splice(idx, 1); } else { saved.push({ id: TREATMENT_ID, name: TREATMENT_NAME }); }
+        localStorage.setItem(KEY, JSON.stringify(saved));
+        render();
+      });
+      render();
+    })();
+  </script>
+
+</div>
+
+</body>
+</html>

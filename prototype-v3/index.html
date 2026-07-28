@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — IBS Evidence Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--hero-band);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.45; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.38; transform: scale(1); }
+    }
+
+    /* Ember bloom — top-right, fixed to viewport so it scales with the window */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -120px;
+      right: -120px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.6s ease-out 0.5s forwards;
+    }
+
+    /* Aurora bloom — bottom-left, fixed to viewport */
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -120px;
+      left: -120px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.6s ease-out 1.0s forwards;
+    }
+
+    .welcome-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 52px 24px 64px;
+      width: 100%;
+      position: relative;
+    }
+
+    /* All direct children sit above the radials */
+    .welcome-wrapper > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-logo {
+      margin-bottom: 48px;
+    }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      color: var(--ink-900);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.015em;
+    }
+
+    .hero-sub {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink-700);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-section .btn-primary {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    @media (max-width: 600px) {
+      .hero-headline {
+        font-size: 28px;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+      }
+
+      .welcome-wrapper {
+        padding: 36px 20px 48px;
+      }
+    }
+
+    /* Headline: each line sweeps left→right, one after the other */
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    /* Everything else: simultaneous fade */
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    /* Line 1+2 form the question, then a 1s pause before the answer */
+    .hl-line:nth-child(1) { animation: write-reveal 0.6s ease-out 0.6s  forwards; }
+    .hl-line:nth-child(2) { animation: write-reveal 0.3s ease-out 1.15s forwards; }
+    .hl-line:nth-child(3) { animation: write-reveal 0.6s ease-out 1.95s forwards; }
+    .hl-line:nth-child(4) { animation: write-reveal 0.35s ease-out 2.45s forwards; }
+
+    .nav-logo,
+    .hero-sub,
+    .trust-block,
+    .cta-section {
+      opacity: 0;
+      animation: fade-in 1.4s ease-out 2.9s forwards;
+    }
+
+    .trust-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      color: var(--plum-500);
+      stroke-width: 1.75;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-wrapper">
+
+    <!-- Organic blob — fixed to viewport so it always fills the screen -->
+    <svg style="position:fixed;top:-80px;right:-80px;width:600px;height:600px;filter:blur(60px);pointer-events:none;z-index:0;overflow:visible;" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M300,80 C420,60 520,140 540,260 C560,380 480,480 360,510 C240,540 120,480 80,360 C40,240 100,120 180,90 C220,74 260,96 300,80 Z" fill="rgba(243,160,126,0.10)"/>
+    </svg>
+
+    <div class="nav-logo">
+      <span class="logo">IBS Treatment Paths</span>
+    </div>
+
+    <h1 class="hero-headline">
+      <span class="hl-line">Want to trust your gut</span>
+      <span class="hl-line">again?</span>
+      <span class="hl-line">Trust the science</span>
+      <span class="hl-line">first.</span>
+    </h1>
+
+    <p class="hero-sub">IBS is different for everyone. We help you find the treatment path that works for you. Backed by real scientific research.</p>
+
+    <div class="trust-block glass-card" style="margin-bottom: 32px;">
+      <div class="trust-item"><i data-lucide="microscope" class="trust-icon"></i>No influencer fluff! Every treatment traces back to real studies you can read yourself.</div>
+      <div class="trust-item"><i data-lucide="bar-chart-2" class="trust-icon"></i>Our insights are graded by evidence strength, so you can make more informed decisions.</div>
+      <div class="trust-item"><i data-lucide="compass" class="trust-icon"></i>Find treatments across nutrition and lifestyle changes, supplements, western and non-western medicine.</div>
+       <div class="trust-item"><i data-lucide="compass" class="trust-icon"></i>Choose a treatment path that works for you, and we help you create a plan and make sure you stay on track.</div>
+    </div>
+
+    <div class="cta-section">
+      <a href="start.html" class="btn-primary">Let's go!</a>
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+      <p class="disclaimer-note">This is an information tool, not a medical recommendation system. Always consult your doctor.</p>
+    </div>
+
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

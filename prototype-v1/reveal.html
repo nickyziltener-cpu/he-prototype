@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Your Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(180deg, var(--surface-hero) 0%, var(--surface-page) 320px);
+    }
+
+    .reveal-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 56px 24px 48px;
+    }
+
+    .celebration-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 72px;
+      color: var(--plum-500);
+      text-align: center;
+      display: block;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal-headline {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--ink-900);
+      text-align: center;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .reveal-headline .highlight {
+      color: var(--plum-500);
+    }
+
+    .reveal-summary {
+      font-size: 15px;
+      color: var(--ink-600);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .evidence-tease {
+      background: var(--surface-raised);
+      border: 1px solid var(--border-hairline);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+
+    .tease-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-hairline);
+      gap: 12px;
+    }
+
+    .tease-item:last-child {
+      border-bottom: none;
+    }
+
+    .tease-name {
+      font-size: 14px;
+      color: var(--ink-800);
+      font-weight: 500;
+    }
+
+    .tease-name::before {
+      content: '• ';
+      color: var(--plum-300);
+    }
+
+    .account-prompt {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .account-prompt-heading {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink-900);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .account-prompt-sub {
+      font-size: 14px;
+      color: var(--ink-600);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-section .btn-primary {
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .celebration-number {
+        font-size: 60px;
+      }
+
+      .reveal-headline {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal-wrapper">
+    <span class="celebration-number">14</span>
+
+    <h1 class="reveal-headline">We found <span class="highlight">14</span> evidence-based paths for managing your IBS.</h1>
+
+    <p class="reveal-summary">Based on what you told us, we've filtered for dietary, supplement, and lifestyle approaches that have peer-reviewed evidence for IBS.</p>
+
+    <div class="evidence-tease">
+      <div class="tease-item">
+        <span class="tease-name">Low-FODMAP diet</span>
+        <span class="evidence-badge badge-strong"><span class="badge-dot"></span>Strong evidence</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-name">Peppermint oil</span>
+        <span class="evidence-badge badge-strong"><span class="badge-dot"></span>Strong evidence</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-name">Soluble fibre (psyllium)</span>
+        <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+      </div>
+    </div>
+
+    <div class="account-prompt">
+      <p class="account-prompt-heading">Create a free account to access your personalised evidence library.</p>
+      <p class="account-prompt-sub">We'll save your profile so your results are waiting every time you come back.</p>
+    </div>
+
+    <div class="cta-section">
+      <a href="account.html" class="btn-primary">Create my free account</a>
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f3ecf1 0%, #faf7f4 60%, #eef4f0 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+    .prog-hero { padding: 20px 24px 16px; position: relative; z-index: 1; }
+    .prog-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--ink-900); margin-bottom: 6px; }
+    .prog-sub { font-size: 13.5px; color: var(--ink-600); line-height: 1.5; }
+    .prog-body { padding: 0 24px; position: relative; z-index: 1; }
+    .week-bar-wrap { margin-bottom: 22px; }
+    .week-bar-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-500); font-weight: 600; margin-bottom: 8px; }
+    .week-bar-track { height: 10px; background: rgba(42,31,48,0.08); border-radius: 10px; overflow: hidden; }
+    .week-bar-fill { height: 100%; background: linear-gradient(to right, var(--rose-500), var(--rose-700)); border-radius: 10px; width: 35%; transition: width 0.6s; }
+    .week-milestone { display: flex; justify-content: space-between; margin-top: 6px; }
+    .milestone-item { text-align: center; font-size: 10px; color: var(--ink-500); font-weight: 500; }
+    .milestone-item.passed { color: var(--rose-500); font-weight: 700; }
+    .stats-row { display: flex; gap: 10px; margin-bottom: 20px; }
+    .stat-box { flex: 1; background: rgba(255,255,255,0.62); border: 1px solid rgba(42,31,48,0.09); border-radius: 16px; padding: 14px; text-align: center; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--rose-500); }
+    .stat-lbl { font-size: 11.5px; color: var(--ink-600); margin-top: 2px; font-weight: 500; }
+    .cycle-log-section { margin-bottom: 22px; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: var(--ink-500); }
+    .cycle-log-card { margin-bottom: 8px; }
+    .cycle-entry { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; background: rgba(255,255,255,0.60); border: 1px solid rgba(42,31,48,0.09); border-radius: 14px; margin-bottom: 6px; }
+    .cycle-entry-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+    .dot-period { background: var(--rose-500); }
+    .dot-ov { background: var(--plum-500); }
+    .dot-normal { background: rgba(42,31,48,0.25); }
+    .cycle-entry-body { flex: 1; }
+    .cycle-entry-label { font-size: 13.5px; font-weight: 600; color: var(--ink-800); }
+    .cycle-entry-meta { font-size: 12px; color: var(--ink-500); margin-top: 2px; }
+    .symptom-trend { background: rgba(224,122,150,0.08); border: 1px solid rgba(224,122,150,0.20); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
+    .trend-title { font-size: 13px; font-weight: 700; color: var(--ink-900); margin-bottom: 10px; }
+    .trend-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .trend-label { font-size: 12.5px; color: var(--ink-700); width: 90px; flex-shrink: 0; }
+    .trend-bar-track { flex: 1; height: 8px; background: rgba(42,31,48,0.08); border-radius: 8px; overflow: hidden; }
+    .trend-bar-fill { height: 100%; border-radius: 8px; }
+    .trend-val { font-size: 12px; font-weight: 600; color: var(--ink-600); width: 32px; text-align: right; }
+    .review-banner { background: rgba(107,154,139,0.12); border: 1px solid rgba(107,154,139,0.28); border-radius: 16px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; margin-bottom: 20px; }
+    .review-banner svg { width: 20px; height: 20px; stroke: var(--sage-500); fill: none; stroke-width: 2; stroke-linecap: round; flex-shrink: 0; margin-top: 1px; }
+    .review-banner-title { font-size: 14px; font-weight: 700; color: var(--ink-900); margin-bottom: 3px; }
+    .review-banner-text { font-size: 13px; color: var(--ink-600); line-height: 1.5; }
+    .review-btn { background: var(--sage-500); color: #fff; border: none; border-radius: 10px; padding: 8px 14px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+    .spacer-tb { height: 80px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="prog-hero">
+    <a href="flow-b-plan-active.html" class="flow-back" style="display:inline-flex;margin-bottom:14px;"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> My plan</a>
+    <div class="flow-count-pill" style="margin-bottom:10px;">Week 4 of 12 · Myo-inositol</div>
+    <div class="prog-title">Your progress</div>
+    <div class="prog-sub">4 weeks in. The biggest changes typically appear at weeks 8–12 — keep going.</div>
+  </div>
+
+  <div class="prog-body">
+
+    <!-- Progress bar -->
+    <div class="week-bar-wrap">
+      <div class="week-bar-label"><span>Week 1</span><span>Week 12</span></div>
+      <div class="week-bar-track"><div class="week-bar-fill" style="width:33%;"></div></div>
+      <div class="week-milestone">
+        <div class="milestone-item passed">Started</div>
+        <div class="milestone-item">Early changes<br><span style="font-size:9px;">Wk 4–8</span></div>
+        <div class="milestone-item">Cycle changes<br><span style="font-size:9px;">Wk 8–12</span></div>
+        <div class="milestone-item">Review</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">26</div><div class="stat-lbl">Check-ins</div></div>
+      <div class="stat-box"><div class="stat-num">88%</div><div class="stat-lbl">Dose days</div></div>
+      <div class="stat-box"><div class="stat-num">~31d</div><div class="stat-lbl">Last cycle</div></div>
+    </div>
+
+    <!-- Symptom trends -->
+    <div class="symptom-trend">
+      <div class="trend-title">Symptom frequency (last 4 weeks)</div>
+      <div class="trend-row">
+        <div class="trend-label">Bloating</div>
+        <div class="trend-bar-track"><div class="trend-bar-fill" style="width:55%;background:rgba(224,122,150,0.60);"></div></div>
+        <div class="trend-val">55%</div>
+      </div>
+      <div class="trend-row">
+        <div class="trend-label">Fatigue</div>
+        <div class="trend-bar-track"><div class="trend-bar-fill" style="width:40%;background:rgba(224,122,150,0.55);"></div></div>
+        <div class="trend-val">40%</div>
+      </div>
+      <div class="trend-row">
+        <div class="trend-label">Mood dip</div>
+        <div class="trend-bar-track"><div class="trend-bar-fill" style="width:30%;background:rgba(224,122,150,0.48);"></div></div>
+        <div class="trend-val">30%</div>
+      </div>
+      <div class="trend-row">
+        <div class="trend-label">Acne</div>
+        <div class="trend-bar-track"><div class="trend-bar-fill" style="width:25%;background:rgba(224,122,150,0.42);"></div></div>
+        <div class="trend-val">25%</div>
+      </div>
+      <div style="font-size:12px;color:var(--ink-500);margin-top:8px;">Compare to week 1 coming soon — you need 8 weeks of data.</div>
+    </div>
+
+    <!-- Cycle log -->
+    <div class="cycle-log-section">
+      <div class="section-header">
+        <div class="section-title">Cycle log</div>
+        <a href="cycle-view.html" style="font-size:12px;font-weight:600;color:var(--rose-500);text-decoration:none;">View full cycle →</a>
+      </div>
+      <div class="cycle-entry">
+        <div class="cycle-entry-dot dot-period"></div>
+        <div class="cycle-entry-body">
+          <div class="cycle-entry-label">Period started</div>
+          <div class="cycle-entry-meta">4 weeks ago · Day 1</div>
+        </div>
+      </div>
+      <div class="cycle-entry">
+        <div class="cycle-entry-dot dot-normal"></div>
+        <div class="cycle-entry-body">
+          <div class="cycle-entry-label">Currently ~Day 22 (Luteal)</div>
+          <div class="cycle-entry-meta">Period expected in ~9 days if cycle continues</div>
+        </div>
+      </div>
+      <div style="font-size:12.5px;color:var(--ink-600);margin-top:8px;padding:10px 12px;background:rgba(255,255,255,0.50);border-radius:10px;border:1px solid rgba(42,31,48,0.08);">Cycle length was previously irregular (35–60 days). Current cycle is tracking shorter — still early data.</div>
+    </div>
+
+    <!-- Review banner -->
+    <div class="review-banner">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div>
+        <div class="review-banner-title">8-week review in 4 weeks</div>
+        <div class="review-banner-text">At week 8 you'll complete a structured review to see if myo-inositol is working for you. Keep your check-ins consistent — more data gives a clearer picture.</div>
+        <button class="review-btn" onclick="alert('Review scheduled for week 8. Keep check-ins going!')">Set a reminder</button>
+      </div>
+    </div>
+
+    <div class="spacer-tb"></div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="cycle-view.html" class="tab-item"><span class="tab-icon">◯</span>Cycle</a>
+    <a href="flow-b-plan-active.html" class="tab-item active"><span class="tab-icon">✦</span>My Plan</a>
+    <a href="flow-a-overview.html" class="tab-item"><span class="tab-icon">◉</span>Research</a>
+    <a href="#" class="tab-item"><span class="tab-icon">○</span>You</a>
+  </div>
+
+</div>
+</body>
+</html>

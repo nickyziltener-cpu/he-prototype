@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niedrig-GI-Ernährung · PCOS Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f0f7f2 0%, #faf7f4 60%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 320px; height: 320px; background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .16; pointer-events: none; z-index: 0; }
+    .detail-hero { padding: 24px 24px 20px; position: relative; z-index: 1; }
+    .detail-meta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .detail-title { font-family: 'DM Serif Display', serif; font-size: 30px; line-height: 1.15; color: var(--ink-900); margin-bottom: 6px; }
+    .detail-subtitle { font-size: 14px; color: var(--ink-600); line-height: 1.5; }
+    .detail-section { padding: 0 24px 20px; position: relative; z-index: 1; }
+    .detail-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--ink-500); margin-bottom: 10px; }
+    .detail-para { font-size: 14.5px; line-height: 1.65; color: var(--ink-700); margin-bottom: 10px; }
+    .detail-para:last-child { margin-bottom: 0; }
+    .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .stat-chip { background: rgba(255,255,255,0.65); border: 1px solid rgba(42,31,48,0.10); border-radius: 14px; padding: 12px 14px; flex: 1; min-width: 100px; }
+    .stat-chip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-500); margin-bottom: 4px; }
+    .stat-chip-value { font-size: 15px; font-weight: 700; color: var(--ink-900); }
+    .evidence-block { background: rgba(107,154,139,0.12); border: 1px solid rgba(107,154,139,0.25); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; }
+    .evidence-block-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-600); margin-bottom: 6px; }
+    .evidence-block-text { font-size: 13.5px; color: var(--ink-700); line-height: 1.55; }
+    .steps-list { display: flex; flex-direction: column; gap: 10px; }
+    .step-item { display: flex; gap: 12px; align-items: flex-start; }
+    .step-num { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--sage-500), var(--aurora-500)); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-title { font-size: 13.5px; font-weight: 700; color: var(--ink-900); margin-bottom: 2px; }
+    .step-desc { font-size: 13px; color: var(--ink-600); line-height: 1.5; }
+    .food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .food-col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+    .food-list { list-style: none; padding: 0; margin: 0; }
+    .food-list li { font-size: 13px; color: var(--ink-700); padding: 4px 0; display: flex; align-items: center; gap: 6px; }
+    .food-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .food-ok li::before { background: var(--sage-500); }
+    .food-limit li::before { background: var(--ember-500); }
+    .food-card { background: rgba(255,255,255,0.55); border: 1px solid rgba(42,31,48,0.09); border-radius: 14px; padding: 14px 14px 10px; }
+    .what-to-expect { background: rgba(107,154,139,0.09); border: 1px solid rgba(107,154,139,0.22); border-radius: 16px; padding: 16px; }
+    .expect-item { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(42,31,48,0.07); }
+    .expect-item:last-child { border-bottom: none; }
+    .expect-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage-500); flex-shrink: 0; margin-top: 5px; }
+    .expect-text { font-size: 13.5px; color: var(--ink-700); line-height: 1.5; }
+    .expect-time { font-size: 11px; font-weight: 700; color: var(--ink-500); display: block; margin-bottom: 2px; }
+    .detail-cta { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; padding: 16px 24px 28px; background: linear-gradient(to top, rgba(250,247,244,1) 70%, rgba(250,247,244,0)); z-index: 100; }
+    .detail-cta-inner { display: flex; gap: 10px; }
+    .cta-save-btn { flex: 1; background: var(--rose-500); color: #fff; border: none; border-radius: 14px; padding: 14px 20px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; }
+    .cta-save-btn.added { background: var(--sage-500); }
+    .cta-back-btn { background: rgba(255,255,255,0.70); border: 1px solid rgba(42,31,48,0.14); color: var(--ink-700); border-radius: 14px; padding: 14px 20px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; display: flex; align-items: center; white-space: nowrap; }
+    .spacer-cta { height: 110px; }
+    .divider { height: 1px; background: rgba(42,31,48,0.08); margin: 0 24px 20px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="detail-hero">
+    <a href="#" onclick="history.back(); return false;" class="flow-back" style="display:inline-flex;margin-bottom:14px;"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Zurück</a>
+    <div class="detail-meta-row">
+      <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+      <span class="chip-cat-flow"><svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg> Ernährung</span>
+    </div>
+    <div class="detail-title">Niedrig-GI-Ernährung</div>
+    <div class="detail-subtitle">Lebensmittel mit niedrigem Glykämischen Index reduzieren Insulinspitzen — den zentralen metabolischen Treiber von PCOS-Symptomen bei den meisten Betroffenen.</div>
+  </div>
+
+  <div class="detail-section">
+    <div class="stat-row">
+      <div class="stat-chip"><div class="stat-chip-label">Ansatz</div><div class="stat-chip-value">GI &lt; 55</div></div>
+      <div class="stat-chip"><div class="stat-chip-label">Ziel</div><div class="stat-chip-value">Insulin ↓ · T ↓</div></div>
+      <div class="stat-chip"><div class="stat-chip-label">Wirkungseintritt</div><div class="stat-chip-value">4–8 Wochen</div></div>
+    </div>
+  </div>
+
+  <div class="detail-section">
+    <div class="detail-label">Was es ist</div>
+    <p class="detail-para">Der Glykämische Index (GI) misst, wie schnell ein Lebensmittel den Blutzucker erhöht. Lebensmittel mit niedrigem GI verursachen eine langsamere, geringere Insulinreaktion. Bei PCOS ist das wichtig, weil die meisten PCOS-Symptome — unregelmäßige Zyklen, Androgenüberschuss, Akne — Folgeerscheinungen eines chronisch erhöhten Insulins sind, das die Eierstöcke zur übermäßigen Androgenproduktion antreibt.</p>
+    <p class="detail-para">Eine Niedrig-GI-Ernährung schränkt keine Kalorien ein und eliminiert keine Lebensmittelgruppen. Es geht um clevere Tausche: Weißbrot gegen Sauerteig oder Haferflocken, weißer Reis gegen Basmati oder Hülsenfrüchte, zuckrige Snacks gegen Nüsse oder Obst mit niedrigerer Glykämie.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">Anwendung</div>
+    <div class="steps-list">
+      <div class="step-item"><div class="step-num">1</div><div><div class="step-title">Mit den größten Insulintreibern beginnen</div><div class="step-desc">Zuerst zuckerhaltige Getränke, Weißbrot und hochverarbeitete Snacks reduzieren. Diese verursachen die größten Insulinspitzen und bieten die einfachsten Erfolge.</div></div></div>
+      <div class="step-item"><div class="step-num">2</div><div><div class="step-title">Kohlenhydrate mit Protein oder Fett kombinieren</div><div class="step-desc">Protein oder Fett zu jeder kohlenhydrathaltigen Mahlzeit verlangsamt die Glukoseaufnahme und dämpft die Insulinspitze — auch bei Lebensmitteln mit höherem GI.</div></div></div>
+      <div class="step-item"><div class="step-num">3</div><div><div class="step-title">Zyklus während der Ernährungsumstellung tracken</div><div class="step-desc">Menstruationsveränderungen sind der wichtigste Indikator. Ein Protokoll führen — subtile Veränderungen der Zykluslänge zeigen sich oft, bevor man sonst etwas bemerkt.</div></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">Lebensmittel betonen und reduzieren</div>
+    <div class="food-grid">
+      <div class="food-card">
+        <div class="food-col-title" style="color:var(--sage-500);">Betonen</div>
+        <ul class="food-list food-ok">
+          <li>Hafer, Gerste, Roggen</li>
+          <li>Hülsenfrüchte</li>
+          <li>Die meisten Gemüsesorten</li>
+          <li>Beeren &amp; Äpfel</li>
+          <li>Nüsse &amp; Samen</li>
+          <li>Protein bei jeder Mahlzeit</li>
+        </ul>
+      </div>
+      <div class="food-card">
+        <div class="food-col-title" style="color:var(--ember-500);">Reduzieren</div>
+        <ul class="food-list food-limit">
+          <li>Weißbrot &amp; weißer Reis</li>
+          <li>Zuckerhaltige Getränke &amp; Säfte</li>
+          <li>Verarbeitete Snacks</li>
+          <li>Cornflakes / Puffreis</li>
+          <li>Alkohol</li>
+          <li>Wassermelone, Melone</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">Was die Forschung zeigt</div>
+    <div class="evidence-block">
+      <div class="evidence-block-label">RCT · 2020 · n = 85 · 12 Wochen</div>
+      <div class="evidence-block-text">Eine Niedrig-GI-Ernährung senkte das Nüchterninsulin (−23 %), Testosteron (−18 %) signifikant und verbesserte die Menstruationsfrequenz — alles im Vergleich zur Standardempfehlung für gesunde Ernährung. Der Effekt war unabhängig von der Kalorienaufnahme.</div>
+    </div>
+    <div class="evidence-block">
+      <div class="evidence-block-label">Systematischer Review · 2021 · 15 Studien</div>
+      <div class="evidence-block-text">Konsistente Verbesserungen bei Insulinresistenzmarkern, unabhängig davon, ob Gewichtsverlust auftritt. Der Effekt ist unabhängig von Kalorienrestriktion — die Lebensmittelzusammensetzung, nicht nur die Menge, ist entscheidend.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">Was Woche für Woche zu erwarten ist</div>
+    <div class="what-to-expect">
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Wochen 1–2</span>Energie kann schwanken, während sich der Blutzucker stabilisiert. Völlig normal — das legt sich.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Wochen 3–6</span>Nüchterninsulin verbessert sich typischerweise. Weniger Blähungen sind in diesem Zeitfenster häufig.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Wochen 6–12</span>Zyklusveränderungen treten am wahrscheinlichsten hier auf. Zyklusbeginn sorgfältig notieren.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Langfristig</span>Dies ist ein nachhaltiges Ernährungsmuster, keine kurzfristige Diät. Je länger man dabei bleibt, desto größer der Nutzen.</div></div>
+    </div>
+  </div>
+
+  <div class="spacer-cta"></div>
+</div>
+
+<div class="detail-cta">
+  <div class="detail-cta-inner">
+    <a href="#" onclick="history.back(); return false;" class="cta-back-btn">← Zurück</a>
+    <button class="cta-save-btn" id="saveBtn" data-treatment-id="low-gi-diet" data-treatment-name="Niedrig-GI-Ernährung">Zu meinem Plan speichern</button>
+  </div>
+</div>
+
+<script>
+var KEY = 'pcos_selectedTreatments';
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+function saveSelected(a) { localStorage.setItem(KEY, JSON.stringify(a)); }
+var btn = document.getElementById('saveBtn');
+function refresh() { var sel=getSelected(); var ids=sel.map(function(t){return t.id;}); if(ids.includes('low-gi-diet')) { btn.textContent='Gespeichert ✓'; btn.classList.add('added'); } else { btn.textContent='Zu meinem Plan speichern'; btn.classList.remove('added'); } }
+btn.addEventListener('click', function() { var sel=getSelected(); var idx=sel.findIndex(function(t){return t.id==='low-gi-diet';}); if(idx>-1) sel.splice(idx,1); else sel.push({id:'low-gi-diet',name:'Niedrig-GI-Ernährung'}); saveSelected(sel); refresh(); });
+refresh();
+</script>
+</body>
+</html>

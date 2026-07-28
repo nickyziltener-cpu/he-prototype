@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Let's Personalise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--onboarding-band);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.22; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.15; transform: scale(1); }
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px;
+      right: -60px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.2s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px;
+      left: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.5s forwards;
+    }
+
+    .start-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 52px 24px 64px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(140,108,171,0.10);
+      color: var(--plum-500);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+    }
+
+    .time-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--plum-500);
+      opacity: 0.7;
+    }
+
+    .start-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--ink-900);
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      margin-bottom: 16px;
+    }
+
+    .start-sub {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink-700);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .topics-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(255,255,255,0.60);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .topics-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 18px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: var(--ink-800);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .topics-list li:last-child {
+      border-bottom: none;
+    }
+
+    .topic-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--plum-300);
+      flex-shrink: 0;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-group .btn-primary {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .start-headline .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .start-headline .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+
+    .nav-logo,
+    .time-badge,
+    .start-sub,
+    .cta-group {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+
+    @media (max-width: 600px) {
+      .start-headline {
+        font-size: 26px;
+      }
+
+      .start-sub {
+        font-size: 15px;
+      }
+
+      .start-wrapper {
+        padding: 40px 20px 52px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="start-wrapper">
+
+    <div class="time-badge">Give us 3 minutes of your time</div>
+
+    <h1 class="start-headline">
+      <span class="hl-line">Before we start,</span>
+      <span class="hl-line">a few quick questions.</span>
+    </h1>
+
+    <p class="start-sub">Your answers will allow us to show you the treatment options that are most relevant to you. Not a generic list.</p>
+
+    <div class="cta-group">
+      <a href="q1.html" class="btn-primary">I'm in</a>
+      <p class="disclaimer-note">This is an information tool, not a medical recommendation system. Always consult your doctor.</p>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="back-link" style="position: fixed; bottom: 28px; left: 24px; z-index: 10;">← Back</a>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

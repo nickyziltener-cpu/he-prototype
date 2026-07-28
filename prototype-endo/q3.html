@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — A Little More</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes ember-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.22; transform: scale(1); } }
+    @keyframes aurora-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.12; transform: scale(1); } }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 280px; height: 280px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0; animation: ember-bloom 1.2s ease-out 0.2s forwards;
+    }
+    body::after {
+      content: ''; position: fixed; left: -40px; top: 30%; width: 200px; height: 200px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0; animation: aurora-bloom 1.2s ease-out 0.5s forwards;
+    }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+    .chips-container, .micro-copy, .next-btn-wrap, .back-link, .progress-bar-container {
+      opacity: 0; animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+    .chip.selected {
+      border-color: var(--plum-500);
+      background: rgba(140,108,171,0.14);
+      color: var(--plum-600, #5e4d72);
+    }
+    .next-btn-wrap { margin-top: 28px; }
+    .micro-copy {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      color: var(--ink-500);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 80%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <h1 class="question-title">
+      <span class="hl-line">Anything else</span>
+      <span class="hl-line">we should know?</span>
+    </h1>
+
+    <p class="micro-copy">Select all that apply — this helps us personalise your results.</p>
+
+    <div class="chips-container" style="margin-top: 8px;">
+      <button class="chip multi" data-context="hormonal-contraception">
+        I'm currently on hormonal contraception
+        <span class="chip-sub">Pill, coil, injection, patch or implant</span>
+      </button>
+      <button class="chip multi" data-context="tried-hormones">
+        I've tried hormonal treatments before
+        <span class="chip-sub">And they didn't work well, or I stopped</span>
+      </button>
+      <button class="chip multi" data-context="fertility">
+        Fertility matters to me
+        <span class="chip-sub">Trying to conceive, or want to in future</span>
+      </button>
+      <button class="chip multi" data-context="had-surgery">
+        I've had surgery for endometriosis
+        <span class="chip-sub">Laparoscopy, excision or ablation</span>
+      </button>
+      <button class="chip multi" data-context="flares">
+        My symptoms come in waves — some days are much worse
+        <span class="chip-sub">Flares that are hard to predict</span>
+      </button>
+      <button class="chip multi" data-context="none">
+        None of these
+      </button>
+    </div>
+
+    <div class="next-btn-wrap">
+      <a href="reveal-priya.html" class="btn-primary" id="nextBtn" style="display:block;text-align:center;">See my results →</a>
+    </div>
+
+    <a href="q2.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    var selected = [];
+    document.querySelectorAll('.chip.multi').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var ctx = this.getAttribute('data-context');
+        var idx = selected.indexOf(ctx);
+        if (idx >= 0) { selected.splice(idx, 1); this.classList.remove('selected'); }
+        else { selected.push(ctx); this.classList.add('selected'); }
+        localStorage.setItem('endo_context', JSON.stringify(selected));
+      });
+    });
+  </script>
+
+</body>
+</html>

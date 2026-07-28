@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Safety Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--onboarding-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.10; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.10; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Quiet radials — content must dominate on this screen */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.0s ease-out 0.2s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      left: -40px;
+      top: 30%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.0s ease-out 0.4s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.4s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.4s ease-out 0.65s forwards; }
+
+    .redflag-header-text,
+    .chips-container,
+    .back-link,
+    .progress-bar-container {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.8s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 90%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <p class="redflag-header-text">Almost done. Before your results, one important check.</p>
+
+    <h1 class="question-title">
+      <span class="hl-line">Have you experienced any</span>
+      <span class="hl-line">of the following recently?</span>
+    </h1>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 24px;">
+      <button class="chip" data-type="regular" data-symptom="Blood in your stool or when wiping">Blood in my stool or when wiping</button>
+      <button class="chip" data-type="regular" data-symptom="Significant unexplained weight loss">Significant unexplained weight loss</button>
+      <button class="chip" data-type="regular" data-symptom="New or significantly worsening symptoms over age 50">I'm over 50 and these symptoms are new or getting significantly worse</button>
+      <button class="chip chip-none" data-type="none">None of these — I don't have any of these symptoms</button>
+    </div>
+
+    <button class="next-btn" id="continueBtn">Continue</button>
+
+    <a href="q5.html" class="back-link">← Back</a>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script>
+    var chips = document.querySelectorAll('.chip');
+    var noneChip = document.querySelector('[data-type="none"]');
+    var continueBtn = document.getElementById('continueBtn');
+    var hasRedFlag = false;
+
+    function updateBtn() {
+      var anySelected = document.querySelector('.chip.selected');
+      continueBtn.classList.toggle('visible', !!anySelected);
+
+      hasRedFlag = false;
+      chips.forEach(function(chip) {
+        if (chip.getAttribute('data-type') === 'regular' && chip.classList.contains('selected')) {
+          hasRedFlag = true;
+        }
+      });
+    }
+
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var type = this.getAttribute('data-type');
+
+        if (type === 'none') {
+          var wasSelected = this.classList.contains('selected');
+          chips.forEach(function(c) { c.classList.remove('selected'); });
+          if (!wasSelected) { this.classList.add('selected'); }
+        } else {
+          noneChip.classList.remove('selected');
+          this.classList.toggle('selected');
+        }
+
+        updateBtn();
+      });
+    });
+
+    continueBtn.addEventListener('click', function() {
+      if (hasRedFlag) {
+        // Store selected symptoms for the stop screen
+        var selected = [];
+        chips.forEach(function(chip) {
+          if (chip.getAttribute('data-type') === 'regular' && chip.classList.contains('selected')) {
+            selected.push(chip.getAttribute('data-symptom'));
+          }
+        });
+        localStorage.setItem('redflags', JSON.stringify(selected));
+        window.location.href = 'redflag-stop.html';
+      } else {
+        // Route based on Priya path
+        var isPriya = localStorage.getItem('priya') === '1';
+        window.location.href = isPriya ? 'reveal-priya.html' : 'reveal.html';
+      }
+    });
+  </script>
+
+</body>
+</html>

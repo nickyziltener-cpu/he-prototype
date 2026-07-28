@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Pain Frequency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--priya-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.25; transform: scale(1); }
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.14; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Priya branch: aurora top-right 260px 25%, ember bottom-right 180px 14% */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30px;
+      right: -40px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.2s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -30px;
+      right: -20px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, var(--ember-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.5s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+
+    .chips-container,
+    .back-link,
+    .progress-bar-container {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 55%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <h1 class="question-title">
+      <span class="hl-line">In a typical month, how often do you</span>
+      <span class="hl-line">experience abdominal pain?</span>
+    </h1>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 24px;">
+      <button class="chip" data-next="q1e.html">Daily</button>
+            <button class="chip" data-next="q1e.html">A few times a week</button>
+      <button class="chip" data-next="q1e.html">A few times a month</button>
+      <button class="chip" data-next="q1e.html">Occasionally — not every month</button>
+    </div>
+
+    <a href="q2.html" class="back-link">← Back</a>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script>
+    var freqMap = {
+      'Daily': 'daily',
+      'A few times a week': 'weekly',
+      'A few times a month': 'monthly',
+      'Occasionally — not every month': 'occasional'
+    };
+    var chips = document.querySelectorAll('.chip');
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        localStorage.setItem('rome_frequency', freqMap[this.textContent.trim()] || 'occasional');
+        var next = this.getAttribute('data-next');
+        if (next) { window.location.href = next; }
+      });
+    });
+  </script>
+
+</body>
+</html>

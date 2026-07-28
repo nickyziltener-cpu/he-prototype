@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Please Speak with a Doctor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #FFFBEB;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .stop-wrapper {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 56px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .heart-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(184,112,74,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: var(--evidence-medium);
+      margin-bottom: 24px;
+      flex-shrink: 0;
+    }
+
+    .stop-headline {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--ink-900);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .stop-body {
+      font-size: 16px;
+      color: var(--ink-700);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .stop-body p + p {
+      margin-top: 14px;
+    }
+
+    .gp-card {
+      background: white;
+      border: 1px solid var(--border-hairline);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .gp-card-heading {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-900);
+      margin-bottom: 12px;
+    }
+
+    .gp-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px 0;
+    }
+
+    .gp-card ul li {
+      font-size: 14px;
+      color: var(--ink-700);
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .gp-card ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--ember-700);
+      font-weight: 700;
+    }
+
+    .gp-card-footer {
+      font-size: 13px;
+      color: var(--ink-600);
+      border-top: 1px solid var(--border-hairline);
+      padding-top: 12px;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .gp-link {
+      font-size: 14px;
+      color: var(--plum-500);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .gp-link:hover {
+      color: var(--plum-700);
+    }
+
+    .understand-link {
+      font-size: 13px;
+      color: var(--ink-600);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .understand-link:hover {
+      color: var(--ink-900);
+    }
+
+    .stop-footer {
+      font-size: 12px;
+      color: var(--ink-500);
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border-hairline);
+      width: 100%;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="stop-wrapper">
+    <div class="heart-icon">&#9829;</div>
+
+    <h1 class="stop-headline">Before you go further, please speak with a doctor.</h1>
+
+    <div class="stop-body">
+      <p>The symptom(s) you've mentioned are important. They may well be part of your IBS — but they can also be associated with other conditions that need a doctor's assessment first.</p>
+      <p>We'd be doing you a disservice if we sent you straight to an evidence library without flagging this. Please book an appointment with your GP and mention the specific symptoms you noted.</p>
+    </div>
+
+    <div class="gp-card">
+      <p class="gp-card-heading">When you see your GP, mention:</p>
+      <ul>
+        <li>You've noticed concerning symptoms that may need evaluation</li>
+        <li>Mention any that apply: blood in stool, unexplained weight loss, nocturnal symptoms, new symptoms over age 50</li>
+      </ul>
+      <p class="gp-card-footer">You can also ask your GP to rule out IBD, coeliac disease, and colorectal cancer.</p>
+    </div>
+
+    <div class="cta-group">
+      <a href="https://www.nhs.uk/service-search/find-a-gp" target="_blank" rel="noopener" class="gp-link">Find a GP near me</a>
+      <a href="library.html" class="understand-link">I understand — show me the information anyway</a>
+    </div>
+  </div>
+
+  <div class="stop-footer">
+    Health Empowerment is an information resource, not a medical service. In an emergency, call 999 (UK) or your local emergency services.
+  </div>
+</body>
+</html>

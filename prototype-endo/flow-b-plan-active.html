@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Plan · Active Trial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 65%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 18%, transparent 70%);
+      opacity: .38;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .28;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .trial-progress-bar {
+      height: 5px;
+      border-radius: 100px;
+      background: rgba(140,108,171,.15);
+      overflow: hidden;
+      margin-top: 5px;
+    }
+    .trial-progress-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--plum-500), var(--plum-300));
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero">
+    <div style="display:flex;align-items:center;margin-bottom:14px;">
+      <span class="flow-count-pill flow-count-pill--plum" style="margin-bottom:0;">◉ Trial in progress</span>
+    </div>
+    <h1 class="flow-hero-title">Your plan</h1>
+    <p class="flow-hero-sub">Heat therapy is active — keep going. Trials 2 and 3 unlock when you're done.</p>
+  </div>
+
+  <!-- Plan list -->
+  <div class="flow-body" style="padding-bottom:140px;">
+
+    <div class="plan-timeline ani">
+
+      <!-- Trial 1 — ACTIVE -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker active"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card active-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status active-st">Active</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/></svg>
+              Lifestyle
+            </span>
+          </div>
+          <div class="ptl-card-title">Heat therapy</div>
+          <div class="ptl-card-meta">4 weeks · heat pad £15–35 · no prescription needed</div>
+
+          <!-- Inline progress -->
+          <div style="margin:12px 0 4px;">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-600);margin-bottom:5px;font-family:'JetBrains Mono',monospace;">
+              <span>Week 2 of 4</span>
+              <span>50%</span>
+            </div>
+            <div class="trial-progress-bar">
+              <div class="trial-progress-fill" style="width:50%"></div>
+            </div>
+            <div style="font-size:11px;color:var(--ink-500);margin-top:5px;font-family:'JetBrains Mono',monospace;">11 of 14 days logged</div>
+          </div>
+
+          <!-- Quick links -->
+          <div style="display:flex;gap:16px;margin-top:12px;">
+            <a href="flow-b-checkin.html" style="font-size:12px;font-weight:700;color:var(--plum-500);text-decoration:none;display:inline-flex;align-items:center;gap:4px;" onclick="event.stopPropagation();">
+              Log today
+              <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="flow-b-progress.html" style="font-size:12px;font-weight:700;color:var(--ink-500);text-decoration:none;display:inline-flex;align-items:center;gap:4px;" onclick="event.stopPropagation();">
+              View progress
+              <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trial 2 — upcoming -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st">Then</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+              Diet
+            </span>
+          </div>
+          <div class="ptl-card-title">Anti-inflammatory diet</div>
+          <div class="ptl-card-meta">~8 weeks · dietary shift · higher effort</div>
+          <div class="ptl-card-why">Targets the inflammation driving endo pain — worth the extra effort.</div>
+          <a href="flow-b-trial-fodmap.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:700;color:var(--ink-500);text-decoration:none;" onclick="event.stopPropagation();">
+            Preview guide
+            <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Trial 3 — upcoming -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st">Finally</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2"/></svg>
+              Mind &amp; Body
+            </span>
+          </div>
+          <div class="ptl-card-title">Mindfulness-based pain management</div>
+          <div class="ptl-card-meta">8 weeks · app or therapist-guided · online programmes available</div>
+          <div class="ptl-card-why">Addresses the pain–stress cycle chronic endo creates.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item active">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+  <!-- Sticky CTA -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-checkin.html" class="cta-btn-full">
+      <svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M5 4v16"/></svg>
+      Log today's check-in
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

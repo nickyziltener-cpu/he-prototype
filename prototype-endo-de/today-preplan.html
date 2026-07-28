@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heute · Profil bereit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 55%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 18%, transparent 70%);
+      opacity: .42;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -40px; left: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div style="background:linear-gradient(170deg, #fbeee5 0%, #faf6f0 60%, #f5f0f8 100%);padding:20px 24px 28px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-30px;right:-50px;width:220px;height:220px;background:radial-gradient(circle,var(--ember-300) 0%,var(--ember-500) 20%,transparent 70%);opacity:.40;pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,var(--aurora-500) 0%,transparent 65%);opacity:.36;pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;">
+      <h1 style="font-family:'DM Serif Display',serif;font-size:32px;line-height:1.1;letter-spacing:-.015em;color:var(--ink-900);margin-bottom:14px;">Dein Endo-Profil<br>ist bereit.</h1>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+        <span style="font-size:12px;font-weight:600;color:var(--plum-700);background:rgba(255,255,255,.7);border:1px solid rgba(140,108,171,.3);border-radius:100px;padding:5px 12px;backdrop-filter:blur(10px);">Schmerzgeprägt</span>
+        <span style="font-size:12px;font-weight:600;color:var(--plum-700);background:rgba(255,255,255,.7);border:1px solid rgba(140,108,171,.3);border-radius:100px;padding:5px 12px;backdrop-filter:blur(10px);">Zyklusgebunden</span>
+        <span style="font-size:12px;font-weight:600;color:var(--plum-700);background:rgba(255,255,255,.7);border:1px solid rgba(140,108,171,.3);border-radius:100px;padding:5px 12px;backdrop-filter:blur(10px);">Verdauungsüberlappung</span>
+      </div>
+      <p style="font-size:14px;line-height:1.55;color:var(--ink-600);">Wir haben die Forschung auf dein Profil abgestimmt. Hier ist, womit du beginnen solltest.</p>
+    </div>
+  </div>
+
+  <div style="padding:4px 20px 80px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;">
+
+    <div class="ani" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.85);border-left:3px solid var(--plum-500);box-shadow:0 8px 24px -10px rgba(140,108,171,0.18);border-radius:18px;padding:18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--plum-500);text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px;">Stärkste Evidenz für Beckenschmerzen</div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(42,31,48,.07);">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;line-height:1;">🔥</span>
+            <span style="font-size:14px;font-weight:600;color:var(--ink-900);">Wärmetherapie</span>
+          </div>
+          <span class="evchip-flow ev-high" style="flex-shrink:0;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(42,31,48,.07);">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;line-height:1;">🥗</span>
+            <span style="font-size:14px;font-weight:600;color:var(--ink-900);">Entzündungshemmende Ernährung</span>
+          </div>
+          <span class="evchip-flow ev-med" style="flex-shrink:0;"><span class="ev-dot"></span>Etwas Evidenz</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px;line-height:1;">🧘</span>
+            <span style="font-size:14px;font-weight:600;color:var(--ink-900);">Geist-Körper-Praktiken</span>
+          </div>
+          <span class="evchip-flow ev-med" style="flex-shrink:0;"><span class="ev-dot"></span>Etwas Evidenz</span>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a href="flow-a-overview.html" style="display:block;width:100%;background:var(--plum-500);color:#fff;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;padding:14px 20px;border-radius:100px;text-align:center;text-decoration:none;box-shadow:0 8px 20px -8px rgba(140,108,171,.45);">Alle Behandlungsoptionen erkunden →</a>
+      </div>
+    </div>
+
+    <div class="ani" style="background:rgba(251,238,229,0.60);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(243,160,126,.2);box-shadow:0 4px 16px -8px rgba(140,108,171,0.10);border-radius:18px;padding:18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--ember-700);text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px;">So funktioniert es</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:26px;height:26px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;">1</div>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--ink-900);margin-bottom:2px;">Erkunden</div>
+            <div style="font-size:13px;color:var(--ink-600);line-height:1.5;">Schau, was die Forschung für deinen Subtyp sagt</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:26px;height:26px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;">2</div>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--ink-900);margin-bottom:2px;">Auswählen</div>
+            <div style="font-size:13px;color:var(--ink-600);line-height:1.5;">3 Behandlungen speichern, die du ausprobieren möchtest</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:26px;height:26px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;">3</div>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--ink-900);margin-bottom:2px;">Verfolgen</div>
+            <div style="font-size:13px;color:var(--ink-600);line-height:1.5;">4 Wochen täglich eintragen. Sehen, was wirkt.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-preplan.html" class="tab-item active">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

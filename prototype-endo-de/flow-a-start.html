@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starte hier · Behandlungsauswahl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    .filter-chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .filter-chip {
+      display: inline-flex; align-items: center;
+      font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500;
+      color: var(--ink-600); background: rgba(255,255,255,0.50);
+      border: 1px solid rgba(42,31,48,0.12); border-radius: 9999px;
+      padding: 4px 10px; white-space: nowrap;
+    }
+    body::before {
+      content: ''; position: fixed; top: -80px; right: -80px; width: 480px; height: 480px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .35; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -80px; left: -80px; width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .32; pointer-events: none; z-index: 0;
+    }
+    .flow-hero {
+      background: rgba(251,238,229,0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+    }
+    .flow-hero::after { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="padding-top:10px;">
+    <div class="flow-toprow">
+      <div class="flow-logo">
+        <span class="flow-logo-mark"></span>Endometriose-Behandlungswege
+      </div>
+      <div class="flow-avatar">S</div>
+    </div>
+    <div id="filterChipRow" class="filter-chip-row"></div>
+    <div class="flow-count-pill" id="availPill" style="margin-top:12px;">18 Behandlungswege</div>
+    <h1 class="flow-hero-title">Ihre stärkste Option aus jedem ausgewählten Bereich</h1>
+    <p class="flow-hero-sub" style="margin-top:10px;">Die Evidenzstärke variiert je nach Bereich — der Chip auf jeder Karte zeigt dir, wo die Forschung solide ist und wo sie sich noch entwickelt. Erkunde alle 18 Optionen und speichere alles, was dich interessiert.</p>
+  </div>
+
+  <div class="flow-body">
+
+    <!-- Karte 1: Beckenbodenphysiotherapie -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Geist &amp; Körper
+        </span>
+        <span class="evchip-flow ev-high" style="margin-left:auto;">
+          <span class="ev-dot"></span>Starke Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Beckenbodenphysiotherapie</div>
+      <div class="hcard-desc">Spezialisierte Physiotherapie, die auf die Beckenbodenmuskelspannung abzielt — ein wesentlicher Treiber endometriose-bedingter Schmerzen. Mehrere Studien zeigen signifikante Schmerz- und Lebensqualitätsverbesserungen, vergleichbar mit hormonellen Behandlungen.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="pelvic-physio" data-treatment-name="Beckenbodenphysiotherapie"></button>
+        <a href="flow-a-detail-hypnotherapy.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Karte 2: Entzündungshemmende Ernährung -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+          Ernährung
+        </span>
+        <span class="evchip-flow ev-med" style="margin-left:auto;">
+          <span class="ev-dot"></span>Moderate Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Entzündungshemmende Ernährung</div>
+      <div class="hcard-desc">Reduktion entzündungsfördernder Lebensmittel — rotes Fleisch, verarbeitete Lebensmittel, Transfette — bei gleichzeitiger Erhöhung von Omega-3 und Pflanzenkost. Beobachtungsstudien zeigen konsistent einen Zusammenhang zwischen Ernährungsqualität und Endometriose-Risiko und -Schwere; RCT-Evidenz für das Ernährungsmuster selbst ist noch begrenzt.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="anti-inflammatory-diet" data-treatment-name="Entzündungshemmende Ernährung"></button>
+        <a href="flow-a-detail.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Karte 3: NAC -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+          Nahrungsergänzung
+        </span>
+        <span class="evchip-flow ev-good" style="margin-left:auto;">
+          <span class="ev-dot"></span>Gute Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">N-Acetylcystein (NAC)</div>
+      <div class="hcard-desc">Ein antioxidatives Supplement, das in einer italienischen RCT nachweislich die Endometriomgröße und die Schmerzen deutlich reduziert — bei 21 von 47 Frauen wurde die geplante Operation nach 3-monatiger Einnahme abgesagt.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="nac" data-treatment-name="N-Acetylcystein (NAC)"></button>
+        <a href="flow-a-detail-peppermint.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <a href="flow-a-overview.html" class="explore-btn ani">
+      Alle 18 Optionen erkunden
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+
+    <div class="nudge-card ani" id="nudgeCard">
+      Du hast dich auf <strong>Geist &amp; Körper und Nahrungsergänzung</strong> konzentriert. Es gibt starke Evidenz auch im Bereich <strong>Medizinische Behandlung</strong> — <a href="flow-a-overview.html">schau mal rein →</a>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+  <script>
+    if (!localStorage.getItem('selectedTreatments')) {
+      localStorage.setItem('selectedTreatments', JSON.stringify([
+        { id: 'pelvic-physio',          name: 'Beckenbodenphysiotherapie' },
+        { id: 'anti-inflammatory-diet', name: 'Entzündungshemmende Ernährung' },
+        { id: 'nac',                    name: 'N-Acetylcystein (NAC)' }
+      ]));
+    }
+  </script>
+  <script src="selection.js"></script>
+  <script>
+    (function() {
+      var CATEGORY_COUNTS = { diet: 4, supplements: 5, 'mind-body': 6, medication: 6 };
+      var TOTAL = 18;
+      var rawPrefs = localStorage.getItem('treatmentPreferences');
+      var prefs    = rawPrefs ? JSON.parse(rawPrefs) : null;
+      var availCount = TOTAL;
+      if (prefs && prefs.length > 0 && prefs.length < 4) {
+        availCount = prefs.reduce(function(sum, k) { return sum + (CATEGORY_COUNTS[k] || 0); }, 0);
+      }
+      var pill = document.getElementById('availPill');
+      if (pill) pill.textContent = availCount + ' Behandlungswege';
+
+      var rawSymptoms = localStorage.getItem('endo_symptoms');
+      var symptoms = rawSymptoms ? JSON.parse(rawSymptoms) : [];
+      var chips = [];
+      if (symptoms.indexOf('dysmenorrhoea') >= 0) chips.push('Schmerzhafte Perioden');
+      if (symptoms.indexOf('chronic-pelvic-pain') >= 0) chips.push('Chronische Beckenschmerzen');
+      if (symptoms.indexOf('dyspareunia') >= 0) chips.push('Dyspareunie');
+      if (symptoms.indexOf('fatigue') >= 0) chips.push('Erschöpfung');
+      if (symptoms.indexOf('bloating') >= 0) chips.push('Endo-Bauch');
+
+      var chipRow = document.getElementById('filterChipRow');
+      if (chipRow) {
+        if (chips.length === 0) { chipRow.style.display = 'none'; }
+        else { chipRow.innerHTML = chips.map(function(l) { return '<span class="filter-chip">' + l + '</span>'; }).join(''); }
+      }
+    })();
+  </script>
+
+</body>
+</html>

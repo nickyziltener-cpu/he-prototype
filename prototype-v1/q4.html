@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Food Triggers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 44%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <div style="margin-bottom: 4px;">
+      <span class="section-label">Question 4 of 9</span>
+    </div>
+
+    <h1 class="question-title">Do any of these food types tend to trigger or worsen your symptoms?</h1>
+    <p class="question-sub">Select all that apply.</p>
+
+    <div class="chips-container" id="chipContainer">
+      <button class="chip" data-type="regular">Gluten or wheat</button>
+      <button class="chip" data-type="regular">Dairy</button>
+      <button class="chip" data-type="regular">
+        High-FODMAP foods
+        <span class="chip-sub">(onions, garlic, apples, beans, etc.)</span>
+      </button>
+      <button class="chip" data-type="regular">Caffeine</button>
+      <button class="chip" data-type="regular">Alcohol</button>
+      <button class="chip" data-type="exclusive">I'm not sure — I haven't identified specific triggers</button>
+      <button class="chip" data-type="exclusive">None of these seem to trigger my symptoms</button>
+    </div>
+
+    <button class="next-btn" id="nextBtn" onclick="window.location.href='q5.html'">Next →</button>
+
+    <a href="q3.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    var chips = document.querySelectorAll('.chip');
+    var nextBtn = document.getElementById('nextBtn');
+
+    function updateNextBtn() {
+      var anySelected = document.querySelector('.chip.selected');
+      if (anySelected) {
+        nextBtn.classList.add('visible');
+      } else {
+        nextBtn.classList.remove('visible');
+      }
+    }
+
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var type = this.getAttribute('data-type');
+
+        if (type === 'exclusive') {
+          // Deselect all others, toggle this
+          var wasSelected = this.classList.contains('selected');
+          chips.forEach(function(c) {
+            c.classList.remove('selected');
+          });
+          if (!wasSelected) {
+            this.classList.add('selected');
+          }
+        } else {
+          // Regular chip: deselect any exclusive chips
+          chips.forEach(function(c) {
+            if (c.getAttribute('data-type') === 'exclusive') {
+              c.classList.remove('selected');
+            }
+          });
+          // Toggle this chip
+          this.classList.toggle('selected');
+        }
+
+        updateNextBtn();
+      });
+    });
+  </script>
+</body>
+</html>

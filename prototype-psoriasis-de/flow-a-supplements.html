@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahrungsergänzungsmittel · Psoriasis-Behandlungsoptionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #FAF5EC 0%, #FAF2E4 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .22; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 gespeichert</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-muted">
+        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Nahrungsergänzungsmittel</h1>
+        <p class="flow-hero-sub tight">4 Optionen — ehrlich darüber, wo die Evidenz stark ist und wo nicht.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Omega-3-Fettsäuren (Fischöl)</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Starker entzündungshemmender Mechanismus über EPA und DHA — aber eine Metaanalyse von 13 kontrollierten Studien aus 2019 fand insgesamt keine signifikante PASI-Verbesserung. Die Evidenz ist konsistenter für Gelenksymptome bei Psoriasis-Arthritis als für die Haut. Sinnvoll bei Gelenkbeteiligung.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="omega-3" data-treatment-name="Omega-3-Fettsäuren"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Vitamin-D-Supplementierung</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Psoriasis-Patientinnen haben häufig niedrige Vitamin-D-Spiegel, und eine Supplementierung hat eine immunmodulierende Wirkung. Hinweis: Topische Vitamin-D-Analoga (Calcipotriol) haben stärkere Evidenz — hier geht es um die orale Einnahme.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="vitamin-d-oral" data-treatment-name="Vitamin-D-Supplementierung"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Kurkuma / Curcumin</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Curcumin hat in kleinen randomisierten Studien bei Psoriasis entzündungshemmende Eigenschaften gezeigt. Die Herausforderung ist die Bioverfügbarkeit — Formulierungen mit Piperin (schwarzer Pfefferextrakt) verbessern die Aufnahme erheblich.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="curcumin" data-treatment-name="Kurkuma / Curcumin"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Zusätzliche Optionen verbergen':'2 weitere Optionen anzeigen'">2 weitere Optionen anzeigen</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Zinksupplementierung</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Begrenzte Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Zinkmangel ist bei Psoriasis-Betroffenen häufiger — aber die einzige Plaque-Psoriasis-RCT (n=25) fand keinen signifikanten Nutzen. Gewisse Evidenz für Gelenksymptome bei Psoriasis-Arthritis. Eine Assoziation mit Mangel bedeutet nicht, dass eine Supplementierung hilft, wenn der Spiegel normal ist.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="zinc" data-treatment-name="Zinksupplementierung"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Probiotika</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Begrenzte Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Neuere Forschung verknüpft Veränderungen im Darmmikrobiom mit Psoriasis. Einige kleine Studien zeigen mäßigen Nutzen mit bestimmten Stämmen. Eine vielversprechende Richtung, die jedoch noch nicht konsistent repliziert wurde. Bleibt zu beobachten.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="probiotics" data-treatment-name="Probiotika"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

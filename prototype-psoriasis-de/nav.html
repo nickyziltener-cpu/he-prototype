@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation · Psoriasis-Prototyp (DE)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; padding: 32px 20px 48px; }
+    .nav-section { margin-bottom: 28px; }
+    .nav-section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--ink-400); text-transform: uppercase; letter-spacing: .2em; margin-bottom: 12px; }
+    .nav-group { display: flex; flex-direction: column; gap: 4px; background: rgba(255,255,255,0.72); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.82); }
+    .nav-item { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; text-decoration: none; color: var(--ink-800); font-size: 14px; font-weight: 600; border-bottom: 1px solid var(--border-hairline); transition: background 0.1s ease; }
+    .nav-item:last-child { border-bottom: none; }
+    .nav-item:hover { background: rgba(196,123,43,0.06); }
+    .nav-item-sub { font-size: 11px; color: var(--ink-500); font-weight: 400; font-family: 'JetBrains Mono', monospace; }
+    .nav-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+  <div style="max-width: 480px; margin: 0 auto;">
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:var(--primary);"></div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink-900);">Psoriasis-Prototyp — Navigation</h1>
+    </div>
+
+    <!-- Onboarding -->
+    <div class="nav-section">
+      <div class="nav-section-label">Onboarding</div>
+      <div class="nav-group">
+        <a href="index.html" class="nav-item">Willkommen <span class="nav-badge" style="background:rgba(196,123,43,.12);color:var(--primary-dk);">Start</span></a>
+        <a href="start.html" class="nav-item">Was wir tun werden <span class="nav-item-sub">3 Schritte</span></a>
+        <a href="q1.html" class="nav-item">F1 — Diagnostiziert? <span class="nav-item-sub">14 %</span></a>
+        <a href="q1a.html" class="nav-item">F1a — Symptome (nicht diagnostiziert) <span class="nav-item-sub">25 %</span></a>
+        <a href="q1b.html" class="nav-item">F1b — Psoriasis-Subtyp <span class="nav-item-sub">28 %</span></a>
+        <a href="q2.html" class="nav-item">F2 — Dauer <span class="nav-item-sub">42 %</span></a>
+        <a href="q3.html" class="nav-item">F3 — Schweregrad <span class="nav-item-sub">56 %</span></a>
+        <a href="redflag.html" class="nav-item">Warnsignal-Bildschirm <span class="nav-item-sub">68 %</span></a>
+        <a href="redflag-stop.html" class="nav-item">Warnsignal-Stopp <span class="nav-badge" style="background:rgba(192,57,43,.10);color:rgba(192,57,43,.85);">Notfall</span></a>
+        <a href="q4.html" class="nav-item">F4 — Auslöser + Gelenkschmerzen <span class="nav-item-sub">78 %</span></a>
+        <a href="q5.html" class="nav-item">F5 — Behandlungspräferenzen <span class="nav-item-sub">90 %</span></a>
+      </div>
+    </div>
+
+    <!-- Enthüllung -->
+    <div class="nav-section">
+      <div class="nav-section-label">Enthüllung</div>
+      <div class="nav-group">
+        <a href="reveal.html" class="nav-item">Enthüllung — diagnostiziert <span class="nav-item-sub">18 Behandlungen gefunden</span></a>
+        <a href="reveal-priya.html" class="nav-item">Enthüllung — nicht diagnostiziert (Priya-Pfad) <span class="nav-item-sub">Symptomübereinstimmung</span></a>
+        <a href="account.html" class="nav-item">Konto erstellen</a>
+      </div>
+    </div>
+
+    <!-- Fluss A: Forschung -->
+    <div class="nav-section">
+      <div class="nav-section-label">Fluss A — Forschung &amp; Durchsuchen</div>
+      <div class="nav-group">
+        <a href="flow-a-start.html" class="nav-item">Top-3-Empfehlungen <span class="nav-item-sub">Emollienzien · MBSR · Mediterrane Ernährung</span></a>
+        <a href="flow-a-overview.html" class="nav-item">Alle Kategorien <span class="nav-item-sub">5 Kategorien · 26 gesamt</span></a>
+        <a href="flow-a-medical.html" class="nav-item">Topische Behandlungen <span class="nav-item-sub">8 Optionen · 5 Stark · inkl. Mahonia</span></a>
+        <a href="flow-a-diet.html" class="nav-item">Ernährung &amp; Nährstoffe <span class="nav-item-sub">4 Optionen · Mediterrane Ernährung: Gut</span></a>
+        <a href="flow-a-supplements.html" class="nav-item">Nahrungsergänzungsmittel <span class="nav-item-sub">4 Optionen · Omega-3: Moderat</span></a>
+        <a href="flow-a-mindbody.html" class="nav-item">Geist &amp; Körper <span class="nav-item-sub">5 Optionen · Raucherentwöhnung sichtbar</span></a>
+        <a href="flow-a-prescription.html" class="nav-item">Medizinisch &amp; rezeptpflichtig <span class="nav-badge" style="background:rgba(74,111,165,.12);color:#2d4f7c;">NEU</span></a>
+        <a href="flow-a-shortlist.html" class="nav-item">Kurzliste — Top 3 auswählen <span class="nav-item-sub">Aktualisierter Katalog · 26 Behandlungen</span></a>
+      </div>
+    </div>
+
+    <!-- Detailseiten -->
+    <div class="nav-section">
+      <div class="nav-section-label">Fluss A — Behandlungsdetails</div>
+      <div class="nav-group">
+        <a href="flow-a-detail.html" class="nav-item">Emollienzien &amp; Feuchtigkeitspflege <span class="nav-badge" style="background:rgba(196,123,43,.12);color:var(--primary-dk);">Stark</span></a>
+        <a href="flow-a-detail-stress.html" class="nav-item">Stressmanagement (MBSR) <span class="nav-badge" style="background:rgba(123,158,107,.12);color:#3a6b30;">Gut</span></a>
+        <a href="flow-a-detail-mediterranean.html" class="nav-item">Mediterrane Ernährung <span class="nav-badge" style="background:rgba(196,168,130,.18);color:#6B4A20;">Moderat</span></a>
+      </div>
+    </div>
+
+    <!-- Fluss B: Plan -->
+    <div class="nav-section">
+      <div class="nav-section-label">Fluss B — Plan &amp; Tracking</div>
+      <div class="nav-group">
+        <a href="flow-b-plan.html" class="nav-item">Plan-Builder <span class="nav-item-sub">Ziehen zum Umsortieren · 3 Erprobungen</span></a>
+        <a href="flow-b-plan-active.html" class="nav-item">Aktive Planansicht <span class="nav-item-sub">Woche 3 von 6</span></a>
+        <a href="flow-b-prepare.html" class="nav-item">Vorbereitung — Feuchtigkeitspflege-Routine</a>
+        <a href="flow-b-checkin.html" class="nav-item">Tägliches Check-in <span class="nav-item-sub">Richtung + Schub-Markierung</span></a>
+        <a href="flow-b-progress.html" class="nav-item">Fortschritt &amp; Trenddiagramm</a>
+      </div>
+    </div>
+
+    <!-- Heute -->
+    <div class="nav-section">
+      <div class="nav-section-label">Heute (Tagebuch-Tab)</div>
+      <div class="nav-group">
+        <a href="today-preplan.html" class="nav-item">Vor dem Plan <span class="nav-item-sub">Plan erstellen-CTA</span></a>
+        <a href="today-active.html" class="nav-item">Aktive Erprobung <span class="nav-item-sub">Check-in eintragen + Fortschritts-Snapshot</span></a>
+        <a href="today-between.html" class="nav-item">Zwischen Check-ins <span class="nav-item-sub">Morgenansicht</span></a>
+        <a href="today-logged.html" class="nav-item">Heute schon eingetragen <span class="nav-item-sub">Nach dem Check-in</span></a>
+      </div>
+    </div>
+
+    <!-- Profil -->
+    <div class="nav-section">
+      <div class="nav-section-label">Profil</div>
+      <div class="nav-group">
+        <a href="you.html" class="nav-item">Ich — Profilbildschirm</a>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--ink-400);text-align:center;margin-top:8px;font-family:'JetBrains Mono',monospace;">Psoriasis-Prototyp v2 · Health Empowerment · Juli 2026 · Evidenzprüfung angewandt</p>
+
+  </div>
+</body>
+</html>

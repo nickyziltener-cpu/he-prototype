@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Progress · Trial 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(107,154,139,0.05) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Head -->
+  <div class="pg-head" style="position:relative;z-index:1;">
+    <h1 class="flow-hero-title sm">Your progress</h1>
+    <p class="flow-hero-sub tight" style="margin-bottom:16px;">Your current trial</p>
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>Week 2 of 6</span>
+        <span>50%</span>
+      </div>
+      <div class="progress-bar-hero">
+        <div class="progress-fill-hero" style="width:50%"></div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--ink-500);margin-top:8px;font-family:'JetBrains Mono',monospace;letter-spacing:.02em;">11 of 14 days logged</p>
+  </div>
+
+  <!-- Body -->
+  <div class="pg-body" style="position:relative;z-index:1;">
+
+    <!-- Prototype disclaimer -->
+    <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(251,238,229,0.7);border:1px solid rgba(214,162,100,0.3);border-radius:14px;padding:13px 14px;margin-bottom:2px;" class="ani">
+      <span style="font-size:15px;flex-shrink:0;margin-top:1px;">🧪</span>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:rgba(140,90,30,0.7);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Prototype scenario</div>
+        <div style="font-size:12px;color:var(--ink-600);line-height:1.55;">This shows what your progress might look like after <strong style="color:var(--ink-800);">2 weeks</strong> of daily tracking — a hypothetical scenario to help you experience the full flow.</div>
+      </div>
+    </div>
+
+    <!-- Trend chart card -->
+    <div class="plain-card ani">
+      <div class="trend-head">
+        <div class="plan-section-label" style="margin-bottom:0;">Symptoms · last 14 days</div>
+        <span class="trend-key">taller = worse</span>
+      </div>
+      <div class="trend-chart">
+        <!-- Day bars: values 1-4 where 1=none, 4=severe -->
+        <div class="t-bar" style="height:58px;"></div>
+        <div class="t-bar" style="height:58px;"></div>
+        <div class="t-bar" style="height:72px;"></div>
+        <div class="t-bar" style="height:58px;"></div>
+        <div class="t-bar" style="height:58px;"></div>
+        <div class="t-bar" style="height:44px;"></div>
+        <div class="t-bar" style="height:58px;"></div>
+        <div class="t-bar improving" style="height:44px;"></div>
+        <div class="t-bar improving" style="height:44px;"></div>
+        <div class="t-bar improving" style="height:44px;"></div>
+        <div class="t-bar improving" style="height:26px;"></div>
+        <div class="t-bar improving" style="height:26px;"></div><!-- gap -->
+        <div class="t-bar improving" style="height:26px;opacity:.4;"></div>
+        <div class="t-bar improving" style="height:26px;opacity:.4;"></div>
+      </div>
+      <p class="trend-note">Symptoms look slightly calmer this week — but it's still early. Keep logging to the end of the trial before we read too much into it.</p>
+    </div>
+
+    <!-- Recent entries -->
+    <div class="ani">
+      <div class="plan-section-label" style="margin-bottom:10px;">Recent entries</div>
+      <div class="entries-list">
+        <div class="entry-row">
+          <span class="entry-date">Tue 14</span>
+          <span class="entry-symptom ok">Mild</span>
+          <span class="entry-taken">On track</span>
+        </div>
+        <div class="entry-row">
+          <span class="entry-date">Mon 13</span>
+          <span class="entry-symptom ok">Mild</span>
+          <span class="entry-taken">On track</span>
+        </div>
+        <div class="entry-row">
+          <span class="entry-date">Sun 12</span>
+          <span class="entry-symptom good">None</span>
+          <span class="entry-taken">Partly on track</span>
+        </div>
+        <div class="entry-row">
+          <span class="entry-date">Sat 11</span>
+          <span class="entry-symptom ok">Mild</span>
+          <span class="entry-taken">On track</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review CTA (visible after 4 weeks) -->
+    <div style="background:rgba(140,108,171,.06);border:1px solid rgba(140,108,171,.18);border-radius:18px;padding:16px;" class="ani">
+      <div style="font-size:12px;font-weight:700;color:var(--plum-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">4 weeks to go</div>
+      <div style="font-size:14px;font-weight:600;color:var(--ink-900);margin-bottom:4px;">Trial review on 28 Jun</div>
+      <div style="font-size:13px;color:var(--ink-600);line-height:1.5;margin-bottom:12px;">At week 6 we'll look at your logs together and you decide whether to keep going or move on.</div>
+      <a href="flow-b-review.html" style="font-size:13px;font-weight:600;color:var(--plum-500);text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+        Preview the review screen →
+      </a>
+    </div>
+
+    <!-- GP summary CTA -->
+    <a href="#" class="gp-summary-row ani">
+      <div class="gp-summary-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+      </div>
+      <div class="gp-summary-body">
+        <div class="gp-summary-title">Make a summary for your GP</div>
+        <div class="gp-summary-desc">Turn your logs into a one-page record to bring to your next appointment.</div>
+      </div>
+      <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--ink-500);stroke-width:2;fill:none;flex-shrink:0;"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item active">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

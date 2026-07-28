@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein Fortschritt · Psoriasis Erprobung 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(180deg, rgba(196,123,43,0.05) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="pg-head" style="position:relative;z-index:1;">
+    <h1 class="flow-hero-title sm">Dein Fortschritt</h1>
+    <p class="flow-hero-sub tight" style="margin-bottom:16px;">Erprobung 1 · Emollienzien &amp; Feuchtigkeitspflege</p>
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>Woche 3 von 6</span>
+        <span>50 %</span>
+      </div>
+      <div class="progress-bar-hero">
+        <div class="progress-fill-hero" style="width:50%"></div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--ink-500);margin-top:8px;font-family:'JetBrains Mono',monospace;letter-spacing:.02em;">17 von 21 Tagen dokumentiert</p>
+  </div>
+
+  <div class="pg-body" style="position:relative;z-index:1;">
+
+    <!-- Prototyp-Hinweis -->
+    <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(253,244,230,0.7);border:1px solid rgba(196,123,43,0.24);border-radius:14px;padding:13px 14px;margin-bottom:2px;" class="ani">
+      <span style="font-size:15px;flex-shrink:0;margin-top:1px;">🧪</span>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:rgba(140,90,30,0.7);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Prototyp-Szenario</div>
+        <div style="font-size:12px;color:var(--ink-600);line-height:1.55;">Dies zeigt, wie dein Fortschritt nach <strong style="color:var(--ink-800);">3 Wochen</strong> täglichem Tracking aussehen könnte — ein hypothetisches Szenario, um den vollständigen Ablauf zu erleben.</div>
+      </div>
+    </div>
+
+    <!-- Trenddiagramm -->
+    <div class="plain-card ani">
+      <div class="trend-head">
+        <div class="plan-section-label" style="margin-bottom:0;">Haut-Symptomintensität · letzte 21 Tage</div>
+        <span class="trend-key">höher = stärker</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--ink-500);">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:rgba(192,57,43,0.55);"></span>Schubtag
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--ink-500);">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--accent);opacity:.85;"></span>Verbesserung
+        </span>
+      </div>
+      <div class="trend-chart">
+        <div class="t-bar" style="height:72px;background:rgba(192,57,43,0.55);"></div>
+        <div class="t-bar" style="height:72px;"></div>
+        <div class="t-bar" style="height:58px;"></div>
+        <div class="t-bar" style="height:58px;background:rgba(192,57,43,0.55);"></div>
+        <div class="t-bar" style="height:72px;"></div>
+        <div class="t-bar" style="height:58px;"></div>
+        <div class="t-bar" style="height:44px;"></div>
+        <div class="t-bar improving" style="height:44px;"></div>
+        <div class="t-bar improving" style="height:44px;"></div>
+        <div class="t-bar improving" style="height:44px;"></div>
+        <div class="t-bar improving" style="height:26px;"></div>
+        <div class="t-bar improving" style="height:26px;"></div>
+        <div class="t-bar improving" style="height:26px;"></div>
+        <div class="t-bar improving" style="height:22px;"></div>
+        <div class="t-bar improving" style="height:22px;"></div>
+        <div class="t-bar improving" style="height:22px;"></div>
+        <div class="t-bar improving" style="height:26px;"></div>
+        <div class="t-bar improving" style="height:18px;"></div>
+        <div class="t-bar improving" style="height:18px;"></div>
+        <div class="t-bar improving" style="height:18px;opacity:.4;"></div>
+        <div class="t-bar improving" style="height:18px;opacity:.4;"></div>
+      </div>
+      <p class="trend-note">Juckreiz und Schuppenbildung in Woche 3 deutlich geringer als in Woche 1 — besonders an Tagen mit konsequenter Morgen- und Abendanwendung. Zwei Schubtage in Woche 1 sind sichtbar — konsistent mit dem Stress-Auslöser, den du erwähnt hast.</p>
+    </div>
+
+    <!-- Letzte Einträge -->
+    <div class="ani">
+      <div class="plan-section-label" style="margin-bottom:10px;">Letzte Einträge</div>
+      <div class="entries-list">
+        <div class="entry-row">
+          <span class="entry-date">Do 24</span>
+          <span class="entry-symptom ok">Besser</span>
+          <span class="entry-taken">Zweimal aufgetragen</span>
+        </div>
+        <div class="entry-row">
+          <span class="entry-date">Mi 23</span>
+          <span class="entry-symptom ok">Gleich</span>
+          <span class="entry-taken">Zweimal aufgetragen</span>
+        </div>
+        <div class="entry-row">
+          <span class="entry-date">Di 22</span>
+          <span class="entry-symptom ok">Besser</span>
+          <span class="entry-taken">Zweimal aufgetragen</span>
+        </div>
+        <div class="entry-row">
+          <span class="entry-date">Mo 21</span>
+          <span class="entry-symptom warn">Gleich</span>
+          <span class="entry-taken">Einmal aufgetragen</span>
+        </div>
+        <div class="entry-row">
+          <span class="entry-date">So 20</span>
+          <span class="entry-symptom ok">Besser</span>
+          <span class="entry-taken">Zweimal aufgetragen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dermatologin-Karte -->
+    <div class="gp-dark-card ani">
+      <div class="gp-dark-label">Mit deiner Dermatologin teilen</div>
+      <div class="gp-dark-title">Noch 3 Wochen Daten bis dein Bericht bereit ist</div>
+      <p class="gp-dark-sub">Nach 6 Wochen hast du einen vollständigen Trendbericht zum Teilen — Symptomveränderungen, Konsequenz, Schubtage. Das macht deinen nächsten Termin deutlich produktiver.</p>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item active">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #faf4f7 0%, #faf7f4 50%, #eef4f0 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 15%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+    .today-hero { padding: 18px 24px 14px; position: relative; z-index: 1; }
+    .cycle-pill-mini { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; color: var(--rose-700); background: rgba(224,122,150,0.12); border: 1px solid rgba(224,122,150,0.22); border-radius: 9999px; padding: 4px 10px; margin-bottom: 10px; }
+    .today-greeting { font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--ink-900); margin-bottom: 4px; line-height: 1.15; }
+    .today-date { font-size: 13px; color: var(--ink-500); font-weight: 500; margin-bottom: 2px; }
+    .today-body { padding: 0 24px; position: relative; z-index: 1; }
+    .checkin-cta-card { background: linear-gradient(135deg, rgba(224,122,150,0.14), rgba(184,84,114,0.08)); border: 1.5px solid rgba(224,122,150,0.30); border-radius: 18px; padding: 18px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+    .checkin-icon { font-size: 28px; flex-shrink: 0; }
+    .checkin-body-title { font-size: 16px; font-weight: 800; color: var(--ink-900); margin-bottom: 3px; }
+    .checkin-body-sub { font-size: 13px; color: var(--ink-600); line-height: 1.5; margin-bottom: 10px; }
+    .checkin-cta-btn { background: var(--rose-500); color: #fff; border: none; border-radius: 12px; padding: 11px 18px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
+    .cycle-mini-wrap { margin-bottom: 14px; }
+    .dose-reminder { background: rgba(255,255,255,0.65); border: 1px solid rgba(224,122,150,0.22); border-radius: 16px; padding: 16px; margin-bottom: 14px; display: flex; gap: 12px; align-items: center; }
+    .dose-icon { font-size: 24px; flex-shrink: 0; }
+    .dose-body-title { font-size: 14px; font-weight: 700; color: var(--ink-900); margin-bottom: 2px; }
+    .dose-body-sub { font-size: 12.5px; color: var(--ink-600); }
+    .dose-check-btn { background: rgba(224,122,150,0.12); border: 1px solid rgba(224,122,150,0.25); color: var(--rose-700); border-radius: 10px; padding: 7px 12px; font-family: 'Manrope', sans-serif; font-size: 12.5px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+    .phase-insight { background: rgba(168,165,212,0.10); border: 1px solid rgba(168,165,212,0.24); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+    .phase-insight-title { font-size: 13.5px; font-weight: 700; color: var(--ink-900); margin-bottom: 6px; }
+    .phase-insight-text { font-size: 13px; color: var(--ink-700); line-height: 1.55; }
+    .week-progress { background: rgba(255,255,255,0.58); border: 1px solid rgba(42,31,48,0.09); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+    .wp-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-500); margin-bottom: 10px; }
+    .wp-dots { display: flex; gap: 6px; margin-bottom: 6px; }
+    .wp-dot { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+    .wp-dot.done { background: var(--rose-500); color: #fff; }
+    .wp-dot.today { background: rgba(224,122,150,0.15); border: 1.5px dashed var(--rose-500); color: var(--rose-500); }
+    .wp-dot.empty { background: rgba(42,31,48,0.06); color: var(--ink-400); }
+    .wp-label { font-size: 11.5px; color: var(--ink-600); }
+    .spacer-tb { height: 80px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="today-hero">
+    <div class="cycle-pill-mini">◯ ~Day 22 · Luteal</div>
+    <div class="today-greeting">How are you feeling?</div>
+    <div class="today-date" id="todayDate"></div>
+  </div>
+
+  <div class="today-body">
+
+    <!-- Check-in CTA (hasn't checked in today) -->
+    <div class="checkin-cta-card">
+      <div class="checkin-icon">📋</div>
+      <div>
+        <div class="checkin-body-title">Time to check in</div>
+        <div class="checkin-body-sub">Log your dose and symptoms to keep your cycle data accurate. Takes 30 seconds.</div>
+        <a href="flow-b-checkin.html" class="checkin-cta-btn">Check in now</a>
+      </div>
+    </div>
+
+    <!-- Dose reminder -->
+    <div class="dose-reminder">
+      <div class="dose-icon">🧪</div>
+      <div style="flex:1;">
+        <div class="dose-body-title">Myo-inositol · evening dose</div>
+        <div class="dose-body-sub">4g dissolved in water · second dose of the day</div>
+        <button class="dose-check-btn" onclick="this.textContent='✓ Marked taken';this.style.background='rgba(107,154,139,0.15)';this.style.borderColor='var(--sage-500)';this.style.color='#1a5e47';">Mark as taken</button>
+      </div>
+    </div>
+
+    <!-- Cycle mini bar -->
+    <div class="cycle-mini-wrap">
+      <div class="cycle-phase-card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+          <span style="font-size:13px;font-weight:700;color:var(--ink-700);">Luteal phase · ~9 days left</span>
+          <a href="cycle-view.html" style="font-size:11px;font-weight:600;color:var(--rose-500);text-decoration:none;">View full →</a>
+        </div>
+        <div class="phase-bar">
+          <div class="phase-seg-menstrual"></div>
+          <div class="phase-seg-follicular"></div>
+          <div class="phase-seg-ovulatory"></div>
+          <div class="phase-seg-luteal"></div>
+          <div class="phase-you-are-here" style="right:16%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase insight -->
+    <div class="phase-insight">
+      <div class="phase-insight-title">Luteal phase insight</div>
+      <div class="phase-insight-text">Your check-ins show bloating and mood dips are most common for you in this phase. This is typical for PCOS — progesterone sensitivity can amplify these symptoms. Staying consistent with myo-inositol may gradually reduce their intensity over cycles.</div>
+    </div>
+
+    <!-- Weekly check-in dots -->
+    <div class="week-progress">
+      <div class="wp-title">This week's check-ins</div>
+      <div class="wp-dots">
+        <div class="wp-dot done">M</div>
+        <div class="wp-dot done">T</div>
+        <div class="wp-dot done">W</div>
+        <div class="wp-dot done">T</div>
+        <div class="wp-dot today">F</div>
+        <div class="wp-dot empty">S</div>
+        <div class="wp-dot empty">S</div>
+      </div>
+      <div class="wp-label">4/7 logged this week · Check in to keep the streak.</div>
+    </div>
+
+    <div class="spacer-tb"></div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="cycle-view.html" class="tab-item"><span class="tab-icon">◯</span>Cycle</a>
+    <a href="flow-b-plan-active.html" class="tab-item active"><span class="tab-icon">✦</span>My Plan</a>
+    <a href="flow-a-overview.html" class="tab-item"><span class="tab-icon">◉</span>Research</a>
+    <a href="#" class="tab-item"><span class="tab-icon">○</span>You</a>
+  </div>
+
+</div>
+<script>
+var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var d = new Date();
+document.getElementById('todayDate').textContent = d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+</script>
+</body>
+</html>

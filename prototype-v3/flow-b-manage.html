@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Trial · Peppermint Oil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Head -->
+  <div class="ci-head" style="position:relative;z-index:1;background:var(--surface-page);">
+    <div class="flow-nav">
+      <a href="flow-b-trial.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Trial 1 · Peppermint oil
+      </a>
+    </div>
+    <h1 class="flow-hero-title sm">Manage this trial</h1>
+    <p class="flow-hero-sub tight">Your call, any time. Stopping or switching is completely fine — it all helps us learn what works for you.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="flow-body" style="padding-bottom:40px;">
+
+    <!-- Options -->
+    <div class="manage-opt ani" onclick="document.querySelectorAll('.manage-opt').forEach(o=>o.classList.remove('selected'));this.classList.add('selected');">
+      <div class="manage-opt-body">
+        <div class="manage-opt-title">Keep going</div>
+        <div class="manage-opt-desc">Carry on your 4-week trial as planned.</div>
+      </div>
+    </div>
+
+    <div class="manage-opt ani" onclick="document.querySelectorAll('.manage-opt').forEach(o=>o.classList.remove('selected'));this.classList.add('selected');">
+      <div class="manage-opt-body">
+        <div class="manage-opt-title">Pause for now</div>
+        <div class="manage-opt-desc">Stop logging without ending the trial. Resume when ready.</div>
+      </div>
+    </div>
+
+    <div class="manage-opt selected ani" onclick="document.querySelectorAll('.manage-opt').forEach(o=>o.classList.remove('selected'));this.classList.add('selected');">
+      <div class="manage-opt-body">
+        <div class="manage-opt-title">Stop &amp; try something else</div>
+        <div class="manage-opt-desc">End this trial and pick another to start.</div>
+      </div>
+      <span class="manage-check">
+        <svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>
+      </span>
+    </div>
+
+    <!-- Reason chips -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">What's prompting the change? <span class="opt-tag">optional</span></div>
+      <div class="sym-chips">
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Didn't suit me</span>
+        <span class="sym-chip active" onclick="this.classList.toggle('active')">Side effects</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Too hard to stick to</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Not helping</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Want to try something else</span>
+      </div>
+    </div>
+
+    <!-- Side effect note -->
+    <div class="note-soft ani">
+      <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+      You flagged side effects — it's worth mentioning to your GP. We'll add it to your notes so it's there at your next visit.
+    </div>
+
+    <!-- What to start instead -->
+    <div class="ani">
+      <div class="plan-section-label" style="margin-bottom:10px;">Start instead</div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="swap-row">
+          <div class="cat-icon-flow sm bg-ember">
+            <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+          </div>
+          <div class="swap-body">
+            <div class="swap-title">Low FODMAP diet</div>
+            <div class="swap-cat">Diet · ~8 weeks</div>
+          </div>
+          <a href="flow-b-trial.html" class="swap-start">Start</a>
+        </div>
+
+        <div class="swap-row">
+          <div class="cat-icon-flow sm bg-plum">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+          </div>
+          <div class="swap-body">
+            <div class="swap-title">Gut-directed hypnotherapy</div>
+            <div class="swap-cat">Lifestyle · 8 sessions</div>
+          </div>
+          <a href="flow-b-weekly.html" class="swap-start">Start</a>
+        </div>
+
+        <div class="swap-row">
+          <div class="cat-icon-flow sm bg-ember">
+            <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+          </div>
+          <div class="swap-body">
+            <div class="swap-title">Mediterranean diet</div>
+            <div class="swap-cat">Diet · ongoing</div>
+          </div>
+          <a href="#" class="swap-start">Start</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

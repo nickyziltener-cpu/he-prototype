@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Shortlist · IBS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -80px; left: -80px;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .28;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sl-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255,255,255,.62);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255,255,255,.75);
+      border-radius: 20px;
+      padding: 18px 16px;
+      box-shadow: var(--shadow-card);
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sl-card:hover { box-shadow: var(--shadow-raised); }
+    .sl-card.picked {
+      background: rgba(140,108,171,.10);
+      border-color: rgba(140,108,171,.35);
+    }
+
+    .sl-check {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(140,108,171,.35);
+      background: rgba(255,255,255,.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .sl-card.picked .sl-check {
+      background: var(--plum-500);
+      border-color: var(--plum-500);
+    }
+    .sl-check svg {
+      width: 13px; height: 13px;
+      stroke: #fff;
+      stroke-width: 2.5;
+      fill: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .sl-card.picked .sl-check svg { opacity: 1; }
+
+    .sl-card-body { flex: 1; min-width: 0; }
+    .sl-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .sl-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink-900);
+      margin-bottom: 5px;
+      line-height: 1.25;
+    }
+    .sl-card-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-600);
+    }
+
+    .sl-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0 2px;
+    }
+    .sl-divider::before,
+    .sl-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-hairline);
+    }
+    .sl-divider-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--ink-400);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .sl-swap-hint {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--plum-600);
+      background: rgba(140,108,171,.10);
+      border: 1px solid rgba(140,108,171,.22);
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-align: center;
+    }
+
+    .sl-empty {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--ink-500);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .sl-empty a {
+      color: var(--plum-500);
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="padding-top:6px;background:rgba(251,238,229,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.45);">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Browse all
+      </a>
+    </div>
+    <div class="flow-count-pill flow-count-pill--plum" id="shortlistCountPill">0 saved</div>
+    <h1 class="flow-hero-title">Pick your top 3</h1>
+    <p class="flow-hero-sub" id="heroSub">Ranked by evidence strength. We recommend starting with no more than 3 — trying too many changes at once makes it impossible to know what's actually helping.</p>
+  </div>
+
+  <div class="flow-body" style="display:flex;flex-direction:column;gap:10px;padding-bottom:110px;" id="cardList">
+    <!-- Cards injected by JS -->
+  </div>
+
+  <div class="cta-bar-sticky">
+    <div class="sl-swap-hint" id="swapHint" style="display:none;margin-bottom:8px;">
+      Uncheck one above first, then tap to swap it in.
+    </div>
+    <a href="flow-b-plan.html" class="cta-btn-full" id="shortlistCta" style="opacity:0.4;pointer-events:none;">
+      Select treatments to continue
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var MAX = 3;
+
+  var ICONS = {
+    diet:       '<svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>',
+    supps:      '<svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>',
+    mindbody:   '<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'
+  };
+
+  var CATALOG = {
+    'low-fodmap':        { name: 'Low FODMAP diet',                     ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Diet',         icon: ICONS.diet,     desc: 'The most studied dietary change for IBS — 50–80% of people see meaningful relief.' },
+    'hypnotherapy':      { name: 'Gut-directed hypnotherapy',           ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Guided sessions targeting the gut–brain axis. Consistent evidence across Cochrane-reviewed trials.' },
+    'cbt':               { name: 'Cognitive behavioural therapy (CBT)', ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Restructures thought patterns that amplify pain signals — among the strongest psychological evidence.' },
+    'mediterranean':     { name: 'Mediterranean diet',                  ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Diet',         icon: ICONS.diet,     desc: 'An anti-inflammatory eating pattern linked to lower symptom severity and better gut diversity.' },
+    'psyllium':          { name: 'Soluble fibre (psyllium)',            ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Diet',         icon: ICONS.diet,     desc: 'Regulates stool consistency — useful for IBS-D and IBS-C alike.' },
+    'peppermint-oil':    { name: 'Peppermint oil (enteric-coated)',     ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Supplements',  icon: ICONS.supps,    desc: 'Relaxes the gut muscle wall. Low cost, no prescription needed, quick to show an effect.' },
+    'mbsr':              { name: 'Mindfulness-based stress reduction',  ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Mindfulness programme that lowers stress reactivity and reduces symptom severity.' },
+    'gluten-free':       { name: 'Gluten restriction',                  ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Diet',         icon: ICONS.diet,     desc: 'Removes wheat proteins that can worsen symptoms in a subset of IBS patients.' },
+    'low-fat-diet':      { name: 'Low-fat diet',                        ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Diet',         icon: ICONS.diet,     desc: 'Reduces fat-triggered motility spikes — helpful when rich meals reliably cause flares.' },
+    'probiotics':        { name: 'Probiotics',                          ev: 'ev-med',  evLabel: 'Mixed evidence',    evRank: 2, cat: 'Supplements',  icon: ICONS.supps,    desc: 'Some strains reduce bloating and pain — evidence is highly strain-specific.' },
+    'iberogast':         { name: 'STW 5 (Iberogast)',                   ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Supplements',  icon: ICONS.supps,    desc: 'Herbal blend with modest evidence for reducing overall IBS symptom scores.' },
+    'glutamine':         { name: 'Glutamine',                           ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Supplements',  icon: ICONS.supps,    desc: 'Supports gut barrier integrity — early evidence suggests benefit in IBS-D particularly.' },
+    'act':               { name: 'Acceptance & commitment therapy',     ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Reduces suffering by changing your relationship to symptoms, not the symptoms themselves.' },
+    'exercise':          { name: 'Exercise therapy',                    ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Regular moderate aerobic activity consistently reduces IBS severity scores.' },
+    'breathing':         { name: 'Diaphragmatic breathing',             ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Slow diaphragmatic breathing calms vagal tone and eases visceral sensitivity.' },
+    'yoga':              { name: 'Yoga & gentle movement',              ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Combines movement, breath, and relaxation — shown to reduce IBS symptom scores.' },
+    'scd-diet':          { name: 'Specific carbohydrate diet',          ev: 'ev-low',  evLabel: 'Limited evidence',  evRank: 3, cat: 'Diet',         icon: ICONS.diet,     desc: 'Restricts complex carbs to reduce dysbiosis — promising but early-stage research.' },
+    'aloe-vera':         { name: 'Aloe vera',                           ev: 'ev-low',  evLabel: 'Limited evidence',  evRank: 3, cat: 'Supplements',  icon: ICONS.supps,    desc: 'Traditionally used for gut soothing — evidence in IBS remains preliminary.' },
+    'artichoke-extract': { name: 'Artichoke leaf extract',              ev: 'ev-low',  evLabel: 'Limited evidence',  evRank: 3, cat: 'Supplements',  icon: ICONS.supps,    desc: 'May ease bloating and discomfort — small trials, limited IBS-specific data.' },
+    'biofeedback':       { name: 'Biofeedback',                         ev: 'ev-low',  evLabel: 'Limited evidence',  evRank: 3, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Uses sensor feedback to teach control of gut responses — emerging evidence.' },
+    'pmr':               { name: 'Progressive muscle relaxation',       ev: 'ev-low',  evLabel: 'Limited evidence',  evRank: 3, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Progressive relaxation of muscle groups to reduce tension-driven gut activation.' },
+    'psychodynamic':     { name: 'Psychodynamic therapy',               ev: 'ev-low',  evLabel: 'Limited evidence',  evRank: 3, cat: 'Mind & Body',  icon: ICONS.mindbody, desc: 'Explores emotional roots of gut symptoms — promising approach, limited trial data.' }
+  };
+
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem('selectedTreatments') || '[]'); } catch(e) { saved = []; }
+
+  var picked = [];
+
+  var cardList = document.getElementById('cardList');
+  var pill     = document.getElementById('shortlistCountPill');
+  var cta      = document.getElementById('shortlistCta');
+  var swapHint = document.getElementById('swapHint');
+
+  // Update saved count pill
+  if (pill) pill.textContent = saved.length + ' saved';
+
+  if (saved.length === 0) {
+    cardList.innerHTML = '<div class="sl-empty">You haven\'t saved any treatments yet.<br><br><a href="flow-a-start.html">Go back and save some →</a></div>';
+  } else {
+    // Sort by evidence rank, then stable by original order
+    var sorted = saved.slice().sort(function(a, b) {
+      var ra = CATALOG[a.id] ? CATALOG[a.id].evRank : 99;
+      var rb = CATALOG[b.id] ? CATALOG[b.id].evRank : 99;
+      return ra - rb;
+    });
+
+    var lastRank = -1;
+    var RANK_LABELS = { 0: 'Strong evidence', 1: 'Good evidence', 2: 'Moderate evidence', 3: 'Limited evidence' };
+
+    sorted.forEach(function(t) {
+      var info = CATALOG[t.id];
+      var rank = info ? info.evRank : 99;
+
+      // Insert tier divider when rank changes
+      if (rank !== lastRank && lastRank !== -1) {
+        var div = document.createElement('div');
+        div.className = 'sl-divider';
+        div.innerHTML = '<span class="sl-divider-label">' + (RANK_LABELS[rank] || 'Other') + '</span>';
+        cardList.appendChild(div);
+      }
+      lastRank = rank;
+
+      var ev      = info ? info.ev      : 'ev-low';
+      var evLabel = info ? info.evLabel : '';
+      var cat     = info ? info.cat     : '';
+      var icon    = info ? info.icon    : '';
+      var desc    = info ? info.desc    : '';
+      var name    = info ? info.name    : t.name;
+
+      var card = document.createElement('div');
+      card.className = 'sl-card ani';
+      card.id = 'card-' + t.id;
+      card.innerHTML =
+        '<div class="sl-check"><svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg></div>' +
+        '<div class="sl-card-body">' +
+          '<div class="sl-card-meta">' +
+            '<span class="evchip-flow ' + ev + '"><span class="ev-dot"></span>' + evLabel + '</span>' +
+            '<span class="chip-cat-flow">' + icon + cat + '</span>' +
+          '</div>' +
+          '<div class="sl-card-title">' + name + '</div>' +
+          (desc ? '<div class="sl-card-desc">' + desc + '</div>' : '') +
+        '</div>';
+
+      card.addEventListener('click', function() { toggle(t.id); });
+      cardList.appendChild(card);
+    });
+
+    // "Why start with 3?" note
+    var note = document.createElement('div');
+    note.style.cssText = 'background:rgba(255,255,255,.45);border:1px solid var(--border-hairline);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--ink-600);line-height:1.55;margin-top:4px;';
+    note.innerHTML = '<strong style="color:var(--ink-800);">Why start with 3?</strong> Trying changes one at a time means you can tell what\'s actually helping. Your plan will sequence these — start whichever feels right, then move to the next.';
+    cardList.appendChild(note);
+  }
+
+  function toggle(id) {
+    var idx = picked.indexOf(id);
+    if (idx !== -1) {
+      picked.splice(idx, 1);
+    } else {
+      if (picked.length >= MAX) {
+        showSwapHint();
+        return;
+      }
+      picked.push(id);
+    }
+    updateUI();
+  }
+
+  function showSwapHint() {
+    swapHint.style.display = 'block';
+    clearTimeout(swapHint._t);
+    swapHint._t = setTimeout(function() { swapHint.style.display = 'none'; }, 3000);
+  }
+
+  function updateUI() {
+    // Card states
+    saved.forEach(function(t) {
+      var card = document.getElementById('card-' + t.id);
+      if (!card) return;
+      if (picked.indexOf(t.id) !== -1) { card.classList.add('picked'); }
+      else { card.classList.remove('picked'); }
+    });
+
+    // CTA
+    var n = picked.length;
+    if (n === 0) {
+      cta.style.opacity = '0.4';
+      cta.style.pointerEvents = 'none';
+      cta.innerHTML = 'Select treatments to continue <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    } else {
+      cta.style.opacity = '1';
+      cta.style.pointerEvents = 'auto';
+      cta.innerHTML = 'Create my plan with ' + n + ' treatment' + (n !== 1 ? 's' : '') + ' <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Check-in · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #faf7f4 0%, #f3ecf1 80%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .15; pointer-events: none; z-index: 0; }
+    .checkin-hero { padding: 16px 24px 14px; position: relative; z-index: 1; }
+    .checkin-date { font-size: 12px; font-weight: 700; color: var(--ink-500); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .checkin-title { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--ink-900); }
+    .checkin-body { padding: 0 24px; position: relative; z-index: 1; }
+    .checkin-section { margin-bottom: 20px; }
+    .checkin-section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: var(--ink-500); margin-bottom: 10px; }
+    .dose-check { background: rgba(224,122,150,0.08); border: 1.5px solid rgba(224,122,150,0.25); border-radius: 16px; padding: 16px; display: flex; gap: 14px; align-items: center; }
+    .dose-check.done { background: rgba(107,154,139,0.10); border-color: rgba(107,154,139,0.28); }
+    .dose-checkbox { width: 40px; height: 40px; border-radius: 12px; border: 2px solid rgba(224,122,150,0.50); background: rgba(255,255,255,0.60); display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; font-size: 20px; }
+    .dose-check.done .dose-checkbox { background: var(--sage-500); border-color: var(--sage-500); }
+    .dose-label-wrap { flex: 1; }
+    .dose-label { font-size: 14.5px; font-weight: 700; color: var(--ink-900); }
+    .dose-sub { font-size: 12.5px; color: var(--ink-600); margin-top: 2px; }
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .symptom-chip { font-size: 13px; font-weight: 500; color: var(--ink-700); background: rgba(255,255,255,0.55); border: 1px solid rgba(42,31,48,0.12); border-radius: 9999px; padding: 7px 14px; cursor: pointer; transition: all 0.15s; }
+    .symptom-chip.sel { background: rgba(224,122,150,0.15); border-color: var(--rose-500); color: var(--rose-700); font-weight: 700; }
+    .none-chip { font-size: 13px; font-weight: 500; color: var(--ink-700); background: rgba(255,255,255,0.55); border: 1px solid rgba(42,31,48,0.12); border-radius: 9999px; padding: 7px 14px; cursor: pointer; }
+    .none-chip.sel { background: rgba(107,154,139,0.14); border-color: var(--sage-500); color: #1a5e47; }
+    .energy-row { display: flex; gap: 8px; justify-content: space-between; }
+    .energy-btn { flex: 1; background: rgba(255,255,255,0.55); border: 1px solid rgba(42,31,48,0.12); border-radius: 12px; padding: 10px 6px; text-align: center; cursor: pointer; font-size: 12px; color: var(--ink-600); font-weight: 500; }
+    .energy-btn.sel { background: rgba(224,122,150,0.14); border-color: var(--rose-500); color: var(--rose-700); font-weight: 700; }
+    .energy-btn .emoji { font-size: 20px; display: block; margin-bottom: 3px; }
+    .cycle-snapshot { margin-bottom: 20px; }
+    .submit-checkin-btn { width: 100%; background: var(--rose-500); color: #fff; border: none; border-radius: 14px; padding: 16px 20px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .spacer-cta { height: 90px; }
+    .habit-toggle { display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.55);border:1.5px solid rgba(42,31,48,0.10);border-radius:14px;padding:12px 14px;cursor:pointer;transition:background 0.15s,border-color 0.15s; }
+    .habit-toggle.on { background:rgba(107,154,139,0.10);border-color:rgba(107,154,139,0.35); }
+    .habit-label { font-size:13.5px;font-weight:700;color:var(--ink-900); }
+    .habit-sub { font-size:11.5px;color:var(--ink-500);margin-top:1px; }
+    .habit-check { width:22px;height:22px;border-radius:50%;border:2px solid rgba(42,31,48,0.18);background:rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;font-size:12px;transition:background 0.15s,border-color 0.15s;flex-shrink:0; }
+    .habit-toggle.on .habit-check { background:var(--sage-500);border-color:var(--sage-500);color:#fff; }
+    .detail-cta { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; padding: 16px 24px 28px; background: linear-gradient(to top, rgba(250,247,244,1) 70%, rgba(250,247,244,0)); z-index: 100; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="checkin-hero">
+    <div class="checkin-date" id="todayDate"></div>
+    <div class="checkin-title">Today's check-in</div>
+  </div>
+
+  <div class="checkin-body">
+
+    <!-- Cycle Phase Card (PCOS-specific UI element) -->
+    <div class="checkin-section cycle-snapshot">
+      <div class="checkin-section-title">Your cycle</div>
+      <div class="cycle-phase-card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+          <div style="font-size:13px;font-weight:700;color:var(--ink-700);">~Day 22 · Luteal phase</div>
+          <a href="cycle-view.html" style="font-size:11px;font-weight:600;color:var(--rose-500);text-decoration:none;">View detail →</a>
+        </div>
+        <div class="phase-bar phase-bar-expanded" style="margin-bottom:6px;">
+          <div class="phase-seg-menstrual"></div>
+          <div class="phase-seg-follicular"></div>
+          <div class="phase-seg-ovulatory"></div>
+          <div class="phase-seg-luteal"></div>
+          <div class="phase-you-are-here" style="right:16%;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--ink-500);font-weight:500;margin-top:4px;">
+          <span>Menstrual</span><span>Follicular</span><span>Ovulatory</span><span>Luteal</span>
+        </div>
+        <div style="margin-top:10px;font-size:12.5px;color:var(--ink-600);line-height:1.5;background:rgba(184,84,114,0.07);border-radius:10px;padding:8px 10px;">
+          <strong style="color:var(--ink-800);">Luteal phase:</strong> Progesterone is dominant. Common PCOS symptoms — bloating, mood dips, fatigue — are most likely now.
+        </div>
+      </div>
+    </div>
+
+    <!-- Dose check -->
+    <div class="checkin-section">
+      <div class="checkin-section-title">Treatment today</div>
+      <div class="dose-check" id="doseCard">
+        <div class="dose-checkbox" id="doseBox" onclick="toggleDose()">
+          <span id="doseCheck" style="display:none;">✓</span>
+        </div>
+        <div class="dose-label-wrap">
+          <div class="dose-label">Myo-inositol (4g)</div>
+          <div class="dose-sub">Morning + evening · dissolved in water</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Energy -->
+    <div class="checkin-section">
+      <div class="checkin-section-title">Energy today</div>
+      <div class="energy-row" id="energyRow">
+        <div class="energy-btn" onclick="selectEnergy(this,'low')"><span class="emoji">😴</span>Low</div>
+        <div class="energy-btn" onclick="selectEnergy(this,'okay')"><span class="emoji">😐</span>Okay</div>
+        <div class="energy-btn" onclick="selectEnergy(this,'good')"><span class="emoji">😊</span>Good</div>
+        <div class="energy-btn" onclick="selectEnergy(this,'great')"><span class="emoji">⚡</span>Great</div>
+      </div>
+    </div>
+
+    <!-- Foundation Habits -->
+    <div class="checkin-section">
+      <div class="checkin-section-title">Foundation habits</div>
+      <div style="font-size:12px;color:var(--ink-500);margin-bottom:10px;line-height:1.5;">Always tracked as context — these are your baseline, not a trial.</div>
+      <div style="display:flex;flex-direction:column;gap:8px;" id="habitsGrid">
+        <div class="habit-toggle" id="habit-exercise" onclick="toggleHabit('exercise',this)">
+          <div style="font-size:18px;flex-shrink:0;">🏃</div>
+          <div style="flex:1;"><div class="habit-label">Exercise</div><div class="habit-sub">Any movement today</div></div>
+          <div class="habit-check" id="hc-exercise"></div>
+        </div>
+        <div class="habit-toggle" id="habit-lowgi" onclick="toggleHabit('lowgi',this)">
+          <div style="font-size:18px;flex-shrink:0;">🥗</div>
+          <div style="flex:1;"><div class="habit-label">Low-GI eating</div><div class="habit-sub">Stuck to lower-GI foods today</div></div>
+          <div class="habit-check" id="hc-lowgi"></div>
+        </div>
+        <div class="habit-toggle" id="habit-sleep" onclick="toggleHabit('sleep',this)">
+          <div style="font-size:18px;flex-shrink:0;">🌙</div>
+          <div style="flex:1;"><div class="habit-label">Sleep</div><div class="habit-sub">7–8h last night</div></div>
+          <div class="habit-check" id="hc-sleep"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PCOS Symptoms -->
+    <div class="checkin-section">
+      <div class="checkin-section-title">Symptoms today · Luteal phase</div>
+      <div class="chip-grid" id="symptomGrid">
+        <div class="symptom-chip" onclick="toggleChip(this)">Bloating</div>
+        <div class="symptom-chip" onclick="toggleChip(this)">Mood dip</div>
+        <div class="symptom-chip" onclick="toggleChip(this)">Fatigue</div>
+        <div class="symptom-chip" onclick="toggleChip(this)">Cravings</div>
+        <div class="symptom-chip" onclick="toggleChip(this)">Cramps</div>
+        <div class="none-chip" onclick="toggleNone(this)">None today</div>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="checkin-section">
+      <div class="checkin-section-title">Optional note</div>
+      <textarea style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.55);border:1px solid rgba(42,31,48,0.12);border-radius:14px;padding:12px 14px;font-family:'Manrope',sans-serif;font-size:13.5px;color:var(--ink-800);resize:none;outline:none;min-height:72px;" placeholder="Anything to note about today…" id="noteField"></textarea>
+    </div>
+
+    <div class="spacer-cta"></div>
+  </div>
+
+</div>
+<div class="detail-cta">
+  <button class="submit-checkin-btn" onclick="submitCheckin()">Log check-in</button>
+</div>
+
+<script>
+var doseDone = false;
+var energyVal = '';
+var habits = { exercise: false, lowgi: false, sleep: false };
+
+var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var d = new Date();
+document.getElementById('todayDate').textContent = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][d.getDay()] + ' · ' + d.getDate() + ' ' + months[d.getMonth()];
+
+function toggleDose() {
+  doseDone = !doseDone;
+  var card = document.getElementById('doseCard');
+  var box = document.getElementById('doseBox');
+  var check = document.getElementById('doseCheck');
+  card.classList.toggle('done', doseDone);
+  check.style.display = doseDone ? 'block' : 'none';
+  box.style.color = doseDone ? '#fff' : '';
+}
+
+function selectEnergy(btn, val) {
+  energyVal = val;
+  document.querySelectorAll('.energy-btn').forEach(function(b) { b.classList.remove('sel'); });
+  btn.classList.add('sel');
+}
+
+function toggleHabit(key, el) {
+  habits[key] = !habits[key];
+  el.classList.toggle('on', habits[key]);
+  document.getElementById('hc-' + key).textContent = habits[key] ? '✓' : '';
+}
+
+function toggleChip(chip) {
+  var noneEl = document.querySelector('.none-chip.sel');
+  if (noneEl) noneEl.classList.remove('sel');
+  chip.classList.toggle('sel');
+}
+function toggleNone(chip) {
+  document.querySelectorAll('.symptom-chip.sel').forEach(function(c){c.classList.remove('sel');});
+  chip.classList.toggle('sel');
+}
+
+function submitCheckin() {
+  var symptoms = Array.from(document.querySelectorAll('.symptom-chip.sel')).map(function(c){return c.textContent;});
+  var noneSelected = document.querySelector('.none-chip.sel');
+  var log = JSON.parse(localStorage.getItem('pcos_checkins') || '[]');
+  log.push({
+    date: new Date().toISOString().slice(0,10),
+    dose: doseDone,
+    energy: energyVal,
+    habits: { exercise: habits.exercise, lowgi: habits.lowgi, sleep: habits.sleep },
+    symptoms: noneSelected ? [] : symptoms,
+    note: document.getElementById('noteField').value
+  });
+  localStorage.setItem('pcos_checkins', JSON.stringify(log));
+  window.location.href = 'today-logged.html';
+}
+</script>
+</body>
+</html>

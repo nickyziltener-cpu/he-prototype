@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet & Nutrition · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f0f7f2 0%, #faf7f4 70%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .15; pointer-events: none; z-index: 0; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="flow-hero flow-hero--sage">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Browse all</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div class="cat-icon-flow bg-sage"><svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg></div>
+      <div class="flow-count-pill" style="margin-bottom:0;">4 treatments</div>
+    </div>
+    <h1 class="flow-hero-title sm">Diet &amp; nutrition</h1>
+    <p class="flow-hero-sub tight">Dietary changes that improve insulin sensitivity and reduce PCOS-driven hormone imbalance.</p>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span></div>
+      <div class="lcard-title-flow">Low-GI diet</div>
+      <div class="lcard-desc-flow">Lower glycaemic foods reduce insulin spikes — the metabolic driver of PCOS symptoms for most people. RCTs consistently show improvements in fasting insulin, testosterone, and menstrual frequency.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="low-gi-diet" data-treatment-name="Low-GI diet">Save</button>
+        <a href="flow-a-detail-lowgi.html" class="learn-more">Learn more <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span></div>
+      <div class="lcard-title-flow">Anti-inflammatory diet</div>
+      <div class="lcard-desc-flow">Chronic low-grade inflammation is a feature of PCOS. A diet rich in vegetables, oily fish, nuts, and olive oil reduces inflammatory markers and may improve hormonal balance.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="anti-inflammatory-diet" data-treatment-name="Anti-inflammatory diet">Save</button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span></div>
+      <div class="lcard-title-flow">Mediterranean diet</div>
+      <div class="lcard-desc-flow">Broadly consistent with both low-GI and anti-inflammatory principles. Observational and interventional data support improvements in metabolic markers and menstrual regularity.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="mediterranean-diet" data-treatment-name="Mediterranean diet">Save</button>
+      </div>
+    </div>
+
+    <button class="show-more-btn" onclick="toggleMore(this)">Show 1 more option</button>
+    <div class="more-cards">
+      <div class="lcard-flow" style="margin-top:8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-med"><span class="ev-dot"></span>Moderate evidence</span></div>
+        <div class="lcard-title-flow">Low-carbohydrate diet</div>
+        <div class="lcard-desc-flow">More restrictive than low-GI. Some RCTs show rapid improvements in insulin and androgen markers. Adherence is difficult long-term; evidence for sustained benefit is mixed.</div>
+        <div class="lcard-foot-flow"><button class="try-btn" data-treatment-id="low-carb" data-treatment-name="Low-carbohydrate diet">Save</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="selection-tray" id="selTray">
+    <div class="tray-count-flow"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> <span id="trayNum">0</span> saved</div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" id="trayCta">Create my plan <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+
+</div>
+<script>
+var KEY = 'pcos_selectedTreatments';
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+function saveSelected(a) { localStorage.setItem(KEY, JSON.stringify(a)); }
+function toggleMore(btn) { var mc = btn.nextElementSibling; mc.classList.toggle('open'); btn.classList.toggle('open'); btn.textContent = mc.classList.contains('open') ? 'Show fewer options' : 'Show 1 more option'; }
+function refresh() {
+  var sel = getSelected(); var ids = sel.map(function(t){return t.id;});
+  document.querySelectorAll('.try-btn').forEach(function(btn) { var id = btn.getAttribute('data-treatment-id'); if (ids.includes(id)) { btn.textContent='Saved ✓'; btn.classList.add('added'); } else { btn.textContent='Save'; btn.classList.remove('added'); } });
+  document.getElementById('trayNum').textContent = sel.length;
+  document.getElementById('trayCta').classList.toggle('tray-cta-disabled', sel.length === 0);
+}
+document.querySelectorAll('.try-btn').forEach(function(btn) { btn.addEventListener('click', function() { var id=btn.getAttribute('data-treatment-id'); var name=btn.getAttribute('data-treatment-name'); var sel=getSelected(); var idx=sel.findIndex(function(t){return t.id===id;}); if(idx>-1) sel.splice(idx,1); else sel.push({id:id,name:name}); saveSelected(sel); refresh(); }); });
+refresh();
+</script>
+</body>
+</html>

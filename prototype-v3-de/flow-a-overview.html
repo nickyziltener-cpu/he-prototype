@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behandlungsoptionen · Übersicht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 280px;
+      background: linear-gradient(180deg, rgba(140,108,171,0.05) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -80px; left: -80px;
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .25;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Page header -->
+  <div style="padding: 8px 24px 24px; position: relative; z-index: 1;">
+    <div class="flow-nav">
+      <a href="flow-a-start.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Starte hier
+      </a>
+      <span class="selection-badge" data-header-counter>0 von 3 ausgewählt</span>
+    </div>
+    <h1 class="flow-hero-title sm">Behandlungsoptionen</h1>
+    <p class="flow-hero-sub">23 Ansätze in vier Bereichen. Öffne einen, um die Evidenz zu lesen — speichere, was dich interessiert, und wir helfen dir, einen Anfang zu finden.</p>
+  </div>
+
+  <!-- Category rows -->
+  <div style="padding: 4px 20px 176px; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1;">
+
+    <a href="flow-a-diet.html" class="catrow-flow ani">
+      <div class="cat-icon-flow bg-ember">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Ernährung</div>
+        <div class="catrow-meta-flow">5 Optionen · <strong>1 stark belegt</strong></div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a href="flow-a-supplements.html" class="catrow-flow ani">
+      <div class="cat-icon-flow bg-sage">
+        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Nahrungsergänzung</div>
+        <div class="catrow-meta-flow">6 Optionen · <strong>1 stark belegt</strong></div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a href="flow-a-mindbody.html" class="catrow-flow ani" id="mindBodyRow" style="background: var(--category-psychological-wash); border-color: rgba(181,152,201,0.3);">
+      <div class="cat-icon-flow bg-aurora">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Geist &amp; Körper</div>
+        <div class="catrow-meta-flow" style="display:flex;flex-direction:column;gap:2px;">
+          <span>10 Optionen · <strong>4 stark belegt</strong></span>
+          <span id="stressBadge" style="font-size:11px;color:var(--plum-500);font-weight:600;">✦ Starke Übereinstimmung mit deinem Stress-Auslöser</span>
+        </div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a href="flow-a-medical.html" class="catrow-flow ani">
+      <div class="cat-icon-flow bg-dark">
+        <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Medikamente &amp; medizinische Behandlung</div>
+        <div class="catrow-meta-flow">5 Optionen · <strong>Über Hausarzt/-ärztin</strong></div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <div class="footer-mono ani">Basierend auf peer-reviewter Forschung · aktualisiert Juni 2026</div>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray" style="bottom:64px;">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item active">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="#" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+</div>
+
+  <script src="selection.js"></script>
+  <script>
+    var stress = localStorage.getItem('stress');
+    if (stress !== 'significant' && stress !== 'moderate') {
+      document.getElementById('stressBadge').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

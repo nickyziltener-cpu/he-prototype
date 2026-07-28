@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Treatment Preferences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--onboarding-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.18; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.12; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Q5–Q6: ember bottom-right, 240px, 18% */
+    body::before {
+      content: '';
+      position: fixed;
+      bottom: 20%;
+      right: -40px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.2s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      left: -40px;
+      top: 30%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.5s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+
+    .chips-container,
+    .question-sub,
+    .back-link,
+    .progress-bar-container {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 83%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <h1 class="question-title">
+      <span class="hl-line">What kinds of treatments</span>
+      <span class="hl-line">are you curious to try?</span>
+    </h1>
+    <p class="question-sub">This filters your results to what's relevant for you. You can always explore other categories later.</p>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 4px;">
+      <button class="chip" data-type="regular" data-value="diet">Diet</button>
+      <button class="chip" data-type="regular" data-value="supplements">Supplements</button>
+      <button class="chip" data-type="regular" data-value="medication">Medication & medical treatment</button>
+      <button class="chip" data-type="regular" data-value="mind-body">Mind & body</button>
+      <button class="chip chip-none" data-type="all">All of the above — show me everything</button>
+    </div>
+
+    <button class="next-btn" id="nextBtn" onclick="window.location.href='redflag.html'">Next</button>
+
+    <a href="q4.html" class="back-link">← Back</a>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script>
+    var chips = document.querySelectorAll('.chip');
+    var nextBtn = document.getElementById('nextBtn');
+    var selectAllChip = document.querySelector('[data-type="all"]');
+
+    function saveSelections() {
+      var selected = document.querySelectorAll('.chip[data-value].selected');
+      var values = Array.prototype.map.call(selected, function(c) {
+        return c.getAttribute('data-value');
+      });
+      // If all 4 real chips selected (or "all" chip used), store all 4
+      if (values.length === 4 || selectAllChip.classList.contains('selected')) {
+        values = ['diet', 'supplements', 'medication', 'mind-body'];
+      }
+      localStorage.setItem('treatmentPreferences', JSON.stringify(values));
+    }
+
+    function updateNextBtn() {
+      var anySelected = document.querySelector('.chip.selected');
+      nextBtn.classList.toggle('visible', !!anySelected);
+    }
+
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var type = this.getAttribute('data-type');
+
+        if (type === 'all') {
+          var wasSelected = this.classList.contains('selected');
+          chips.forEach(function(c) { c.classList.remove('selected'); });
+          if (!wasSelected) {
+            chips.forEach(function(c) { c.classList.add('selected'); });
+          }
+        } else {
+          selectAllChip.classList.remove('selected');
+          this.classList.toggle('selected');
+        }
+
+        saveSelections();
+        updateNextBtn();
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplements · Psoriasis Treatment Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #FAF5EC 0%, #FAF2E4 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .22; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-muted">
+        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Supplements</h1>
+        <p class="flow-hero-sub tight">4 options — honest about where the evidence is strong and where it isn't.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Omega-3 fatty acids (fish oil)</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Strong anti-inflammatory mechanism via EPA and DHA — but a 2019 meta-analysis of 13 controlled trials found no significant PASI improvement overall. Evidence is more consistent for joint symptoms in psoriatic arthritis than for skin. Worth considering if you have joint involvement.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="omega-3" data-treatment-name="Omega-3 fatty acids"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Vitamin D supplementation</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Psoriasis patients frequently have low vitamin D levels, and supplementation has an immune-modulating role. Note: topical vitamin D analogues (calcipotriol) have stronger evidence — this is for oral supplementation.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="vitamin-d-oral" data-treatment-name="Vitamin D supplementation"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Turmeric / curcumin</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Curcumin has demonstrated anti-inflammatory properties in small RCTs for psoriasis. The challenge is bioavailability — formulations with piperine (black pepper extract) improve absorption significantly.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="curcumin" data-treatment-name="Turmeric / curcumin"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra options':'Show 2 more options'">Show 2 more options</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Zinc supplementation</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Limited evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Zinc deficiency is more common in psoriasis patients — but the only dedicated plaque psoriasis RCT (n=25) found no significant benefit. Some evidence for joint symptoms in psoriatic arthritis. Association with deficiency doesn't mean supplementation helps if your levels are normal.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="zinc" data-treatment-name="Zinc supplementation"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Probiotics</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Limited evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Emerging research links gut microbiome changes to psoriasis. A few small trials show modest benefit with specific strains. Promising direction but not yet consistently replicated. Watch this space.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="probiotics" data-treatment-name="Probiotics"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

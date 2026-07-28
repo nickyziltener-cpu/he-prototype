@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ernährung · Behandlungsoptionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f5f0ed 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#fbeee5 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero flow-hero--sage">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 von 3 ausgewählt</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-ember">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Ernährung</h1>
+        <p class="flow-hero-sub tight">6 Optionen, geordnet nach der Stärke der Evidenz für RDS-C.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Low-FODMAP-Diät</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Starke Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Ein 8-wöchiger Eliminierungs- und Wiedereinführungsversuch. Die am meisten erforschte Ernährungsumstellung bei RDS — 50–80&nbsp;% erleben eine bedeutsame Symptomlinderung.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail.html" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="low-fodmap" data-treatment-name="Low-FODMAP-Diät"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Mediterrane Ernährung</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Ein entzündungshemmendes Ernährungsmuster, das mit geringerer Symptomschwere und besserer Darmmikrobiom-Vielfalt zusammenhängt. Besonders relevant für RDS-C.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="mediterranean" data-treatment-name="Mediterrane Ernährung"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Lösliche Ballaststoffe (Flohsamenschalen)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Das schrittweise Einführen löslicher Ballaststoffe lindert verstopfungsdominante Symptome. Wirkt bei den meisten Untertypen — die unscheinbare Maßnahme, die wirklich hilft.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="psyllium" data-treatment-name="Lösliche Ballaststoffe (Flohsamenschalen)"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Weniger anzeigen':'3 weitere Optionen anzeigen'">3 weitere Optionen anzeigen</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Glutenreduktion</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Manche Menschen mit RDS-D berichten von Verbesserungen — unklar ist jedoch, ob Gluten selbst oder die FODMAPs im Weizen der eigentliche Auslöser sind. Sinnvoll zu erproben, wenn Low FODMAP allein nicht ausreicht.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="gluten-free" data-treatment-name="Glutenreduktion"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Fettarme Ernährung</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Weniger Fett kann postprandiale Schmerzen und Stuhldrang lindern — Fett ist ein starker Auslöser von Darmbewegungen. Bescheidener, aber konsistenter Effekt in Studien, insbesondere bei RDS-D.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="low-fat-diet" data-treatment-name="Fettarme Ernährung"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Spezifische Kohlenhydratdiät (SCD)</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Begrenzte Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Ein restriktiverer Ansatz, der die meisten komplexen Kohlenhydrate ausschließt. Kleine Studien zeigen Nutzen, aber noch keine großen randomisierten Studien. Verwandte Ernährungsansätze sind besser belegt.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="scd-diet" data-treatment-name="Spezifische Kohlenhydratdiät"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

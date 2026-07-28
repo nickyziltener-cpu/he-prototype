@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #faf4f7 0%, #faf7f4 60%, #eef4f0 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 18%, transparent 70%); opacity: .35; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .20; pointer-events: none; z-index: 0; }
+    .today-hero { padding: 18px 24px 14px; position: relative; z-index: 1; }
+    .today-header-cycle { display: flex; align-items: center; gap: 8px; }
+    .cycle-pill-mini { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; color: var(--rose-700); background: rgba(224,122,150,0.12); border: 1px solid rgba(224,122,150,0.22); border-radius: 9999px; padding: 4px 10px; }
+    .today-greeting { font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--ink-900); margin: 8px 0 6px; line-height: 1.15; }
+    .today-date { font-size: 13px; color: var(--ink-500); font-weight: 500; }
+    .today-body { padding: 0 24px; position: relative; z-index: 1; }
+    .step-card { background: rgba(255,255,255,0.68); border: 1px solid rgba(42,31,48,0.10); border-radius: 20px; padding: 20px; margin-bottom: 14px; }
+    .step-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--rose-500); margin-bottom: 8px; }
+    .step-card-title { font-size: 18px; font-weight: 800; color: var(--ink-900); margin-bottom: 6px; }
+    .step-card-text { font-size: 13.5px; color: var(--ink-700); line-height: 1.55; margin-bottom: 14px; }
+    .step-cta { background: var(--rose-500); color: #fff; border: none; border-radius: 12px; padding: 12px 18px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
+    .cycle-mini-wrap { margin-bottom: 14px; }
+    .research-teaser { background: rgba(224,122,150,0.06); border: 1px solid rgba(224,122,150,0.15); border-radius: 16px; padding: 16px; }
+    .research-teaser-title { font-size: 14px; font-weight: 700; color: var(--ink-900); margin-bottom: 6px; }
+    .research-teaser-text { font-size: 13px; color: var(--ink-600); line-height: 1.5; margin-bottom: 12px; }
+    .treatment-mini { display: flex; gap: 10px; align-items: center; background: rgba(255,255,255,0.55); border: 1px solid rgba(42,31,48,0.08); border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; }
+    .treatment-mini-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+    .treatment-mini-name { font-size: 13.5px; font-weight: 700; color: var(--ink-800); }
+    .treatment-mini-ev { font-size: 11px; color: var(--ink-500); }
+    .start-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background: var(--rose-500); color: #fff; border: none; border-radius: 12px; padding: 12px 18px; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer; text-decoration: none; width: 100%; margin-top: 4px; }
+    .spacer-tb { height: 80px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="today-hero">
+    <div class="today-header-cycle">
+      <div class="cycle-pill-mini">◯ ~Day 22 · Luteal</div>
+    </div>
+    <div class="today-greeting">Good morning, Sophie.</div>
+    <div class="today-date" id="todayDate"></div>
+  </div>
+
+  <div class="today-body">
+
+    <!-- Cycle mini bar -->
+    <div class="cycle-mini-wrap">
+      <div class="cycle-phase-card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+          <span style="font-size:13px;font-weight:700;color:var(--ink-700);">Luteal phase · ~9 days left</span>
+          <a href="cycle-view.html" style="font-size:11px;font-weight:600;color:var(--rose-500);text-decoration:none;">View detail →</a>
+        </div>
+        <div class="phase-bar">
+          <div class="phase-seg-menstrual"></div>
+          <div class="phase-seg-follicular"></div>
+          <div class="phase-seg-ovulatory"></div>
+          <div class="phase-seg-luteal"></div>
+          <div class="phase-you-are-here" style="right:16%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main CTA: start plan -->
+    <div class="step-card">
+      <div class="step-card-label">Next step</div>
+      <div class="step-card-title">Ready to start your plan?</div>
+      <div class="step-card-text">You've saved 3 treatments. Now choose where to start — we'll take you through each one, one at a time, with guidance at every step.</div>
+      <a href="flow-b-plan.html" class="step-cta">Build my plan →</a>
+    </div>
+
+    <!-- Research summary -->
+    <div class="research-teaser">
+      <div class="research-teaser-title">Your saved treatments</div>
+      <div class="research-teaser-text">Ranked by evidence strength. Start with the first — you can reorder before building your plan.</div>
+      <div class="treatment-mini">
+        <div class="treatment-mini-icon" style="background:rgba(247,195,158,0.30);">🧪</div>
+        <div>
+          <div class="treatment-mini-name">Myo-inositol</div>
+          <div class="treatment-mini-ev">Strong evidence · Supplements</div>
+        </div>
+      </div>
+      <div class="treatment-mini">
+        <div class="treatment-mini-icon" style="background:rgba(107,154,139,0.18);">🥗</div>
+        <div>
+          <div class="treatment-mini-name">Low-GI diet</div>
+          <div class="treatment-mini-ev">Strong evidence · Diet</div>
+        </div>
+      </div>
+      <div class="treatment-mini">
+        <div class="treatment-mini-icon" style="background:rgba(168,165,212,0.20);">🏃</div>
+        <div>
+          <div class="treatment-mini-name">Exercise &amp; resistance training</div>
+          <div class="treatment-mini-ev">Strong evidence · Mind &amp; body</div>
+        </div>
+      </div>
+      <a href="flow-a-start.html" class="start-btn">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Explore more treatments
+      </a>
+    </div>
+
+    <div class="spacer-tb"></div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="cycle-view.html" class="tab-item"><span class="tab-icon">◯</span>Cycle</a>
+    <a href="flow-b-plan.html" class="tab-item active"><span class="tab-icon">✦</span>My Plan</a>
+    <a href="flow-a-overview.html" class="tab-item"><span class="tab-icon">◉</span>Research</a>
+    <a href="#" class="tab-item"><span class="tab-icon">○</span>You</a>
+  </div>
+
+</div>
+<script>
+var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var d = new Date();
+document.getElementById('todayDate').textContent = d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+</script>
+</body>
+</html>

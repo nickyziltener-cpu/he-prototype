@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Your Evidence Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+    }
+
+    /* Library-top tint overlay */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 240px;
+      background: var(--library-top);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav ── */
+    .lib-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .lib-nav-inner {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: var(--ink-500);
+      text-decoration: none;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .nav-link:hover {
+      color: var(--plum-500);
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--plum-500);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Manrope', sans-serif;
+      flex-shrink: 0;
+    }
+
+    /* ── Personalisation banner ── */
+    .personalization-banner {
+      background: rgba(140,108,171,0.07);
+      border-bottom: 1px solid rgba(140,108,171,0.10);
+      padding: 14px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .personalization-inner {
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .personalization-text {
+      font-size: 15px;
+      font-family: 'Manrope', sans-serif;
+      color: var(--ink-800);
+      line-height: 1.55;
+    }
+
+    .personalization-text a {
+      color: var(--plum-500);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .personalization-text a:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    .personalization-stress-line {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--ink-700);
+      font-family: 'Manrope', sans-serif;
+      line-height: 1.5;
+    }
+
+    .personalization-stress-line a {
+      color: var(--plum-500);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .personalization-stress-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Grade filter bar ── */
+    .grade-filter-bar {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 10px 0;
+      position: sticky;
+      top: 60px;
+      z-index: 90;
+    }
+
+    .grade-filter-inner {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .grade-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .grade-pill {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      border: 1.5px solid #D1D5DB;
+      background: white;
+      color: var(--ink-500);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .grade-pill.active[data-grade="strong"] {
+      background: rgba(74,122,106,0.12);
+      border-color: var(--evidence-high);
+      color: var(--evidence-high);
+    }
+
+    .grade-pill.active[data-grade="good"] {
+      background: rgba(168,200,181,0.18);
+      border-color: #3d7a6a;
+      color: #3d7a6a;
+    }
+
+    .grade-pill.active[data-grade="moderate"] {
+      background: rgba(184,112,74,0.12);
+      border-color: var(--evidence-medium);
+      color: var(--evidence-medium);
+    }
+
+    .grade-pill.active[data-grade="limited"] {
+      background: rgba(107,91,125,0.12);
+      border-color: var(--evidence-low);
+      color: var(--evidence-low);
+    }
+
+    .grade-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .grade-dot-strong { background: var(--evidence-high); }
+    .grade-dot-good   { background: #3d7a6a; }
+    .grade-dot-moderate { background: var(--evidence-medium); }
+    .grade-dot-limited  { background: var(--evidence-low); }
+
+    .grade-reset {
+      font-size: 13px;
+      color: var(--plum-500);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      padding: 0;
+    }
+
+    .grade-reset:hover {
+      color: var(--plum-700);
+    }
+
+    /* ── Library content area ── */
+    .lib-content {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Tile grid wrapper ── */
+    .tile-grid-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tile-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 0;
+    }
+
+    /* ── Category tile ── */
+    .category-tile {
+      background: var(--tile-wash, rgba(255,255,255,0.60));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.85);
+      border-radius: 16px;
+      padding: 20px;
+      min-height: 180px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 8px 24px -10px rgba(140,108,171,0.15);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .category-tile:hover {
+      border-color: var(--plum-300);
+      box-shadow: 0 10px 30px -10px rgba(140,108,171,0.22);
+    }
+
+    [data-category="dietary"]      { --tile-wash: var(--category-dietary-wash); }
+    [data-category="supplements"]  { --tile-wash: var(--category-supplements-wash); }
+    [data-category="psychological"]{ --tile-wash: var(--category-psychological-wash); }
+    [data-category="lifestyle"]    { --tile-wash: var(--category-lifestyle-wash); }
+    [data-category="medication"]   { --tile-wash: var(--category-medication-wash); }
+    [data-category="alternative"]  { --tile-wash: var(--category-alternative-wash); }
+
+    [data-featured="true"] {
+      border: 2px solid var(--plum-500);
+    }
+
+    /* SVG motif */
+    .tile-motif {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      pointer-events: none;
+      width: 60px;
+      height: 60px;
+      opacity: 0.08;
+    }
+
+    /* ── Stacked cards graphic ── */
+    .stacked-cards-container {
+      position: relative;
+      height: 70px;
+      margin-bottom: 16px;
+    }
+
+    .stacked-card {
+      position: absolute;
+      width: 140px;
+      height: 52px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.70);
+      border: 1px solid rgba(255,255,255,0.85);
+    }
+
+    .stacked-card-back {
+      transform: rotate(-4deg);
+      top: 0; left: 4px;
+      opacity: 0.45;
+    }
+
+    .stacked-card-mid {
+      transform: rotate(-2deg);
+      top: 4px; left: 2px;
+      opacity: 0.70;
+    }
+
+    .stacked-card-front {
+      transform: rotate(0deg);
+      top: 8px; left: 0;
+      opacity: 1;
+      box-shadow: 0 8px 24px -10px rgba(140,108,171,0.18);
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stacked-evidence-badge {
+      font-size: 9px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      color: var(--evidence-high);
+    }
+
+    .stacked-card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 11px;
+      color: var(--ink-900);
+      line-height: 1.3;
+    }
+
+    /* ── Tile footer ── */
+    .tile-footer {
+      flex-shrink: 0;
+    }
+
+    .tile-footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .tile-name {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink-800);
+    }
+
+    .tile-count {
+      font-size: 13px;
+      color: var(--ink-500);
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .tile-subtitle {
+      font-size: 12px;
+      color: var(--ink-500);
+      font-family: 'Manrope', sans-serif;
+      margin-top: 2px;
+      display: block;
+    }
+
+    /* ── Category panels ── */
+    .category-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 420ms cubic-bezier(0.2,0.8,0.2,1);
+    }
+
+    .category-panel.open {
+      max-height: 2400px;
+    }
+
+    .panel-inner {
+      padding: 24px 0 32px;
+      border-top: 1px solid var(--border-hairline);
+      margin-top: 16px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .panel-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .panel-mono-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--plum-500);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-right: 12px;
+    }
+
+    .panel-count {
+      font-size: 13px;
+      color: var(--ink-500);
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .panel-collapse {
+      font-size: 13px;
+      color: var(--plum-500);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      padding: 0;
+    }
+
+    .panel-collapse:hover {
+      color: var(--plum-700);
+    }
+
+    /* Dotted background for cards grid */
+    .panel-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      background-image: radial-gradient(circle, rgba(140,108,171,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      border-radius: 8px;
+      padding: 4px;
+    }
+
+    /* ── Gut-brain card ── */
+    .gutbrain-card {
+      background: rgba(254,249,240,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(184,112,74,0.18);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+
+    .gutbrain-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ember-700);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .gutbrain-body {
+      font-size: 13px;
+      color: var(--ink-700);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .gutbrain-cta {
+      font-size: 14px;
+      color: var(--plum-500);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .gutbrain-cta:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    /* ── DS-02 Intervention card ── */
+    .intervention-card {
+      background: rgba(255,255,255,0.70);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.85);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 24px -10px rgba(140,108,171,0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+
+    .intervention-card:hover {
+      border-color: rgba(140,108,171,0.35);
+      box-shadow: 0 10px 30px -10px rgba(140,108,171,0.22);
+    }
+
+    .card-row1 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-subtype-tag {
+      font-size: 11px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      color: var(--ink-500);
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid rgba(42,31,48,0.10);
+      background: rgba(42,31,48,0.03);
+    }
+
+    .card-hairline {
+      border: none;
+      border-top: 1px solid rgba(42,31,48,0.06);
+      margin: 0;
+    }
+
+    .card-title-serif {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--ink-900);
+      line-height: 1.25;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .card-oneliner {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: var(--ink-700);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .card-pullstat {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .card-pullstat-strong   { color: var(--evidence-high); }
+    .card-pullstat-good     { color: #3d7a6a; }
+    .card-pullstat-moderate { color: var(--evidence-medium); }
+    .card-pullstat-limited  { color: var(--evidence-low); }
+
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      gap: 8px;
+    }
+
+    .card-cta {
+      font-size: 14px;
+      color: var(--plum-500);
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .card-cta:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    .tried-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--ink-500);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: 'Manrope', sans-serif;
+      transition: color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .tried-toggle:hover {
+      color: var(--plum-500);
+    }
+
+    .tried-toggle.active {
+      color: var(--plum-500);
+      font-weight: 600;
+    }
+
+    .tried-dot {
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .tile-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .panel-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-title-serif {
+        font-size: 18px;
+      }
+
+      .lib-content {
+        padding: 20px 16px 48px;
+      }
+
+      .personalization-text {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grade-filter-inner {
+        padding: 0 16px;
+      }
+
+      .grade-pills {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+
+      .lib-nav-inner {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="lib-nav">
+    <div class="lib-nav-inner">
+      <span class="logo">Health Empowerment</span>
+      <div class="nav-right">
+        <a href="#" class="nav-link">About this app</a>
+        <a href="#" class="nav-link" id="collapseAll" style="display:none">Collapse all &#9650;</a>
+        <div class="avatar" aria-label="Profile">N</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Personalisation banner -->
+  <div class="personalization-banner">
+    <div class="personalization-inner">
+      <p class="personalization-text">
+        Based on your profile — IBS-C, stress trigger — your library is filtered to your most relevant approaches. <a href="#">Edit &rarr;</a>
+      </p>
+      <p class="personalization-stress-line">
+        The Psychological category has some of the strongest relevant evidence for your situation. <a href="#" id="openPsych">Explore Psychological &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Evidence grade pill filter bar -->
+  <div class="grade-filter-bar">
+    <div class="grade-filter-inner">
+      <div class="grade-pills">
+        <button class="grade-pill active" data-grade="strong">
+          <span class="grade-dot grade-dot-strong"></span>Strong
+        </button>
+        <button class="grade-pill active" data-grade="good">
+          <span class="grade-dot grade-dot-good"></span>Good
+        </button>
+        <button class="grade-pill active" data-grade="moderate">
+          <span class="grade-dot grade-dot-moderate"></span>Moderate
+        </button>
+        <button class="grade-pill" data-grade="limited">
+          <span class="grade-dot grade-dot-limited"></span>Limited
+        </button>
+      </div>
+      <button class="grade-reset" id="gradeReset">Reset</button>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="lib-content">
+    <div class="tile-grid-wrapper">
+
+      <!-- ── ROW 1: Dietary, Supplements, Psychological ── -->
+      <div class="tile-row">
+
+        <!-- Dietary tile -->
+        <div class="category-tile" data-category="dietary" role="button" tabindex="0" aria-expanded="false" aria-controls="panel-dietary">
+          <svg class="tile-motif" viewBox="0 0 60 60" aria-hidden="true">
+            <circle cx="22" cy="28" r="16" fill="none" stroke="#a8c8b5" stroke-width="1.5"/>
+            <circle cx="36" cy="24" r="12" fill="none" stroke="#a8c8b5" stroke-width="1.5"/>
+            <circle cx="38" cy="36" r="9" fill="none" stroke="#a8c8b5" stroke-width="1.5"/>
+          </svg>
+          <div class="stacked-cards-container">
+            <div class="stacked-card stacked-card-back"></div>
+            <div class="stacked-card stacked-card-mid"></div>
+            <div class="stacked-card stacked-card-front">
+              <span class="stacked-evidence-badge">&#9679; Strong</span>
+              <span class="stacked-card-title">Low-FODMAP Diet</span>
+            </div>
+          </div>
+          <div class="tile-footer">
+            <div class="tile-footer-main">
+              <span class="tile-name">Dietary</span>
+              <span class="tile-count" data-category="dietary">6 &rarr;</span>
+            </div>
+            <span class="tile-subtitle">Diets &middot; fibre &middot; elimination</span>
+          </div>
+        </div>
+
+        <!-- Supplements tile -->
+        <div class="category-tile" data-category="supplements" role="button" tabindex="0" aria-expanded="false" aria-controls="panel-supplements">
+          <svg class="tile-motif" viewBox="0 0 60 60" aria-hidden="true">
+            <circle cx="30" cy="30" r="22" fill="none" stroke="#f7c39e" stroke-width="1.5"/>
+            <circle cx="30" cy="30" r="14" fill="none" stroke="#f7c39e" stroke-width="1.5"/>
+            <circle cx="30" cy="30" r="6" fill="none" stroke="#f7c39e" stroke-width="1.5"/>
+            <circle cx="30" cy="30" r="3" fill="#f7c39e"/>
+          </svg>
+          <div class="stacked-cards-container">
+            <div class="stacked-card stacked-card-back"></div>
+            <div class="stacked-card stacked-card-mid"></div>
+            <div class="stacked-card stacked-card-front">
+              <span class="stacked-evidence-badge">&#9679; Strong</span>
+              <span class="stacked-card-title">Peppermint Oil</span>
+            </div>
+          </div>
+          <div class="tile-footer">
+            <div class="tile-footer-main">
+              <span class="tile-name">Supplements</span>
+              <span class="tile-count" data-category="supplements">5 &rarr;</span>
+            </div>
+            <span class="tile-subtitle">Capsules &middot; probiotics &middot; enzymes</span>
+          </div>
+        </div>
+
+        <!-- Psychological tile (featured) -->
+        <div class="category-tile" data-category="psychological" data-featured="true" role="button" tabindex="0" aria-expanded="false" aria-controls="panel-psychological">
+          <svg class="tile-motif" viewBox="0 0 60 60" aria-hidden="true">
+            <path d="M8 52 Q30 8 52 8" fill="none" stroke="#b598c9" stroke-width="1.5"/>
+            <path d="M8 8 Q30 52 52 52" fill="none" stroke="#b598c9" stroke-width="1.5"/>
+          </svg>
+          <div class="stacked-cards-container">
+            <div class="stacked-card stacked-card-back"></div>
+            <div class="stacked-card stacked-card-mid"></div>
+            <div class="stacked-card stacked-card-front">
+              <span class="stacked-evidence-badge" style="color:#3d7a6a;">&#9679; Good</span>
+              <span class="stacked-card-title">Gut-Directed Hypnotherapy</span>
+            </div>
+          </div>
+          <div class="tile-footer">
+            <div class="tile-footer-main">
+              <span class="tile-name">Psychological</span>
+              <span class="tile-count" data-category="psychological">4 &rarr;</span>
+            </div>
+            <span class="tile-subtitle">Hypnotherapy &middot; CBT &middot; mindfulness</span>
+          </div>
+        </div>
+
+      </div><!-- end tile-row 1 -->
+
+      <!-- ── PANEL: Dietary ── -->
+      <div class="category-panel" id="panel-dietary" data-category="dietary">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-left">
+              <span class="panel-mono-label">Dietary</span>
+              <span class="panel-count">6 approaches</span>
+            </div>
+            <button class="panel-collapse" data-target="dietary" aria-label="Collapse Dietary panel">Collapse &#9650;</button>
+          </div>
+          <div class="panel-cards-grid">
+
+            <div class="intervention-card" data-grade="strong">
+              <div class="card-row1">
+                <span class="evidence-badge badge-strong"><span class="badge-dot"></span>Strong evidence</span>
+                <span class="card-subtype-tag">Most relevant for IBS-C</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Low-FODMAP Diet</h3>
+              <p class="card-oneliner">The most-studied dietary approach for IBS. Here's what the evidence actually shows — and what it doesn't.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-strong">Strong evidence &middot; Reduced symptoms in 76% of trials</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="good">
+              <div class="card-row1">
+                <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Soluble Fibre (Psyllium)</h3>
+              <p class="card-oneliner">The unsexy one — and the one that works for more IBS subtypes than almost anything else.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-good">Good evidence &middot; 72% of participants reported improvement</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Gluten-Free Diet</h3>
+              <p class="card-oneliner">Symptom overlap with coeliac disease is real. The research on non-coeliac gluten sensitivity in IBS is still catching up.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; 3 trials, mixed populations</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">IBS-D</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Low-Fat Diet</h3>
+              <p class="card-oneliner">Fat triggers gut motility. The evidence is small but consistent — and it's easy to test yourself.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; Consistent across 4 small trials</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="limited">
+              <div class="card-row1">
+                <span class="evidence-badge badge-limited"><span class="badge-dot"></span>Limited evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Fermented Foods</h3>
+              <p class="card-oneliner">The microbiome angle is compelling. The IBS-specific trial data is early — worth watching.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-limited">Limited evidence &middot; 1 pilot trial — more research underway</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="limited">
+              <div class="card-row1">
+                <span class="evidence-badge badge-limited"><span class="badge-dot"></span>Limited evidence</span>
+                <span class="card-subtype-tag">IBS-C</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Kiwifruit</h3>
+              <p class="card-oneliner">Surprisingly well-studied for constipation. The mechanism is real. IBS-specific data still thin.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-limited">Limited evidence &middot; 2 small trials, IBS-C only</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- end panel-dietary -->
+
+      <!-- ── PANEL: Supplements ── -->
+      <div class="category-panel" id="panel-supplements" data-category="supplements">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-left">
+              <span class="panel-mono-label">Supplements</span>
+              <span class="panel-count">5 approaches</span>
+            </div>
+            <button class="panel-collapse" data-target="supplements" aria-label="Collapse Supplements panel">Collapse &#9650;</button>
+          </div>
+          <div class="panel-cards-grid">
+
+            <div class="intervention-card" data-grade="strong">
+              <div class="card-row1">
+                <span class="evidence-badge badge-strong"><span class="badge-dot"></span>Strong evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Peppermint Oil</h3>
+              <p class="card-oneliner">A single capsule. Decades of trials. One of the most evidence-backed things you can try this week.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-strong">Strong evidence &middot; Reduced abdominal pain in 74% of studies</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="good">
+              <div class="card-row1">
+                <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+                <span class="card-subtype-tag">IBS-D</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Probiotics (strain-specific)</h3>
+              <p class="card-oneliner">Not all probiotics are equal. The evidence is specific to strains. Here's what to actually look for.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-good">Good evidence &middot; Lactobacillus rhamnosus GG — best supported strain</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Magnesium (IBS-C)</h3>
+              <p class="card-oneliner">Used widely. Mechanism is plausible. The RCT evidence in IBS specifically is limited but promising.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; 2 RCTs, consistent direction</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">IBS-D</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Berberine</h3>
+              <p class="card-oneliner">Emerging evidence, particularly for IBS-D. Not yet enough trials to be confident — but notable.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; 3 small trials, IBS-D focused</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="limited">
+              <div class="card-row1">
+                <span class="evidence-badge badge-limited"><span class="badge-dot"></span>Limited evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Digestive Enzymes</h3>
+              <p class="card-oneliner">Widely sold, weakly studied in IBS. May help with specific food intolerances rather than IBS itself.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-limited">Limited evidence &middot; 1 RCT, small sample</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- end panel-supplements -->
+
+      <!-- ── PANEL: Psychological ── -->
+      <div class="category-panel" id="panel-psychological" data-category="psychological">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-left">
+              <span class="panel-mono-label">Psychological</span>
+              <span class="panel-count">4 approaches</span>
+            </div>
+            <button class="panel-collapse" data-target="psychological" aria-label="Collapse Psychological panel">Collapse &#9650;</button>
+          </div>
+
+          <!-- Gut-brain contextual card (only in Psychological panel) -->
+          <div class="gutbrain-card">
+            <span class="gutbrain-label">You flagged stress as a trigger — here's why it matters</span>
+            <p class="gutbrain-body">Research shows the gut and brain communicate through a direct neural highway — the vagus nerve. For many people with IBS, stress doesn't just make symptoms feel worse: it physiologically changes gut motility and sensitivity. This is why psychological interventions like gut-directed hypnotherapy and CBT have strong evidence for IBS — they work on the mechanism, not just the symptoms.</p>
+            <a href="#" class="gutbrain-cta">See the evidence for psychological interventions &rarr;</a>
+          </div>
+
+          <div class="panel-cards-grid">
+
+            <div class="intervention-card" data-grade="good">
+              <div class="card-row1">
+                <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Gut-Directed Hypnotherapy</h3>
+              <p class="card-oneliner">Not what you think. The most clinically validated mind-body therapy for IBS — and the results are striking.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-good">Good evidence &middot; 72% of participants reported significant improvement</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="good">
+              <div class="card-row1">
+                <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Cognitive Behavioural Therapy</h3>
+              <p class="card-oneliner">Your thoughts about pain change the pain itself. Thirty years of trials say so.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-good">Good evidence &middot; 60% sustained response at 12 months</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Mindfulness-Based Stress Reduction</h3>
+              <p class="card-oneliner">IBS-specific data is newer but growing. The broader stress-reduction evidence is strong.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; 4 trials, generally positive</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Acceptance and Commitment Therapy</h3>
+              <p class="card-oneliner">Newer than CBT in IBS research. The psychological model is strong; the IBS trial base is still building.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; 2 RCTs to date</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- end panel-psychological -->
+
+      <!-- ── ROW 2: Lifestyle, Medication, Alternative ── -->
+      <div class="tile-row" style="margin-top: 16px;">
+
+        <!-- Lifestyle tile -->
+        <div class="category-tile" data-category="lifestyle" role="button" tabindex="0" aria-expanded="false" aria-controls="panel-lifestyle">
+          <svg class="tile-motif" viewBox="0 0 60 60" aria-hidden="true">
+            <line x1="6" y1="54" x2="54" y2="6" stroke="#a8a5d4" stroke-width="1.5"/>
+            <line x1="16" y1="58" x2="58" y2="16" stroke="#a8a5d4" stroke-width="1.5"/>
+            <line x1="2" y1="46" x2="46" y2="2" stroke="#a8a5d4" stroke-width="1.5"/>
+            <line x1="24" y1="60" x2="60" y2="24" stroke="#a8a5d4" stroke-width="1.5"/>
+          </svg>
+          <div class="stacked-cards-container">
+            <div class="stacked-card stacked-card-back"></div>
+            <div class="stacked-card stacked-card-mid"></div>
+            <div class="stacked-card stacked-card-front">
+              <span class="stacked-evidence-badge" style="color:#3d7a6a;">&#9679; Good</span>
+              <span class="stacked-card-title">Regular Exercise</span>
+            </div>
+          </div>
+          <div class="tile-footer">
+            <div class="tile-footer-main">
+              <span class="tile-name">Lifestyle</span>
+              <span class="tile-count" data-category="lifestyle">3 &rarr;</span>
+            </div>
+            <span class="tile-subtitle">Movement &middot; sleep &middot; stress</span>
+          </div>
+        </div>
+
+        <!-- Medication tile -->
+        <div class="category-tile" data-category="medication" role="button" tabindex="0" aria-expanded="false" aria-controls="panel-medication">
+          <svg class="tile-motif" viewBox="0 0 60 60" aria-hidden="true">
+            <rect x="10" y="10" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="26" y="10" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="42" y="10" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="10" y="26" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="26" y="26" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="42" y="26" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="10" y="42" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="26" y="42" width="8" height="8" rx="1" fill="#c8c5d8"/>
+            <rect x="42" y="42" width="8" height="8" rx="1" fill="#c8c5d8"/>
+          </svg>
+          <div class="stacked-cards-container">
+            <div class="stacked-card stacked-card-back"></div>
+            <div class="stacked-card stacked-card-mid"></div>
+            <div class="stacked-card stacked-card-front">
+              <span class="stacked-evidence-badge" style="color:var(--evidence-medium);">&#9679; Moderate</span>
+              <span class="stacked-card-title">Antispasmodics</span>
+            </div>
+          </div>
+          <div class="tile-footer">
+            <div class="tile-footer-main">
+              <span class="tile-name">Medication</span>
+              <span class="tile-count" data-category="medication">2 &rarr;</span>
+            </div>
+            <span class="tile-subtitle">Prescription &middot; OTC &middot; specialist</span>
+          </div>
+        </div>
+
+        <!-- Alternative tile -->
+        <div class="category-tile" data-category="alternative" role="button" tabindex="0" aria-expanded="false" aria-controls="panel-alternative">
+          <svg class="tile-motif" viewBox="0 0 60 60" aria-hidden="true">
+            <line x1="54" y1="6" x2="36" y2="24" stroke="#f3a07e" stroke-width="2"/>
+            <line x1="54" y1="6" x2="30" y2="30" stroke="#f3a07e" stroke-width="1.5"/>
+            <line x1="54" y1="6" x2="24" y2="34" stroke="#f3a07e" stroke-width="1.5"/>
+            <line x1="54" y1="6" x2="20" y2="26" stroke="#f3a07e" stroke-width="1.5"/>
+            <line x1="54" y1="6" x2="40" y2="18" stroke="#f3a07e" stroke-width="2"/>
+            <line x1="54" y1="6" x2="44" y2="28" stroke="#f3a07e" stroke-width="1.5"/>
+          </svg>
+          <div class="stacked-cards-container">
+            <div class="stacked-card stacked-card-back"></div>
+            <div class="stacked-card stacked-card-mid"></div>
+            <div class="stacked-card stacked-card-front">
+              <span class="stacked-evidence-badge" style="color:var(--evidence-medium);">&#9679; Moderate</span>
+              <span class="stacked-card-title">Acupuncture</span>
+            </div>
+          </div>
+          <div class="tile-footer">
+            <div class="tile-footer-main">
+              <span class="tile-name">Alternative</span>
+              <span class="tile-count" data-category="alternative">3 &rarr;</span>
+            </div>
+            <span class="tile-subtitle">Acupuncture &middot; herbal &middot; yoga</span>
+          </div>
+        </div>
+
+      </div><!-- end tile-row 2 -->
+
+      <!-- ── PANEL: Lifestyle ── -->
+      <div class="category-panel" id="panel-lifestyle" data-category="lifestyle">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-left">
+              <span class="panel-mono-label">Lifestyle</span>
+              <span class="panel-count">3 approaches</span>
+            </div>
+            <button class="panel-collapse" data-target="lifestyle" aria-label="Collapse Lifestyle panel">Collapse &#9650;</button>
+          </div>
+          <div class="panel-cards-grid">
+
+            <div class="intervention-card" data-grade="good">
+              <div class="card-row1">
+                <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Regular Exercise</h3>
+              <p class="card-oneliner">The evidence for physical activity in IBS has quietly accumulated over a decade. It works — and the mechanism makes sense.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-good">Good evidence &middot; 4 RCTs, consistent improvement in global IBS symptoms</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="good">
+              <div class="card-row1">
+                <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Stress Management</h3>
+              <p class="card-oneliner">Stress doesn't cause IBS but it reliably worsens it. Structured reduction shows measurable improvement.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-good">Good evidence &middot; Consistent across multiple intervention types</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Sleep Hygiene</h3>
+              <p class="card-oneliner">The gut-sleep connection is real. IBS symptoms worsen with poor sleep quality in both directions.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; Observational studies; RCTs underway</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- end panel-lifestyle -->
+
+      <!-- ── PANEL: Medication ── -->
+      <div class="category-panel" id="panel-medication" data-category="medication">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-left">
+              <span class="panel-mono-label">Medication</span>
+              <span class="panel-count">2 approaches</span>
+            </div>
+            <button class="panel-collapse" data-target="medication" aria-label="Collapse Medication panel">Collapse &#9650;</button>
+          </div>
+          <div class="panel-cards-grid">
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">IBS-C/D</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Antispasmodics (Mebeverine)</h3>
+              <p class="card-oneliner">First-line GP treatment for a reason — reduces cramping. Works best for pain-predominant IBS.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; Cochrane review: modest but consistent benefit</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="limited">
+              <div class="card-row1">
+                <span class="evidence-badge badge-limited"><span class="badge-dot"></span>Limited evidence</span>
+                <span class="card-subtype-tag">IBS-C</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Low-dose Antidepressants (TCAs)</h3>
+              <p class="card-oneliner">Used off-label for gut pain modulation. Evidence exists but dosing and tolerance are tricky — specialist supervision needed.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-limited">Limited evidence &middot; Small trials; GP or gastroenterologist supervision required</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- end panel-medication -->
+
+      <!-- ── PANEL: Alternative ── -->
+      <div class="category-panel" id="panel-alternative" data-category="alternative">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-left">
+              <span class="panel-mono-label">Alternative</span>
+              <span class="panel-count">3 approaches</span>
+            </div>
+            <button class="panel-collapse" data-target="alternative" aria-label="Collapse Alternative panel">Collapse &#9650;</button>
+          </div>
+          <div class="panel-cards-grid">
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Acupuncture</h3>
+              <p class="card-oneliner">The sham-controlled trial problem is real. The subjective benefit is consistently reported. Worth knowing if you're open to it.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; 7 trials, positive trend; methodology limits confidence</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="moderate">
+              <div class="card-row1">
+                <span class="evidence-badge badge-moderate"><span class="badge-dot"></span>Moderate evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Yoga for IBS</h3>
+              <p class="card-oneliner">Growing evidence, not yet a clear mechanism. Worth knowing about if you already practice.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-moderate">Moderate evidence &middot; 5 trials, small samples, broadly positive</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+            <div class="intervention-card" data-grade="limited">
+              <div class="card-row1">
+                <span class="evidence-badge badge-limited"><span class="badge-dot"></span>Limited evidence</span>
+                <span class="card-subtype-tag">All subtypes</span>
+              </div>
+              <hr class="card-hairline">
+              <h3 class="card-title-serif">Herbal Medicine (STW 5)</h3>
+              <p class="card-oneliner">STW 5 (Iberogast) is the only herbal product with meaningful IBS trial data. Most others lack evidence.</p>
+              <hr class="card-hairline">
+              <p class="card-pullstat card-pullstat-limited">Limited evidence &middot; 2 RCTs for STW 5 specifically</p>
+              <div class="card-footer-row">
+                <button class="tried-toggle" onclick="toggleTried(this)"><span class="tried-dot">&#9675;</span> I've tried this</button>
+                <a href="#" class="card-cta">See the evidence &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- end panel-alternative -->
+
+    </div><!-- end tile-grid-wrapper -->
+  </div><!-- end lib-content -->
+
+  <script>
+    // ── State ──
+    var openPanels = new Set();
+    var activeGrades = new Set(['strong', 'good', 'moderate']);
+
+    // ── Grade pill toggles ──
+    document.querySelectorAll('.grade-pill').forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        var grade = this.dataset.grade;
+        if (this.classList.contains('active')) {
+          this.classList.remove('active');
+          activeGrades.delete(grade);
+        } else {
+          this.classList.add('active');
+          activeGrades.add(grade);
+        }
+        filterCardsInPanels();
+        updateFilteredCounts();
+      });
+    });
+
+    // ── Reset ──
+    document.getElementById('gradeReset').addEventListener('click', function() {
+      activeGrades = new Set(['strong', 'good', 'moderate']);
+      document.querySelectorAll('.grade-pill').forEach(function(pill) {
+        pill.classList.toggle('active', activeGrades.has(pill.dataset.grade));
+      });
+      filterCardsInPanels();
+      updateFilteredCounts();
+    });
+
+    // ── Tile click — expand / collapse panel ──
+    document.querySelectorAll('.category-tile').forEach(function(tile) {
+      function handleTileActivate() {
+        var cat = tile.dataset.category;
+        var panel = document.getElementById('panel-' + cat);
+        if (panel.classList.contains('open')) {
+          panel.classList.remove('open');
+          openPanels.delete(cat);
+          tile.setAttribute('aria-expanded', 'false');
+        } else {
+          panel.classList.add('open');
+          openPanels.add(cat);
+          tile.setAttribute('aria-expanded', 'true');
+          filterCardsInPanels();
+          updateFilteredCounts();
+        }
+        updateCollapseAllVisibility();
+      }
+      tile.addEventListener('click', handleTileActivate);
+      tile.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleTileActivate();
+        }
+      });
+    });
+
+    // ── Panel collapse buttons ──
+    document.querySelectorAll('.panel-collapse').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var cat = this.dataset.target;
+        var panel = document.getElementById('panel-' + cat);
+        var tile = document.querySelector('[data-category="' + cat + '"].category-tile');
+        panel.classList.remove('open');
+        openPanels.delete(cat);
+        if (tile) tile.setAttribute('aria-expanded', 'false');
+        updateCollapseAllVisibility();
+      });
+    });
+
+    // ── Collapse all ──
+    document.getElementById('collapseAll').addEventListener('click', function() {
+      document.querySelectorAll('.category-panel.open').forEach(function(p) {
+        p.classList.remove('open');
+      });
+      document.querySelectorAll('.category-tile').forEach(function(t) {
+        t.setAttribute('aria-expanded', 'false');
+      });
+      openPanels.clear();
+      updateCollapseAllVisibility();
+    });
+
+    // ── Auto-open Psychological from banner link ──
+    var openPsychLink = document.getElementById('openPsych');
+    if (openPsychLink) {
+      openPsychLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        var panel = document.getElementById('panel-psychological');
+        var tile = document.querySelector('[data-category="psychological"].category-tile');
+        panel.classList.add('open');
+        openPanels.add('psychological');
+        if (tile) tile.setAttribute('aria-expanded', 'true');
+        updateCollapseAllVisibility();
+        filterCardsInPanels();
+        updateFilteredCounts();
+        setTimeout(function() {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      });
+    }
+
+    // ── Helper: show/hide collapse-all button ──
+    function updateCollapseAllVisibility() {
+      var btn = document.getElementById('collapseAll');
+      btn.style.display = openPanels.size > 0 ? 'inline' : 'none';
+    }
+
+    // ── Helper: hide cards whose grade is not active ──
+    function filterCardsInPanels() {
+      document.querySelectorAll('.intervention-card').forEach(function(card) {
+        var grade = card.dataset.grade;
+        card.style.display = activeGrades.has(grade) ? '' : 'none';
+      });
+    }
+
+    // ── Helper: update count badges based on active grades ──
+    function updateFilteredCounts() {
+      var categories = ['dietary', 'supplements', 'psychological', 'lifestyle', 'medication', 'alternative'];
+      categories.forEach(function(cat) {
+        var panel = document.getElementById('panel-' + cat);
+        if (!panel) return;
+        var allCards = panel.querySelectorAll('.intervention-card');
+        var visible = 0;
+        allCards.forEach(function(card) {
+          if (activeGrades.has(card.dataset.grade)) visible++;
+        });
+        // Update tile count badge
+        var tileBadge = document.querySelector('.category-tile[data-category="' + cat + '"] .tile-count');
+        if (tileBadge) tileBadge.textContent = visible + ' →';
+        // Update panel count
+        var panelCount = panel.querySelector('.panel-count');
+        if (panelCount) panelCount.textContent = visible + ' approaches';
+      });
+    }
+
+    // ── Tried toggle ──
+    function toggleTried(btn) {
+      var isActive = btn.classList.contains('active');
+      if (isActive) {
+        btn.classList.remove('active');
+        btn.style.color = '';
+        btn.style.fontWeight = '';
+        btn.innerHTML = '<span class="tried-dot">&#9675;</span> I\'ve tried this';
+      } else {
+        btn.classList.add('active');
+        btn.style.color = 'var(--plum-500)';
+        btn.style.fontWeight = '600';
+        btn.innerHTML = '<span class="tried-dot" style="color:var(--plum-500)">&#10003;</span> Tried';
+      }
+    }
+  </script>
+
+</body>
+</html>

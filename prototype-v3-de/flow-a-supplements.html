@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahrungsergänzung · Behandlungsoptionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #edf5f1 0%, #faf7f4 70%, #f0f4f2 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#edf5f1 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero flow-hero--sage">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 gespeichert</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-sage">
+        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Nahrungsergänzung</h1>
+        <p class="flow-hero-sub tight">6 Optionen, nach Evidenzstärke für Reizdarm geordnet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Pfefferminzöl (magenresistent)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Entspannt die glatte Muskulatur der Darmwand und reduziert Krämpfe und Bauchschmerzen. Eine Meta-Analyse von 9 RCTs (2014) zeigte signifikant bessere Wirkung als Placebo bei globalen IBS-Symptomen.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail-peppermint.html" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="peppermint-oil" data-treatment-name="Pfefferminzöl"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Probiotika</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Gemischte Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Bestimmte Stämme (insbesondere Bifidobacterium infantis 35624) zeigen in einigen Studien messbare Wirkung auf Blähungen und Schmerzen. Die Ergebnisse variieren stark – der spezifische Stamm ist entscheidend.</div>
+      <div class="lcard-foot-flow">
+        <a href="#" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="probiotics" data-treatment-name="Probiotika"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Aloe vera (entfärbt)</div>
+          <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Begrenzte Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Zwei kleine Studien deuten auf Symptomlinderung bei Reizdarm hin, besonders bei der Stuhlfrequenz. Die Evidenz ist durch kleine Studiengrößen begrenzt, aber gut verträglich.</div>
+      <div class="lcard-foot-flow">
+        <a href="#" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="aloe-vera" data-treatment-name="Aloe vera"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani">3 weitere Optionen anzeigen</button>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

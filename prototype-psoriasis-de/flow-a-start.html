@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein Einstieg · Psoriasis-Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #FDF4E6 0%, #FAF2E4 60%, #F5EBD5 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -80px; right: -80px; width: 480px; height: 480px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .32; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -80px; left: -80px; width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .28; pointer-events: none; z-index: 0;
+    }
+    .filter-chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .filter-chip {
+      display: inline-flex; align-items: center; font-family: 'Manrope', sans-serif;
+      font-size: 12px; font-weight: 500; color: var(--ink-600);
+      background: rgba(255,255,255,0.50); border: 1px solid rgba(44,31,14,0.12);
+      border-radius: 9999px; padding: 4px 10px; white-space: nowrap;
+    }
+    .flow-hero {
+      background: rgba(253,244,230,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+    }
+    .flow-hero::after { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-top:10px;">
+    <div class="flow-toprow">
+      <div class="flow-logo">
+        <span class="flow-logo-mark"></span>Psoriasis-Behandlungswege
+      </div>
+      <div class="flow-avatar">S</div>
+    </div>
+    <div id="filterChipRow" class="filter-chip-row"></div>
+    <div class="flow-count-pill" id="availPill" style="margin-top:12px;">26 Behandlungswege</div>
+    <h1 class="flow-hero-title">Die Evidenz ist hier besonders stark</h1>
+    <p class="flow-hero-sub" style="margin-top:10px;">Diese drei haben wir als Einstiegspunkt ausgewählt — basierend auf Evidenzstärke und deinem Profil. Du kannst alles erkunden. Speichere, was dich anspricht.</p>
+  </div>
+
+  <!-- Karten -->
+  <div class="flow-body">
+
+    <!-- Karte 1: Emollients -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.42 1.24 4.55 3.12 5.79L7.5 18h9l-.62-3.21A7 7 0 0 0 19 9c0-3.87-3.13-7-7-7z"/></svg>
+          Topisch
+        </span>
+        <span class="evchip-flow ev-high" style="margin-left:auto;">
+          <span class="ev-dot"></span>Starke Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Emollienzien &amp; Feuchtigkeitspflege</div>
+      <div class="hcard-desc">Tägliche Feuchtigkeitspflege ist eine der am besten belegten Maßnahmen bei Psoriasis. Regelmäßige Anwendung reduziert Schuppenbildung, lindert Juckreiz und senkt den Bedarf an topischen Behandlungen deutlich. Je einfacher die Zusammensetzung, desto besser verträglich.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="emollients" data-treatment-name="Emollienzien &amp; Feuchtigkeitspflege"></button>
+        <a href="flow-a-detail.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Karte 2: Stressmanagement -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          Geist &amp; Körper
+        </span>
+        <span class="evchip-flow ev-good" style="margin-left:auto;">
+          <span class="ev-dot"></span>Gute Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Stressmanagement (MBSR)</div>
+      <div class="hcard-desc">Mindfulness-Based Stress Reduction (achtsamkeitsbasierte Stressreduktion) hat gute klinische Belege bei Psoriasis — zum Teil, weil Stress sowohl Auslöser als auch Folge von Schüben ist. Kabat-Zinns Pilotstudie zeigte schnelleres Abklingen von Plaques bei Patientinnen, die MBSR mit Phototherapie kombinierten.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="stress-management" data-treatment-name="Stressmanagement (MBSR)"></button>
+        <a href="flow-a-detail-stress.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Karte 3: Mediterrane Ernährung -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+          Ernährung
+        </span>
+        <span class="evchip-flow ev-good" style="margin-left:auto;">
+          <span class="ev-dot"></span>Gute Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Mediterrane Ernährung</div>
+      <div class="hcard-desc">Die MEDIPSO-Studie 2025 (randomisiert kontrolliert) zeigte, dass 47 % der Teilnehmenden mit dieser Ernährungsweise eine 75-prozentige Hautverbesserung erzielten — gegenüber 0 % in der Kontrollgruppe. Das entzündungshemmende Ernährungsmuster mit der stärksten Studienlage unter allen Ernährungsinterventionen bei Psoriasis.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="mediterranean-diet" data-treatment-name="Mediterrane Ernährung"></button>
+        <a href="flow-a-detail-mediterranean.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Alle erkunden -->
+    <a href="flow-a-overview.html" class="explore-btn ani">
+      Alle 26 Optionen erkunden
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Hinweis-Karte -->
+    <div class="nudge-card ani" id="nudgeCard">
+      Du hast dich auf <strong id="nudgePrefs">Ernährung und Geist &amp; Körper</strong> fokussiert. Bei <strong>topischen Behandlungen</strong> gibt es ebenfalls starke Evidenz — <a href="flow-a-overview.html">schau mal rein →</a>
+    </div>
+
+  </div>
+
+  <!-- Auswahlleiste -->
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+  <script>
+    if (!localStorage.getItem('psoriasis_selectedTreatments')) {
+      localStorage.setItem('psoriasis_selectedTreatments', JSON.stringify([
+        { id: 'emollients',          name: 'Emollienzien & Feuchtigkeitspflege' },
+        { id: 'stress-management',   name: 'Stressmanagement (MBSR)' },
+        { id: 'mediterranean-diet',  name: 'Mediterrane Ernährung' }
+      ]));
+    }
+  </script>
+  <script src="selection.js"></script>
+  <script>
+    (function() {
+      var CAT_LABELS = { topical: 'Topisch', diet: 'Ernährung', supplements: 'Nahrungsergänzung', mindbody: 'Geist & Körper' };
+      var CATEGORY_COUNTS = { topical: 8, diet: 4, supplements: 4, mindbody: 5, medical: 6 };
+      var TOTAL = 26;
+
+      var rawPrefs = localStorage.getItem('psoriasis_prefs');
+      var prefs    = rawPrefs ? JSON.parse(rawPrefs) : null;
+
+      var availCount = TOTAL;
+      if (prefs && prefs.length > 0 && prefs.length < 4) {
+        availCount = prefs.reduce(function(sum, k) { return sum + (CATEGORY_COUNTS[k] || 0); }, 0);
+      }
+      var pill = document.getElementById('availPill');
+      if (pill) pill.textContent = availCount + ' Behandlungswege';
+
+      var subtype  = localStorage.getItem('psoriasis_subtype') || 'plaque';
+      var severity = localStorage.getItem('psoriasis_severity') || 'moderate';
+      var joint    = localStorage.getItem('psoriasis_joint_pain');
+
+      var subtypeLabel = { plaque: 'Plaque', guttate: 'Guttata', inverse: 'Inverse', other: 'Anderer Typ', unsure: '' };
+      var chips = [];
+      if (subtypeLabel[subtype]) chips.push(subtypeLabel[subtype]);
+      if (severity === 'severe') chips.push('Stärker ausgeprägt');
+      if (joint === 'yes' || joint === 'sometimes') chips.push('Gelenkbeteiligung');
+
+      var chipRow = document.getElementById('filterChipRow');
+      if (chipRow) {
+        if (chips.length === 0) { chipRow.style.display = 'none'; }
+        else { chipRow.innerHTML = chips.map(function(l) { return '<span class="filter-chip">' + l + '</span>'; }).join(''); }
+      }
+
+      var nudge = document.getElementById('nudgeCard');
+      if (nudge && prefs && prefs.length > 0 && prefs.indexOf('topical') < 0) {
+        var prefLabels = prefs.map(function(p) { return CAT_LABELS[p] || p; });
+        document.getElementById('nudgePrefs').textContent = prefLabels.join(' und ');
+      } else if (nudge) {
+        nudge.style.display = 'none';
+      }
+    })();
+  </script>
+
+</body>
+</html>

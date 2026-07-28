@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geist &amp; Körper · Behandlungsoptionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #f0ecf5 0%, #faf7f4 70%, #ede8f4 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, #c8c6e8 20%, transparent 70%);
+      opacity: .35;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#f0ecf5 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero flow-hero--aurora">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 gespeichert</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-aurora">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Geist &amp; Körper</h1>
+        <p class="flow-hero-sub tight">10 Optionen, nach Evidenzstärke für Reizdarm geordnet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Darmorientierte Hypnotherapie</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Starke Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Geführte Entspannung, die die Darm-Hirn-Verbindung neu trainiert. Rund 70–80 % der Patient:innen berichten über eine bedeutsame Verbesserung – ein Effekt, der nach 12 Monaten noch nachweisbar ist.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail-hypnotherapy.html" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="hypnotherapy" data-treatment-name="Darmorientierte Hypnotherapie"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Kognitive Verhaltenstherapie (KVT)</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Starke Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Strukturierte Therapie, die Denkmuster und Verhaltensweisen adressiert, die IBS-Symptome verstärken. Mehrere große RCTs zeigen signifikante Wirkung, besonders bei Schmerzverstärkung und Lebensqualität.</div>
+      <div class="lcard-foot-flow">
+        <a href="#" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="cbt" data-treatment-name="Kognitive Verhaltenstherapie"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Achtsamkeitsbasierte Stressreduktion</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Ein 8-wöchiges Programm, das Aufmerksamkeit und Nicht-Reaktivität gegenüber Darmsignalen trainiert. Besonders wirksam, wenn Stress oder Angst klare Auslöser für Symptomschübe sind.</div>
+      <div class="lcard-foot-flow">
+        <a href="#" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="mbsr" data-treatment-name="Achtsamkeitsbasierte Stressreduktion"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani">7 weitere Optionen anzeigen</button>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

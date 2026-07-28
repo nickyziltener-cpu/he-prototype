@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Stress Trigger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 33%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <div style="margin-bottom: 4px;">
+      <span class="section-label">Question 3 of 9</span>
+    </div>
+
+    <h1 class="question-title">Does stress affect your symptoms?</h1>
+
+    <div class="chips-container" style="margin-top: 24px;">
+      <button class="chip" data-next="q4.html">Yes — significantly. Stress is a major driver.</button>
+      <button class="chip" data-next="q4.html">Yes — somewhat. Stressful periods make it worse.</button>
+      <button class="chip" data-next="q4.html">Occasionally, but not reliably.</button>
+      <button class="chip" data-next="q4.html">No — stress doesn't seem to affect me.</button>
+    </div>
+
+    <p class="micro-copy">The gut-brain connection is one of the most interesting areas of IBS research. We'll show you what the evidence says.</p>
+
+    <a href="q2.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        document.querySelectorAll('.chip').forEach(function(c) {
+          c.classList.remove('selected');
+        });
+        this.classList.add('selected');
+        var next = this.getAttribute('data-next');
+        setTimeout(function() {
+          window.location.href = next;
+        }, 200);
+      });
+    });
+  </script>
+</body>
+</html>

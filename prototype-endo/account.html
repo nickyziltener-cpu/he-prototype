@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Create Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--hero-band);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.25; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.20; transform: scale(1); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Account: ember top-right 280px 25%, aurora bottom-left 240px 20% */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.2s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px;
+      left: -40px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.5s forwards;
+    }
+
+    .account-card {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.9s forwards;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: 0 10px 30px -10px rgba(140,108,171,0.22);
+      border-radius: 16px;
+      padding: 32px;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .account-headline {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--ink-900);
+      margin-bottom: 6px;
+      letter-spacing: -0.012em;
+    }
+
+    .account-sub {
+      font-size: 14px;
+      color: var(--ink-600);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 13px 20px;
+      background: white;
+      border: 1.5px solid #D1D5DB;
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-900);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .google-btn:hover {
+      border-color: #9CA3AF;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .google-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper .form-input {
+      padding-right: 44px;
+    }
+
+    .pw-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--ink-500);
+      padding: 4px;
+      line-height: 1;
+    }
+
+    .checkbox-group {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: var(--plum-500);
+      cursor: pointer;
+    }
+
+    .checkbox-label {
+      font-size: 13px;
+      color: var(--ink-700);
+      line-height: 1.5;
+    }
+
+    .checkbox-label a {
+      color: var(--plum-500);
+      text-decoration: underline;
+    }
+
+    .rwe-label {
+      color: var(--ink-600);
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--plum-500);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.15s ease;
+      margin-bottom: 16px;
+    }
+
+    .submit-btn:hover {
+      background: var(--plum-700);
+    }
+
+    .account-legal {
+      font-size: 12px;
+      color: var(--ink-500);
+      text-align: center;
+      line-height: 1.5;
+      margin-top: 20px;
+    }
+
+    .sign-in-row {
+      text-align: center;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="account-card">
+    <h1 class="account-headline">Create your free account</h1>
+    <p class="account-sub">Your symptom results are saved — sign up to access your full endometriosis evidence library and create your personalised plan.</p>
+
+    <a href="what-next.html" class="google-btn">
+      <svg class="google-icon" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+        <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+        <path fill="#FBBC05" d="M3.964 10.71c-.18-.54-.282-1.117-.282-1.71s.102-1.17.282-1.71V4.958H.957C.347 6.173 0 7.548 0 9s.348 2.827.957 4.042l3.007-2.332z"/>
+        <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/>
+      </svg>
+      Continue with Google
+    </a>
+
+    <div class="divider-or">or</div>
+
+    <form onsubmit="window.location.href='what-next.html'; return false;">
+      <div class="form-group">
+        <label class="form-label" for="email">Email address</label>
+        <input class="form-input" type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <div class="password-wrapper">
+          <input class="form-input" type="password" id="password" placeholder="At least 8 characters" autocomplete="new-password">
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show or hide password">&#128065;</button>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px; margin-top: 16px;">
+        <div class="checkbox-group">
+          <input type="checkbox" id="gdpr">
+          <label class="checkbox-label" for="gdpr">
+            I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+          </label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="rwe">
+          <label class="checkbox-label rwe-label" for="rwe">
+            I'm happy for my anonymised data to be used in future health research (optional).
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Create account →</button>
+    </form>
+
+    <div class="sign-in-row">
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+    </div>
+
+    <p class="account-legal">Health Empowerment is an information tool, not a medical service. Your data is stored securely and never sold.</p>
+  </div>
+
+  <script>
+    var pwToggle = document.getElementById('pwToggle');
+    var pwInput = document.getElementById('password');
+
+    pwToggle.addEventListener('click', function() {
+      if (pwInput.type === 'password') {
+        pwInput.type = 'text';
+      } else {
+        pwInput.type = 'password';
+      }
+    });
+  </script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

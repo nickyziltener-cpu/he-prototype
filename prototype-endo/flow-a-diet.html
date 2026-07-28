@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet · Treatment Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #fdf0e8 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .30; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#fbeee5 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero flow-hero--ember">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-ember">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Diet</h1>
+        <p class="flow-hero-sub tight">4 options, ranked by strength of evidence for endometriosis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Anti-inflammatory diet</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Reducing red meat, processed foods, refined sugar and trans fats while increasing omega-3 rich foods, leafy greens and berries. Observational studies consistently link high red-meat intake to increased endometriosis risk and severity — but no RCTs of this dietary pattern in endo exist yet. The association is strong; the causal trial evidence is not.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail.html" class="learn-more">Learn more <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="anti-inflammatory-diet" data-treatment-name="Anti-inflammatory diet"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Omega-3 rich diet</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Prioritising fatty fish (salmon, mackerel, sardines), flaxseed, walnuts and chia seeds. Omega-3s reduce the inflammation that drives pelvic pain — the same effect as ibuprofen, but through food rather than a pill. The underlying mechanism is well-established; direct trial evidence for the dietary pattern in endometriosis remains limited.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="omega3-diet" data-treatment-name="Omega-3 rich diet"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Gluten reduction trial</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">A 2012 Italian study (75 women, no comparison group) found most women with endo reported pain reduction after 12 months gluten-free — despite not having coeliac disease. This is one study, not a controlled trial. The mechanism is unclear and hasn't been replicated at scale. Worth trying if other approaches haven't worked, but go in with realistic expectations.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="gluten-free" data-treatment-name="Gluten reduction trial"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra option':'Show 1 more option'">Show 1 more option</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Low-oestrogen dietary approach</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Limited evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Reducing foods associated with oestrogen elevation — alcohol, processed soy, red meat and high-fat dairy — on the theory that endometriosis is an oestrogen-driven condition. Plausible mechanistically; direct evidence in humans is limited.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="low-oestrogen-diet" data-treatment-name="Low-oestrogen dietary approach"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

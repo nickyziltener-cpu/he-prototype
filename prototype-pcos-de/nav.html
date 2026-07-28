@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototyp-Karte · PCOS (Deutsch)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; padding: 24px; font-family: 'Manrope', sans-serif; background: #f8f5f2; color: #2a1f30; min-height: 100vh; }
+    h1 { font-size: 22px; font-weight: 800; margin: 0 0 4px; color: #2a1f30; }
+    .subtitle { font-size: 13px; color: #6b5d75; margin-bottom: 28px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 9999px; margin-left: 8px; }
+    .badge-rose { background: rgba(224,122,150,0.15); color: #b85472; }
+    .badge-new { background: rgba(107,154,139,0.15); color: #1a5e47; }
+    .section { margin-bottom: 28px; }
+    .section-title { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #6b5d75; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(42,31,48,0.12); }
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+    .nav-link { display: flex; align-items: center; gap: 10px; text-decoration: none; background: #fff; border: 1px solid rgba(42,31,48,0.10); border-radius: 12px; padding: 10px 12px; transition: box-shadow 0.15s; }
+    .nav-link:hover { box-shadow: 0 2px 12px rgba(224,122,150,0.18); border-color: rgba(224,122,150,0.30); }
+    .nav-link-icon { width: 32px; height: 32px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; }
+    .nav-link-body { flex: 1; min-width: 0; }
+    .nav-link-name { font-size: 13px; font-weight: 700; color: #2a1f30; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-link-meta { font-size: 11px; color: #6b5d75; margin-top: 1px; }
+    .ic-rose { background: rgba(224,122,150,0.15); }
+    .ic-sage { background: rgba(107,154,139,0.15); }
+    .ic-plum { background: rgba(168,165,212,0.18); }
+    .ic-ember { background: rgba(247,195,158,0.25); }
+    .ic-dark { background: rgba(42,31,48,0.08); }
+    .new-tag { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #1a5e47; background: rgba(107,154,139,0.15); border-radius: 5px; padding: 1px 5px; margin-left: 5px; }
+    .flow-divider { display: flex; align-items: center; gap: 8px; color: #b8a8c4; font-size: 11px; margin: 4px 0; }
+    .flow-divider::before, .flow-divider::after { content: ''; flex: 1; height: 1px; background: rgba(42,31,48,0.08); }
+  </style>
+</head>
+<body>
+
+<h1>PCOS Behandlungswege <span class="badge badge-rose">◯ Prototyp</span> <span class="badge badge-new">Deutsch</span></h1>
+<div class="subtitle">Alle Screens — anklicken zum Navigieren. <span class="badge badge-new">Neu</span> = Screens, die es nur im PCOS-Prototyp gibt.</div>
+
+<!-- Onboarding -->
+<div class="section">
+  <div class="section-title">Onboarding &amp; Fragebogen</div>
+  <div class="link-grid">
+    <a href="index.html" class="nav-link"><div class="nav-link-icon ic-rose">🏠</div><div class="nav-link-body"><div class="nav-link-name">Willkommen</div><div class="nav-link-meta">index.html · Einstiegspunkt</div></div></a>
+    <a href="start.html" class="nav-link"><div class="nav-link-icon ic-rose">▶</div><div class="nav-link-body"><div class="nav-link-name">Start</div><div class="nav-link-meta">start.html · 5 Fragen</div></div></a>
+    <a href="q1.html" class="nav-link"><div class="nav-link-icon ic-rose">1</div><div class="nav-link-body"><div class="nav-link-name">F1 · Diagnose</div><div class="nav-link-meta">q1.html</div></div></a>
+    <a href="q1a.html" class="nav-link"><div class="nav-link-icon ic-rose">1a</div><div class="nav-link-body"><div class="nav-link-name">F1a · Vermutete Symptome</div><div class="nav-link-meta">q1a.html · Priya-Pfad</div></div></a>
+    <a href="q2.html" class="nav-link"><div class="nav-link-icon ic-rose">2</div><div class="nav-link-body"><div class="nav-link-name">F2 · Dauer</div><div class="nav-link-meta">q2.html</div></div></a>
+    <a href="q3.html" class="nav-link"><div class="nav-link-icon ic-rose">3</div><div class="nav-link-body"><div class="nav-link-name">F3 · Ziel</div><div class="nav-link-meta">q3.html</div></div></a>
+    <a href="q4.html" class="nav-link"><div class="nav-link-icon ic-rose">4</div><div class="nav-link-body"><div class="nav-link-name">F4 · Präferenzen</div><div class="nav-link-meta">q4.html</div></div></a>
+    <a href="redflag.html" class="nav-link"><div class="nav-link-icon ic-dark">⚑</div><div class="nav-link-body"><div class="nav-link-name">Warnsignal-Check</div><div class="nav-link-meta">redflag.html</div></div></a>
+    <a href="redflag-stop.html" class="nav-link"><div class="nav-link-icon ic-dark">✕</div><div class="nav-link-body"><div class="nav-link-name">Warnsignal-Stop</div><div class="nav-link-meta">redflag-stop.html</div></div></a>
+  </div>
+</div>
+
+<!-- Reveal + Account -->
+<div class="section">
+  <div class="section-title">Ergebnis &amp; Konto</div>
+  <div class="link-grid">
+    <a href="reveal.html" class="nav-link"><div class="nav-link-icon ic-rose">✦</div><div class="nav-link-body"><div class="nav-link-name">Ergebnis · Diagnostiziert</div><div class="nav-link-meta">reveal.html · 17 Behandlungspfade</div></div></a>
+    <a href="reveal-priya.html" class="nav-link"><div class="nav-link-icon ic-rose">✦</div><div class="nav-link-body"><div class="nav-link-name">Ergebnis · Verdacht</div><div class="nav-link-meta">reveal-priya.html · Rotterdam-Kriterien</div></div></a>
+    <a href="account.html" class="nav-link"><div class="nav-link-icon ic-rose">◎</div><div class="nav-link-body"><div class="nav-link-name">Konto</div><div class="nav-link-meta">account.html · Registrierung</div></div></a>
+  </div>
+</div>
+
+<!-- Flow A -->
+<div class="section">
+  <div class="section-title">Flow A · Recherche &amp; Auswahl</div>
+  <div class="link-grid">
+    <a href="flow-a-start.html" class="nav-link"><div class="nav-link-icon ic-ember">⭐</div><div class="nav-link-body"><div class="nav-link-name">Forschungs-Home</div><div class="nav-link-meta">flow-a-start.html · Top 3</div></div></a>
+    <a href="flow-a-overview.html" class="nav-link"><div class="nav-link-icon ic-rose">◉</div><div class="nav-link-body"><div class="nav-link-name">Alle durchsuchen</div><div class="nav-link-meta">flow-a-overview.html · 4 Kategorien</div></div></a>
+    <a href="flow-a-supplements.html" class="nav-link"><div class="nav-link-icon ic-ember">🧪</div><div class="nav-link-body"><div class="nav-link-name">Nahrungsergänzung</div><div class="nav-link-meta">flow-a-supplements.html · 7 Behandlungen</div></div></a>
+    <a href="flow-a-diet.html" class="nav-link"><div class="nav-link-icon ic-sage">🥗</div><div class="nav-link-body"><div class="nav-link-name">Ernährung &amp; Nutrition</div><div class="nav-link-meta">flow-a-diet.html · 4 Behandlungen</div></div></a>
+    <a href="flow-a-mindbody.html" class="nav-link"><div class="nav-link-icon ic-plum">🏃</div><div class="nav-link-body"><div class="nav-link-name">Geist &amp; Körper</div><div class="nav-link-meta">flow-a-mindbody.html · 5 Behandlungen</div></div></a>
+    <a href="flow-a-medical.html" class="nav-link"><div class="nav-link-icon ic-dark">💊</div><div class="nav-link-body"><div class="nav-link-name">Medizinische Behandlungen</div><div class="nav-link-meta">flow-a-medical.html · 5, ärztlich</div></div></a>
+    <a href="flow-a-detail.html" class="nav-link"><div class="nav-link-icon ic-ember">🔬</div><div class="nav-link-body"><div class="nav-link-name">Detail · Myo-Inositol</div><div class="nav-link-meta">flow-a-detail.html</div></div></a>
+    <a href="flow-a-detail-lowgi.html" class="nav-link"><div class="nav-link-icon ic-sage">🔬</div><div class="nav-link-body"><div class="nav-link-name">Detail · Niedrig-GI-Ernährung</div><div class="nav-link-meta">flow-a-detail-lowgi.html</div></div></a>
+    <a href="flow-a-detail-exercise.html" class="nav-link"><div class="nav-link-icon ic-plum">🔬</div><div class="nav-link-body"><div class="nav-link-name">Detail · Bewegung</div><div class="nav-link-meta">flow-a-detail-exercise.html</div></div></a>
+    <a href="flow-a-shortlist.html" class="nav-link"><div class="nav-link-icon ic-rose">☑</div><div class="nav-link-body"><div class="nav-link-name">Shortlist-Review</div><div class="nav-link-meta">flow-a-shortlist.html · Sortieren &amp; bestätigen</div></div></a>
+  </div>
+</div>
+
+<!-- Flow B -->
+<div class="section">
+  <div class="section-title">Flow B · Plan &amp; Tracking</div>
+  <div class="link-grid">
+    <a href="flow-b-plan.html" class="nav-link"><div class="nav-link-icon ic-rose">✦</div><div class="nav-link-body"><div class="nav-link-name">Plan (Einrichtung)</div><div class="nav-link-meta">flow-b-plan.html · Ziehen zum Sortieren</div></div></a>
+    <a href="flow-b-prepare.html" class="nav-link"><div class="nav-link-icon ic-ember">📦</div><div class="nav-link-body"><div class="nav-link-name">Vorbereitung</div><div class="nav-link-meta">flow-b-prepare.html · Myo-Inositol</div></div></a>
+    <a href="flow-b-checkin.html" class="nav-link"><div class="nav-link-icon ic-rose">📋</div><div class="nav-link-body"><div class="nav-link-name">Tägliches Check-in <span class="new-tag">Neu</span></div><div class="nav-link-meta">flow-b-checkin.html · Zyklusleiste + Symptome</div></div></a>
+    <a href="flow-b-progress.html" class="nav-link"><div class="nav-link-icon ic-sage">📈</div><div class="nav-link-body"><div class="nav-link-name">Fortschritt</div><div class="nav-link-meta">flow-b-progress.html · Woche 4</div></div></a>
+    <a href="flow-b-plan-active.html" class="nav-link"><div class="nav-link-icon ic-rose">✦</div><div class="nav-link-body"><div class="nav-link-name">Plan (aktiv)</div><div class="nav-link-meta">flow-b-plan-active.html · Tab-Startseite</div></div></a>
+  </div>
+</div>
+
+<!-- Cycle view — new for PCOS -->
+<div class="section">
+  <div class="section-title">Zyklus-Tab · Neu für PCOS <span class="new-tag">Neu</span></div>
+  <div class="link-grid">
+    <a href="cycle-view.html" class="nav-link" style="border-color:rgba(224,122,150,0.35);background:rgba(224,122,150,0.04);"><div class="nav-link-icon ic-rose">◯</div><div class="nav-link-body"><div class="nav-link-name">Zyklusansicht <span class="new-tag">Neu</span></div><div class="nav-link-meta">cycle-view.html · Phasenverlauf + Symptomprotokoll</div></div></a>
+  </div>
+  <div style="font-size:12px;color:#6b5d75;margin-top:8px;padding:8px 12px;background:rgba(224,122,150,0.06);border-radius:10px;border:1px solid rgba(224,122,150,0.14);">
+    Der Zyklus-Tab ersetzt den Journal-Tab aus den IBS/Endo-Prototypen. Er ist die Heimat der neuen Phasenleisten-UI — speziell für PCOS-Nutzerinnen konzipiert, die alles durch den Zyklus betrachten.
+  </div>
+</div>
+
+<!-- Today screens -->
+<div class="section">
+  <div class="section-title">Heute-Screens</div>
+  <div class="link-grid">
+    <a href="today-preplan.html" class="nav-link"><div class="nav-link-icon ic-rose">🌅</div><div class="nav-link-body"><div class="nav-link-name">Heute · Vor dem Plan</div><div class="nav-link-meta">today-preplan.html · Plan noch nicht erstellt</div></div></a>
+    <a href="today-between.html" class="nav-link"><div class="nav-link-icon ic-rose">🌅</div><div class="nav-link-body"><div class="nav-link-name">Heute · Noch nicht eingecheckt</div><div class="nav-link-meta">today-between.html · Aktiver Plan, kein Check-in</div></div></a>
+    <a href="today-logged.html" class="nav-link"><div class="nav-link-icon ic-sage">🌅</div><div class="nav-link-body"><div class="nav-link-name">Heute · Eingecheckt</div><div class="nav-link-meta">today-logged.html · Heute eingecheckt</div></div></a>
+  </div>
+</div>
+
+<div style="border-top:1px solid rgba(42,31,48,0.10);padding-top:16px;margin-top:8px;font-size:12px;color:#6b5d75;">
+  PCOS-Prototyp (Deutsch) · 33 Screens · Zyklusbewusstes Tracking · Rose Akzent-Design-System
+</div>
+
+</body>
+</html>

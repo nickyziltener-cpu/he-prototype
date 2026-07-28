@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Schweregrad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .16; pointer-events: none; z-index: 0;
+    }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+    .chips-container, .question-sub, .back-link, .progress-bar-container { opacity: 0; animation: fade-in 1.0s ease-out 0.9s forwards; }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 56%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px; position: relative; z-index: 1;">
+    <h1 class="question-title">
+      <span class="hl-line">Wie viel Haut ist</span>
+      <span class="hl-line">aktuell betroffen?</span>
+    </h1>
+    <p class="question-sub">Es gibt keine richtige Antwort. Das hilft uns zu verstehen, wie es dir im Alltag geht.</p>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 24px;">
+      <button class="chip" data-severity="mild">
+        Ein paar Stellen an ein oder zwei Körperregionen
+        <span class="chip-sub">Handhabbar, aber hartnäckig</span>
+      </button>
+      <button class="chip" data-severity="moderate">
+        Mehrere Stellen am Körper
+        <span class="chip-sub">Schübe an verschiedenen Stellen</span>
+      </button>
+      <button class="chip" data-severity="severe">
+        Große Flächen oder das Gefühl, dass es sich ausbreitet
+        <span class="chip-sub">Beeinflusst, wie ich mich kleide oder bewege</span>
+      </button>
+      <button class="chip" data-severity="variable">
+        Es kommt und geht — schwer zu sagen
+        <span class="chip-sub">Manche Wochen besser, manche schlechter</span>
+      </button>
+    </div>
+
+    <a href="q2.html" class="back-link">← Zurück</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        localStorage.setItem('psoriasis_severity', this.getAttribute('data-severity'));
+        window.location.href = 'redflag.html';
+      });
+    });
+  </script>
+</body>
+</html>

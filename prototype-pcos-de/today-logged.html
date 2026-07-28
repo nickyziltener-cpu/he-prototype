@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heute · PCOS Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #eef4f0 0%, #faf7f4 60%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -80px; right: -80px; width: 360px; height: 360px; background: radial-gradient(circle, var(--aurora-300) 0%, var(--aurora-500) 15%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 280px; height: 280px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .20; pointer-events: none; z-index: 0; }
+    .today-hero { padding: 18px 24px 14px; position: relative; z-index: 1; }
+    .cycle-pill-mini { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; color: var(--rose-700); background: rgba(224,122,150,0.12); border: 1px solid rgba(224,122,150,0.22); border-radius: 9999px; padding: 4px 10px; margin-bottom: 10px; }
+    .today-greeting { font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--ink-900); margin-bottom: 4px; line-height: 1.15; }
+    .today-date { font-size: 13px; color: var(--ink-500); font-weight: 500; margin-bottom: 2px; }
+    .today-body { padding: 0 24px; position: relative; z-index: 1; }
+    .done-card { background: rgba(107,154,139,0.12); border: 1.5px solid rgba(107,154,139,0.30); border-radius: 18px; padding: 18px; margin-bottom: 16px; display: flex; gap: 14px; align-items: flex-start; }
+    .done-icon { font-size: 28px; flex-shrink: 0; }
+    .done-body-title { font-size: 16px; font-weight: 800; color: var(--ink-900); margin-bottom: 3px; }
+    .done-body-sub { font-size: 13px; color: var(--ink-600); line-height: 1.5; }
+    .streak-card { background: rgba(255,255,255,0.65); border: 1px solid rgba(42,31,48,0.10); border-radius: 16px; padding: 16px; margin-bottom: 14px; display: flex; gap: 16px; align-items: center; }
+    .streak-num { font-family: 'DM Serif Display', serif; font-size: 38px; color: var(--rose-500); }
+    .streak-body-title { font-size: 14px; font-weight: 700; color: var(--ink-900); margin-bottom: 2px; }
+    .streak-body-sub { font-size: 12.5px; color: var(--ink-600); }
+    .today-log-summary { background: rgba(255,255,255,0.60); border: 1px solid rgba(42,31,48,0.09); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+    .log-summary-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-500); margin-bottom: 10px; }
+    .log-row { display: flex; gap: 10px; align-items: center; padding: 5px 0; }
+    .log-label { font-size: 13px; color: var(--ink-600); width: 80px; flex-shrink: 0; }
+    .log-val { font-size: 13px; font-weight: 600; color: var(--ink-900); }
+    .log-tag { display: inline-flex; font-size: 12px; font-weight: 500; color: var(--rose-700); background: rgba(224,122,150,0.12); border-radius: 6px; padding: 2px 8px; margin-right: 4px; }
+    .cycle-mini-wrap { margin-bottom: 14px; }
+    .tomorrow-card { background: rgba(224,122,150,0.06); border: 1px solid rgba(224,122,150,0.14); border-radius: 16px; padding: 16px; }
+    .tomorrow-title { font-size: 13.5px; font-weight: 700; color: var(--ink-900); margin-bottom: 6px; }
+    .tomorrow-text { font-size: 13px; color: var(--ink-600); line-height: 1.5; }
+    .spacer-tb { height: 80px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="today-hero">
+    <div class="cycle-pill-mini">◯ ~Tag 22 · Luteal</div>
+    <div class="today-greeting">Eingecheckt. ✓</div>
+    <div class="today-date" id="todayDate"></div>
+  </div>
+
+  <div class="today-body">
+
+    <!-- Done card -->
+    <div class="done-card">
+      <div class="done-icon">✅</div>
+      <div>
+        <div class="done-body-title">Check-in abgeschlossen</div>
+        <div class="done-body-sub">Gespeichert. Du baust wertvolle Daten auf — komm morgen wieder, um entstehende Muster zu sehen.</div>
+      </div>
+    </div>
+
+    <!-- Streak -->
+    <div class="streak-card">
+      <div class="streak-num">27</div>
+      <div>
+        <div class="streak-body-title">Tage getrackt</div>
+        <div class="streak-body-sub">88% Einnahmetreue · Weiter konsequent bleiben</div>
+      </div>
+    </div>
+
+    <!-- Log summary -->
+    <div class="today-log-summary">
+      <div class="log-summary-title">Heutiges Protokoll</div>
+      <div class="log-row"><div class="log-label">Dosis</div><div class="log-val" style="color:var(--sage-500);">✓ Eingenommen</div></div>
+      <div class="log-row"><div class="log-label">Energie</div><div class="log-val">Gut</div></div>
+      <div class="log-row"><div class="log-label">Symptome</div><div class="log-val"><span class="log-tag">Blähungen</span><span class="log-tag">Stimmungstief</span></div></div>
+    </div>
+
+    <!-- Cycle mini bar -->
+    <div class="cycle-mini-wrap">
+      <div class="cycle-phase-card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+          <span style="font-size:13px;font-weight:700;color:var(--ink-700);">Lutealphase · ~9 Tage noch</span>
+          <a href="cycle-view.html" style="font-size:11px;font-weight:600;color:var(--rose-500);text-decoration:none;">Ansehen →</a>
+        </div>
+        <div class="phase-bar">
+          <div class="phase-seg-menstrual"></div>
+          <div class="phase-seg-follicular"></div>
+          <div class="phase-seg-ovulatory"></div>
+          <div class="phase-seg-luteal"></div>
+          <div class="phase-you-are-here" style="right:16%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tomorrow card -->
+    <div class="tomorrow-card">
+      <div class="tomorrow-title">Morgen (~Tag 23 · Lutealphase)</div>
+      <div class="tomorrow-text">Im Verlauf der Lutealphase können Blähungen und Stimmungsschwankungen zunehmen. Gerade jetzt ist die konsequente Myo-Inositol-Einnahme besonders wichtig.</div>
+    </div>
+
+    <div class="spacer-tb"></div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="cycle-view.html" class="tab-item"><span class="tab-icon">◯</span>Zyklus</a>
+    <a href="flow-b-plan-active.html" class="tab-item active"><span class="tab-icon">✦</span>Mein Plan</a>
+    <a href="flow-a-overview.html" class="tab-item"><span class="tab-icon">◉</span>Forschung</a>
+    <a href="#" class="tab-item"><span class="tab-icon">○</span>Ich</a>
+  </div>
+
+</div>
+<script>
+var months = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+var d = new Date();
+document.getElementById('todayDate').textContent = d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+</script>
+</body>
+</html>

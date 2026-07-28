@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Check-in · Psoriasis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: 0; left: 0; right: 0; height: 220px;
+      background: linear-gradient(180deg, rgba(196,123,43,0.04) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+    }
+    .flare-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+      background: none; border: 1.5px dashed rgba(192,57,43,0.32); border-radius: 12px;
+      padding: 14px 16px; cursor: pointer; font-family: 'Manrope', sans-serif;
+      font-size: 14px; font-weight: 600; color: rgba(192,57,43,0.85);
+      transition: all 0.15s ease;
+    }
+    .flare-btn.active { background: rgba(192,57,43,0.08); border-color: rgba(192,57,43,0.50); border-style: solid; }
+    .flare-btn:hover { background: rgba(192,57,43,0.06); }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="ci-head" style="position:relative;z-index:1;">
+    <div style="margin-bottom:14px;">
+      <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(196,123,43,.12);border:1px solid rgba(196,123,43,.20);border-radius:100px;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--primary-dk);letter-spacing:.04em;">
+        <svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Log this at end of day
+      </span>
+    </div>
+    <h1 class="flow-hero-title sm">How's your skin today?</h1>
+    <p class="flow-hero-sub tight">Takes about 30 seconds. The more you log, the clearer the picture for you and your dermatologist.</p>
+  </div>
+
+  <div class="ci-body" style="position:relative;z-index:1;">
+
+    <!-- Q1: Compared to yesterday — psoriasis-specific direction question -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Compared to yesterday, your skin is…</div>
+      <div class="seg-control" style="grid-template-columns:repeat(3,1fr);">
+        <div class="seg-opt-flow" onclick="selectSeg(this)">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M17 11l-5-5-5 5M17 18l-5-5-5 5"/></svg>
+          Worse
+        </div>
+        <div class="seg-opt-flow active" onclick="selectSeg(this)">Same</div>
+        <div class="seg-opt-flow positive" onclick="selectSeg(this)">
+          Better
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2: Applied emollient? -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Did you apply your emollient today?</div>
+      <div class="seg-control">
+        <div class="seg-opt-flow active positive" onclick="selectSeg(this)">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M5 12l4.5 4.5L19 7"/></svg>
+          Yes, both times
+        </div>
+        <div class="seg-opt-flow" onclick="selectSeg(this)">Once</div>
+        <div class="seg-opt-flow" onclick="selectSeg(this)">Skipped</div>
+      </div>
+    </div>
+
+    <!-- Q3: Symptoms -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Any of these today? <span class="opt-tag">optional</span></div>
+      <div class="sym-chips">
+        <span class="sym-chip active" onclick="this.classList.toggle('active')">Itching</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Scaling / flaking</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Redness</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Skin cracking</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Joint pain</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Fatigue</span>
+      </div>
+    </div>
+
+    <!-- Q4: Flare flag — psoriasis specific -->
+    <div class="q-block-flow ani">
+      <button class="flare-btn" id="flareBtn" onclick="this.classList.toggle('active'); this.textContent = this.classList.contains('active') ? '🔴 Marked as a flare day' : '🔴 This feels like a flare'">
+        🔴 This feels like a flare
+      </button>
+    </div>
+
+    <!-- Q5: Notes -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Notes <span class="opt-tag">optional</span></div>
+      <textarea class="note-textarea" placeholder="Anything else to capture…">Stressful week — hands noticeably drier, applied twice today.</textarea>
+    </div>
+
+  </div>
+
+  <div class="cta-bar-sticky">
+    <a href="flow-b-progress.html" class="cta-btn-full">Save check-in</a>
+  </div>
+
+</div>
+
+<script>
+function selectSeg(el) {
+  el.parentElement.querySelectorAll('.seg-opt-flow').forEach(function(o) { o.classList.remove('active'); });
+  el.classList.add('active');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Treatment Preferences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 67%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <div style="margin-bottom: 4px;">
+      <span class="section-label">Question 6 of 9</span>
+    </div>
+
+    <h1 class="question-title">What kinds of approaches are you open to trying?</h1>
+    <p class="question-sub">This filters your results to what's relevant for you. You can always explore other categories later.</p>
+
+    <div class="chips-container" id="chipContainer">
+      <button class="chip" data-type="regular">Diet changes</button>
+      <button class="chip" data-type="regular">Supplements</button>
+      <button class="chip" data-type="regular">
+        Lifestyle changes
+        <span class="chip-sub">(exercise, sleep, stress management)</span>
+      </button>
+      <button class="chip" data-type="regular">
+        Psychological therapies
+        <span class="chip-sub">(e.g. hypnotherapy, CBT)</span>
+      </button>
+      <button class="chip" data-type="regular">Specialist referrals</button>
+      <button class="chip" data-type="regular">Medication (non-prescription)</button>
+      <button class="chip" id="selectAllChip" data-type="all">All of the above — show me everything</button>
+    </div>
+
+    <button class="next-btn" id="nextBtn" onclick="window.location.href='q7.html'">Next →</button>
+
+    <a href="q5.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    var chips = document.querySelectorAll('.chip');
+    var selectAllChip = document.getElementById('selectAllChip');
+    var nextBtn = document.getElementById('nextBtn');
+
+    function updateNextBtn() {
+      var anySelected = document.querySelector('.chip.selected');
+      if (anySelected) {
+        nextBtn.classList.add('visible');
+      } else {
+        nextBtn.classList.remove('visible');
+      }
+    }
+
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var type = this.getAttribute('data-type');
+
+        if (type === 'all') {
+          // If "all" is already selected, deselect everything
+          if (this.classList.contains('selected')) {
+            chips.forEach(function(c) {
+              c.classList.remove('selected');
+            });
+          } else {
+            // Select all chips
+            chips.forEach(function(c) {
+              c.classList.add('selected');
+            });
+          }
+        } else {
+          // Regular chip: deselect "all" chip, toggle this one
+          selectAllChip.classList.remove('selected');
+          this.classList.toggle('selected');
+        }
+
+        updateNextBtn();
+      });
+    });
+  </script>
+</body>
+</html>

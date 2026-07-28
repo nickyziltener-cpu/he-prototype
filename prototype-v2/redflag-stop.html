@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Please See a Doctor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--amber-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.40; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Hard stop: ember only, top-right, 300px, 40% */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30px;
+      right: -40px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.0s ease-out 0.2s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .stop-headline .hl-line:nth-child(1) { animation: write-reveal 0.4s ease-out 0.3s forwards; }
+    .stop-headline .hl-line:nth-child(2) { animation: write-reveal 0.4s ease-out 0.65s forwards; }
+
+    .stop-body,
+    .gp-card,
+    .gp-link,
+    .understand-link {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.8s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper" style="padding-top: 56px; padding-bottom: 56px;">
+    <h1 class="stop-headline">
+      <span class="hl-line">Before you go further,</span>
+      <span class="hl-line">please speak with a doctor.</span>
+    </h1>
+
+    <div class="stop-body">
+      <p>The symptom(s) you've mentioned are important. They may well be part of your IBS — but they can also be associated with other conditions that need a doctor's assessment first.</p>
+      <p>We'd be doing you a disservice if we sent you straight to an evidence library without flagging this. Please book an appointment with your GP and mention the specific symptoms you noted.</p>
+      <p>You can come back to the library after.</p>
+    </div>
+
+    <!-- GP card — solid dark card, exception to glass rule -->
+    <div class="gp-card">
+      <p class="gp-card-heading">When you see your GP, mention:</p>
+      <ul id="symptomsList">
+        <!-- Populated by JS, falls back to generic -->
+      </ul>
+      <p class="gp-card-footer">Most of these symptoms turn out to have straightforward explanations — but a GP needs to make that call, not an evidence tool.</p>
+    </div>
+
+    <a href="https://www.nhs.uk/service-search/find-a-gp" target="_blank" class="gp-link">Find a GP near me</a>
+    <a href="library.html" class="understand-link">I understand — take me to the evidence library</a>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script>
+    var list = document.getElementById('symptomsList');
+
+    // Try to load stored red flag symptoms
+    var stored = localStorage.getItem('redflags');
+    var symptoms = stored ? JSON.parse(stored) : [];
+
+    if (symptoms.length > 0) {
+      symptoms.forEach(function(s) {
+        var li = document.createElement('li');
+        li.textContent = s;
+        list.appendChild(li);
+      });
+    } else {
+      // Generic fallback
+      var li1 = document.createElement('li');
+      li1.textContent = 'The symptoms you noted above';
+      var li2 = document.createElement('li');
+      li2.textContent = 'Ask your GP to rule out IBD, coeliac disease, and colorectal cancer.';
+      list.appendChild(li1);
+      list.appendChild(li2);
+    }
+
+    // Always add the rule-out line
+    if (symptoms.length > 0) {
+      var li = document.createElement('li');
+      li.textContent = 'You can also ask your GP to rule out IBD, coeliac disease, and colorectal cancer.';
+      list.appendChild(li);
+    }
+  </script>
+
+</body>
+</html>

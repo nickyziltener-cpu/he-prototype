@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Deine Ergebnisse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--priya-band); min-height: 100vh; position: relative; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: -40px; right: -60px; width: 380px; height: 380px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 20%, transparent 70%); opacity: .35; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 320px; height: 320px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+
+    .priya-results-wrap { max-width: 480px; margin: 0 auto; padding: 48px 24px 80px; position: relative; z-index: 1; }
+    .priya-badge { display: inline-flex; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--rose-700); background: rgba(224,122,150,.12); border: 1px solid rgba(224,122,150,0.20); padding: 5px 12px; border-radius: 100px; margin-bottom: 20px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--ink-900); line-height: 1.15; letter-spacing: -.015em; margin-bottom: 14px; }
+
+    .rotterdam-card { background: rgba(255,255,255,.70); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,.85); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+    .rotterdam-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--rose-700); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .rotterdam-explain { font-size: 13px; color: var(--ink-700); line-height: 1.55; background: rgba(224,122,150,0.07); border-radius: 10px; padding: 8px 12px; border: 1px solid rgba(224,122,150,0.14); margin-bottom: 14px; }
+    .rotterdam-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-500); margin: 10px 0 8px; }
+    .rotterdam-note { font-size: 13px; color: var(--ink-600); line-height: 1.55; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(42,31,48,0.08); }
+    .sym-tag-common { font-size: 12px; font-weight: 500; color: var(--ink-600); background: rgba(42,31,48,0.06); border-radius: 8px; padding: 3px 9px; display: inline-block; margin: 3px 3px 3px 0; }
+    .symptom-tags { margin-top: 6px; }
+
+    .gp-prep-card { background: rgba(255,255,255,.60); backdrop-filter: blur(10px); border: 1px solid rgba(42,31,48,.10); border-radius: 16px; overflow: hidden; margin-bottom: 16px; }
+    .gp-prep-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; cursor: pointer; }
+    .gp-prep-title { font-size: 14px; font-weight: 700; color: var(--ink-900); display: flex; align-items: center; gap: 8px; }
+    .gp-prep-chev { font-size: 16px; color: var(--ink-500); transition: transform .25s; }
+    .gp-prep-head.open .gp-prep-chev { transform: rotate(180deg); }
+    .gp-prep-body { padding: 0 16px; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s; }
+    .gp-prep-body.open { max-height: 700px; padding: 0 16px 16px; }
+    .gp-prep-section { margin-bottom: 12px; }
+    .gp-prep-section-title { font-size: 12px; font-weight: 700; color: var(--ink-700); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+    .gp-prep-list { list-style: none; }
+    .gp-prep-list li { font-size: 13px; color: var(--ink-700); line-height: 1.55; padding: 4px 0 4px 16px; position: relative; }
+    .gp-prep-list li::before { content: '→'; position: absolute; left: 0; color: var(--rose-500); }
+    .gp-prep-duration-note { background: rgba(224,122,150,0.08); border: 1px solid rgba(224,122,150,0.18); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--ink-700); margin-bottom: 12px; line-height: 1.5; }
+
+    .explore-section { background: linear-gradient(135deg, rgba(224,122,150,0.12), rgba(184,84,114,0.06)); border: 2px solid rgba(224,122,150,0.30); border-radius: 20px; padding: 24px; margin-bottom: 16px; }
+    .explore-section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--rose-500); display: block; text-align: center; margin-bottom: 14px; }
+    .explore-section-title { font-family: 'DM Serif Display', serif; font-size: 24px; line-height: 1.2; color: var(--ink-900); margin-bottom: 10px; text-align: center; }
+    .explore-section-sub { font-size: 14px; color: var(--ink-600); line-height: 1.55; margin-bottom: 20px; text-align: center; }
+
+    .what-next-card { background: rgba(255,255,255,0.55); border: 1px solid rgba(42,31,48,0.10); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+    .what-next-title { font-size: 14px; font-weight: 800; color: var(--ink-900); margin-bottom: 14px; }
+    .what-next-steps { display: flex; flex-direction: column; gap: 10px; }
+    .what-next-step { display: flex; gap: 12px; align-items: flex-start; }
+    .what-next-num { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--rose-500), var(--rose-700)); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .what-next-body { flex: 1; }
+    .what-next-step-title { font-size: 13.5px; font-weight: 700; color: var(--ink-900); }
+    .what-next-step-text { font-size: 12.5px; color: var(--ink-600); line-height: 1.45; margin-top: 2px; }
+
+    hr.divider { border: none; border-top: 1px solid rgba(42,31,48,0.08); margin: 20px 0; }
+    .account-card-wrap { background: rgba(255,255,255,.70); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,.85); border-radius: 20px; padding: 24px; box-shadow: var(--shadow-raised); margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="priya-results-wrap">
+
+    <div class="priya-badge">Deine Ergebnisse</div>
+    <div class="celebration-number" style="text-align:left;font-size:64px;margin-bottom:6px;">17</div>
+    <h1>Deine Symptome deuten auf PCOS hin.</h1>
+    <p style="font-size: 15px; color: var(--ink-700); line-height: 1.6; margin-bottom: 20px;">
+      Auf Basis deiner Angaben ist dein Bild mit PCOS vereinbar. Das ist keine Diagnose — aber ein klarer Ausgangspunkt für das Gespräch mit deiner Gynäkolog:in. Wir haben 17 evidenzbasierte Wege identifiziert, die du jetzt erkunden kannst.
+    </p>
+
+    <!-- Rotterdam criteria -->
+    <div class="rotterdam-card">
+      <span class="rotterdam-label">Rotterdam-Kriterien — dein Bild</span>
+      <div class="rotterdam-explain">
+        Die <strong>Rotterdam-Kriterien</strong> sind die klinische Checkliste, die Ärztinnen und Ärzte zur PCOS-Diagnose verwenden. Sie hat 3 Komponenten — für eine Diagnose sind nur <strong>2 von 3</strong> erforderlich. Nicht alle drei.
+      </div>
+
+      <div class="rotterdam-section-title">Diagnosekriterien (2 von 3 erforderlich)</div>
+      <div id="criteriaRows"></div>
+
+      <div id="commonSection" style="display:none;">
+        <div class="rotterdam-section-title" style="margin-top:14px;">Häufig bei PCOS erlebt (keine Diagnosekriterien)</div>
+        <div style="font-size:13px;color:var(--ink-600);margin-bottom:6px;line-height:1.5;">Das sind echte PCOS-Symptome — besonders mit Insulinresistenz verbunden — gehören aber nicht zur formalen Diagnosecheckliste.</div>
+        <div class="symptom-tags" id="commonTags"></div>
+      </div>
+
+      <p class="rotterdam-note">
+        Deine Gynäkolog:in kann mit Bluttests (Testosteron, LH/FSH-Verhältnis) und bei Bedarf einem Beckenultraschall für das Ovarien-Morphologie-Kriterium bestätigen. Den Ultraschall brauchst du nicht, wenn die anderen beiden Kriterien klar vorhanden sind.
+      </p>
+    </div>
+
+    <!-- GP prep -->
+    <div class="gp-prep-card">
+      <div class="gp-prep-head" onclick="togglePrep(this)">
+        <div class="gp-prep-title">📋 Vorbereitung auf den Arzttermin</div>
+        <span class="gp-prep-chev">▾</span>
+      </div>
+      <div class="gp-prep-body">
+        <div class="gp-prep-duration-note">
+          <strong>Wie viele Daten du mitbringen solltest:</strong> Idealerweise mindestens 3 vollständige Menstruationszyklen tracken, bevor du zum Arzttermin gehst — das gibt aussagekräftige Zyklus-Längen-Daten. Wenn das zu lang erscheint: Bereits 6–8 Wochen Symptom- und Zyklusprotokoll ist ein hilfreicher Ausgangspunkt. Fang jetzt an zu tracken.
+        </div>
+        <div class="gp-prep-section">
+          <div class="gp-prep-section-title">Was zu tracken ist</div>
+          <ul class="gp-prep-list">
+            <li>Zyklus-Daten — wann jede Periode beginnt und endet, wie stark die Blutung ist</li>
+            <li>Symptome von Tag zu Tag — Akne, Haarveränderungen, Energie, Stimmung, Blähungen</li>
+            <li>Schlafmuster und Stressniveau (Cortisol beeinflusst PCOS erheblich)</li>
+          </ul>
+        </div>
+        <div class="gp-prep-section">
+          <div class="gp-prep-section-title">Was du deiner Gynäkolog:in sagen solltest</div>
+          <ul class="gp-prep-list">
+            <li>Dein Zyklus-Muster — wie unregelmäßig, wie lang, wie stark</li>
+            <li>Androgen-Symptome (Akne, übermäßige Behaarung, Haarausdünnung)</li>
+            <li>Familienanamnese von PCOS oder Typ-2-Diabetes</li>
+            <li>Gewichtsveränderungen oder anhaltende Erschöpfung</li>
+          </ul>
+        </div>
+        <div class="gp-prep-section">
+          <div class="gp-prep-section-title">Fragen, die du stellen solltest</div>
+          <ul class="gp-prep-list">
+            <li>„Können Sie meine Androgene und das LH/FSH-Verhältnis messen?"</li>
+            <li>„Sollte ich einen Beckenultraschall haben, um auf polyzystische Ovarien zu prüfen?"</li>
+            <li>„Gibt es etwas, was ich jetzt schon tun kann, während ich auf Testergebnisse warte?"</li>
+            <li>„Lohnt es sich, meine Insulinresistenz zu untersuchen — soll ich den Nüchternblutzucker prüfen?"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prominent explore section -->
+    <div class="explore-section">
+      <span class="explore-section-eyebrow">Während du auf eine Diagnose hinarbeitest</span>
+      <div class="explore-section-title">Es gibt viel, was du jetzt schon erkunden kannst.</div>
+      <div class="explore-section-sub">Alle 17 Wege stehen dir jetzt zur Verfügung — viele erfordern keine formale Diagnose. Erstelle ein kostenloses Konto und komm nach deinem Gynäkolog:innen-Termin mit noch mehr Informationen zurück.</div>
+
+      <div class="what-next-steps" style="margin-bottom:20px;">
+        <div class="what-next-step">
+          <div class="what-next-num" style="background:linear-gradient(135deg,var(--rose-500),var(--rose-700));">1</div>
+          <div class="what-next-body"><div class="what-next-step-title">17 Behandlungswege erkunden</div><div class="what-next-step-text">Nahrungsergänzung, Ernährung, Bewegung, Geist &amp; Körper — alle nach Evidenzstärke bewertet.</div></div>
+        </div>
+        <div class="what-next-step">
+          <div class="what-next-num" style="background:linear-gradient(135deg,var(--rose-500),var(--rose-700));">2</div>
+          <div class="what-next-body"><div class="what-next-step-title">Deinen Startplan aufbauen</div><div class="what-next-step-text">Wähle deine Top 3. Eins nach dem anderen — so weißt du, was wirklich hilft.</div></div>
+        </div>
+        <div class="what-next-step">
+          <div class="what-next-num" style="background:linear-gradient(135deg,var(--rose-500),var(--rose-700));">3</div>
+          <div class="what-next-body"><div class="what-next-step-title">Symptome mit dem Zyklus tracken</div><div class="what-next-step-text">Zyklusbewusstes Check-in hilft dir, Muster zu erkennen — nützliche Daten auch für deine Ärztin.</div></div>
+        </div>
+      </div>
+
+      <a href="account.html" class="btn-primary" style="background: var(--rose-500); border-radius: 100px; max-width: 100%; font-size: 15px; box-shadow: 0 10px 24px -10px rgba(224,122,150,.5); margin: 0 0 8px; display: block; text-align: center;">
+        Kostenloses Konto erstellen →
+      </a>
+      <p style="font-size: 12px; color: var(--ink-500); line-height: 1.5; margin: 0; text-align: center;">Kein medizinischer Rat. Diese App stellt Forschung bereit, um deine Gespräche mit Gesundheitsfachleuten zu unterstützen — nicht zu ersetzen.</p>
+    </div>
+
+  </div>
+
+  <script>
+    var symptoms = JSON.parse(localStorage.getItem('pcos_symptoms') || '[]');
+    var criteriaHtml = '';
+
+    var hasIrregular = symptoms.includes('irregular-periods');
+    var hasAndrogen = symptoms.some(function(s) { return ['acne','hair-growth','hair-thinning'].includes(s); });
+
+    criteriaHtml += '<div class="criteria-row ' + (hasIrregular ? 'criteria-met' : 'criteria-partial') + '">';
+    criteriaHtml += '<span class="criteria-icon">' + (hasIrregular ? '✓' : '?') + '</span>';
+    criteriaHtml += '<span><strong>Unregelmäßiger Eisprung</strong> — ' + (hasIrregular ? 'durch deine Zyklus-Beschreibung nahegelegt' : 'nicht eindeutig erkennbar — ein Zyklusprotokoll würde deiner Ärztin helfen, das zu beurteilen') + '</span></div>';
+
+    criteriaHtml += '<div class="criteria-row ' + (hasAndrogen ? 'criteria-met' : 'criteria-partial') + '">';
+    criteriaHtml += '<span class="criteria-icon">' + (hasAndrogen ? '✓' : '?') + '</span>';
+    criteriaHtml += '<span><strong>Androgenüberschuss</strong> (klinisch oder Bluttest) — ' + (hasAndrogen ? 'durch deine Haut-/Haar-Symptome nahegelegt. Bluttests können das bestätigen' : 'aus deinen Angaben nicht eindeutig erkennbar. Ein Bluttest auf Testosteron und LH/FSH würde das abklären') + '</span></div>';
+
+    criteriaHtml += '<div class="criteria-row criteria-partial">';
+    criteriaHtml += '<span class="criteria-icon">→</span>';
+    criteriaHtml += '<span><strong>Polyzystische Ovarien im Ultraschall</strong> — eines der drei Kriterien. Nur erforderlich, wenn die obigen zwei nicht klar vorhanden sind. Frage deine Gynäkolog:in nach einem Beckenultraschall.</span></div>';
+
+    document.getElementById('criteriaRows').innerHTML = criteriaHtml;
+
+    // Common symptoms (not diagnostic criteria)
+    var commonMap = { 'weight': 'Gewichtsveränderungen', 'fatigue': 'Erschöpfung / wenig Energie', 'fertility': 'Fertilitätswunsch', 'mood': 'Stimmungsveränderungen', 'bloating': 'Blähungen' };
+    var common = symptoms.filter(function(s) { return commonMap[s]; }).map(function(s) { return commonMap[s]; });
+    if (common.length > 0) {
+      document.getElementById('commonSection').style.display = 'block';
+      document.getElementById('commonTags').innerHTML = common.map(function(s) { return '<span class="sym-tag-common">' + s + '</span>'; }).join('');
+    }
+
+    function togglePrep(head) {
+      head.classList.toggle('open');
+      head.nextElementSibling.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

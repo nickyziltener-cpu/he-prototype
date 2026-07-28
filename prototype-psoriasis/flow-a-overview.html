@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treatment Options · Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: 0; left: 0; right: 0; height: 280px;
+      background: linear-gradient(180deg, rgba(196,123,43,0.06) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -80px; left: -80px; width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .22; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Page header -->
+  <div style="padding: 8px 24px 24px; position: relative; z-index: 1;">
+    <div class="flow-nav">
+      <a href="flow-a-start.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Start here
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <h1 class="flow-hero-title sm">Treatment options</h1>
+    <p class="flow-hero-sub">26 approaches across five areas — including the prescription and biologic options your dermatologist may not have fully explained. Save what interests you.</p>
+  </div>
+
+  <!-- Joint pain note -->
+  <div id="jointNote" style="display:none;margin:0 20px 8px;background:rgba(196,123,43,0.10);border:1px solid rgba(196,123,43,0.24);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--primary-dk);line-height:1.5;position:relative;z-index:1;">
+    ✦ You mentioned joint pain. Look out for the Omega-3 and Mind &amp; Body options — and consider mentioning psoriatic arthritis to your dermatologist.
+  </div>
+
+  <!-- Category rows -->
+  <div style="padding: 4px 20px 176px; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1;">
+
+    <a href="flow-a-medical.html" class="catrow-flow ani">
+      <div class="cat-icon-flow bg-amber">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.42 1.24 4.55 3.12 5.79L7.5 18h9l-.62-3.21A7 7 0 0 0 19 9c0-3.87-3.13-7-7-7z"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Topical treatments</div>
+        <div class="catrow-meta-flow">8 options · <strong>5 strongly evidenced</strong></div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a href="flow-a-diet.html" class="catrow-flow ani">
+      <div class="cat-icon-flow bg-sage">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Diet &amp; nutrition</div>
+        <div class="catrow-meta-flow">4 options · <strong>anti-inflammatory focus</strong></div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a href="flow-a-supplements.html" class="catrow-flow ani">
+      <div class="cat-icon-flow bg-muted">
+        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Supplements</div>
+        <div class="catrow-meta-flow">4 options · <strong>honest about mixed evidence</strong></div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a href="flow-a-mindbody.html" class="catrow-flow ani" style="background: rgba(123,158,107,0.07); border-color: rgba(123,158,107,0.28);">
+      <div class="cat-icon-flow bg-dark">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Mind &amp; body</div>
+        <div class="catrow-meta-flow" style="display:flex;flex-direction:column;gap:2px;">
+          <span>5 options · <strong>4 with good evidence</strong></span>
+          <span id="stressBadge" style="font-size:11px;color:var(--primary-dk);font-weight:600;">✦ Strong match for your stress trigger</span>
+        </div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a href="flow-a-prescription.html" class="catrow-flow ani" style="background: rgba(74,111,165,0.06); border-color: rgba(74,111,165,0.24);">
+      <div class="cat-icon-flow" style="background:rgba(74,111,165,0.14);">
+        <svg viewBox="0 0 24 24" style="stroke:#4A6FA5;"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow" style="color:var(--ink-900);">Medical &amp; prescription</div>
+        <div class="catrow-meta-flow">6 options · <strong>most are Strong evidence</strong> · Rx + Clinic</div>
+      </div>
+      <span class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <div class="footer-mono ani">Backed by peer-reviewed research · updated July 2026</div>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray" style="bottom:64px;">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item active">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+</div>
+
+  <script src="selection.js"></script>
+  <script>
+    var stress = localStorage.getItem('psoriasis_triggers');
+    if (stress) {
+      try {
+        var triggers = JSON.parse(stress);
+        if (triggers.indexOf('stress') < 0) document.getElementById('stressBadge').style.display = 'none';
+      } catch(e) { document.getElementById('stressBadge').style.display = 'none'; }
+    } else {
+      document.getElementById('stressBadge').style.display = 'none';
+    }
+
+    var joint = localStorage.getItem('psoriasis_joint_pain');
+    if (joint === 'yes' || joint === 'sometimes') {
+      document.getElementById('jointNote').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

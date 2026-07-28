@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise & Resistance Training · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f3f0f9 0%, #faf7f4 60%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 320px; height: 320px; background: radial-gradient(circle, var(--plum-300) 0%, var(--plum-500) 20%, transparent 70%); opacity: .25; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .16; pointer-events: none; z-index: 0; }
+    .detail-hero { padding: 24px 24px 20px; position: relative; z-index: 1; }
+    .detail-meta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .detail-title { font-family: 'DM Serif Display', serif; font-size: 30px; line-height: 1.15; color: var(--ink-900); margin-bottom: 6px; }
+    .detail-subtitle { font-size: 14px; color: var(--ink-600); line-height: 1.5; }
+    .detail-section { padding: 0 24px 20px; position: relative; z-index: 1; }
+    .detail-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--ink-500); margin-bottom: 10px; }
+    .detail-para { font-size: 14.5px; line-height: 1.65; color: var(--ink-700); margin-bottom: 10px; }
+    .detail-para:last-child { margin-bottom: 0; }
+    .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .stat-chip { background: rgba(255,255,255,0.65); border: 1px solid rgba(42,31,48,0.10); border-radius: 14px; padding: 12px 14px; flex: 1; min-width: 90px; }
+    .stat-chip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-500); margin-bottom: 4px; }
+    .stat-chip-value { font-size: 14px; font-weight: 700; color: var(--ink-900); }
+    .evidence-block { background: rgba(168,165,212,0.12); border: 1px solid rgba(168,165,212,0.28); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; }
+    .evidence-block-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-600); margin-bottom: 6px; }
+    .evidence-block-text { font-size: 13.5px; color: var(--ink-700); line-height: 1.55; }
+    .steps-list { display: flex; flex-direction: column; gap: 10px; }
+    .step-item { display: flex; gap: 12px; align-items: flex-start; }
+    .step-num { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--plum-500), var(--plum-700)); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-title { font-size: 13.5px; font-weight: 700; color: var(--ink-900); margin-bottom: 2px; }
+    .step-desc { font-size: 13px; color: var(--ink-600); line-height: 1.5; }
+    .exercise-card { background: rgba(255,255,255,0.60); border: 1px solid rgba(42,31,48,0.09); border-radius: 16px; padding: 14px; margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start; }
+    .ex-type-dot { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .ex-type-dot.aerobic { background: rgba(168,165,212,0.20); }
+    .ex-type-dot.resistance { background: rgba(247,195,158,0.30); }
+    .ex-body { flex: 1; }
+    .ex-type-title { font-size: 13.5px; font-weight: 700; color: var(--ink-900); margin-bottom: 3px; }
+    .ex-type-meta { font-size: 12px; color: var(--ink-600); line-height: 1.4; }
+    .ex-dose { display: inline-block; background: rgba(42,31,48,0.06); border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--ink-700); padding: 2px 8px; margin-top: 6px; }
+    .what-to-expect { background: rgba(107,154,139,0.09); border: 1px solid rgba(107,154,139,0.22); border-radius: 16px; padding: 16px; }
+    .expect-item { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(42,31,48,0.07); }
+    .expect-item:last-child { border-bottom: none; }
+    .expect-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--plum-500); flex-shrink: 0; margin-top: 5px; }
+    .expect-text { font-size: 13.5px; color: var(--ink-700); line-height: 1.5; }
+    .expect-time { font-size: 11px; font-weight: 700; color: var(--ink-500); display: block; margin-bottom: 2px; }
+    .detail-cta { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; padding: 16px 24px 28px; background: linear-gradient(to top, rgba(250,247,244,1) 70%, rgba(250,247,244,0)); z-index: 100; }
+    .detail-cta-inner { display: flex; gap: 10px; }
+    .cta-save-btn { flex: 1; background: var(--rose-500); color: #fff; border: none; border-radius: 14px; padding: 14px 20px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; }
+    .cta-save-btn.added { background: var(--sage-500); }
+    .cta-back-btn { background: rgba(255,255,255,0.70); border: 1px solid rgba(42,31,48,0.14); color: var(--ink-700); border-radius: 14px; padding: 14px 20px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; display: flex; align-items: center; white-space: nowrap; }
+    .spacer-cta { height: 110px; }
+    .divider { height: 1px; background: rgba(42,31,48,0.08); margin: 0 24px 20px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="detail-hero">
+    <a href="#" onclick="history.back(); return false;" class="flow-back" style="display:inline-flex;margin-bottom:14px;"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Back</a>
+    <div class="detail-meta-row">
+      <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+      <span class="chip-cat-flow"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Mind &amp; body</span>
+    </div>
+    <div class="detail-title">Exercise &amp; resistance training</div>
+    <div class="detail-subtitle">Aerobic and resistance training both improve insulin sensitivity in PCOS — independently of weight loss. The mechanism is metabolic, not just weight-related.</div>
+  </div>
+
+  <div class="detail-section">
+    <div class="stat-row">
+      <div class="stat-chip"><div class="stat-chip-label">Frequency</div><div class="stat-chip-value">3–5×/week</div></div>
+      <div class="stat-chip"><div class="stat-chip-label">Duration</div><div class="stat-chip-value">30–45 min</div></div>
+      <div class="stat-chip"><div class="stat-chip-label">Time to effect</div><div class="stat-chip-value">8–12 weeks</div></div>
+    </div>
+  </div>
+
+  <div class="detail-section">
+    <div class="detail-label">What it is</div>
+    <p class="detail-para">Exercise improves insulin sensitivity through a mechanism that bypasses the broken insulin signalling pathway in PCOS. During muscle contraction, GLUT4 transporters are activated independently of insulin — allowing cells to take up glucose without needing insulin to work correctly. This directly addresses one of the core drivers of PCOS.</p>
+    <p class="detail-para">This is why exercise helps PCOS regardless of whether it leads to weight loss. The metabolic benefit is from the muscle activity itself — not the calorie deficit.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">How it's used — what type of exercise</div>
+    <div class="exercise-card">
+      <div class="ex-type-dot aerobic">🏃</div>
+      <div class="ex-body">
+        <div class="ex-type-title">Aerobic exercise</div>
+        <div class="ex-type-meta">Walking, cycling, swimming, dancing. Moderate intensity — you can hold a conversation but not sing. Improves cardiovascular health and baseline insulin sensitivity.</div>
+        <span class="ex-dose">150 min/week · moderate intensity</span>
+      </div>
+    </div>
+    <div class="exercise-card">
+      <div class="ex-type-dot resistance">🏋️</div>
+      <div class="ex-body">
+        <div class="ex-type-title">Resistance training</div>
+        <div class="ex-type-meta">Weights, body weight exercises, resistance bands. Builds muscle mass, which acts as a long-term glucose buffer. Research shows the strongest hormonal benefits from this type for PCOS specifically.</div>
+        <span class="ex-dose">2–3 sessions/week · compound movements</span>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--ink-600);margin-top:10px;line-height:1.5;">Combined aerobic + resistance shows the largest effect in meta-analyses. But starting with what feels accessible is more important than getting the type perfect immediately.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">What the research shows</div>
+    <div class="evidence-block">
+      <div class="evidence-block-label">RCT · 2023 · n = 122 · 12 weeks</div>
+      <div class="evidence-block-text">Structured exercise (3×/week, mixed aerobic + resistance) restored ovulation in 62% of anovulatory PCOS participants. Insulin sensitivity improved by 31%. No caloric restriction involved.</div>
+    </div>
+    <div class="evidence-block">
+      <div class="evidence-block-label">Meta-analysis · 2020 · 16 RCTs</div>
+      <div class="evidence-block-text">Both aerobic and resistance training significantly improved HOMA-IR (insulin resistance marker), free testosterone, and BMI. Combined training showed the largest hormonal effect.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">What to expect week by week</div>
+    <div class="what-to-expect">
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Weeks 1–3</span>Muscle soreness and fatigue are normal at the start. Energy may dip before it improves.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Weeks 4–6</span>Energy improves noticeably. Sleep quality often improves. Insulin sensitivity improving internally.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Weeks 8–12</span>Menstrual changes most likely in this window. Track your cycle start dates carefully.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Beyond 12 weeks</span>Benefits compound over time — sustained exercise is a long-term metabolic lever. Stopping reverts the gains.</div></div>
+    </div>
+  </div>
+
+  <div class="detail-section">
+    <div class="detail-label">A note on intensity</div>
+    <p class="detail-para">Excessive high-intensity exercise can raise cortisol — which in PCOS may worsen hormonal balance. Moderate-to-vigorous intensity, done consistently, beats extreme sessions followed by burnout. Consistency over intensity.</p>
+  </div>
+
+  <div class="spacer-cta"></div>
+</div>
+
+<div class="detail-cta">
+  <div class="detail-cta-inner">
+    <a href="#" onclick="history.back(); return false;" class="cta-back-btn">← Back</a>
+    <button class="cta-save-btn" id="saveBtn">Save to my plan</button>
+  </div>
+</div>
+
+<script>
+var KEY = 'pcos_selectedTreatments';
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+function saveSelected(a) { localStorage.setItem(KEY, JSON.stringify(a)); }
+var btn = document.getElementById('saveBtn');
+function refresh() { var sel=getSelected(); var ids=sel.map(function(t){return t.id;}); if(ids.includes('exercise')) { btn.textContent='Saved ✓'; btn.classList.add('added'); } else { btn.textContent='Save to my plan'; btn.classList.remove('added'); } }
+btn.addEventListener('click', function() { var sel=getSelected(); var idx=sel.findIndex(function(t){return t.id==='exercise';}); if(idx>-1) sel.splice(idx,1); else sel.push({id:'exercise',name:'Exercise & resistance training'}); saveSelected(sel); refresh(); });
+refresh();
+</script>
+</body>
+</html>

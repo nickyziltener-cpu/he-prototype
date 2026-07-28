@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medizinische Behandlungen · PCOS Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f0eff4 0%, #faf7f4 70%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(90,80,110,0.4) 0%, transparent 70%); opacity: .25; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .16; pointer-events: none; z-index: 0; }
+    .gp-notice { background: rgba(107,154,139,0.10); border: 1px solid rgba(107,154,139,0.25); border-radius: 14px; padding: 12px 14px; font-size: 12.5px; color: var(--ink-700); display: flex; gap: 8px; align-items: flex-start; margin-bottom: 16px; }
+    .gp-notice svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; stroke: var(--sage-500); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .gp-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--ink-600); background: rgba(42,31,48,0.06); border-radius: 8px; padding: 2px 8px; margin-left: auto; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="flow-hero flow-hero--dark">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Alle ansehen</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div class="cat-icon-flow bg-dark"><svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+      <div class="flow-count-pill" style="margin-bottom:0;">5 Behandlungen</div>
+    </div>
+    <h1 class="flow-hero-title sm">Medizinische Behandlungen</h1>
+    <p class="flow-hero-sub tight">Verschreibungspflichtige und ärztlich empfohlene Optionen — alle erfordern klinische Begleitung.</p>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="gp-notice">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>Alle Behandlungen auf dieser Seite erfordern eine Überweisung durch Ärztin oder Arzt bzw. eine Fachärztin oder einen Facharzt. Wir helfen dir, dich auf dieses Gespräch vorzubereiten.</span>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+        <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+        <span class="gp-tag"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:var(--ink-600);fill:none;stroke-width:2;stroke-linecap:round;margin-right:2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Rezeptpflichtig</span>
+      </div>
+      <div class="lcard-title-flow">Metformin</div>
+      <div class="lcard-desc-flow">Das am häufigsten verschriebene Medikament bei PCOS mit Insulinresistenz. Senkt Nüchterninsulin und Androgene, verbessert die Zyklusregularität. Gut verträglich mit jahrzehntelangen Sicherheitsdaten. Eine Erstlinien-Option bei den meisten PCOS-Erscheinungsformen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="metformin" data-treatment-name="Metformin">Speichern</button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+        <span class="evchip-flow ev-good"><span class="ev-dot"></span>Gute Evidenz</span>
+        <span class="gp-tag"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:var(--ink-600);fill:none;stroke-width:2;stroke-linecap:round;margin-right:2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Rezeptpflichtig</span>
+      </div>
+      <div class="lcard-title-flow">Kombinierte Antibabypille</div>
+      <div class="lcard-desc-flow">Reguliert den Zyklus und reduziert androgengetriebene Symptome (Akne, übermäßige Behaarung). Weit verbreitet als Erstlinientherapie bei PCOS, unterdrückt aber den natürlichen Zyklus — nicht geeignet bei Kinderwunsch. Alternativen mit reinem Gestagen mit der Ärztin oder dem Arzt besprechen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="ocp" data-treatment-name="Kombinierte Antibabypille">Speichern</button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+        <span class="evchip-flow ev-good"><span class="ev-dot"></span>Gute Evidenz</span>
+        <span class="gp-tag"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:var(--ink-600);fill:none;stroke-width:2;stroke-linecap:round;margin-right:2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Rezeptpflichtig</span>
+      </div>
+      <div class="lcard-title-flow">Spironolacton</div>
+      <div class="lcard-desc-flow">Ein Antiandrogen, das Off-Label bei PCOS-bedingter übermäßiger Behaarung und Akne eingesetzt wird. RCTs zeigen signifikante Reduktionen von Haarwuchs und Hautsymptomen. Erfordert Verhütung während der Einnahme. Besonders wirksam, wenn Androgensymptome im Vordergrund stehen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="spironolactone" data-treatment-name="Spironolacton">Speichern</button>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;margin:16px 0 8px;"><div style="flex:1;height:1px;background:rgba(42,31,48,0.1);"></div><span style="font-size:11px;font-weight:600;color:var(--ink-500);white-space:nowrap;">FERTILITÄTSOPTIONEN — FACHÄRZTIN ODER FACHARZT ERFORDERLICH</span><div style="flex:1;height:1px;background:rgba(42,31,48,0.1);"></div></div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+        <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+        <span class="gp-tag"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:var(--ink-600);fill:none;stroke-width:2;stroke-linecap:round;margin-right:2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Fachärztin/Facharzt</span>
+      </div>
+      <div class="lcard-title-flow">Letrozol (Ovulationsinduktion)</div>
+      <div class="lcard-desc-flow">In den meisten Leitlinien inzwischen als Erstlinien-Ovulationsinduktion bei PCOS empfohlen — vor Clomifencitrat. RCTs zeigen höhere Lebendgeburtenraten. Wird von Fertilitätsspezialistinnen und -spezialisten bei Frauen mit anovulatorischer Infertilität verschrieben.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="letrozole" data-treatment-name="Letrozol">Speichern</button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+        <span class="evchip-flow ev-good"><span class="ev-dot"></span>Gute Evidenz</span>
+        <span class="gp-tag"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:var(--ink-600);fill:none;stroke-width:2;stroke-linecap:round;margin-right:2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Fachärztin/Facharzt</span>
+      </div>
+      <div class="lcard-title-flow">Clomifencitrat</div>
+      <div class="lcard-desc-flow">Das traditionelle Erstlinien-Mittel zur Ovulationsinduktion — bei PCOS inzwischen größtenteils von Letrozol abgelöst, aber noch im Einsatz. Höheres Risiko für multifolliculäre Stimulation. Erfordert Monitoring. Zweitlinientherapie in aktuellen Leitlinien.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="clomifene" data-treatment-name="Clomifencitrat">Speichern</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-count-flow"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> <span id="trayNum">0</span> gespeichert</div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" id="trayCta">Meinen Plan erstellen <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+
+</div>
+<script>
+var KEY = 'pcos_selectedTreatments';
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+function saveSelected(a) { localStorage.setItem(KEY, JSON.stringify(a)); }
+function refresh() {
+  var sel = getSelected(); var ids = sel.map(function(t){return t.id;});
+  document.querySelectorAll('.try-btn').forEach(function(btn) { var id = btn.getAttribute('data-treatment-id'); if (ids.includes(id)) { btn.textContent='Gespeichert ✓'; btn.classList.add('added'); } else { btn.textContent='Speichern'; btn.classList.remove('added'); } });
+  document.getElementById('trayNum').textContent = sel.length;
+  document.getElementById('trayCta').classList.toggle('tray-cta-disabled', sel.length === 0);
+}
+document.querySelectorAll('.try-btn').forEach(function(btn) { btn.addEventListener('click', function() { var id=btn.getAttribute('data-treatment-id'); var name=btn.getAttribute('data-treatment-name'); var sel=getSelected(); var idx=sel.findIndex(function(t){return t.id===id;}); if(idx>-1) sel.splice(idx,1); else sel.push({id:id,name:name}); saveSelected(sel); refresh(); }); });
+refresh();
+</script>
+</body>
+</html>

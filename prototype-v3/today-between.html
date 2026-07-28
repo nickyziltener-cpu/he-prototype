@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today · Between Trials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #eef4f1 0%, #faf7f4 60%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .24;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <!-- Status bar -->
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero band — sage-tinted, celebratory but calm -->
+  <div style="background:linear-gradient(170deg, #eef4f1 0%, #faf7f4 65%, #f3f0f7 100%);padding:20px 24px 28px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-30px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,var(--sage-300) 0%,var(--sage-500) 20%,transparent 70%);opacity:.30;pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;background:radial-gradient(circle,var(--aurora-500) 0%,transparent 65%);opacity:.28;pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--evidence-high);text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px;">Trial 1 Complete</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:30px;line-height:1.1;letter-spacing:-.015em;color:var(--ink-900);margin-bottom:10px;">Peppermint oil helped.</h1>
+      <p style="font-size:14px;line-height:1.55;color:var(--ink-600);">4 weeks · 26 of 28 days logged · Symptoms eased from moderate to mild.</p>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div style="padding:4px 20px 80px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;">
+
+    <!-- Primary card — Start Trial 2 -->
+    <div class="ani" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.85);border-left:3px solid var(--plum-500);box-shadow:0 8px 24px -10px rgba(140,108,171,0.18);border-radius:18px;padding:18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--plum-500);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px;">Up next · Trial 2</div>
+      <div style="font-size:20px;font-weight:700;color:var(--ink-900);font-family:'Manrope',sans-serif;letter-spacing:-.01em;margin-bottom:6px;">🌿 Low FODMAP diet</div>
+      <div style="font-size:12px;color:var(--ink-600);margin-bottom:14px;line-height:1.5;">8 weeks · Higher effort · Dietitian-supported</div>
+      <div style="border-top:1px solid rgba(42,31,48,.08);padding-top:12px;margin-bottom:16px;">
+        <div style="font-size:12px;color:var(--ink-700);line-height:1.55;font-style:italic;">We saved the harder trials for after you had a win.</div>
+      </div>
+      <a href="flow-b-plan.html" style="display:block;width:100%;background:var(--plum-500);color:#fff;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;padding:14px 20px;border-radius:100px;text-align:center;text-decoration:none;box-shadow:0 8px 20px -8px rgba(140,108,171,.45);">Start Trial 2 →</a>
+    </div>
+
+    <!-- Secondary card — Trial 1 summary (sage tint) -->
+    <div class="ani" style="background:rgba(107,154,139,.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(107,154,139,.20);box-shadow:0 4px 16px -8px rgba(107,154,139,0.15);border-radius:18px;padding:18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--evidence-high);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px;">Trial 1 · Peppermint oil</div>
+      <!-- Two data pairs -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--sage-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">Duration</div>
+          <div style="font-size:16px;font-weight:700;color:var(--ink-900);">4 weeks</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--sage-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">Days logged</div>
+          <div style="font-size:16px;font-weight:700;color:var(--ink-900);">26 of 28</div>
+        </div>
+      </div>
+      <!-- Mini trend — 5 bars trending to sage/green -->
+      <div style="display:flex;align-items:flex-end;gap:6px;height:36px;margin-bottom:12px;">
+        <div style="flex:1;height:32px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--plum-700),var(--plum-300));opacity:.65;"></div>
+        <div style="flex:1;height:28px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--ember-500),var(--ember-300));opacity:.7;"></div>
+        <div style="flex:1;height:22px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--ember-300),#f7e0c8);opacity:.7;"></div>
+        <div style="flex:1;height:16px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.75;"></div>
+        <div style="flex:1;height:10px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.85;"></div>
+      </div>
+      <a href="flow-b-progress.html" style="font-size:13px;font-weight:600;color:var(--evidence-high);text-decoration:underline;">See full progress report →</a>
+    </div>
+
+    <!-- Small card — Keep peppermint oil? -->
+    <div class="ani" style="background:rgba(255,255,255,0.60);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 4px 16px -8px rgba(140,108,171,0.10);border-radius:18px;padding:16px;">
+      <div style="font-size:13px;font-weight:700;color:var(--ink-700);margin-bottom:12px;">Still taking it? Add it as a foundation.</div>
+      <!-- Static seg control -->
+      <div style="display:flex;border-radius:12px;overflow:hidden;background:rgba(42,31,48,.06);padding:3px;gap:2px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--evidence-high);padding:9px 6px;border-radius:9px;background:white;box-shadow:0 2px 8px -2px rgba(140,108,171,.2);">Keep taking it ✓</div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--ink-500);padding:9px 6px;border-radius:9px;">Stopped</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-between.html" class="tab-item active">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

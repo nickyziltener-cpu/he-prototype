@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medikamente &amp; medizinische Behandlung · Behandlungsoptionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #edf0f5 0%, #faf7f4 70%, #eef1f4 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(107,91,125,0.18) 0%, transparent 70%);
+      opacity: .5;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .gp-notice {
+      background: rgba(42,31,48,0.05);
+      border: 1px solid rgba(42,31,48,0.10);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .gp-notice-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      color: var(--ink-600);
+    }
+    .gp-notice-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      color: var(--ink-700);
+      line-height: 1.5;
+    }
+    .gp-notice-text strong {
+      color: var(--ink-900);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#edf0f5 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="background: linear-gradient(170deg, #edf0f5 0%, #faf7f4 100%);">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 gespeichert</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-dark">
+        <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Medikamente &amp; medizinische Behandlung</h1>
+        <p class="flow-hero-sub tight">5 Optionen, nach Evidenzstärke für Reizdarm geordnet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="flow-body">
+
+    <!-- GP notice -->
+    <div class="gp-notice ani">
+      <svg class="gp-notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span class="gp-notice-text"><strong>Alle Optionen hier erfordern ein Rezept.</strong> Wir zeigen dir die Evidenz, damit du ein informiertes Gespräch mit deiner Hausärztin oder deinem Hausarzt führen kannst — nicht als Ersatz dafür.</span>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Linaclotid</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Starke Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Ein Sekretagogum, das die Flüssigkeitssekretion anregt und die Darmmotilität beschleunigt. Zugelassen speziell für Verstopfungs-Reizdarm (IBS-C). Große RCTs zeigen signifikante Reduktion von Bauchschmerzen und Verstopfungsbeschwerden.</div>
+      <div style="margin-top:8px;font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;color:var(--ink-600);background:rgba(42,31,48,0.05);border-radius:6px;padding:4px 8px;display:inline-block;">Nur bei IBS-C</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="linaclotide" data-treatment-name="Linaclotid"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Spasmolytika (Mebeverin, Butylscopolamin)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Entspannen die glatte Darmmuskulatur und lindern Krämpfe und Bauchschmerzen. Mebeverin und Butylscopolamin gehören zu den am häufigsten verschriebenen Erstlinien-Medikamenten bei Reizdarm — besonders wirksam bei akuten Schüben.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="antispasmodics" data-treatment-name="Spasmolytika"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Niedrig dosiertes Amitriptylin</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Ein trizyklisches Antidepressivum, das in niedriger Dosierung (10–30 mg) die Schmerzsignale aus dem Darm dämpft und den Darmtransit verlangsamt. Mehrere RCTs zeigen messbare Verbesserungen bei Schmerzen und Stuhlfrequenz — besonders wirksam bei IBS-D.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="amitriptyline" data-treatment-name="Niedrig dosiertes Amitriptylin"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Weniger anzeigen':'2 weitere Optionen anzeigen'">2 weitere Optionen anzeigen</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Rifaximin</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Ein nicht-resorbierbares Antibiotikum, das Darmbakterien gezielt beeinflusst, ohne systemisch zu wirken. Ein RCT (2011, n=1.260) zeigte signifikante Verbesserung bei Blähungen und globalen IBS-Symptomen bei nicht-obstipiertem Reizdarm. In Deutschland weniger verbreitet als in den USA.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="rifaximin" data-treatment-name="Rifaximin"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Niedrig dosierte SSRIs</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Gemischte Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">In niedriger Dosierung können bestimmte SSRIs (Fluoxetin, Paroxetin) den Darmtransit beschleunigen und das allgemeine Wohlbefinden verbessern — besonders wenn Angst oder Depression wesentliche Begleitfaktoren sind. Die Evidenzlage ist über einzelne Studien hinweg uneinheitlich.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="ssri" data-treatment-name="Niedrig dosierte SSRIs"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

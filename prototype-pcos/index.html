@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — PCOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee8 0%, #faf7f4 50%, #f3ecf1 100%);
+      display: flex; flex-direction: column; justify-content: center;
+      min-height: 100vh;
+    }
+    @keyframes rose-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.45; transform: scale(1); } }
+    @keyframes aurora-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.38; transform: scale(1); } }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    body::before {
+      content: ''; position: fixed; top: -120px; right: -120px; width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 20%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: rose-bloom 1.6s ease-out 0.5s forwards;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -120px; left: -120px; width: 520px; height: 520px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: aurora-bloom 1.6s ease-out 1.0s forwards;
+    }
+    .welcome-wrapper { max-width: 480px; margin: 0 auto; padding: 52px 24px 64px; width: 100%; position: relative; }
+    .welcome-wrapper > * { position: relative; z-index: 1; }
+    .nav-logo { margin-bottom: 36px; }
+    .stat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(224,122,150,0.10); border: 1px solid rgba(224,122,150,0.20);
+      border-radius: 9999px; padding: 6px 14px 6px 10px;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      color: var(--rose-700); margin-bottom: 24px;
+    }
+    .stat-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--rose-500); }
+    .hero-headline {
+      font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--ink-900);
+      line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.015em;
+    }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .hl-line:nth-child(1) { animation: write-reveal 0.55s ease-out 0.5s forwards; }
+    .hl-line:nth-child(2) { animation: write-reveal 0.55s ease-out 1.0s forwards; }
+    .hl-line:nth-child(3) { animation: write-reveal 0.4s ease-out 1.5s forwards; }
+    .hl-line:nth-child(4) { animation: write-reveal 0.4s ease-out 1.85s forwards; }
+    .nav-logo, .stat-pill, .hero-sub, .trust-block, .cta-section { opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards; }
+    .hero-sub { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 400; color: var(--ink-700); line-height: 1.6; margin-bottom: 28px; }
+    .trust-block { background: rgba(255,255,255,0.55); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.70); border-radius: 20px; padding: 18px 20px; margin-bottom: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .trust-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink-700); line-height: 1.5; }
+    .trust-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .cta-section { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .hero-cta {
+      display: block; width: 100%; max-width: 340px; padding: 16px 24px;
+      background: var(--rose-500); color: white; border: none; border-radius: 100px;
+      font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer;
+      text-align: center; text-decoration: none;
+      box-shadow: 0 12px 28px -10px rgba(224,122,150,0.55);
+      transition: background 0.15s ease;
+    }
+    .hero-cta:hover { background: var(--rose-700); }
+    @media (max-width: 600px) { .hero-headline { font-size: 28px; } .hero-sub { font-size: 15px; } .welcome-wrapper { padding: 36px 20px 48px; } }
+  </style>
+</head>
+<body>
+  <div class="welcome-wrapper">
+    <div class="nav-logo">
+      <span class="flow-logo" style="font-size:14px;">
+        <span class="flow-logo-mark" style="background:linear-gradient(135deg,var(--rose-500),var(--rose-700));"></span>
+        Health Empowerment
+      </span>
+    </div>
+
+    <div class="stat-pill">Average time to PCOS diagnosis: 2+ years</div>
+
+    <h1 class="hero-headline">
+      <span class="hl-line">Your symptoms</span>
+      <span class="hl-line">are real. So is</span>
+      <span class="hl-line">the science that</span>
+      <span class="hl-line">can help.</span>
+    </h1>
+
+    <p class="hero-sub">PCOS affects 1 in 10 women — but many go years without a clear answer or a practical plan. We help you understand what's happening in your body, find evidence-based treatments matched to your goals, and actually follow through.</p>
+
+    <div class="trust-block">
+      <div class="trust-item"><span class="trust-icon">🔬</span>Every treatment traces back to real peer-reviewed research — not wellness influencer claims or anecdote.</div>
+      <div class="trust-item"><span class="trust-icon">📊</span>Evidence graded by strength — strong, good, moderate — so you see what's well-supported vs. emerging.</div>
+      <div class="trust-item"><span class="trust-icon">◯</span>Cycle-aware tracking. PCOS is a hormonal condition — your plan accounts for where you are in your cycle.</div>
+      <div class="trust-item"><span class="trust-icon">🗺</span>Covers supplements, diet, movement, mind &amp; body, and medical options — one place to see everything.</div>
+    </div>
+
+    <div class="cta-section">
+      <a href="start.html" class="hero-cta">Understand my PCOS →</a>
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+      <p class="disclaimer-note">This is an information tool, not a medical recommendation system. Always consult your doctor.</p>
+    </div>
+  </div>
+</body>
+</html>

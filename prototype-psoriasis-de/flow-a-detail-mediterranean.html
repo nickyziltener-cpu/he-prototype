@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mediterrane Ernährung · Behandlungsdetail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #EFF5EC 0%, #FAF6F0 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, var(--accent) 20%, transparent 70%);
+      opacity: .32; pointer-events: none; z-index: 0;
+    }
+    #tryBtn { font-family: 'Manrope', sans-serif; font-size: inherit; cursor: pointer; border: none; width: 100%; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="background:rgba(240,245,238,0.72);">
+    <div class="flow-nav">
+      <a href="#" id="backBtn" class="flow-back" onclick="history.back(); return false;">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        <span id="backLabel">Zurück</span>
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Ernährung
+      </span>
+      <span class="evchip-flow ev-good"><span class="ev-dot"></span>Gute Evidenz</span>
+    </div>
+    <h1 class="flow-hero-title">Mediterrane Ernährung</h1>
+    <p class="flow-hero-sub">Der am besten untersuchte Ernährungsansatz bei Psoriasis. Eine randomisierte Studie aus 2025 (MEDIPSO) zeigte, dass <strong>47 % der Teilnehmenden, die sich mediterran ernährten, eine 75-prozentige Reduktion des Psoriasis-Schweregrads erreichten</strong> — gegenüber 0 % in der Kontrollgruppe. Beobachtungsstudien haben konsistent in dieselbe Richtung gezeigt.</p>
+  </div>
+
+  <div class="flow-body detail-body">
+
+    <div class="detail-section ani">
+      <div class="detail-label">Warum Ernährung bei Psoriasis wichtig ist</div>
+      <p class="detail-para">Psoriasis ist grundlegend eine Entzündungserkrankung — und Ernährung ist einer der am stärksten beeinflussbaren Faktoren für den Entzündungszustand des Körpers. Die mediterrane Ernährung senkt Spiegel proinflammatorischer Zytokine (IL-6, TNF-α, CRP) — dieselben Signalmoleküle, die Psoriasis-Plaques antreiben. Übergewicht, schlechte metabolische Gesundheit und hoher Konsum hochverarbeiteter Lebensmittel verstärken allesamt den Psoriasis-Schweregrad — das mediterrane Ernährungsmuster adressiert alle drei.</p>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Was mediterrane Ernährung in der Praxis bedeutet</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Mehr davon essen</div>
+          <div class="fodmap-items">Gemüse (besonders Blattgemüse) · Hülsenfrüchte (Linsen, Kichererbsen, Bohnen) · Vollkorngetreide · Fettreicher Fisch (Lachs, Makrele, Sardinen — 2–3×/Woche) · Natives Olivenöl extra · Nüsse und Samen · Frisches Obst · Kräuter und Gewürze</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Weniger davon essen</div>
+          <div class="fodmap-items">Rotes und verarbeitetes Fleisch · Hochverarbeitete Lebensmittel · Raffinierte Kohlenhydrate und Zucker · Butter und gesättigte Fette · Alkohol (besonders Spirituosen)</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Wichtigster entzündungshemmender Mechanismus</div>
+          <div class="fodmap-items">Hoher Polyphenolgehalt (aus Gemüse, Olivenöl, Obst) · Verbessertes Omega-3-zu-Omega-6-Verhältnis · Verbesserte Insulinsensitivität und metabolische Gesundheit</div>
+        </div>
+        <div class="fodmap-note">Das ist keine strenge Diät mit verbotenen Lebensmitteln. Es ist ein Ernährungsmuster — denke an Proportionen und Gewohnheiten, nicht an Regeln.</div>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Woher diese Evidenz stammt</div>
+      <div class="evsum-card">
+        <span class="evchip-flow ev-good"><span class="ev-dot"></span>Gute Evidenz</span>
+        <div class="evsum-line">Die randomisierte MEDIPSO-Studie (2025) wies 19 Teilnehmende einer Interventionsgruppe mit mediterraner Ernährung zu und fand, dass <strong>47,4 % PASI75</strong> (75 % Hautverbesserung) nach 16 Wochen erreichten — gegenüber 0 % in der Kontrollgruppe. Das ist die erste RCT für diese Intervention bei Psoriasis. Die frühere Fallkontrollstudie von Barrea et al. (2019, n=62) zeigte konsistente Beobachtungsassoziationen, und nachfolgende systematische Reviews bestätigten das Muster in mehreren Studien.</div>
+        <div class="evsum-meaning">Was das bedeutet — nach der MEDIPSO-Studie 2025 von Moderat auf Gut hochgestuft. Die Studie ist klein (n=19), daher ist das eine klare Richtung, keine gesicherte Wissenschaft. Das Beobachtungsfundament war seit Jahren solide. Die Ernährungsweise hat dokumentierte kardiovaskuläre und metabolische Vorteile, die unabhängig von Psoriasis wirken — das Nutzen-Risiko-Verhältnis ist stark positiv.</div>
+        <div class="sources-list">
+          <div class="source-row">
+            <span class="source-badge">RCT</span>
+            <span class="source-ref">MEDIPSO-Studie, 2025 · <em>JAMA Dermatology</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40991259/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">Fallkontrollstudie</span>
+            <span class="source-ref">Barrea et al., 2019 · <em>Nutrition &amp; Diabetes</em> 9(1):21</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/31189811/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">Review</span>
+            <span class="source-ref">Phan et al., 2019 · Ernährung und Psoriasis · <em>Journal of Investigative Dermatology</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/30928069/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <p class="sources-note">Quellenangaben verweisen auf PubMed-Abstracts. Vollständige Artikel erfordern möglicherweise Journalzugang.</p>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Wie anfangen</div>
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div>
+            <div class="step-title">Hinzufügen statt weglassen</div>
+            <div class="step-desc">Statt Lebensmittel zu streichen, konzentriere dich zuerst auf das Hinzufügen von Gemüse, Hülsenfrüchten und Fisch. Das vermeidet das Verzichtsdenken und ist nachhaltiger.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div>
+            <div class="step-title">Öl wechseln</div>
+            <div class="step-desc">Pflanzliches Öl oder Sonnenblumenöl durch natives Olivenöl extra zu ersetzen ist eine der wirkungsvollsten Änderungen mit geringstem Aufwand. Polyphenole in EVOO haben direkte entzündungshemmende Wirkung.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div>
+            <div class="step-title">2–3 Fischmahlzeiten pro Woche anstreben</div>
+            <div class="step-desc">Fettreicher Fisch ist die konzentrierteste diätetische Quelle für EPA und DHA — die Omega-3-Fettsäuren mit der direktesten entzündungshemmenden Evidenz. Konservierte Sardinen, Makrele oder Lachs zählen.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-amber ani">
+      <div class="callout-label">Warum Gut und nicht Stark?</div>
+      <p class="detail-para sm">Die MEDIPSO-RCT 2025 hat diese Bewertung von Moderat auf Gut erhöht — aber die Studie schloss 19 Personen ein. Das ist eine gut konzipierte Studie, kein Korpus replizierter großer Studien. Starke Evidenz erfordert mehrere unabhängige RCTs mit konsistenten Ergebnissen. Wir sind ehrlich bei diesem Unterschied. Die Richtung der Evidenz ist klar; die Effektgröße in einer größeren Replikation könnte abweichen. Was nicht in Frage steht: Die Ernährungsweise reduziert Entzündungsmarker und hat nachgewiesenen kardiovaskulären Nutzen — sie wird wahrscheinlich deine Gesundheit insgesamt verbessern, unabhängig davon, was sie gezielt mit deiner Haut macht.</p>
+    </div>
+
+  </div>
+
+  <div class="cta-bar-sticky">
+    <button class="cta-btn-full" id="tryBtn"
+      data-treatment-id="mediterranean-diet"
+      data-treatment-name="Mediterrane Ernährung">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg>
+      Zum Plan speichern
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      var ref = document.referrer;
+      var label = ref.includes('flow-a-start') ? 'Dein Einstieg' : ref.includes('flow-a-diet') ? 'Ernährung' : 'Zurück';
+      document.getElementById('backLabel').textContent = label;
+    })();
+  </script>
+  <script>
+    (function() {
+      var KEY  = 'psoriasis_selectedTreatments';
+      var TREATMENT_ID   = 'mediterranean-diet';
+      var TREATMENT_NAME = 'Mediterrane Ernährung';
+      var btn = document.getElementById('tryBtn');
+      function render() {
+        var saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+        var isSaved = saved.some(function(t) { return t.id === TREATMENT_ID; });
+        if (isSaved) {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg> Gespeichert · Entfernen';
+          btn.style.background = 'var(--accent)';
+        } else {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg> Zum Plan speichern';
+          btn.style.background = '';
+        }
+      }
+      btn.addEventListener('click', function() {
+        var saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+        var idx = saved.findIndex(function(t) { return t.id === TREATMENT_ID; });
+        if (idx >= 0) { saved.splice(idx, 1); } else { saved.push({ id: TREATMENT_ID, name: TREATMENT_NAME }); }
+        localStorage.setItem(KEY, JSON.stringify(saved));
+        render();
+      });
+      render();
+    })();
+  </script>
+
+</div>
+
+</body>
+</html>

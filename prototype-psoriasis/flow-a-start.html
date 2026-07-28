@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Here · Psoriasis Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #FDF4E6 0%, #FAF2E4 60%, #F5EBD5 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -80px; right: -80px; width: 480px; height: 480px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .32; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -80px; left: -80px; width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .28; pointer-events: none; z-index: 0;
+    }
+    .filter-chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .filter-chip {
+      display: inline-flex; align-items: center; font-family: 'Manrope', sans-serif;
+      font-size: 12px; font-weight: 500; color: var(--ink-600);
+      background: rgba(255,255,255,0.50); border: 1px solid rgba(44,31,14,0.12);
+      border-radius: 9999px; padding: 4px 10px; white-space: nowrap;
+    }
+    .flow-hero {
+      background: rgba(253,244,230,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+    }
+    .flow-hero::after { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-top:10px;">
+    <div class="flow-toprow">
+      <div class="flow-logo">
+        <span class="flow-logo-mark"></span>Psoriasis Treatment Paths
+      </div>
+      <div class="flow-avatar">S</div>
+    </div>
+    <div id="filterChipRow" class="filter-chip-row"></div>
+    <div class="flow-count-pill" id="availPill" style="margin-top:12px;">26 treatment paths</div>
+    <h1 class="flow-hero-title">Research is strong for these three</h1>
+    <p class="flow-hero-sub" style="margin-top:10px;">We've surfaced these as a starting point based on evidence strength and your profile. You can explore everything. Save what catches your eye.</p>
+  </div>
+
+  <!-- Cards -->
+  <div class="flow-body">
+
+    <!-- Card 1: Emollients -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.42 1.24 4.55 3.12 5.79L7.5 18h9l-.62-3.21A7 7 0 0 0 19 9c0-3.87-3.13-7-7-7z"/></svg>
+          Topical
+        </span>
+        <span class="evchip-flow ev-high" style="margin-left:auto;">
+          <span class="ev-dot"></span>Strong evidence
+        </span>
+      </div>
+      <div class="hcard-title">Emollients &amp; moisturising</div>
+      <div class="hcard-desc">Daily moisturising is one of the most evidence-backed steps for psoriasis. Consistent use reduces scaling, relieves itch, and significantly lowers the amount of topical treatment needed. The simpler the formulation, the better tolerated.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="emollients" data-treatment-name="Emollients &amp; moisturising"></button>
+        <a href="flow-a-detail.html" class="learn-more">
+          Learn more
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2: Stress management -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          Mind &amp; Body
+        </span>
+        <span class="evchip-flow ev-good" style="margin-left:auto;">
+          <span class="ev-dot"></span>Good evidence
+        </span>
+      </div>
+      <div class="hcard-title">Stress management (MBSR)</div>
+      <div class="hcard-desc">Mindfulness-Based Stress Reduction has good clinical evidence for psoriasis — partly because stress is both a trigger and a response to flares. Kabat-Zinn's landmark study showed faster plaque clearing in patients who combined MBSR with phototherapy.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="stress-management" data-treatment-name="Stress management (MBSR)"></button>
+        <a href="flow-a-detail-stress.html" class="learn-more">
+          Learn more
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3: Mediterranean diet -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+          Diet
+        </span>
+        <span class="evchip-flow ev-good" style="margin-left:auto;">
+          <span class="ev-dot"></span>Good evidence
+        </span>
+      </div>
+      <div class="hcard-title">Mediterranean-style diet</div>
+      <div class="hcard-desc">The 2025 MEDIPSO randomised trial found 47% of participants following this diet achieved 75% skin improvement versus 0% in controls. An anti-inflammatory eating pattern with the best trial evidence of any dietary intervention for psoriasis.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="mediterranean-diet" data-treatment-name="Mediterranean-style diet"></button>
+        <a href="flow-a-detail-mediterranean.html" class="learn-more">
+          Learn more
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Explore all -->
+    <a href="flow-a-overview.html" class="explore-btn ani">
+      Explore all 26 options
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Nudge card -->
+    <div class="nudge-card ani" id="nudgeCard">
+      You focused on <strong id="nudgePrefs">Diet and Mind &amp; Body</strong>. There's strong evidence in <strong>Topical treatments</strong> too — <a href="flow-a-overview.html">take a look →</a>
+    </div>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+  <script>
+    if (!localStorage.getItem('psoriasis_selectedTreatments')) {
+      localStorage.setItem('psoriasis_selectedTreatments', JSON.stringify([
+        { id: 'emollients',          name: 'Emollients & moisturising' },
+        { id: 'stress-management',   name: 'Stress management (MBSR)' },
+        { id: 'mediterranean-diet',  name: 'Mediterranean-style diet' }
+      ]));
+    }
+  </script>
+  <script src="selection.js"></script>
+  <script>
+    (function() {
+      var CAT_LABELS = { topical: 'Topical', diet: 'Diet', supplements: 'Supplements', mindbody: 'Mind & Body' };
+      var CATEGORY_COUNTS = { topical: 8, diet: 4, supplements: 4, mindbody: 5, medical: 6 };
+      var TOTAL = 26;
+
+      var rawPrefs = localStorage.getItem('psoriasis_prefs');
+      var prefs    = rawPrefs ? JSON.parse(rawPrefs) : null;
+
+      var availCount = TOTAL;
+      if (prefs && prefs.length > 0 && prefs.length < 4) {
+        availCount = prefs.reduce(function(sum, k) { return sum + (CATEGORY_COUNTS[k] || 0); }, 0);
+      }
+      var pill = document.getElementById('availPill');
+      if (pill) pill.textContent = availCount + ' treatment paths';
+
+      var subtype  = localStorage.getItem('psoriasis_subtype') || 'plaque';
+      var severity = localStorage.getItem('psoriasis_severity') || 'moderate';
+      var joint    = localStorage.getItem('psoriasis_joint_pain');
+
+      var subtypeLabel = { plaque: 'Plaque', guttate: 'Guttate', inverse: 'Inverse', other: 'Other type', unsure: '' };
+      var chips = [];
+      if (subtypeLabel[subtype]) chips.push(subtypeLabel[subtype]);
+      if (severity === 'severe') chips.push('More severe');
+      if (joint === 'yes' || joint === 'sometimes') chips.push('Joint involvement');
+
+      var chipRow = document.getElementById('filterChipRow');
+      if (chipRow) {
+        if (chips.length === 0) { chipRow.style.display = 'none'; }
+        else { chipRow.innerHTML = chips.map(function(l) { return '<span class="filter-chip">' + l + '</span>'; }).join(''); }
+      }
+
+      var nudge = document.getElementById('nudgeCard');
+      if (nudge && prefs && prefs.length > 0 && prefs.indexOf('topical') < 0) {
+        var prefLabels = prefs.map(function(p) { return CAT_LABELS[p] || p; });
+        document.getElementById('nudgePrefs').textContent = prefLabels.join(' and ');
+      } else if (nudge) {
+        nudge.style.display = 'none';
+      }
+    })();
+  </script>
+
+</body>
+</html>

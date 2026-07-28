@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ernährung · Psoriasis-Behandlungsoptionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #EFF5EC 0%, #FAF6F0 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, var(--accent) 20%, transparent 70%);
+      opacity: .28; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero flow-hero--sage">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 gespeichert</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-sage">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Ernährung &amp; Nährstoffe</h1>
+        <p class="flow-hero-sub tight">4 Optionen — die stärkste Evidenz gibt es für Lebensstiländerungen und entzündungshemmende Ernährungsmuster.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Mediterrane Ernährung</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Der am besten untersuchte Ernährungsansatz bei Psoriasis. Die randomisiert kontrollierte MEDIPSO-Studie 2025 zeigte, dass 47 % der Teilnehmenden eine 75-prozentige Hautverbesserung erzielten — gegenüber 0 % in der Kontrollgruppe. Barrea et al. (2019) legten die Beobachtungsgrundlage.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail-mediterranean.html" class="learn-more">Mehr erfahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="mediterranean-diet" data-treatment-name="Mediterrane Ernährung"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Gewichtsmanagement</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Übergewicht ist ein unabhängiger Risikofaktor für den Schweregrad der Psoriasis. Studien zeigen konsistent, dass selbst moderate Gewichtsreduktion mit besseren Hautergebnissen und besserem Therapieansprechen korreliert.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="weight-management" data-treatment-name="Gewichtsmanagement"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Alkoholreduktion</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Alkohol ist ein gut belegter Psoriasis-Auslöser. Kohortenstudien zeigen, dass starker Alkoholkonsum mit höherem Schweregrad und geringerem Therapieansprechen korreliert — weniger zu trinken ist eine der wirkungsvollsten Lebensstiländerungen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="alcohol-reduction" data-treatment-name="Alkoholreduktion"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Zusätzliche Optionen verbergen':'2 weitere Optionen anzeigen'">2 weitere Optionen anzeigen</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Glutenfreie Ernährung (bei Zöliakie oder NCGS)</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Psoriasis geht gehäuft mit Zöliakie einher. Für Betroffene mit bestätigter Zöliakie oder Nicht-Zöliakie-Glutensensitivität (NCGS) kann eine glutenfreie Ernährung den Schweregrad deutlich senken. Ohne bestätigte Sensitivität ist ein klarer Nutzen nicht belegt.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="gluten-free" data-treatment-name="Glutenfreie Ernährung"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Kalorienreduktion / entzündungshemmende Ernährung</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Die Reduzierung entzündungsfördernder Lebensmittel (stark verarbeitete Produkte, rotes Fleisch, Zucker) und eine Erhöhung von Gemüse, Hülsenfrüchten und Vollkornprodukten zeigt breiten Nutzen bei entzündlichen Hauterkrankungen.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="anti-inflammatory-diet" data-treatment-name="Entzündungshemmende Ernährung"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

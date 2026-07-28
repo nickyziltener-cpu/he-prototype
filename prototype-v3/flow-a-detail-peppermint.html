@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peppermint oil · Treatment Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .38;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sources-list {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px solid rgba(42,31,48,0.08);
+      padding-top: 14px;
+    }
+    .source-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+    }
+    .source-badge {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.3px;
+      color: var(--ink-600);
+      background: rgba(42,31,48,0.06);
+      border-radius: 4px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+    .source-ref {
+      flex: 1;
+      color: var(--ink-600);
+      line-height: 1.4;
+    }
+    .source-ref em {
+      font-style: italic;
+    }
+    .source-link {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ember-600, #b8704a);
+      text-decoration: none;
+    }
+    .source-link:hover { text-decoration: underline; }
+    .sources-note {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      color: var(--ink-500);
+      margin-top: 8px;
+      font-style: italic;
+    }
+    #tryBtn {
+      font-family: 'Manrope', sans-serif;
+      font-size: inherit;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-bottom:24px;">
+    <div class="flow-nav">
+      <a href="#" id="backBtn" class="flow-back" onclick="history.back(); return false;">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        <span id="backLabel">Back</span>
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+        Supplements
+      </span>
+      <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+    </div>
+    <h1 class="flow-hero-title">Peppermint oil (enteric-coated)</h1>
+    <p class="flow-hero-sub">A well-tolerated supplement that relaxes smooth muscle in the gut wall. A 2014 meta-analysis found <strong>peppermint oil was significantly more effective than placebo</strong> for reducing global IBS symptoms and abdominal pain.</p>
+  </div>
+
+  <!-- Detail body -->
+  <div class="flow-body detail-body">
+
+    <div class="detail-section ani">
+      <div class="detail-label">What it is</div>
+      <p class="detail-para">Peppermint oil's active ingredient, menthol, works by blocking calcium channels in the smooth muscle lining the gut wall. This reduces spasms and cramping — the mechanism behind abdominal pain in many IBS presentations. Enteric coating is essential: it prevents the oil releasing in the stomach (which causes heartburn) and ensures it reaches the small intestine and colon where it does its work.</p>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">How research suggests using it</div>
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div>
+            <div class="step-title">Choose the right product</div>
+            <div class="step-desc">Look specifically for enteric-coated peppermint oil capsules — not peppermint tea, peppermint extract, or standard (non-coated) capsules. Brands labelled "IBS peppermint oil" are usually enteric-coated.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div>
+            <div class="step-title">Take before meals</div>
+            <div class="step-desc">The dose used in most studies is one capsule, three times daily, taken 30–60 minutes before meals. Taking with food can interfere with the coating's timing.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div>
+            <div class="step-title">Allow 4 weeks before judging</div>
+            <div class="step-desc">Most responders see a difference within 2–4 weeks. Studies use 4 weeks as the minimum trial period before assessing whether it's working.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Where this evidence comes from</div>
+      <div class="evsum-card">
+        <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+        <div class="evsum-line">A 2014 meta-analysis of 9 RCTs found peppermint oil was <strong>significantly more effective than placebo</strong> for both global symptom relief and abdominal pain specifically, with a low rate of serious side effects.</div>
+        <div class="evsum-meaning">What this means — the evidence base is solid (9 independent RCTs all pointing the same direction), but some studies were small and short. That's why this is graded Good rather than Strong. It's a meaningful effect with a good safety profile — the uncertainty is mainly about long-term use beyond 4 weeks.</div>
+        <div class="sources-list">
+          <div class="source-row">
+            <span class="source-badge">Meta-analysis</span>
+            <span class="source-ref">Khanna et al., 2014 · <em>Journal of Clinical Gastroenterology</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/24100754/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">Systematic review</span>
+            <span class="source-ref">Ford et al., 2008 · <em>BMJ</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/19008265/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">RCT</span>
+            <span class="source-ref">Merat et al., 2010 · <em>Digestive Diseases and Sciences</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/19507027/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <p class="sources-note">Citations link to PubMed abstracts. Full papers may require journal access. Editorial team to verify PMID-to-paper mapping before launch.</p>
+      </div>
+    </div>
+
+    <div class="callout-amber ani">
+      <div class="callout-label">Worth knowing</div>
+      <p class="detail-para sm">The evidence is strongest for abdominal pain and cramping — if bloating or diarrhoea are your primary symptoms, peppermint oil may be less effective as a standalone intervention. It's also not recommended if you have gastro-oesophageal reflux disease (GORD/GERD): even enteric-coated capsules can occasionally cause heartburn in people with reflux. Mention it to your GP if you're on any regular medication, as there are a small number of known interactions.</p>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <button class="cta-btn-full" id="tryBtn"
+      data-treatment-id="peppermint-oil"
+      data-treatment-name="Peppermint oil">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg>
+      Save to my plan
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      var ref = document.referrer;
+      var label = ref.includes('flow-a-start') ? 'Start' : (ref.includes('flow-a-overview') || ref.includes('flow-a-supplements')) ? 'Supplements' : 'Back';
+      document.getElementById('backLabel').textContent = label;
+    })();
+  </script>
+  <script>
+    (function() {
+      var TREATMENT_ID   = 'peppermint-oil';
+      var TREATMENT_NAME = 'Peppermint oil';
+      var btn = document.getElementById('tryBtn');
+
+      function render() {
+        var saved = JSON.parse(localStorage.getItem('selectedTreatments') || '[]');
+        var isSaved = saved.some(function(t) { return t.id === TREATMENT_ID; });
+        if (isSaved) {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg> Saved · Remove';
+          btn.style.background = 'var(--sage-500, #4a7a6a)';
+        } else {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg> Save to my plan';
+          btn.style.background = '';
+        }
+      }
+
+      btn.addEventListener('click', function() {
+        var saved = JSON.parse(localStorage.getItem('selectedTreatments') || '[]');
+        var idx = saved.findIndex(function(t) { return t.id === TREATMENT_ID; });
+        if (idx >= 0) {
+          saved.splice(idx, 1);
+        } else {
+          if (saved.length < 3) {
+            saved.push({ id: TREATMENT_ID, name: TREATMENT_NAME });
+          }
+        }
+        localStorage.setItem('selectedTreatments', JSON.stringify(saved));
+        render();
+      });
+
+      render();
+    })();
+  </script>
+
+</div>
+
+</body>
+</html>

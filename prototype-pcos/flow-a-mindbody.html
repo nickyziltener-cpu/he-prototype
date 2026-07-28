@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind & Body · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f3f0f9 0%, #faf7f4 70%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--plum-300) 0%, var(--plum-500) 20%, transparent 70%); opacity: .22; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="flow-hero flow-hero--plum">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Browse all</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div class="cat-icon-flow bg-plum"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <div class="flow-count-pill" style="margin-bottom:0;">5 treatments</div>
+    </div>
+    <h1 class="flow-hero-title sm">Mind &amp; body</h1>
+    <p class="flow-hero-sub tight">Movement, stress management, and lifestyle approaches with evidence behind them.</p>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span></div>
+      <div class="lcard-title-flow">Exercise &amp; resistance training</div>
+      <div class="lcard-desc-flow">Aerobic and resistance exercise both improve insulin sensitivity in PCOS — independently of weight loss. RCTs show 12 weeks of structured exercise restores ovulation in a significant proportion of participants.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="exercise" data-treatment-name="Exercise &amp; resistance training">Save</button>
+        <a href="flow-a-detail-exercise.html" class="learn-more">Learn more <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span></div>
+      <div class="lcard-title-flow">Stress management</div>
+      <div class="lcard-desc-flow">Chronic stress drives cortisol elevation, which dysregulates the HPA-HPG axis — worsening PCOS hormonal imbalance. Mindfulness and stress reduction interventions show measurable hormonal benefits in trials.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="stress-management" data-treatment-name="Stress management">Save</button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span></div>
+      <div class="lcard-title-flow">Yoga</div>
+      <div class="lcard-desc-flow">Multiple RCTs show yoga reduces androgens, LH, and cortisol in PCOS — likely via stress reduction and improved insulin sensitivity. Particularly beneficial for anxiety and mood symptoms.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="yoga" data-treatment-name="Yoga">Save</button>
+      </div>
+    </div>
+
+    <button class="show-more-btn" onclick="toggleMore(this)">Show 2 more options</button>
+    <div class="more-cards">
+      <div class="lcard-flow" style="margin-top:8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-med"><span class="ev-dot"></span>Moderate evidence</span></div>
+        <div class="lcard-title-flow">Sleep improvement</div>
+        <div class="lcard-desc-flow">Poor sleep quality is common in PCOS and worsens insulin resistance. Observational data suggest sleep extension improves androgen and cortisol patterns — interventional data is limited.</div>
+        <div class="lcard-foot-flow"><button class="try-btn" data-treatment-id="sleep" data-treatment-name="Sleep improvement">Save</button></div>
+      </div>
+      <div class="lcard-flow" style="margin-top:8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span class="evchip-flow ev-med"><span class="ev-dot"></span>Moderate evidence</span></div>
+        <div class="lcard-title-flow">Acupuncture</div>
+        <div class="lcard-desc-flow">Several small RCTs suggest acupuncture may improve menstrual frequency and reduce LH levels. Mechanistic evidence is plausible (neuroendocrine pathways) but sample sizes remain small.</div>
+        <div class="lcard-foot-flow"><button class="try-btn" data-treatment-id="acupuncture" data-treatment-name="Acupuncture">Save</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-count-flow"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> <span id="trayNum">0</span> saved</div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" id="trayCta">Create my plan <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+
+</div>
+<script>
+var KEY = 'pcos_selectedTreatments';
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+function saveSelected(a) { localStorage.setItem(KEY, JSON.stringify(a)); }
+function toggleMore(btn) { var mc = btn.nextElementSibling; mc.classList.toggle('open'); btn.classList.toggle('open'); btn.textContent = mc.classList.contains('open') ? 'Show fewer options' : 'Show 2 more options'; }
+function refresh() {
+  var sel = getSelected(); var ids = sel.map(function(t){return t.id;});
+  document.querySelectorAll('.try-btn').forEach(function(btn) { var id = btn.getAttribute('data-treatment-id'); if (ids.includes(id)) { btn.textContent='Saved ✓'; btn.classList.add('added'); } else { btn.textContent='Save'; btn.classList.remove('added'); } });
+  document.getElementById('trayNum').textContent = sel.length;
+  document.getElementById('trayCta').classList.toggle('tray-cta-disabled', sel.length === 0);
+}
+document.querySelectorAll('.try-btn').forEach(function(btn) { btn.addEventListener('click', function() { var id=btn.getAttribute('data-treatment-id'); var name=btn.getAttribute('data-treatment-name'); var sel=getSelected(); var idx=sel.findIndex(function(t){return t.id===id;}); if(idx>-1) sel.splice(idx,1); else sel.push({id:id,name:name}); saveSelected(sel); refresh(); }); });
+refresh();
+</script>
+</body>
+</html>

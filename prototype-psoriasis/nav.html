@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation · Psoriasis Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; padding: 32px 20px 48px; }
+    .nav-section { margin-bottom: 28px; }
+    .nav-section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--ink-400); text-transform: uppercase; letter-spacing: .2em; margin-bottom: 12px; }
+    .nav-group { display: flex; flex-direction: column; gap: 4px; background: rgba(255,255,255,0.72); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.82); }
+    .nav-item { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; text-decoration: none; color: var(--ink-800); font-size: 14px; font-weight: 600; border-bottom: 1px solid var(--border-hairline); transition: background 0.1s ease; }
+    .nav-item:last-child { border-bottom: none; }
+    .nav-item:hover { background: rgba(196,123,43,0.06); }
+    .nav-item-sub { font-size: 11px; color: var(--ink-500); font-weight: 400; font-family: 'JetBrains Mono', monospace; }
+    .nav-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+  <div style="max-width: 480px; margin: 0 auto;">
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+      <div style="width:10px;height:10px;border-radius:50%;background:var(--primary);"></div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink-900);">Psoriasis Prototype — Navigation</h1>
+    </div>
+
+    <!-- Onboarding -->
+    <div class="nav-section">
+      <div class="nav-section-label">Onboarding</div>
+      <div class="nav-group">
+        <a href="index.html" class="nav-item">Welcome <span class="nav-badge" style="background:rgba(196,123,43,.12);color:var(--primary-dk);">Start</span></a>
+        <a href="start.html" class="nav-item">What we'll do <span class="nav-item-sub">3 steps</span></a>
+        <a href="q1.html" class="nav-item">Q1 — Diagnosed? <span class="nav-item-sub">14%</span></a>
+        <a href="q1a.html" class="nav-item">Q1a — Symptoms (undiagnosed) <span class="nav-item-sub">25%</span></a>
+        <a href="q1b.html" class="nav-item">Q1b — Psoriasis subtype <span class="nav-item-sub">28%</span></a>
+        <a href="q2.html" class="nav-item">Q2 — Duration <span class="nav-item-sub">42%</span></a>
+        <a href="q3.html" class="nav-item">Q3 — Severity <span class="nav-item-sub">56%</span></a>
+        <a href="redflag.html" class="nav-item">Red flag screen <span class="nav-item-sub">68%</span></a>
+        <a href="redflag-stop.html" class="nav-item">Red flag stop <span class="nav-badge" style="background:rgba(192,57,43,.10);color:rgba(192,57,43,.85);">Emergency</span></a>
+        <a href="q4.html" class="nav-item">Q4 — Triggers + joint pain <span class="nav-item-sub">78%</span></a>
+        <a href="q5.html" class="nav-item">Q5 — Treatment preferences <span class="nav-item-sub">90%</span></a>
+      </div>
+    </div>
+
+    <!-- Reveal -->
+    <div class="nav-section">
+      <div class="nav-section-label">Reveal</div>
+      <div class="nav-group">
+        <a href="reveal.html" class="nav-item">Reveal — diagnosed <span class="nav-item-sub">18 treatments found</span></a>
+        <a href="reveal-priya.html" class="nav-item">Reveal — undiagnosed (Priya path) <span class="nav-item-sub">Symptom match count</span></a>
+        <a href="account.html" class="nav-item">Create account</a>
+      </div>
+    </div>
+
+    <!-- Flow A: Research -->
+    <div class="nav-section">
+      <div class="nav-section-label">Flow A — Research &amp; Browse</div>
+      <div class="nav-group">
+        <a href="flow-a-start.html" class="nav-item">Top 3 recommendations <span class="nav-item-sub">Emollients · MBSR · Mediterranean</span></a>
+        <a href="flow-a-overview.html" class="nav-item">All categories <span class="nav-item-sub">5 categories · 26 total</span></a>
+        <a href="flow-a-medical.html" class="nav-item">Topical treatments <span class="nav-item-sub">8 options · 5 Strong · incl. Mahonia</span></a>
+        <a href="flow-a-diet.html" class="nav-item">Diet &amp; nutrition <span class="nav-item-sub">4 options · Mediterranean now Good</span></a>
+        <a href="flow-a-supplements.html" class="nav-item">Supplements <span class="nav-item-sub">4 options · Omega-3 corrected to Moderate</span></a>
+        <a href="flow-a-mindbody.html" class="nav-item">Mind &amp; body <span class="nav-item-sub">5 options · Smoking cessation visible</span></a>
+        <a href="flow-a-prescription.html" class="nav-item">Medical &amp; prescription <span class="nav-badge" style="background:rgba(74,111,165,.12);color:#2d4f7c;">NEW</span></a>
+        <a href="flow-a-shortlist.html" class="nav-item">Shortlist — pick top 3 <span class="nav-item-sub">Updated CATALOG · 26 treatments</span></a>
+      </div>
+    </div>
+
+    <!-- Detail pages -->
+    <div class="nav-section">
+      <div class="nav-section-label">Flow A — Treatment Details</div>
+      <div class="nav-group">
+        <a href="flow-a-detail.html" class="nav-item">Emollients &amp; moisturising <span class="nav-badge" style="background:rgba(196,123,43,.12);color:var(--primary-dk);">Strong</span></a>
+        <a href="flow-a-detail-stress.html" class="nav-item">Stress management (MBSR) <span class="nav-badge" style="background:rgba(123,158,107,.12);color:#3a6b30;">Good</span></a>
+        <a href="flow-a-detail-mediterranean.html" class="nav-item">Mediterranean-style diet <span class="nav-badge" style="background:rgba(196,168,130,.18);color:#6B4A20;">Moderate</span></a>
+      </div>
+    </div>
+
+    <!-- Flow B: Plan -->
+    <div class="nav-section">
+      <div class="nav-section-label">Flow B — Plan &amp; Track</div>
+      <div class="nav-group">
+        <a href="flow-b-plan.html" class="nav-item">Plan builder <span class="nav-item-sub">Drag-to-reorder · 3 trials</span></a>
+        <a href="flow-b-plan-active.html" class="nav-item">Active plan view <span class="nav-item-sub">Week 3 of 6</span></a>
+        <a href="flow-b-prepare.html" class="nav-item">Prepare — moisturising routine</a>
+        <a href="flow-b-checkin.html" class="nav-item">Daily check-in <span class="nav-item-sub">Direction + flare flag</span></a>
+        <a href="flow-b-progress.html" class="nav-item">Progress &amp; trend chart</a>
+      </div>
+    </div>
+
+    <!-- Today -->
+    <div class="nav-section">
+      <div class="nav-section-label">Today (Journal tab)</div>
+      <div class="nav-group">
+        <a href="today-preplan.html" class="nav-item">Pre-plan state <span class="nav-item-sub">Build your plan CTA</span></a>
+        <a href="today-active.html" class="nav-item">Active trial state <span class="nav-item-sub">Log check-in + progress snapshot</span></a>
+        <a href="today-between.html" class="nav-item">Between check-ins <span class="nav-item-sub">Morning view</span></a>
+        <a href="today-logged.html" class="nav-item">Already logged today <span class="nav-item-sub">Post check-in state</span></a>
+      </div>
+    </div>
+
+    <!-- You -->
+    <div class="nav-section">
+      <div class="nav-section-label">Profile</div>
+      <div class="nav-group">
+        <a href="you.html" class="nav-item">You — profile screen</a>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--ink-400);text-align:center;margin-top:8px;font-family:'JetBrains Mono',monospace;">Psoriasis prototype v2 · Health Empowerment · July 2026 · Evidence audit applied</p>
+
+  </div>
+</body>
+</html>

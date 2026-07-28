@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Bitte sprich mit einer Ärztin / einem Arzt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--amber-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.40; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30px;
+      right: -40px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.0s ease-out 0.2s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .stop-headline .hl-line:nth-child(1) { animation: write-reveal 0.4s ease-out 0.3s forwards; }
+    .stop-headline .hl-line:nth-child(2) { animation: write-reveal 0.4s ease-out 0.65s forwards; }
+
+    .stop-body,
+    .gp-card,
+    .gp-link,
+    .understand-link {
+      opacity: 0;
+      animation: fade-in 1.0s ease-out 0.8s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper" style="padding-top: 56px; padding-bottom: 56px;">
+    <h1 class="stop-headline">
+      <span class="hl-line">Bevor du weitermachst,</span>
+      <span class="hl-line">sprich bitte mit einer Ärztin / einem Arzt.</span>
+    </h1>
+
+    <div class="stop-body">
+      <p>Die Symptome, die du erwähnt hast, sind wichtig. Sie können zwar mit deiner Endometriose zusammenhängen — aber sie können auch auf andere Erkrankungen hinweisen, die zuerst ärztlich abgeklärt werden müssen.</p>
+    </div>
+
+    <div class="gp-card">
+      <p class="gp-card-heading">Wenn du deine Hausärztin / deinen Hausarzt besuchst, erwähne:</p>
+      <ul id="symptomsList">
+        <!-- Populated by JS -->
+      </ul>
+      <p class="gp-card-footer">Die meisten dieser Symptome haben eine unkomplizierte Erklärung — aber das muss eine Ärztin oder ein Arzt beurteilen, nicht ein Evidenz-Tool.</p>
+    </div>
+
+    <a href="#" id="continueLink" class="understand-link">Ich verstehe — zeig mir, was ich erkunden kann</a>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script>
+    var isPriya = localStorage.getItem('priya') === '1';
+    document.getElementById('continueLink').href = isPriya ? 'reveal-priya.html' : 'reveal.html';
+  </script>
+  <script>
+    var list = document.getElementById('symptomsList');
+    var stored = localStorage.getItem('redflags');
+    var symptoms = stored ? JSON.parse(stored) : [];
+
+    if (symptoms.length > 0) {
+      symptoms.forEach(function(s) {
+        var li = document.createElement('li');
+        li.textContent = s;
+        list.appendChild(li);
+      });
+    } else {
+      var li1 = document.createElement('li');
+      li1.textContent = 'Die oben genannten Symptome';
+      var li2 = document.createElement('li');
+      li2.textContent = 'Bitte deine Ärztin / deinen Arzt, CED, Zöliakie und kolorektalen Krebs auszuschließen.';
+      list.appendChild(li1);
+      list.appendChild(li2);
+    }
+
+    if (symptoms.length > 0) {
+      var li = document.createElement('li');
+      li.textContent = 'Du kannst deine Ärztin / deinen Arzt auch bitten, CED, Zöliakie und kolorektalen Krebs auszuschließen.';
+      list.appendChild(li);
+    }
+  </script>
+
+</body>
+</html>

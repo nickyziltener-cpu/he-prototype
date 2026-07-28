@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind &amp; Body · Psoriasis Treatment Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #F0F5EE 0%, #F8F4EC 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(123,158,107,0.4) 0%, rgba(123,158,107,0.15) 30%, transparent 70%);
+      opacity: .35; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="background: rgba(240,245,238,0.72);">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-dark">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Mind &amp; body</h1>
+        <p class="flow-hero-sub tight">5 options — particularly relevant if stress or smoking is a factor for you.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Stress management (MBSR)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Mindfulness-Based Stress Reduction. Kabat-Zinn's landmark study showed faster plaque clearing in patients who combined MBSR with phototherapy. Addresses the stress-itch-flare cycle directly.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail-stress.html" class="learn-more">Learn more <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="stress-management" data-treatment-name="Stress management (MBSR)"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Cognitive Behavioural Therapy (CBT)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Addresses the psychological burden of visible skin conditions — shame, avoidance, body image. Multiple studies show CBT reduces psychological distress and secondarily improves physical symptoms through better self-management.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="cbt" data-treatment-name="CBT for psoriasis"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Regular exercise</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Exercise reduces systemic inflammation and addresses comorbid metabolic risk — psoriasis significantly elevates cardiovascular risk, making regular activity particularly valuable. The best evidence comes from combined diet-and-exercise trials (Naldi et al., 2014, n=303). Also improves biologic treatment response.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="exercise" data-treatment-name="Regular exercise"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Smoking cessation</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Smoking consistently predicts worse psoriasis severity and reduces how well treatments work — particularly biologics and phototherapy. Multiple large cohort studies confirm the association. Quitting is one of the changes with the broadest effect across skin, cardiovascular risk, and treatment response.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="smoking-cessation" data-treatment-name="Smoking cessation"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra options':'Show 2 more options'">Show 2 more options</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Yoga &amp; relaxation practices</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Small controlled studies show measurable quality-of-life improvements. Yoga combines the anti-inflammatory effects of exercise with stress reduction. Effect on skin lesions is more modest than on psychological wellbeing.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="yoga" data-treatment-name="Yoga &amp; relaxation"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Balneotherapy (Dead Sea / salt baths)</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Dead Sea salt bathing has consistent observational evidence for plaque psoriasis. Proposed mechanism is a combination of UV exposure, mineral content, and stress reduction. Limited by poor RCT quality.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="balneotherapy" data-treatment-name="Balneotherapy"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

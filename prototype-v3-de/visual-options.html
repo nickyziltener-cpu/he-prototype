@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visuelle Optionen — Willkommensbildschirm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink-900: #2a1f30;
+      --ink-800: #3a2e44;
+      --ink-700: #4a3f55;
+      --ink-600: #6b5b7d;
+      --ink-500: #8c7f9c;
+      --ink-300: #c4b5d1;
+      --plum-300: #b598c9;
+      --plum-500: #8c6cab;
+      --plum-700: #6b4f87;
+      --ember-300: #f7c39e;
+      --ember-500: #f3a07e;
+      --sage-300: #a8c8b5;
+      --sage-500: #6b9a8b;
+      --aurora-500: #a8a5d4;
+      --hero-band: linear-gradient(170deg, #fbeee5 0%, #faf7f4 60%, #f1ecf3 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #e8e3df;
+      min-height: 100vh;
+      padding: 52px 32px 64px;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      color: var(--ink-900);
+      margin-bottom: 8px;
+    }
+    .page-sub {
+      font-size: 14px;
+      color: var(--ink-600);
+      line-height: 1.5;
+    }
+
+    .options-row {
+      display: flex;
+      gap: 36px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .option-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 320px;
+    }
+
+    .option-label {
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-700);
+      background: rgba(255,255,255,0.7);
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    .option-desc {
+      font-size: 13px;
+      color: var(--ink-700);
+      text-align: center;
+      line-height: 1.55;
+    }
+    .option-desc strong {
+      color: var(--ink-900);
+      font-weight: 700;
+    }
+
+    /* Phone shell */
+    .phone-frame {
+      width: 320px;
+      height: 650px;
+      border-radius: 44px;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 30px 80px -16px rgba(42,31,48,0.28),
+        0 0 0 1.5px rgba(42,31,48,0.1),
+        inset 0 0 0 1px rgba(255,255,255,0.15);
+    }
+
+    /* ──────────────────────────────────────────
+       OPTION A — Sage bloom top-right
+    ────────────────────────────────────────── */
+    .opt-a {
+      width: 100%;
+      height: 100%;
+      background: var(--hero-band);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 44px 24px 36px;
+    }
+
+    /* Sage bloom — top-right (replaces ember) */
+    .opt-a::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 15%, transparent 65%);
+      opacity: 0.44;
+      pointer-events: none;
+    }
+
+    /* Aurora lavender — bottom-left (unchanged) */
+    .opt-a::after {
+      content: '';
+      position: absolute;
+      bottom: -90px;
+      left: -90px;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 65%);
+      opacity: 0.38;
+      pointer-events: none;
+    }
+
+    /* ──────────────────────────────────────────
+       OPTION B — Single centred spotlight
+    ────────────────────────────────────────── */
+    .opt-b {
+      width: 100%;
+      height: 100%;
+      background: var(--hero-band);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 44px 24px 36px;
+    }
+
+    /* Centred ellipse spotlight behind headline — ember fading to aurora */
+    .opt-b::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 360px;
+      height: 260px;
+      background: radial-gradient(ellipse at 55% 40%,
+        var(--ember-300) 0%,
+        var(--aurora-500) 45%,
+        transparent 72%);
+      opacity: 0.38;
+      pointer-events: none;
+    }
+
+    /* Soft lavender whisper — bottom edge for depth */
+    .opt-b::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 65%);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    /* ──────────────────────────────────────────
+       OPTION C — Dark editorial header
+    ────────────────────────────────────────── */
+    .opt-c {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .opt-c-dark {
+      background: var(--ink-900);
+      padding: 40px 24px 36px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle plum bloom inside the dark header */
+    .opt-c-dark::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, #5a3f70 0%, transparent 65%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* Soft ember warmth — bottom-right corner of dark band */
+    .opt-c-dark::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      right: 40px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, var(--ember-500) 0%, transparent 70%);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .opt-c-warm {
+      flex: 1;
+      background: var(--hero-band);
+      padding: 26px 24px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Warm ember bloom lower-right of content area */
+    .opt-c-warm::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, var(--ember-300) 0%, transparent 65%);
+      opacity: 0.32;
+      pointer-events: none;
+    }
+
+    /* ──────────────────────────────────────────
+       Shared inner elements
+    ────────────────────────────────────────── */
+    .inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .logo {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+      margin-bottom: 28px;
+    }
+    .logo-light {
+      color: rgba(251,238,229,0.55);
+    }
+
+    .headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 25px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--ink-900);
+      margin-bottom: 12px;
+    }
+    .headline-light {
+      color: #fbeee5;
+    }
+
+    .sub {
+      font-size: 13px;
+      color: var(--ink-700);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+    .sub-light {
+      color: rgba(251,238,229,0.65);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.58);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(196,181,209,0.28);
+      border-radius: 16px;
+      padding: 4px 14px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .item {
+      font-size: 11.5px;
+      color: var(--ink-800);
+      line-height: 1.45;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(196,181,209,0.22);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .item:last-child { border-bottom: none; }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--plum-500);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      width: 100%;
+      background: var(--plum-500);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 13px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .link {
+      display: block;
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--plum-500);
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Push CTA to bottom in A and B */
+    .opt-a .inner,
+    .opt-b .inner {
+      justify-content: space-between;
+    }
+    .opt-a .inner .top-block,
+    .opt-b .inner .top-block {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1 class="page-title">Willkommensbildschirm — Visuelle Optionen</h1>
+    <p class="page-sub">Drei Aurora/Header-Varianten. Nur als Designreferenz — nicht interaktiv.</p>
+  </div>
+
+  <div class="options-row">
+
+    <!-- ── OPTION A ── -->
+    <div class="option-wrapper">
+      <div class="option-label">Option A</div>
+      <div class="phone-frame">
+        <div class="opt-a">
+          <div class="inner">
+            <div class="top-block">
+              <div class="logo">RDS-Behandlungswege</div>
+              <div class="headline">Vertrau wieder deinem Bauch? Vertrau zuerst der Wissenschaft.</div>
+              <p class="sub">RDS ist bei jedem anders. Wir helfen dir, den Behandlungsweg zu finden, der für dich funktioniert. Basierend auf echter Forschung.</p>
+              <div class="card">
+                <div class="item"><span class="dot"></span>Kein Influencer-Geschwätz — jede Behandlung wird auf echte Studien zurückgeführt, die du selbst lesen kannst.</div>
+                <div class="item"><span class="dot"></span>Einblicke nach Evidenzstärke bewertet, damit du besser informierte Entscheidungen treffen kannst.</div>
+                <div class="item"><span class="dot"></span>Wähle deinen Weg: Ernährung, Lebensstil, Nahrungsergänzung, westliche und nicht-westliche Medizin.</div>
+              </div>
+            </div>
+            <div>
+              <div class="btn">Loslegen!</div>
+              <div class="link">Bereits ein Konto? Einloggen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="option-desc"><strong>Two auroras, contrasting colours.</strong> The warm ember bloom swapped for cool sage mint. Headline framed by cool green (top-right) and soft lavender (bottom-left) — warm background, cool accents.</p>
+    </div>
+
+    <!-- ── OPTION B ── -->
+    <div class="option-wrapper">
+      <div class="option-label">Option B</div>
+      <div class="phone-frame">
+        <div class="opt-b">
+          <div class="inner">
+            <div class="top-block">
+              <div class="logo">RDS-Behandlungswege</div>
+              <div class="headline">Vertrau wieder deinem Bauch? Vertrau zuerst der Wissenschaft.</div>
+              <p class="sub">RDS ist bei jedem anders. Wir helfen dir, den Behandlungsweg zu finden, der für dich funktioniert. Basierend auf echter Forschung.</p>
+              <div class="card">
+                <div class="item"><span class="dot"></span>Kein Influencer-Geschwätz — jede Behandlung wird auf echte Studien zurückgeführt, die du selbst lesen kannst.</div>
+                <div class="item"><span class="dot"></span>Einblicke nach Evidenzstärke bewertet, damit du besser informierte Entscheidungen treffen kannst.</div>
+                <div class="item"><span class="dot"></span>Wähle deinen Weg: Ernährung, Lebensstil, Nahrungsergänzung, westliche und nicht-westliche Medizin.</div>
+              </div>
+            </div>
+            <div>
+              <div class="btn">Loslegen!</div>
+              <div class="link">Bereits ein Konto? Einloggen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="option-desc"><strong>Single focal spotlight.</strong> One soft ellipse bloom sits directly behind the headline — ember fading to lavender — like a lit stage. No competing field. The rest of the background stays calm and clean.</p>
+    </div>
+
+    <!-- ── OPTION C ── -->
+    <div class="option-wrapper">
+      <div class="option-label">Option C</div>
+      <div class="phone-frame">
+        <div class="opt-c">
+
+          <div class="opt-c-dark">
+            <div style="position:relative;z-index:1;">
+              <div class="logo logo-light">RDS-Behandlungswege</div>
+              <div class="headline headline-light">Vertrau wieder deinem Bauch? Vertrau zuerst der Wissenschaft.</div>
+              <p class="sub-light" style="margin-top:10px;">RDS ist bei jedem anders. Basierend auf echter Forschung.</p>
+            </div>
+          </div>
+
+          <div class="opt-c-warm">
+            <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+              <div class="card">
+                <div class="item"><span class="dot"></span>Kein Influencer-Geschwätz — jede Behandlung wird auf echte Studien zurückgeführt, die du selbst lesen kannst.</div>
+                <div class="item"><span class="dot"></span>Einblicke nach Evidenzstärke bewertet, damit du besser informierte Entscheidungen treffen kannst.</div>
+                <div class="item"><span class="dot"></span>Wähle deinen Weg: Ernährung, Lebensstil, Nahrungsergänzung, westliche und nicht-westliche Medizin.</div>
+              </div>
+              <div>
+                <div class="btn">Let's go!</div>
+                <div class="link">Already have an account? Sign in</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p class="option-desc"><strong>Dark editorial header.</strong> Deep ink/plum band holds the headline in cream. The warm aurora world begins below. Clear hierarchy: brand authority on top, welcoming content beneath.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

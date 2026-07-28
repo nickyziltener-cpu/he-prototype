@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forschung · PCOS Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f3ecf1 100%); min-height: 100vh; }
+    .filter-chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .filter-chip { display: inline-flex; align-items: center; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: var(--ink-600); background: rgba(255,255,255,0.50); border: 1px solid rgba(42,31,48,0.12); border-radius: 9999px; padding: 4px 10px; white-space: nowrap; }
+    body::before { content: ''; position: fixed; top: -80px; right: -80px; width: 480px; height: 480px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 20%, transparent 70%); opacity: .35; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -80px; left: -80px; width: 380px; height: 380px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .32; pointer-events: none; z-index: 0; }
+    .flow-hero { background: rgba(251,238,229,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.45); }
+    .flow-hero::after { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="padding-top:10px;">
+    <div class="flow-toprow">
+      <div class="flow-logo">
+        <span class="flow-logo-mark"></span>PCOS Behandlungswege
+      </div>
+      <div class="flow-avatar">S</div>
+    </div>
+    <div id="filterChipRow" class="filter-chip-row"></div>
+    <div class="flow-count-pill" id="availPill" style="margin-top:12px;">17 Behandlungswege</div>
+    <h1 class="flow-hero-title">Forschung ist stark für diese drei</h1>
+    <p class="flow-hero-sub" style="margin-top:10px;">Nach Evidenzstärke und deinem Profil ausgewählt. Erkunde alles — speichere, was dich interessiert.</p>
+    <p class="flow-rationale-line">Eins nach dem anderen — so weißt du, was wirklich hilft.</p>
+  </div>
+
+  <div class="flow-body">
+
+    <!-- Card 1: Myo-inositol -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M20.56 12a8.56 8.56 0 1 0-8.56 8.56"/></svg>
+          Nahrungsergänzung
+        </span>
+        <span class="evchip-flow ev-high" style="margin-left:auto;">
+          <span class="ev-dot"></span>Starke Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Myo-Inositol</div>
+      <div class="hcard-desc">Das am besten untersuchte Nahrungsergänzungsmittel bei PCOS. Mehrere Meta-Analysen belegen Verbesserungen bei Insulinsensitivität, Zyklusregularität und Androgenspiegel — besonders im 40:1 Myo:D-Chiro-Verhältnis.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="myo-inositol" data-treatment-name="Myo-Inositol">Speichern</button>
+        <a href="flow-a-detail.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2: Low-GI diet -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+          Ernährung
+        </span>
+        <span class="evchip-flow ev-high" style="margin-left:auto;">
+          <span class="ev-dot"></span>Starke Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Niedrig-GI-Ernährung</div>
+      <div class="hcard-desc">Lebensmittel mit niedrigem Glykämischen Index reduzieren Insulinspitzen — den zentralen metabolischen Treiber von PCOS-Symptomen. RCTs zeigen konsistent Verbesserungen bei Nüchterninsulin, Testosteron und Zyklusregularität.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="low-gi-diet" data-treatment-name="Niedrig-GI-Ernährung">Speichern</button>
+        <a href="flow-a-detail-lowgi.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3: Exercise -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+          Geist &amp; Körper
+        </span>
+        <span class="evchip-flow ev-high" style="margin-left:auto;">
+          <span class="ev-dot"></span>Starke Evidenz
+        </span>
+      </div>
+      <div class="hcard-title">Bewegung &amp; Krafttraining</div>
+      <div class="hcard-desc">Sowohl Ausdauer- als auch Krafttraining verbessern die Insulinsensitivität bei PCOS — unabhängig von Gewichtsverlust. RCTs zeigen, dass 12 Wochen strukturiertes Training bei einem erheblichen Teil der Teilnehmerinnen den Eisprung wiederherstellt.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="exercise" data-treatment-name="Bewegung &amp; Krafttraining">Speichern</button>
+        <a href="flow-a-detail-exercise.html" class="learn-more">
+          Mehr erfahren
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Explore all -->
+    <a href="flow-a-overview.html" class="explore-btn ani" style="margin-top:4px;">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Alle 17 Optionen erkunden
+    </a>
+
+    <div class="nudge-card ani">
+      Nicht das Richtige dabei? <a href="flow-a-overview.html">Alle Behandlungskategorien ansehen →</a>
+    </div>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray" id="selTray">
+    <div class="tray-info">
+      <div class="tray-empty-label" id="trayEmpty">Behandlungen speichern, um deinen Plan zu erstellen</div>
+      <div style="display:none;" id="trayFilled">
+        <div class="tray-count-label" id="trayCountLabel">0 gespeichert</div>
+        <div class="tray-names-row" id="trayNames"></div>
+      </div>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" id="trayCta">
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script>
+var KEY = 'pcos_selectedTreatments';
+
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+function saveSelected(arr) { localStorage.setItem(KEY, JSON.stringify(arr)); }
+
+function updateTray() {
+  var sel = getSelected();
+  var empty = document.getElementById('trayEmpty');
+  var filled = document.getElementById('trayFilled');
+  var label = document.getElementById('trayCountLabel');
+  var names = document.getElementById('trayNames');
+  var cta = document.getElementById('trayCta');
+  if (sel.length === 0) {
+    empty.style.display = ''; filled.style.display = 'none';
+    cta.classList.add('tray-cta-disabled');
+  } else {
+    empty.style.display = 'none'; filled.style.display = '';
+    label.textContent = sel.length + ' gespeichert';
+    names.innerHTML = sel.map(function(t) { return '<span class="tray-name-pill">' + t.name + '</span>'; }).join('');
+    cta.classList.remove('tray-cta-disabled');
+  }
+}
+
+function updateButtons() {
+  var sel = getSelected();
+  var ids = sel.map(function(t) { return t.id; });
+  document.querySelectorAll('.try-btn').forEach(function(btn) {
+    var id = btn.getAttribute('data-treatment-id');
+    if (ids.includes(id)) {
+      btn.textContent = 'Gespeichert ✓';
+      btn.classList.add('added');
+    } else {
+      btn.textContent = 'Speichern';
+      btn.classList.remove('added');
+    }
+  });
+}
+
+document.querySelectorAll('.try-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var id = btn.getAttribute('data-treatment-id');
+    var name = btn.getAttribute('data-treatment-name');
+    var sel = getSelected();
+    var idx = sel.findIndex(function(t) { return t.id === id; });
+    if (idx > -1) { sel.splice(idx, 1); } else { sel.push({ id: id, name: name }); }
+    saveSelected(sel);
+    updateButtons();
+    updateTray();
+  });
+});
+
+// Pre-seed top 3 if nothing saved
+if (!localStorage.getItem(KEY)) {
+  saveSelected([
+    { id: 'myo-inositol', name: 'Myo-Inositol' },
+    { id: 'low-gi-diet', name: 'Niedrig-GI-Ernährung' },
+    { id: 'exercise', name: 'Bewegung & Krafttraining' }
+  ]);
+}
+
+// Build filter chip row
+(function() {
+  var row = document.getElementById('filterChipRow');
+  var goal = localStorage.getItem('pcos_goal');
+  var goalLabels = { cycle: 'Zyklusregulierung', skin: 'Haut &amp; Haare', weight: 'Gewicht &amp; Stoffwechsel', fertility: 'Fertilität', energy: 'Energie &amp; Stimmung' };
+  var chips = [];
+  chips.push('PCOS');
+  if (goal && goalLabels[goal]) chips.push(goalLabels[goal]);
+  row.innerHTML = chips.map(function(c) { return '<span class="filter-chip">' + c + '</span>'; }).join('');
+})();
+
+updateButtons();
+updateTray();
+</script>
+
+</body>
+</html>

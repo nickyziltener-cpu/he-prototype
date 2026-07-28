@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deine Auswahl · RDS-Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -80px; left: -80px;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .28;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sl-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255,255,255,.62);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255,255,255,.75);
+      border-radius: 20px;
+      padding: 18px 16px;
+      box-shadow: var(--shadow-card);
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sl-card:hover { box-shadow: var(--shadow-raised); }
+    .sl-card.picked {
+      background: rgba(140,108,171,.10);
+      border-color: rgba(140,108,171,.35);
+    }
+
+    .sl-check {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(140,108,171,.35);
+      background: rgba(255,255,255,.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .sl-card.picked .sl-check {
+      background: var(--plum-500);
+      border-color: var(--plum-500);
+    }
+    .sl-check svg {
+      width: 13px; height: 13px;
+      stroke: #fff;
+      stroke-width: 2.5;
+      fill: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .sl-card.picked .sl-check svg { opacity: 1; }
+
+    .sl-card-body { flex: 1; min-width: 0; }
+    .sl-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .sl-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink-900);
+      margin-bottom: 5px;
+      line-height: 1.25;
+    }
+    .sl-card-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-600);
+    }
+
+    .sl-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0 2px;
+    }
+    .sl-divider::before,
+    .sl-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-hairline);
+    }
+    .sl-divider-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--ink-400);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .sl-swap-hint {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--plum-600);
+      background: rgba(140,108,171,.10);
+      border: 1px solid rgba(140,108,171,.22);
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-align: center;
+    }
+
+    .sl-empty {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--ink-500);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .sl-empty a {
+      color: var(--plum-500);
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="padding-top:6px;background:rgba(251,238,229,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.45);">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Alle durchsuchen
+      </a>
+    </div>
+    <div class="flow-count-pill flow-count-pill--plum" id="shortlistCountPill">0 gespeichert</div>
+    <h1 class="flow-hero-title">Wähle deine Top 3</h1>
+    <p class="flow-hero-sub">Nach Evidenzstärke geordnet. Wir empfehlen, mit maximal 3 zu starten — wer zu viel auf einmal ändert, kann nicht mehr erkennen, was wirklich hilft.</p>
+  </div>
+
+  <div class="flow-body" style="display:flex;flex-direction:column;gap:10px;padding-bottom:110px;" id="cardList">
+    <!-- Cards injected by JS -->
+  </div>
+
+  <div class="cta-bar-sticky">
+    <div class="sl-swap-hint" id="swapHint" style="display:none;margin-bottom:8px;">
+      Erst eine Auswahl oben abwählen, dann eine neue hinzufügen.
+    </div>
+    <a href="flow-b-plan.html" class="cta-btn-full" id="shortlistCta" style="opacity:0.4;pointer-events:none;">
+      Behandlungen auswählen, um fortzufahren
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var MAX = 3;
+
+  var ICONS = {
+    diet:       '<svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>',
+    supps:      '<svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>',
+    mindbody:   '<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'
+  };
+
+  var CATALOG = {
+    'low-fodmap':        { name: 'Low-FODMAP-Diät',                           ev: 'ev-high', evLabel: 'Starke Evidenz',     evRank: 0, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Die am besten untersuchte Ernährungsumstellung bei RDS — 50–80 % der Betroffenen erleben deutliche Erleichterung.' },
+    'hypnotherapy':      { name: 'Darmgerichtete Hypnotherapie',              ev: 'ev-high', evLabel: 'Starke Evidenz',     evRank: 0, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Geführte Sitzungen, die auf die Darm-Gehirn-Achse abzielen. Konsistente Evidenz aus Cochrane-überprüften Studien.' },
+    'cbt':               { name: 'Kognitive Verhaltenstherapie (KVT)',        ev: 'ev-high', evLabel: 'Starke Evidenz',     evRank: 0, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Verändert Denkmuster, die Schmerzsignale verstärken — eine der stärksten psychologischen Evidenzlagen.' },
+    'mediterranean':     { name: 'Mediterrane Ernährung',                     ev: 'ev-good', evLabel: 'Gute Evidenz',       evRank: 1, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Ein entzündungshemmendes Ernährungsmuster, das mit geringerer Symptomschwere und besserer Darmvielfalt verbunden ist.' },
+    'psyllium':          { name: 'Lösliche Ballaststoffe (Psyllium)',         ev: 'ev-good', evLabel: 'Gute Evidenz',       evRank: 1, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Reguliert die Stuhlkonsistenz — nützlich für RDS-D und RDS-C gleichermaßen.' },
+    'peppermint-oil':    { name: 'Pfefferminzöl (magensaftresistent)',        ev: 'ev-good', evLabel: 'Gute Evidenz',       evRank: 1, cat: 'Nahrungsergänzung',  icon: ICONS.supps,    desc: 'Entspannt die glatte Muskulatur der Darmwand. Kostengünstig, ohne Rezept, schnell wirksam.' },
+    'mbsr':              { name: 'Achtsamkeitsbasierte Stressreduktion',      ev: 'ev-good', evLabel: 'Gute Evidenz',       evRank: 1, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Achtsamkeitsprogramm, das Stressreaktivität senkt und die Symptomschwere reduziert.' },
+    'gluten-free':       { name: 'Glutenverzicht',                            ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Entfernt Weizenproteine, die bei einer Untergruppe von RDS-Patienten Symptome verschlimmern können.' },
+    'low-fat-diet':      { name: 'Fettarme Ernährung',                        ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Reduziert fettbedingte Motilitätsspitzen — hilfreich, wenn fettreiche Mahlzeiten zuverlässig Schübe auslösen.' },
+    'probiotics':        { name: 'Probiotika',                                ev: 'ev-med',  evLabel: 'Gemischte Evidenz',  evRank: 2, cat: 'Nahrungsergänzung',  icon: ICONS.supps,    desc: 'Einige Stämme reduzieren Blähungen und Schmerzen — Evidenz ist stammspezifisch und variabel.' },
+    'iberogast':         { name: 'STW 5 (Iberogast)',                         ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Nahrungsergänzung',  icon: ICONS.supps,    desc: 'Pflanzliche Mischung mit mäßiger Evidenz zur Reduktion von RDS-Symptomschwere.' },
+    'glutamine':         { name: 'Glutamin',                                  ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Nahrungsergänzung',  icon: ICONS.supps,    desc: 'Unterstützt die Darmbarriere — erste Studien zeigen Nutzen besonders bei RDS-D.' },
+    'act':               { name: 'Akzeptanz- und Commitmenttherapie (ACT)',  ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Reduziert Leidensdruck, indem das Verhältnis zu Symptomen verändert wird — nicht die Symptome selbst.' },
+    'exercise':          { name: 'Bewegungstherapie',                         ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Regelmäßige moderate Ausdauerbelastung reduziert konsistent RDS-Symptomschwere.' },
+    'breathing':         { name: 'Zwerchfellatmung',                          ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Langsame Zwerchfellatmung beruhigt den Vagotonus und mildert viszerale Überempfindlichkeit.' },
+    'yoga':              { name: 'Yoga & sanfte Bewegung',                    ev: 'ev-med',  evLabel: 'Moderate Evidenz',   evRank: 2, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Verbindet Bewegung, Atmung und Entspannung — nachgewiesen wirksam zur Reduktion von RDS-Symptomen.' },
+    'scd-diet':          { name: 'Spezifische Kohlenhydrat-Diät',             ev: 'ev-low',  evLabel: 'Begrenzte Evidenz',  evRank: 3, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Schränkt komplexe Kohlenhydrate ein, um Dysbiose zu reduzieren — vielversprechend, aber frühe Forschung.' },
+    'aloe-vera':         { name: 'Aloe vera',                                 ev: 'ev-low',  evLabel: 'Begrenzte Evidenz',  evRank: 3, cat: 'Nahrungsergänzung',  icon: ICONS.supps,    desc: 'Traditionell zur Darmberuhigung eingesetzt — Evidenz bei RDS bleibt vorläufig.' },
+    'artichoke-extract': { name: 'Artischockenblattextrakt',                  ev: 'ev-low',  evLabel: 'Begrenzte Evidenz',  evRank: 3, cat: 'Nahrungsergänzung',  icon: ICONS.supps,    desc: 'Kann Blähungen und Beschwerden lindern — kleine Studien, begrenzte RDS-spezifische Daten.' },
+    'biofeedback':       { name: 'Biofeedback',                               ev: 'ev-low',  evLabel: 'Begrenzte Evidenz',  evRank: 3, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Nutzt Sensorrückmeldung, um die Kontrolle über Darmreaktionen zu erlernen — aufkommende Evidenz.' },
+    'pmr':               { name: 'Progressive Muskelentspannung',             ev: 'ev-low',  evLabel: 'Begrenzte Evidenz',  evRank: 3, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Schrittweise Muskelentspannung zur Reduktion spannungsbedingter Darmaktivierung.' },
+    'psychodynamic':     { name: 'Psychodynamische Therapie',                 ev: 'ev-low',  evLabel: 'Begrenzte Evidenz',  evRank: 3, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Untersucht emotionale Wurzeln von Darmsymptomen — vielversprechend, aber begrenzte Studienlage.' }
+  };
+
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem('selectedTreatments') || '[]'); } catch(e) { saved = []; }
+
+  var picked = [];
+
+  var cardList = document.getElementById('cardList');
+  var pill     = document.getElementById('shortlistCountPill');
+  var cta      = document.getElementById('shortlistCta');
+  var swapHint = document.getElementById('swapHint');
+
+  if (pill) pill.textContent = saved.length + ' gespeichert';
+
+  if (saved.length === 0) {
+    cardList.innerHTML = '<div class="sl-empty">Du hast noch keine Behandlungen gespeichert.<br><br><a href="flow-a-start.html">Zurück und etwas speichern →</a></div>';
+  } else {
+    var sorted = saved.slice().sort(function(a, b) {
+      var ra = CATALOG[a.id] ? CATALOG[a.id].evRank : 99;
+      var rb = CATALOG[b.id] ? CATALOG[b.id].evRank : 99;
+      return ra - rb;
+    });
+
+    var lastRank = -1;
+    var RANK_LABELS = { 0: 'Starke Evidenz', 1: 'Gute Evidenz', 2: 'Moderate Evidenz', 3: 'Begrenzte Evidenz' };
+
+    sorted.forEach(function(t) {
+      var info = CATALOG[t.id];
+      var rank = info ? info.evRank : 99;
+
+      if (rank !== lastRank && lastRank !== -1) {
+        var div = document.createElement('div');
+        div.className = 'sl-divider';
+        div.innerHTML = '<span class="sl-divider-label">' + (RANK_LABELS[rank] || 'Sonstige') + '</span>';
+        cardList.appendChild(div);
+      }
+      lastRank = rank;
+
+      var ev      = info ? info.ev      : 'ev-low';
+      var evLabel = info ? info.evLabel : '';
+      var cat     = info ? info.cat     : '';
+      var icon    = info ? info.icon    : '';
+      var desc    = info ? info.desc    : '';
+      var name    = info ? info.name    : t.name;
+
+      var card = document.createElement('div');
+      card.className = 'sl-card ani';
+      card.id = 'card-' + t.id;
+      card.innerHTML =
+        '<div class="sl-check"><svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg></div>' +
+        '<div class="sl-card-body">' +
+          '<div class="sl-card-meta">' +
+            '<span class="evchip-flow ' + ev + '"><span class="ev-dot"></span>' + evLabel + '</span>' +
+            '<span class="chip-cat-flow">' + icon + cat + '</span>' +
+          '</div>' +
+          '<div class="sl-card-title">' + name + '</div>' +
+          (desc ? '<div class="sl-card-desc">' + desc + '</div>' : '') +
+        '</div>';
+
+      card.addEventListener('click', function() { toggle(t.id); });
+      cardList.appendChild(card);
+    });
+
+    var note = document.createElement('div');
+    note.style.cssText = 'background:rgba(255,255,255,.45);border:1px solid var(--border-hairline);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--ink-600);line-height:1.55;margin-top:4px;';
+    note.innerHTML = '<strong style="color:var(--ink-800);">Warum mit 3 starten?</strong> Wenn du Veränderungen einzeln ausprobierst, kannst du erkennen, was wirklich hilft. Dein Plan wird diese in einer Reihenfolge anordnen — fange mit dem an, was sich richtig anfühlt, und gehe dann zum nächsten über.';
+    cardList.appendChild(note);
+  }
+
+  function toggle(id) {
+    var idx = picked.indexOf(id);
+    if (idx !== -1) {
+      picked.splice(idx, 1);
+    } else {
+      if (picked.length >= MAX) {
+        showSwapHint();
+        return;
+      }
+      picked.push(id);
+    }
+    updateUI();
+  }
+
+  function showSwapHint() {
+    swapHint.style.display = 'block';
+    clearTimeout(swapHint._t);
+    swapHint._t = setTimeout(function() { swapHint.style.display = 'none'; }, 3000);
+  }
+
+  function updateUI() {
+    saved.forEach(function(t) {
+      var card = document.getElementById('card-' + t.id);
+      if (!card) return;
+      if (picked.indexOf(t.id) !== -1) { card.classList.add('picked'); }
+      else { card.classList.remove('picked'); }
+    });
+
+    var n = picked.length;
+    if (n === 0) {
+      cta.style.opacity = '0.4';
+      cta.style.pointerEvents = 'none';
+      cta.innerHTML = 'Behandlungen auswählen, um fortzufahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    } else {
+      cta.style.opacity = '1';
+      cta.style.pointerEvents = 'auto';
+      cta.innerHTML = 'Meinen Plan mit ' + n + ' Behandlung' + (n !== 1 ? 'en' : '') + ' erstellen <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

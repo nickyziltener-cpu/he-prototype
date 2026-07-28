@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Deine Symptome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: -40px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 20%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; left: -40px; top: 40%; width: 180px; height: 180px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .12; pointer-events: none; z-index: 0; }
+
+    .multi-chip {
+      display: block; width: 100%; padding: 12px 16px;
+      border: 1.5px solid rgba(42,31,48,0.14);
+      background: rgba(255,255,255,0.60); backdrop-filter: blur(10px);
+      border-radius: 8px; font-size: 14px; font-family: 'Manrope', sans-serif;
+      color: var(--ink-900); cursor: pointer; text-align: left;
+      transition: border-color 0.12s ease, background 0.12s ease;
+      margin-bottom: 8px;
+    }
+    .multi-chip:hover { border-color: var(--rose-500); background: rgba(224,122,150,.06); }
+    .multi-chip.selected { background: rgba(224,122,150,.10); border-color: var(--rose-500); font-weight: 600; }
+    .multi-chip.selected::before { content: '✓ '; color: var(--rose-500); }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 28%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <h1 class="question-title">Was erlebst du gerade?</h1>
+    <p class="question-sub">Wähle alles, was zutrifft. Das hilft uns, die relevanteste Evidenz für dich zu finden.</p>
+
+    <div id="symContainer">
+      <button class="multi-chip" data-sym="irregular-periods">Unregelmäßige oder ausbleibende Periode</button>
+      <button class="multi-chip" data-sym="acne">Akne oder fettige Haut</button>
+      <button class="multi-chip" data-sym="hair-growth">Übermäßige Behaarung (Gesicht, Brust, Rücken)</button>
+      <button class="multi-chip" data-sym="hair-thinning">Haarausdünnung oder Haarausfall</button>
+      <button class="multi-chip" data-sym="weight">Gewichtszunahme oder Schwierigkeiten beim Abnehmen</button>
+      <button class="multi-chip" data-sym="fertility">Schwierigkeiten schwanger zu werden</button>
+      <button class="multi-chip" data-sym="fatigue">Wenig Energie oder Erschöpfung</button>
+      <button class="multi-chip" data-sym="mood">Stimmungsschwankungen, Angst oder gedrückte Stimmung</button>
+      <button class="multi-chip" data-sym="bloating">Blähungen oder Bauchbeschwerden</button>
+    </div>
+
+    <button class="next-btn" id="nextBtn" onclick="goNext()">Weiter →</button>
+    <a href="q1.html" class="back-link">← Zurück</a>
+  </div>
+
+  <script>
+    var selected = [];
+
+    document.querySelectorAll('.multi-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var sym = this.getAttribute('data-sym');
+        this.classList.toggle('selected');
+        var idx = selected.indexOf(sym);
+        if (idx > -1) { selected.splice(idx, 1); } else { selected.push(sym); }
+        document.getElementById('nextBtn').classList.toggle('visible', selected.length > 0);
+      });
+    });
+
+    function goNext() {
+      localStorage.setItem('pcos_symptoms', JSON.stringify(selected));
+      window.location.href = 'q2.html';
+    }
+  </script>
+
+</body>
+</html>

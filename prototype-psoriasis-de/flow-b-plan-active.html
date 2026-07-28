@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Plan · Aktiv</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: 0; left: 0; right: 0; height: 220px;
+      background: linear-gradient(180deg, rgba(196,123,43,0.05) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div style="padding:14px 24px 20px;position:relative;z-index:1;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--primary-dk);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;">Erprobung 1 von 3 · Aktiv</div>
+    <h1 class="flow-hero-title sm" style="margin-bottom:6px;">Dein Plan</h1>
+    <p class="flow-hero-sub tight">Woche 3 von 6 · 17 Tage dokumentiert</p>
+  </div>
+
+  <div style="padding:0 20px 100px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;">
+
+    <!-- Aktive Erprobungskarte -->
+    <div class="plain-card ani" style="border-left:3px solid var(--primary);">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <span class="ptl-status active-st">Gerade aktiv</span>
+        <a href="flow-b-progress.html" style="font-size:12px;font-weight:600;color:var(--primary-dk);text-decoration:none;">Fortschritt ansehen →</a>
+      </div>
+      <div style="font-family:'DM Serif Display',serif;font-size:20px;color:var(--ink-900);margin-bottom:8px;">Emollienzien &amp; Feuchtigkeitspflege</div>
+      <div class="progress-wrap" style="margin-bottom:10px;">
+        <div class="progress-meta"><span>Woche 3 von 6</span><span>50 %</span></div>
+        <div class="progress-bar-hero"><div class="progress-fill-hero" style="width:50%"></div></div>
+      </div>
+      <p style="font-size:13px;color:var(--ink-600);line-height:1.55;">Diese Woche positiver Trend — Juckreiz rückläufig, Schuppenbildung reduziert. Bis zum Ende der Erprobung weitermachen, bevor Schlussfolgerungen gezogen werden.</p>
+      <a href="flow-b-checkin.html" style="display:block;margin-top:14px;background:var(--primary);color:#fff;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;padding:13px 20px;border-radius:100px;text-align:center;text-decoration:none;">Heutiges Check-in eintragen →</a>
+    </div>
+
+    <!-- Nächstes -->
+    <div class="plan-section-label" style="margin:4px 0 2px;">Als Nächstes</div>
+
+    <div class="plain-card ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <span class="ptl-status upcoming-st">Dann</span>
+        <span class="chip-cat-flow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>Geist &amp; Körper</span>
+      </div>
+      <div style="font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink-700);margin-bottom:4px;">Stressmanagement (MBSR)</div>
+      <div style="font-size:13px;color:var(--ink-500);">Startet nach Abschluss von Erprobung 1 · in ca. 3 Wochen</div>
+    </div>
+
+    <div class="plain-card ani">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <span class="ptl-status upcoming-st">Schließlich</span>
+        <span class="chip-cat-flow"><svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>Ernährung</span>
+      </div>
+      <div style="font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink-700);margin-bottom:4px;">Mediterrane Ernährung</div>
+      <div style="font-size:13px;color:var(--ink-500);">Startet nach Erprobung 2 · langfristige Veränderung</div>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item active">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

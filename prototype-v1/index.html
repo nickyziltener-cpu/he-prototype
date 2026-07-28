@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — IBS Evidence Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .welcome-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      width: 100%;
+    }
+
+    .nav-logo {
+      margin-bottom: 52px;
+    }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      color: var(--ink-900);
+      line-height: 1.18;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-sub {
+      font-family: 'Manrope', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink-700);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    .trust-block {
+      margin-bottom: 36px;
+    }
+
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-section .btn-primary {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    @media (max-width: 600px) {
+      .hero-headline {
+        font-size: 26px;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+      }
+
+      .welcome-wrapper {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-wrapper">
+    <div class="nav-logo">
+      <span class="logo">Health Empowerment</span>
+    </div>
+
+    <h1 class="hero-headline">Find out what the research actually says about managing your IBS.</h1>
+
+    <p class="hero-sub">Personalised to your subtype. Grounded in peer-reviewed research. No wellness woo.</p>
+
+    <div class="trust-block">
+      <div class="trust-item">Based on peer-reviewed research from PubMed, not social media or podcasts.</div>
+      <div class="trust-item">Every intervention is graded by evidence strength — Strong, Good, Moderate, or Limited.</div>
+      <div class="trust-item">This is an information tool, not a medical recommendation system. Always consult your doctor.</div>
+    </div>
+
+    <div class="cta-section">
+      <a href="q1.html" class="btn-primary">Start — takes about 5 minutes</a>
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+    </div>
+  </div>
+</body>
+</html>

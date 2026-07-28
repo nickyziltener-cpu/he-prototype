@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical &amp; Surgical · Treatment Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #f0eff7 0%, #faf7f4 70%, #eeecf6 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--plum-300, #c8b8d8) 0%, var(--plum-500) 20%, transparent 70%);
+      opacity: .25; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#f0eff7 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero flow-hero--dark">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-dark">
+        <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Medical &amp; surgical</h1>
+        <p class="flow-hero-sub tight">6 options — all require a GP or gynaecologist conversation first.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="callout-amber ani" style="margin-bottom: 4px;">
+      <div class="callout-label">Talk to a doctor before starting</div>
+      <p class="detail-para sm">All options in this section require medical assessment. We show you the evidence so you can have a better-informed conversation — not so you can self-prescribe.</p>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Keyhole surgery to remove lesions</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Strong evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">The gold standard for both diagnosing and treating endometriosis. A surgeon makes small cuts in the abdomen and uses a tiny camera and instruments to find and remove lesions — this is the "keyhole" approach. Removing the tissue at the root (rather than burning the surface) is what guidelines recommend, and it has the clearest evidence for lasting pain relief. It's also the only way to get a definitive endometriosis diagnosis.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="laparoscopy" data-treatment-name="Laparoscopic excision surgery"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Hormone injections to pause oestrogen (Zoladex, Prostap)</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Strong evidence (short-term)</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Monthly injections (or implants) that temporarily switch off oestrogen production — putting the body into a reversible menopause-like state that starves endometriosis lesions of the hormone they need to grow. Highly effective for pain, but usually limited to 3–6 month courses due to side effects including hot flushes and bone density loss. Often prescribed alongside low-dose HRT to ease those effects.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="gnrh-agonists" data-treatment-name="GnRH agonists"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Mirena coil (hormonal IUD)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Delivers progesterone directly to the uterus, reducing menstrual bleeding and endometriosis lesion activity. Multiple trials show significant pain reduction — and it offers long-term contraception at the same time. One of the most tolerable hormonal options for many women.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="mirena-iud" data-treatment-name="Mirena IUD"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra options':'Show 3 more options'">Show 3 more options</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Combined oral contraceptive pill</div>
+            <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Often the first-line medical treatment for endometriosis. Suppresses oestrogen-driven lesion growth and reduces menstrual bleeding and pain. Continuous use (skipping the pill-free week) is often more effective than cyclic use for pain management.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="combined-pill" data-treatment-name="Combined oral contraceptive pill"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Progesterone-only therapy</div>
+            <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Includes the mini-pill (e.g. Cerazette), Depo-Provera injection, and dienogest — a progesterone specifically licensed for endometriosis in some countries. Suppresses endometriosis tissue growth directly. Often preferred when oestrogen is not suitable. Effect on fertility varies by type — discuss with your gynaecologist.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="progesterone-therapy" data-treatment-name="Progesterone-only therapy"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Ibuprofen and naproxen (anti-inflammatories)</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Limited evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Anti-inflammatory painkillers that reduce the compounds responsible for menstrual cramping. A Cochrane review found no trial evidence that ibuprofen or naproxen specifically reduces endometriosis pain. They do work for general period cramping, which is why they're widely used. Honest rating: effective for cramping, not yet proven for the deeper, chronic pain of endo itself.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="nsaids" data-treatment-name="NSAIDs (ibuprofen, naproxen)"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

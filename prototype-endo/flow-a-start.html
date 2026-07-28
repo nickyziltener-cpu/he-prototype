@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Here · Treatment Selection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    .filter-chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .filter-chip {
+      display: inline-flex; align-items: center;
+      font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500;
+      color: var(--ink-600); background: rgba(255,255,255,0.50);
+      border: 1px solid rgba(42,31,48,0.12); border-radius: 9999px;
+      padding: 4px 10px; white-space: nowrap;
+    }
+    body::before {
+      content: ''; position: fixed; top: -80px; right: -80px; width: 480px; height: 480px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .35; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -80px; left: -80px; width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .32; pointer-events: none; z-index: 0;
+    }
+    .flow-hero {
+      background: rgba(251,238,229,0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+    }
+    .flow-hero::after { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="padding-top:10px;">
+    <div class="flow-toprow">
+      <div class="flow-logo">
+        <span class="flow-logo-mark"></span>Endometriosis Treatment Paths
+      </div>
+      <div class="flow-avatar">S</div>
+    </div>
+    <div id="filterChipRow" class="filter-chip-row"></div>
+    <div class="flow-count-pill" id="availPill" style="margin-top:12px;">18 treatment paths</div>
+    <h1 class="flow-hero-title">Your strongest option from each area you chose</h1>
+    <p class="flow-hero-sub" style="margin-top:10px;">Evidence strength varies by category — the chip on each card tells you where the research is solid and where it's still developing. Explore all 18 options and save anything that interests you.</p>
+  </div>
+
+  <div class="flow-body">
+
+    <!-- Card 1: Pelvic floor physio -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Mind &amp; Body
+        </span>
+        <span class="evchip-flow ev-high" style="margin-left:auto;">
+          <span class="ev-dot"></span>Strong evidence
+        </span>
+      </div>
+      <div class="hcard-title">Pelvic floor physiotherapy</div>
+      <div class="hcard-desc">Specialist physiotherapy targeting pelvic muscle tension — a key driver of endo-related pain. Multiple trials show significant pain and quality-of-life improvement, comparable to hormonal treatments.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="pelvic-physio" data-treatment-name="Pelvic floor physiotherapy"></button>
+        <a href="flow-a-detail-hypnotherapy.html" class="learn-more">
+          Learn more
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2: Anti-inflammatory diet -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+          Diet
+        </span>
+        <span class="evchip-flow ev-med" style="margin-left:auto;">
+          <span class="ev-dot"></span>Moderate evidence
+        </span>
+      </div>
+      <div class="hcard-title">Anti-inflammatory diet</div>
+      <div class="hcard-desc">Reducing pro-inflammatory foods — red meat, processed foods, trans fats — while increasing omega-3s and plant foods. Observational research consistently links diet quality to endo risk and severity; RCT evidence for the dietary pattern itself is still limited.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="anti-inflammatory-diet" data-treatment-name="Anti-inflammatory diet"></button>
+        <a href="flow-a-detail.html" class="learn-more">
+          Learn more
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3: NAC -->
+    <div class="hcard ani">
+      <div class="hcard-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+          Supplements
+        </span>
+        <span class="evchip-flow ev-good" style="margin-left:auto;">
+          <span class="ev-dot"></span>Good evidence
+        </span>
+      </div>
+      <div class="hcard-title">N-acetyl cysteine (NAC)</div>
+      <div class="hcard-desc">An antioxidant supplement shown in an Italian RCT to meaningfully reduce endometrioma size and pain — with 21 of 47 women cancelling planned surgery after 3 months of use.</div>
+      <div class="hcard-foot">
+        <button class="try-btn" data-treatment-id="nac" data-treatment-name="N-acetyl cysteine (NAC)"></button>
+        <a href="flow-a-detail-peppermint.html" class="learn-more">
+          Learn more
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <a href="flow-a-overview.html" class="explore-btn ani">
+      Explore all 18 options
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+
+    <div class="nudge-card ani" id="nudgeCard">
+      You focused on <strong>Mind &amp; Body and Supplements</strong>. There's strong evidence in <strong>Medical treatment</strong> too — <a href="flow-a-overview.html">take a look →</a>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+  <script>
+    if (!localStorage.getItem('selectedTreatments')) {
+      localStorage.setItem('selectedTreatments', JSON.stringify([
+        { id: 'pelvic-physio',          name: 'Pelvic floor physiotherapy' },
+        { id: 'anti-inflammatory-diet', name: 'Anti-inflammatory diet' },
+        { id: 'nac',                    name: 'N-acetyl cysteine (NAC)' }
+      ]));
+    }
+  </script>
+  <script src="selection.js"></script>
+  <script>
+    (function() {
+      var CATEGORY_COUNTS = { diet: 4, supplements: 5, 'mind-body': 6, medication: 6 };
+      var TOTAL = 18;
+      var rawPrefs = localStorage.getItem('treatmentPreferences');
+      var prefs    = rawPrefs ? JSON.parse(rawPrefs) : null;
+      var availCount = TOTAL;
+      if (prefs && prefs.length > 0 && prefs.length < 4) {
+        availCount = prefs.reduce(function(sum, k) { return sum + (CATEGORY_COUNTS[k] || 0); }, 0);
+      }
+      var pill = document.getElementById('availPill');
+      if (pill) pill.textContent = availCount + ' treatment paths';
+
+      var rawSymptoms = localStorage.getItem('endo_symptoms');
+      var symptoms = rawSymptoms ? JSON.parse(rawSymptoms) : [];
+      var chips = [];
+      if (symptoms.indexOf('dysmenorrhoea') >= 0) chips.push('Painful periods');
+      if (symptoms.indexOf('chronic-pelvic-pain') >= 0) chips.push('Chronic pelvic pain');
+      if (symptoms.indexOf('dyspareunia') >= 0) chips.push('Dyspareunia');
+      if (symptoms.indexOf('fatigue') >= 0) chips.push('Fatigue');
+      if (symptoms.indexOf('bloating') >= 0) chips.push('Endo belly');
+
+      var chipRow = document.getElementById('filterChipRow');
+      if (chipRow) {
+        if (chips.length === 0) { chipRow.style.display = 'none'; }
+        else { chipRow.innerHTML = chips.map(function(l) { return '<span class="filter-chip">' + l + '</span>'; }).join(''); }
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myo-Inositol · PCOS Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #fff7ef 0%, #faf7f4 60%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 320px; height: 320px; background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%); opacity: .25; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -40px; left: -40px; width: 200px; height: 200px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .16; pointer-events: none; z-index: 0; }
+    .detail-hero { padding: 24px 24px 20px; position: relative; z-index: 1; }
+    .detail-meta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .detail-title { font-family: 'DM Serif Display', serif; font-size: 30px; line-height: 1.15; color: var(--ink-900); margin-bottom: 6px; }
+    .detail-subtitle { font-size: 14px; color: var(--ink-600); line-height: 1.5; }
+    .detail-section { padding: 0 24px 20px; position: relative; z-index: 1; }
+    .detail-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--ink-500); margin-bottom: 10px; }
+    .detail-para { font-size: 14.5px; line-height: 1.65; color: var(--ink-700); margin-bottom: 10px; }
+    .detail-para:last-child { margin-bottom: 0; }
+    .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .stat-chip { background: rgba(255,255,255,0.65); border: 1px solid rgba(42,31,48,0.10); border-radius: 14px; padding: 12px 14px; flex: 1; min-width: 100px; }
+    .stat-chip-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-500); margin-bottom: 4px; }
+    .stat-chip-value { font-size: 15px; font-weight: 700; color: var(--ink-900); }
+    .evidence-block { background: rgba(247,195,158,0.15); border: 1px solid rgba(247,195,158,0.35); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; }
+    .evidence-block-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-600); margin-bottom: 6px; }
+    .evidence-block-text { font-size: 13.5px; color: var(--ink-700); line-height: 1.55; }
+    .steps-list { display: flex; flex-direction: column; gap: 10px; }
+    .step-item { display: flex; gap: 12px; align-items: flex-start; }
+    .step-num { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--rose-500), var(--rose-700)); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-title { font-size: 13.5px; font-weight: 700; color: var(--ink-900); margin-bottom: 2px; }
+    .step-desc { font-size: 13px; color: var(--ink-600); line-height: 1.5; }
+    .what-to-expect { background: rgba(107,154,139,0.09); border: 1px solid rgba(107,154,139,0.22); border-radius: 16px; padding: 16px; }
+    .expect-item { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(42,31,48,0.07); }
+    .expect-item:last-child { border-bottom: none; }
+    .expect-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage-500); flex-shrink: 0; margin-top: 5px; }
+    .expect-text { font-size: 13.5px; color: var(--ink-700); line-height: 1.5; }
+    .expect-time { font-size: 11px; font-weight: 700; color: var(--ink-500); display: block; margin-bottom: 2px; }
+    .detail-cta { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; padding: 16px 24px 28px; background: linear-gradient(to top, rgba(250,247,244,1) 70%, rgba(250,247,244,0)); z-index: 100; }
+    .detail-cta-inner { display: flex; gap: 10px; }
+    .cta-save-btn { flex: 1; background: var(--rose-500); color: #fff; border: none; border-radius: 14px; padding: 14px 20px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; }
+    .cta-save-btn.added { background: var(--sage-500); }
+    .cta-back-btn { background: rgba(255,255,255,0.70); border: 1px solid rgba(42,31,48,0.14); color: var(--ink-700); border-radius: 14px; padding: 14px 20px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; display: flex; align-items: center; white-space: nowrap; cursor: pointer; }
+    .spacer-cta { height: 110px; }
+    .divider { height: 1px; background: rgba(42,31,48,0.08); margin: 0 24px 20px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="detail-hero">
+    <a href="#" onclick="history.back(); return false;" class="flow-back" style="display:inline-flex;margin-bottom:14px;"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg> Zurück</a>
+    <div class="detail-meta-row">
+      <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+      <span class="chip-cat-flow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M20.56 12a8.56 8.56 0 1 0-8.56 8.56"/></svg> Nahrungsergänzung</span>
+    </div>
+    <div class="detail-title">Myo-Inositol</div>
+    <div class="detail-subtitle">Das am besten untersuchte Nahrungsergänzungsmittel bei PCOS. Durch mehrere Meta-Analysen belegt für Insulinsensitivität, Zyklusregularität und Androgenspiegel.</div>
+  </div>
+
+  <div class="detail-section">
+    <div class="stat-row">
+      <div class="stat-chip"><div class="stat-chip-label">Tagesdosis</div><div class="stat-chip-value">4 g Pulver</div></div>
+      <div class="stat-chip"><div class="stat-chip-label">Verhältnis</div><div class="stat-chip-value">40:1 Myo:DCI</div></div>
+      <div class="stat-chip"><div class="stat-chip-label">Wirkungseintritt</div><div class="stat-chip-value">8–12 Wochen</div></div>
+    </div>
+  </div>
+
+  <div class="detail-section">
+    <div class="detail-label">Was es ist</div>
+    <p class="detail-para">Inositol ist ein natürlich vorkommender Zuckeralkohol, der eine entscheidende Rolle im Insulinsignalweg spielt. Bei vielen Menschen mit PCOS gibt es einen Defekt darin, wie Zellen Inositol verwenden — was den Insulinsignalweg beeinträchtigt und Insulinresistenz begünstigt.</p>
+    <p class="detail-para">Die Supplementierung stellt diesen Weg wieder her — ohne die gastrointestinalen Nebenwirkungen von Metformin. Das 40:1-Myo:D-Chiro-Inositol-Verhältnis spiegelt das physiologische Verhältnis in gesunden Zellen wider und übertrifft Myo-Inositol allein in klinischen Studien.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">Anwendung</div>
+    <div class="steps-list">
+      <div class="step-item"><div class="step-num">1</div><div><div class="step-title">Die richtige Form wählen</div><div class="step-desc">Pulver löst sich in Wasser auf und wird besser aufgenommen als Kapseln. Nach dem 40:1-Kombinationsverhältnis (Myo-Inositol + D-Chiro-Inositol) suchen.</div></div></div>
+      <div class="step-item"><div class="step-num">2</div><div><div class="step-title">In zwei Dosen aufteilen</div><div class="step-desc">2 g morgens + 2 g abends, jeweils in Wasser aufgelöst. Regelmäßige tägliche Einnahme ist entscheidend für Ergebnisse — unregelmäßige Einnahme wirkt nicht.</div></div></div>
+      <div class="step-item"><div class="step-num">3</div><div><div class="step-title">12 Wochen einplanen</div><div class="step-desc">Die meisten Zyklusveränderungen zeigen sich zwischen Woche 8–12. Den Zyklusbeginn tracken — das ist der wichtigste Fortschrittsindikator.</div></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">Was die Forschung zeigt</div>
+    <div class="evidence-block">
+      <div class="evidence-block-label">Meta-Analyse · 2022 · 14 RCTs · n = 1.234</div>
+      <div class="evidence-block-text">Myo-Inositol verbesserte die Menstruationsregularität signifikant (OR 3,8), senkte das Nüchterninsulin (SMD –0,72) und verringerte den Testosteronspiegel im Vergleich zu Placebo.</div>
+    </div>
+    <div class="evidence-block">
+      <div class="evidence-block-label">RCT · 2021 · n = 120 · 24 Wochen</div>
+      <div class="evidence-block-text">Die 40:1-Myo:D-Chiro-Inositol-Kombination übertraf Myo-Inositol allein bei der Wiederherstellung des Eisprungs (78 % vs. 62 %). Beide signifikant besser als Placebo.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="detail-section">
+    <div class="detail-label">Was Woche für Woche zu erwarten ist</div>
+    <div class="what-to-expect">
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Wochen 1–4</span>Mögliche leichte Verdauungsumstellung. Noch keine unmittelbaren hormonellen Veränderungen zu erwarten.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Wochen 4–8</span>Manche Frauen bemerken mehr Energie oder weniger Blähungen. Insulinwerte verbessern sich intern.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Wochen 8–12</span>Zyklusveränderungen treten am wahrscheinlichsten in diesem Zeitfenster auf. Den Zyklus sorgfältig tracken.</div></div>
+      <div class="expect-item"><div class="expect-dot"></div><div class="expect-text"><span class="expect-time">Nach 12 Wochen</span>Weitere Einnahme ist mit progressiver hormoneller Verbesserung verbunden. Viele Frauen nehmen es dauerhaft ein.</div></div>
+    </div>
+  </div>
+
+  <div class="detail-section">
+    <div class="detail-label">Praktische Hinweise</div>
+    <p class="detail-para">Nur von seriösen Marken mit Drittprüfung kaufen — Inositol ist ein Nahrungsergänzungsmittel, kein Medikament, daher variiert die Qualität. Seltene Nebenwirkungen sind Übelkeit und weicher Stuhl bei höheren Dosen. Bei der Einnahme von Blutzuckermedikamenten vorher die Ärztin oder den Arzt befragen — kombinierte Einnahme kann den Blutzucker stärker senken als beabsichtigt.</p>
+  </div>
+
+  <div class="spacer-cta"></div>
+</div>
+
+<div class="detail-cta">
+  <div class="detail-cta-inner">
+    <a href="#" onclick="history.back(); return false;" class="cta-back-btn">← Zurück</a>
+    <button class="cta-save-btn" id="saveBtn" data-treatment-id="myo-inositol" data-treatment-name="Myo-Inositol">Zu meinem Plan speichern</button>
+  </div>
+</div>
+
+<script>
+var KEY = 'pcos_selectedTreatments';
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+function saveSelected(a) { localStorage.setItem(KEY, JSON.stringify(a)); }
+var btn = document.getElementById('saveBtn');
+function refresh() { var sel=getSelected(); var ids=sel.map(function(t){return t.id;}); if(ids.includes('myo-inositol')) { btn.textContent='Gespeichert ✓'; btn.classList.add('added'); } else { btn.textContent='Zu meinem Plan speichern'; btn.classList.remove('added'); } }
+btn.addEventListener('click', function() { var sel=getSelected(); var idx=sel.findIndex(function(t){return t.id==='myo-inositol';}); if(idx>-1) sel.splice(idx,1); else sel.push({id:'myo-inositol',name:'Myo-Inositol'}); saveSelected(sel); refresh(); });
+refresh();
+</script>
+</body>
+</html>

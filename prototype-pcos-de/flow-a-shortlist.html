@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Top 3 wählen · PCOS Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #f3ecf1 0%, #faf7f4 70%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 20%, transparent 70%); opacity: .30; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -80px; left: -80px; width: 340px; height: 340px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .28; pointer-events: none; z-index: 0; }
+    .sl-card {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: rgba(255,255,255,.62); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255,255,255,.75); border-radius: 20px; padding: 18px 16px;
+      box-shadow: var(--shadow-card); cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sl-card:hover { box-shadow: var(--shadow-raised); }
+    .sl-card.picked { background: rgba(224,122,150,.10); border-color: rgba(224,122,150,.40); }
+    .sl-check {
+      flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+      border: 2px solid rgba(224,122,150,.35); background: rgba(255,255,255,.6);
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .sl-card.picked .sl-check { background: var(--rose-500); border-color: var(--rose-500); }
+    .sl-check svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 2.5; fill: none; opacity: 0; transition: opacity 0.15s ease; }
+    .sl-card.picked .sl-check svg { opacity: 1; }
+    .sl-card-body { flex: 1; min-width: 0; }
+    .sl-card-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+    .sl-card-title { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-900); margin-bottom: 5px; line-height: 1.25; }
+    .sl-card-desc { font-size: 13px; line-height: 1.55; color: var(--ink-600); }
+    .sl-divider { display: flex; align-items: center; gap: 12px; margin: 4px 0 2px; }
+    .sl-divider::before, .sl-divider::after { content: ''; flex: 1; height: 1px; background: var(--border-hairline); }
+    .sl-divider-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; color: var(--ink-400); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+    .sl-swap-hint { font-size: 13px; font-weight: 600; color: var(--rose-700); background: rgba(224,122,150,.12); border: 1px solid rgba(224,122,150,.25); border-radius: 12px; padding: 10px 14px; text-align: center; }
+    .sl-empty { text-align: center; padding: 48px 24px; color: var(--ink-500); font-size: 15px; line-height: 1.6; }
+    .sl-empty a { color: var(--rose-500); font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="padding-top:6px;background:rgba(243,236,241,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.45);">
+    <div class="flow-nav">
+      <a href="flow-a-start.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Forschung
+      </a>
+    </div>
+    <div class="flow-count-pill" id="shortlistCountPill" style="background: rgba(224,122,150,0.12); color: var(--rose-700); border-color: rgba(224,122,150,0.22);">0 gespeichert</div>
+    <h1 class="flow-hero-title">Meine Top 3 wählen</h1>
+    <p class="flow-hero-sub" id="heroSub">Nach Evidenzstärke gerankt. Mit 3 zu beginnen gibt dir echtes Signal, was wirkt — wir helfen dir, sie zu einem Plan zu sequenzieren.</p>
+  </div>
+
+  <div class="flow-body" style="display:flex;flex-direction:column;gap:10px;padding-bottom:110px;" id="cardList">
+    <!-- Cards injected by JS -->
+  </div>
+
+  <div class="cta-bar-sticky">
+    <div class="sl-swap-hint" id="swapHint" style="display:none;margin-bottom:8px;">
+      Zuerst eine oben abwählen, dann eine andere antippen, um sie auszutauschen.
+    </div>
+    <a href="flow-b-plan.html" class="cta-btn-full" id="shortlistCta" style="background: var(--rose-500); opacity:0.4; pointer-events:none;">
+      Behandlungen auswählen, um fortzufahren
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var MAX = 3;
+
+  var ICONS = {
+    supps:    '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M20.56 12a8.56 8.56 0 1 0-8.56 8.56"/></svg>',
+    diet:     '<svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>',
+    mindbody: '<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    medical:  '<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>'
+  };
+
+  var CATALOG = {
+    'myo-inositol':           { name: 'Myo-Inositol',                          ev: 'ev-high', evLabel: 'Starke Evidenz',    evRank: 0, cat: 'Nahrungsergänzung', icon: ICONS.supps,    desc: 'Das am besten untersuchte Nahrungsergänzungsmittel bei PCOS. Meta-Analysen bestätigen Verbesserungen bei Insulinresistenz, Zyklusregularität und Androgenspiegel.' },
+    'low-gi-diet':            { name: 'Niedrig-GI-Ernährung',                  ev: 'ev-high', evLabel: 'Starke Evidenz',    evRank: 0, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Lebensmittel mit niedrigem Glykämischen Index reduzieren Insulinspitzen — den zentralen metabolischen Treiber von PCOS-Symptomen. RCTs zeigen Verbesserungen bei Nüchterninsulin, Testosteron und Zyklusfrequenz.' },
+    'exercise':               { name: 'Bewegung & Krafttraining',              ev: 'ev-high', evLabel: 'Starke Evidenz',    evRank: 0, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Sowohl Ausdauer- als auch Krafttraining verbessern die Insulinsensitivität — unabhängig von Gewichtsverlust. RCTs zeigen Wiederherstellung des Eisprungs bei 62 % der anovulatorischen Teilnehmerinnen nach 12 Wochen.' },
+    'spearmint-tea':          { name: 'Pfefferminztee',                        ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Nahrungsergänzung', icon: ICONS.supps,    desc: 'Zwei RCTs zeigen signifikante Senkung von freiem und Gesamt-Testosteron nach 30 Tagen. Besonders hilfreich bei androgengetriebenen Symptomen.' },
+    'nac':                    { name: 'N-Acetyl-Cystein (NAC)',                ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Nahrungsergänzung', icon: ICONS.supps,    desc: 'Ein Vorläufer von Glutathion mit insulinsensibilisierenden Wirkungen, die in mehreren RCTs mit Metformin vergleichbar sind.' },
+    'vitamin-d':              { name: 'Vitamin D',                             ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Nahrungsergänzung', icon: ICONS.supps,    desc: 'Mangelzustände sind bei PCOS häufig. Korrektur verbessert die Insulinsensitivität und kann die Zyklusregularität bei Frauen mit Mangel unterstützen.' },
+    'stress-management':      { name: 'Stressmanagement',                     ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Chronischer Stress erhöht Cortisol und stört die HPA-HPG-Achse. Achtsamkeitsinterventionen zeigen messbare hormonelle Vorteile in Studien.' },
+    'yoga':                   { name: 'Yoga',                                 ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Mehrere RCTs zeigen, dass Yoga Androgene, LH und Cortisol bei PCOS senkt. Besonders vorteilhaft bei Angst- und Stimmungssymptomen.' },
+    'anti-inflammatory-diet': { name: 'Entzündungshemmende Ernährung',        ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Eine Ernährung reich an Gemüse, fettem Fisch, Nüssen und Olivenöl reduziert Entzündungsmarker und kann das Hormongleichgewicht verbessern.' },
+    'mediterranean-diet':     { name: 'Mediterrane Ernährung',                ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Konsistent mit Niedrig-GI- und entzündungshemmenden Prinzipien. Daten unterstützen Verbesserungen bei Stoffwechselwerten und Zyklusregularität.' },
+    'metformin':              { name: 'Metformin',                             ev: 'ev-high', evLabel: 'Starke Evidenz',    evRank: 0, cat: 'Medizinisch',         icon: ICONS.medical,  desc: 'Das am häufigsten verschriebene Medikament bei PCOS mit Insulinresistenz. Erfordert Rezept.' },
+    'ocp':                    { name: 'Kombinierte Antibabypille',             ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Medizinisch',         icon: ICONS.medical,  desc: 'Reguliert Zyklus und reduziert androgengetriebene Symptome. Nicht geeignet bei Kinderwunsch. Erfordert Rezept.' },
+    'spironolactone':         { name: 'Spironolacton',                         ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Medizinisch',         icon: ICONS.medical,  desc: 'Antiandrogen bei übermäßiger Behaarung und Akne. Off-Label bei PCOS eingesetzt. Erfordert Rezept.' },
+    'letrozole':              { name: 'Letrozol',                              ev: 'ev-high', evLabel: 'Starke Evidenz',    evRank: 0, cat: 'Medizinisch',         icon: ICONS.medical,  desc: 'Erstlinien-Ovulationsinduktion bei PCOS. Erfordert Fertilitätsspezialistin oder -spezialisten.' },
+    'clomifene':              { name: 'Clomifencitrat',                        ev: 'ev-good', evLabel: 'Gute Evidenz',      evRank: 1, cat: 'Medizinisch',         icon: ICONS.medical,  desc: 'Traditionelles Ovulationsinduktionsmittel, jetzt Zweitlinientherapie bei PCOS. Erfordert Spezialistin oder Spezialisten.' },
+    'zinc':                   { name: 'Zink',                                  ev: 'ev-med',  evLabel: 'Moderate Evidenz',  evRank: 2, cat: 'Nahrungsergänzung', icon: ICONS.supps,    desc: 'Kleine RCTs deuten auf Nutzen bei Akne und übermäßiger Behaarung über antiandrogene Mechanismen hin. Effektgrößen sind moderat.' },
+    'berberine':              { name: 'Berberin',                              ev: 'ev-med',  evLabel: 'Moderate Evidenz',  evRank: 2, cat: 'Nahrungsergänzung', icon: ICONS.supps,    desc: 'Vergleichbare Stoffwechselwirkungen wie Metformin in mehreren RCTs. Begrenzte Langzeitsicherheitsdaten.' },
+    'omega3':                 { name: 'Omega-3-Fettsäuren',                   ev: 'ev-med',  evLabel: 'Moderate Evidenz',  evRank: 2, cat: 'Nahrungsergänzung', icon: ICONS.supps,    desc: 'Entzündungshemmende Wirkung mit unterstützender Evidenz zur Senkung von Testosteron und Triglyceriden.' },
+    'low-carb':               { name: 'Kohlenhydratarme Ernährung',            ev: 'ev-med',  evLabel: 'Moderate Evidenz',  evRank: 2, cat: 'Ernährung',          icon: ICONS.diet,     desc: 'Einige RCTs zeigen schnelle Verbesserungen bei Insulin und Androgenen. Langfristige Einhaltung ist schwierig.' },
+    'sleep':                  { name: 'Schlafverbesserung',                   ev: 'ev-med',  evLabel: 'Moderate Evidenz',  evRank: 2, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Schlechter Schlaf verschlechtert die Insulinresistenz. Mehr Schlaf kann Androgen- und Cortisol-Muster verbessern.' },
+    'acupuncture':            { name: 'Akupunktur',                           ev: 'ev-med',  evLabel: 'Moderate Evidenz',  evRank: 2, cat: 'Geist & Körper',     icon: ICONS.mindbody, desc: 'Kleine RCTs deuten auf Verbesserungen der Menstruationsfrequenz und Senkung von LH hin. Stichprobengrößen bleiben klein.' }
+  };
+
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem('pcos_selectedTreatments') || '[]'); } catch(e) { saved = []; }
+
+  var picked = [];
+  var cardList = document.getElementById('cardList');
+  var pill     = document.getElementById('shortlistCountPill');
+  var cta      = document.getElementById('shortlistCta');
+  var swapHint = document.getElementById('swapHint');
+
+  if (pill) pill.textContent = saved.length + ' gespeichert';
+
+  if (saved.length === 0) {
+    cardList.innerHTML = '<div class="sl-empty">Du hast noch keine Behandlungen gespeichert.<br><br><a href="flow-a-start.html">Zurück und welche speichern →</a></div>';
+  } else {
+    var sorted = saved.slice().sort(function(a, b) {
+      var ra = CATALOG[a.id] ? CATALOG[a.id].evRank : 99;
+      var rb = CATALOG[b.id] ? CATALOG[b.id].evRank : 99;
+      return ra - rb;
+    });
+
+    var lastRank = -1;
+    var RANK_LABELS = { 0: 'Starke Evidenz', 1: 'Gute Evidenz', 2: 'Moderate Evidenz' };
+
+    sorted.forEach(function(t) {
+      var info = CATALOG[t.id];
+      var rank = info ? info.evRank : 99;
+
+      if (rank !== lastRank && lastRank !== -1) {
+        var div = document.createElement('div');
+        div.className = 'sl-divider';
+        div.innerHTML = '<span class="sl-divider-label">' + (RANK_LABELS[rank] || 'Sonstige') + '</span>';
+        cardList.appendChild(div);
+      }
+      lastRank = rank;
+
+      var ev      = info ? info.ev      : 'ev-med';
+      var evLabel = info ? info.evLabel : '';
+      var cat     = info ? info.cat     : '';
+      var icon    = info ? info.icon    : '';
+      var desc    = info ? info.desc    : '';
+      var name    = info ? info.name    : t.name;
+
+      var card = document.createElement('div');
+      card.className = 'sl-card ani';
+      card.id = 'card-' + t.id;
+      card.innerHTML =
+        '<div class="sl-check"><svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg></div>' +
+        '<div class="sl-card-body">' +
+          '<div class="sl-card-meta">' +
+            '<span class="evchip-flow ' + ev + '"><span class="ev-dot"></span>' + evLabel + '</span>' +
+            (cat ? '<span class="chip-cat-flow">' + icon + ' ' + cat + '</span>' : '') +
+          '</div>' +
+          '<div class="sl-card-title">' + name + '</div>' +
+          (desc ? '<div class="sl-card-desc">' + desc + '</div>' : '') +
+        '</div>';
+
+      card.addEventListener('click', function() { toggle(t.id); });
+      cardList.appendChild(card);
+    });
+
+    var note = document.createElement('div');
+    note.style.cssText = 'background:rgba(255,255,255,.45);border:1px solid var(--border-hairline);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--ink-600);line-height:1.55;margin-top:4px;';
+    note.innerHTML = '<strong style="color:var(--ink-800);">Warum nur 3?</strong> Wenn man zu viel auf einmal ändert, ist es unmöglich zu wissen, was wirklich hilft. Dein Plan sequenziert diese — beginne mit dem, was sich am zugänglichsten anfühlt, und füge beim 12-Wochen-Review das nächste hinzu.';
+    cardList.appendChild(note);
+  }
+
+  function toggle(id) {
+    var idx = picked.indexOf(id);
+    if (idx !== -1) { picked.splice(idx, 1); }
+    else {
+      if (picked.length >= MAX) { showSwapHint(); return; }
+      picked.push(id);
+    }
+    updateUI();
+  }
+
+  function showSwapHint() {
+    swapHint.style.display = 'block';
+    clearTimeout(swapHint._t);
+    swapHint._t = setTimeout(function() { swapHint.style.display = 'none'; }, 3000);
+  }
+
+  function updateUI() {
+    saved.forEach(function(t) {
+      var card = document.getElementById('card-' + t.id);
+      if (!card) return;
+      if (picked.indexOf(t.id) !== -1) { card.classList.add('picked'); }
+      else { card.classList.remove('picked'); }
+    });
+    var n = picked.length;
+    if (n === 0) {
+      cta.style.opacity = '0.4';
+      cta.style.pointerEvents = 'none';
+      cta.innerHTML = 'Behandlungen auswählen, um fortzufahren <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    } else {
+      cta.style.opacity = '1';
+      cta.style.pointerEvents = 'auto';
+      cta.innerHTML = 'Meinen Plan mit ' + n + ' Behandlung' + (n !== 1 ? 'en' : '') + ' erstellen <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    }
+  }
+
+  // Save to plan on CTA click
+  cta.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (picked.length === 0) return;
+    var plan = picked.map(function(id) {
+      var info = CATALOG[id];
+      return { id: id, name: info ? info.name : id };
+    });
+    localStorage.setItem('pcos_planTreatments', JSON.stringify(plan));
+    window.location.href = 'flow-b-plan.html';
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Your Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--hero-band);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.55; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.50; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Reveal: ember top-right, aurora bottom-left — highest energy screen */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.4s ease-out 0.3s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -80px;
+      left: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.4s ease-out 0.6s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .reveal-headline .hl-line:nth-child(1) { animation: write-reveal 0.6s ease-out 0.4s forwards; }
+    .reveal-headline .hl-line:nth-child(2) { animation: write-reveal 0.6s ease-out 0.9s forwards; }
+
+    .account-prompt,
+    .cta-section {
+      opacity: 0;
+      animation: fade-in 1.2s ease-out 1.1s forwards;
+    }
+
+    .reveal-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 56px 24px 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-section .btn-primary {
+      width: 100%;
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 36px 0 32px;
+      opacity: 0;
+      animation: fade-in 1.2s ease-out 1.1s forwards;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(107,91,125,0.18);
+    }
+
+    .section-divider-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--plum-400);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      white-space: nowrap;
+    }
+
+    .gp-prep-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: none;
+      border: none;
+      padding: 16px 20px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .gp-prep-toggle-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gp-prep-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(107,91,125,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .gp-prep-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--ink-900);
+      margin-bottom: 2px;
+    }
+
+    .gp-prep-subtitle {
+      font-size: 13px;
+      color: var(--ink-600);
+    }
+
+    .gp-chevron {
+      width: 18px;
+      height: 18px;
+      color: var(--plum-500);
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .gp-chevron.open {
+      transform: rotate(180deg);
+    }
+
+    .gp-prep-body {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid rgba(107,91,125,0.12);
+    }
+
+    .gp-prep-body.open {
+      display: block;
+    }
+
+    .rome-secondary {
+      opacity: 0;
+      animation: fade-in 1.2s ease-out 1.1s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Aurora-tint blob centred -->
+  <svg class="bg-blob-centre" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M300,80 C420,60 520,140 540,260 C560,380 480,480 360,510 C240,540 120,480 80,360 C40,240 100,120 180,90 C220,74 260,96 300,80 Z" fill="rgba(168,165,212,0.10)"/>
+  </svg>
+
+  <div class="reveal-wrapper">
+    <h1 class="reveal-headline" style="color:var(--plum-700);font-size:30px;">
+      <span class="hl-line">Good news! We found <span style="color:var(--ember-500);">14</span> science-backed</span>
+      <span class="hl-line">treatment paths for you.</span>
+    </h1>
+
+    <p class="reveal-summary" style="opacity:0;animation:fade-in 1.2s ease-out 1.1s forwards;">Based on your symptoms, triggers, and sub-type, your personal results are ready. All from peer-reviewed medical studies, graded by evidence strength.</p>
+
+    <!-- Category breadth chips -->
+    <div style="opacity:0;animation:fade-in 1.2s ease-out 1.3s forwards;display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#3a6b58;background:rgba(74,122,106,0.10);padding:6px 13px;border-radius:100px;border:1px solid rgba(74,122,106,0.20);">Diet</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#7a3d1a;background:rgba(184,112,74,0.10);padding:6px 13px;border-radius:100px;border:1px solid rgba(184,112,74,0.20);">Supplements</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--plum-700);background:rgba(140,108,171,0.10);padding:6px 13px;border-radius:100px;border:1px solid rgba(140,108,171,0.20);">Mind & Body</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-600);background:rgba(42,31,48,0.06);padding:6px 13px;border-radius:100px;border:1px solid rgba(42,31,48,0.12);">Medical</span>
+    </div>
+
+    <div class="account-prompt">
+      <p class="account-prompt-heading" style="font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:var(--ink-900);line-height:1.35;letter-spacing:-.01em;margin-bottom:0;">Create your free account to access the results and build your personalised treatment path.</p>
+    </div>
+
+    <div class="cta-section">
+      <a href="account.html" class="btn-primary">Create my free account</a>
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+    </div>
+
+    <div class="section-divider rome-secondary">
+      <span class="section-divider-label">Clinical context</span>
+    </div>
+
+    <p class="rome-secondary" style="font-size:14px;color:var(--ink-600);line-height:1.6;margin-bottom:16px;">Endometriosis is confirmed by laparoscopy — but your symptom pattern shapes which treatments are most relevant to you. Tap below to understand how your answers influenced your results.</p>
+
+    <div class="glass-card rome-secondary" style="padding: 0; margin-bottom: 32px; overflow: hidden;">
+      <button class="gp-prep-toggle" id="romeToggle" aria-expanded="false">
+        <div class="gp-prep-toggle-left">
+          <div class="gp-prep-icon">
+            <i data-lucide="clipboard-list" style="width:18px;height:18px;color:var(--plum-500);"></i>
+          </div>
+          <div>
+            <p class="gp-prep-title">How your profile was built</p>
+            <p class="gp-prep-subtitle">What your answers tell us about your endo pattern</p>
+          </div>
+        </div>
+        <i data-lucide="chevron-down" class="gp-chevron" id="romeChevron"></i>
+      </button>
+      <div class="gp-prep-body" id="romePrepBody">
+        <p style="font-size:13px;color:var(--ink-600);line-height:1.6;margin:16px 0;">Endometriosis presents differently for everyone — pain-dominant, digestive overlap, fertility concerns, fatigue-led. Your answers help us weight the evidence toward what matters most for your pattern. We don't diagnose; we personalise.</p>
+        <div id="criteriaRows"></div>
+        <p style="font-size:12px;color:var(--ink-400);margin-top:14px;line-height:1.5;font-style:italic;">For reference only — it doesn't change your diagnosis or your clinical care.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script>
+    document.getElementById(‘romeToggle’).addEventListener(‘click’, function() {
+      var body    = document.getElementById(‘romePrepBody’);
+      var chevron = this.querySelector(‘.gp-chevron’);
+      var isOpen  = body.classList.toggle(‘open’);
+      if (chevron) chevron.classList.toggle(‘open’, isOpen);
+      this.setAttribute(‘aria-expanded’, isOpen);
+    });
+  </script>
+  <script>
+    var profile    = localStorage.getItem(‘endo_profile’) || ‘pain-dominant’;
+    var duration   = localStorage.getItem(‘symptom_duration’);
+
+    var profileDescriptions = {
+      ‘pain-dominant’:    ‘Your symptom pattern is primarily pain-dominant — we\’ve weighted treatments with the strongest pain evidence first.’,
+      ‘digestive-overlap’:’You have both pelvic and digestive symptoms — treatments addressing both are highlighted in your results.’,
+      ‘fatigue-led’:      ‘Fatigue is a significant part of your experience — treatments with energy and quality-of-life evidence are included.’
+    };
+    var profileDesc = profileDescriptions[profile] || ‘Your symptom profile has been matched to the most relevant evidence.’;
+
+    var items = [
+      {
+        met: true,
+        metText:  ‘Confirmed endometriosis diagnosis — full evidence base is available to you’,
+        noteText: ‘’
+      },
+      {
+        met: true,
+        metText:  profileDesc,
+        noteText: ‘’
+      },
+      {
+        met: true,
+        metText:  ‘All treatment options cover lifestyle, dietary, supplemental, and medical pathways’,
+        noteText: ‘’
+      },
+      {
+        met: duration === ‘6m_2y’ || duration === ‘3y_10y’ || duration === ‘over10y’,
+        metText:  ‘Longer symptom history — longer-term evidence studies are included in your results’,
+        noteText: ‘Shorter symptom history — results focus on first-line and well-tolerated options.’
+      }
+    ];
+
+    var container = document.getElementById(‘criteriaRows’);
+    items.forEach(function(c) {
+      var row = document.createElement(‘div’);
+      row.className = ‘criteria-row ‘ + (c.met ? ‘criteria-met’ : ‘criteria-note’);
+      row.innerHTML =
+        ‘<span class="criteria-icon">’ + (c.met ? ‘✓’ : ‘→’) + ‘</span>’ +
+        ‘<span class="criteria-text">’ + (c.met ? c.metText : c.noteText) + ‘</span>’;
+      container.appendChild(row);
+    });
+  </script>
+</body>
+</html>

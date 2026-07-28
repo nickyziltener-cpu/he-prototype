@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototyp v3 · Navigationsübersicht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .22;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .nav-page { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; position: relative; z-index: 1; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--ink-900); margin-bottom: 6px; }
+    .nav-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--plum-500); margin-bottom: 40px; }
+    .flow-section { margin-bottom: 36px; }
+    .flow-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--plum-500);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .screen-list { display: flex; flex-direction: column; gap: 8px; }
+    .screen-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 4px 12px -6px rgba(140,108,171,.12);
+      text-decoration: none;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .screen-link:hover {
+      box-shadow: 0 8px 24px -10px rgba(140,108,171,.22);
+      border-color: rgba(140,108,171,.3);
+    }
+    .screen-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-500);
+      font-weight: 500;
+      flex-shrink: 0;
+      width: 28px;
+    }
+    .screen-info { flex: 1; }
+    .screen-title { font-size: 15px; font-weight: 700; color: var(--ink-900); }
+    .screen-desc { font-size: 12px; color: var(--ink-600); margin-top: 1px; }
+    .screen-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+    .tag-new { background: rgba(140,108,171,.12); color: var(--plum-700); }
+    .tag-updated { background: rgba(243,160,126,.12); color: var(--ember-700); }
+    .tag-base { background: rgba(42,31,48,.05); color: var(--ink-600); }
+    .arrow { color: var(--ink-400); }
+    .arrow svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+    .start-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--plum-500);
+      color: #fff;
+      border-radius: 100px;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 24px -10px rgba(140,108,171,.5);
+      display: inline-flex;
+    }
+    .start-cta svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; fill: none; }
+    .journey-note {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-600);
+      background: rgba(255,255,255,.6);
+      border: 1px solid var(--border-hairline);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 32px;
+    }
+    .journey-note strong { color: var(--ink-900); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<div class="nav-page">
+
+  <div class="nav-logo">RDS-Behandlungswege</div>
+  <div class="nav-meta">Prototyp v3 · Vollständige Erfahrung · Juni 2026</div>
+
+  <div class="journey-note">
+    <strong>Empfohlener Weg:</strong> Start bei Willkommen → Onboarding abschließen → Evidenzbibliothek erreichen → „Behandlungen auswählen" klicken → aus Flow A wählen → Plan erstellen → Flow B Tagebuch-Erfahrung erkunden.
+  </div>
+
+  <a href="index.html" class="start-cta">
+    Den vollständigen Weg starten →
+    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+
+  <!-- Today (Home) -->
+  <div class="flow-section">
+    <div class="flow-label">Heute (Startseite)</div>
+    <div style="font-size:13px;color:var(--ink-600);line-height:1.55;background:rgba(255,255,255,.6);border:1px solid var(--border-hairline);border-radius:12px;padding:13px 15px;margin-bottom:12px;">Zustandsadaptive Startseite — 4 Nutzerzustände</div>
+    <div class="screen-list">
+      <a href="today-preplan.html" class="screen-link">
+        <span class="screen-num">T1</span>
+        <div class="screen-info">
+          <div class="screen-title">Vor dem Plan</div>
+          <div class="screen-desc">Noch keine Behandlung gewählt · erste Anmeldung</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="today-active.html" class="screen-link">
+        <span class="screen-num">T2</span>
+        <div class="screen-info">
+          <div class="screen-title">Aktive Studie · nicht eingetragen</div>
+          <div class="screen-desc">Täglicher Zustand · Check-in-Hero</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="today-logged.html" class="screen-link">
+        <span class="screen-num">T3</span>
+        <div class="screen-info">
+          <div class="screen-title">Aktive Studie · heute eingetragen</div>
+          <div class="screen-desc">Bereits eingetragen · Fortschritt im Fokus</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="today-between.html" class="screen-link">
+        <span class="screen-num">T4</span>
+        <div class="screen-info">
+          <div class="screen-title">Zwischen den Studien</div>
+          <div class="screen-desc">Studie 1 abgeschlossen · Studie 2 starten</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Onboarding -->
+  <div class="flow-section">
+    <div class="flow-label">Onboarding · Fragebogen</div>
+    <div class="screen-list">
+      <a href="index.html" class="screen-link">
+        <span class="screen-num">01</span>
+        <div class="screen-info">
+          <div class="screen-title">Willkommen</div>
+          <div class="screen-desc">Hero, Vertrauensblock, Loslegen-CTA</div>
+        </div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="start.html" class="screen-link">
+        <span class="screen-num">02</span>
+        <div class="screen-info"><div class="screen-title">F1 · RDS-Subtyp</div><div class="screen-desc">RDS-C / RDS-D / RDS-M / Noch nicht sicher</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="priya-intro.html" class="screen-link">
+        <span class="screen-num">02b</span>
+        <div class="screen-info"><div class="screen-title">Priya-Pfad Einführung</div><div class="screen-desc">Symptom-Unterfragebogen für den „nicht sicher"-Pfad</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q2.html" class="screen-link">
+        <span class="screen-num">03</span>
+        <div class="screen-info"><div class="screen-title">F2 · Symptomdauer</div><div class="screen-desc">&lt;6 Monate / 6 Monate–2 Jahre / 2+ Jahre</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q3.html" class="screen-link">
+        <span class="screen-num">04</span>
+        <div class="screen-info"><div class="screen-title">F3 · Stress-Auslöser</div><div class="screen-desc">Ja / manchmal / selten / nein</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q4.html" class="screen-link">
+        <span class="screen-num">05</span>
+        <div class="screen-info"><div class="screen-title">F4 · Lebensmittel-Auslöser</div><div class="screen-desc">Mehrfachauswahl bestimmter Lebensmittel</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q5.html" class="screen-link">
+        <span class="screen-num">06</span>
+        <div class="screen-info"><div class="screen-title">F5 · Behandlungspräferenzen</div><div class="screen-desc">Ernährung / Nahrungsergänzung / Lebensstil / Medizin / Alternativ</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="redflag.html" class="screen-link">
+        <span class="screen-num">07</span>
+        <div class="screen-info"><div class="screen-title">Warnsignal-Bildschirm</div><div class="screen-desc">Blut im Stuhl / unerklärlicher Gewichtsverlust</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="reveal.html" class="screen-link">
+        <span class="screen-num">08</span>
+        <div class="screen-info"><div class="screen-title">Ergebnis</div><div class="screen-desc">14 Ansätze · Subtyp + Vorschau · Konto-Gate</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="account.html" class="screen-link">
+        <span class="screen-num">09</span>
+        <div class="screen-info"><div class="screen-title">Konto erstellen</div><div class="screen-desc">E-Mail / Google · DSGVO-Einwilligung</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Library -->
+  <div class="flow-section">
+    <div class="flow-label">Evidenzbibliothek</div>
+    <div class="screen-list">
+      <a href="flow-a-overview.html" class="screen-link">
+        <span class="screen-num">10</span>
+        <div class="screen-info">
+          <div class="screen-title">Evidenzbibliothek</div>
+          <div class="screen-desc">Kategorie-Kacheln · Stärke-Filter · Behandlungskarten · „Behandlungen auswählen"-CTA</div>
+        </div>
+        <span class="screen-tag tag-updated">aktualisiert</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Flow A -->
+  <div class="flow-section">
+    <div class="flow-label">Flow A · Behandlungsauswahl</div>
+    <div class="screen-list">
+      <a href="flow-a-start.html" class="screen-link">
+        <span class="screen-num">A1</span>
+        <div class="screen-info"><div class="screen-title">Hier starten</div><div class="screen-desc">Top-3-Empfehlungen · Evidenz-Chips · Möchte ich ausprobieren</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-a-overview.html" class="screen-link">
+        <span class="screen-num">A2</span>
+        <div class="screen-info"><div class="screen-title">Alle Behandlungskategorien</div><div class="screen-desc">5 Kategoriezeilen · Evidenzanzahl · Stress-Match-Hervorhebung</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-a-diet.html" class="screen-link">
+        <span class="screen-num">A3</span>
+        <div class="screen-info"><div class="screen-title">Kategorie Ernährung</div><div class="screen-desc">3 Listenkarten · nach Evidenz gerankt · „3 weitere anzeigen"</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-a-detail.html" class="screen-link">
+        <span class="screen-num">A4</span>
+        <div class="screen-info"><div class="screen-title">Low FODMAP Detail</div><div class="screen-desc">Was es ist · Schritte · Evidenzzusammenfassung · PMID · Hausarzt-Karte</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Flow B -->
+  <div class="flow-section">
+    <div class="flow-label">Flow B · Plan &amp; Tagebuch</div>
+    <div class="screen-list">
+      <a href="flow-b-plan.html" class="screen-link">
+        <span class="screen-num">B1</span>
+        <div class="screen-info"><div class="screen-title">Dein Plan</div><div class="screen-desc">Grundlagenblock · 3-Studien-Zeitplan · Hausarzt-Hinweis</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-trial.html" class="screen-link">
+        <span class="screen-num">B2</span>
+        <div class="screen-info"><div class="screen-title">Aktive Studie · Pfefferminzöl</div><div class="screen-desc">Woche 2 von 4 · Was zu tun · Wo erhältlich · Zeitkarte</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-checkin.html" class="screen-link">
+        <span class="screen-num">B3</span>
+        <div class="screen-info"><div class="screen-title">Täglicher Check-in · Nahrungsergänzung</div><div class="screen-desc">Einhaltung · Symptomstärke · Chips · Notizfeld</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-progress.html" class="screen-link">
+        <span class="screen-num">B4</span>
+        <div class="screen-info"><div class="screen-title">Fortschritt &amp; Tagebuchverlauf</div><div class="screen-desc">Trenddiagramm · Eintragsprotokoll · Hausarzt-Zusammenfassung · Auswertungsvorschau</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-review.html" class="screen-link">
+        <span class="screen-num">B5</span>
+        <div class="screen-info"><div class="screen-title">Studienauswertung</div><div class="screen-desc">Wie hat es sich angefühlt? · Datenbestätigung · weiter/pausieren · Als nächstes</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-weekly.html" class="screen-link">
+        <span class="screen-num">B6</span>
+        <div class="screen-info"><div class="screen-title">Wöchentlicher Check-in · Kurs-Kadenz</div><div class="screen-desc">Sitzungsprotokoll · Kadenzblock · Sitzungsgefühl · Hypnotherapie</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-manage.html" class="screen-link">
+        <span class="screen-num">B7</span>
+        <div class="screen-info"><div class="screen-title">Studie verwalten</div><div class="screen-desc">Weiter / pausieren / stoppen · Grund-Chips · Behandlung wechseln</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Treatment comparison -->
+  <div class="flow-section">
+    <div class="flow-label">Behandlungsvergleich · Low FODMAP vs. Pfefferminzöl</div>
+    <div style="font-size:13px;color:var(--ink-600);line-height:1.55;background:rgba(255,255,255,.6);border:1px solid var(--border-hairline);border-radius:12px;padding:13px 15px;margin-bottom:12px;">
+      Low FODMAP ist ein aufwändiges, phasenbasiertes Ernährungsprotokoll — das Gegenteil einer täglichen Nahrungsergänzung. Diese Bildschirme zeigen, wie sich Kadenz, Check-in-Format und kognitive Belastung für dieselbe Flow-B-Struktur unterscheiden.
+    </div>
+    <div class="screen-list">
+      <a href="flow-b-trial-fodmap.html" class="screen-link">
+        <span class="screen-num">C1</span>
+        <div class="screen-info">
+          <div class="screen-title">Aktive Studie · Low FODMAP</div>
+          <div class="screen-desc">Phasenverfolgung (Elimination → Wiedereinführung) · Vermeidungsliste · sichere Lebensmittel · Ernährungsberatungs-Karte</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-weekly-fodmap.html" class="screen-link">
+        <span class="screen-num">C2</span>
+        <div class="screen-info">
+          <div class="screen-title">Wöchentlicher Check-in · Low FODMAP</div>
+          <div class="screen-desc">Phasen-Kadenzblock · Einhaltungsskala · „Was hat dich erwischt"-Chips · wöchentliche Symptomauswertung</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Type of Psoriasis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .18; pointer-events: none; z-index: 0;
+    }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+    .chips-container, .question-sub, .back-link, .progress-bar-container {
+      opacity: 0; animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+    .other-note {
+      display: none; background: rgba(196,123,43,0.10); border: 1px solid rgba(196,123,43,0.24);
+      border-radius: 10px; padding: 11px 14px; font-size: 13px; line-height: 1.55; color: var(--ink-700);
+      margin-top: 4px;
+    }
+    .other-note.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 28%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px; position: relative; z-index: 1;">
+    <h1 class="question-title">
+      <span class="hl-line">Which type of psoriasis</span>
+      <span class="hl-line">do you have?</span>
+    </h1>
+    <p class="question-sub">Most people have plaque psoriasis — it's fine if you're not sure which type. Your recommendations will still be personalised.</p>
+
+    <div class="chips-container" id="chipContainer" style="margin-top: 24px;">
+      <button class="chip" data-subtype="plaque">
+        Plaque psoriasis
+        <span class="chip-sub">Raised red patches with silvery scales — the most common type</span>
+      </button>
+      <button class="chip" data-subtype="guttate">
+        Guttate psoriasis
+        <span class="chip-sub">Small, drop-shaped spots — often appears after a throat infection</span>
+      </button>
+      <button class="chip" data-subtype="inverse">
+        Inverse psoriasis
+        <span class="chip-sub">In skin folds — armpits, groin, under the breasts</span>
+      </button>
+      <button class="chip" data-subtype="other" id="otherChip">
+        Other type
+        <span class="chip-sub">Pustular, erythrodermic, nail psoriasis</span>
+      </button>
+      <div class="other-note" id="otherNote">
+        Some types of psoriasis need specialist management. We'll still show you everything that's relevant — recommendations will default to the broadest applicable evidence base.
+      </div>
+      <button class="chip" data-subtype="unsure">
+        Not sure which type
+        <span class="chip-sub">I just know I have psoriasis</span>
+      </button>
+    </div>
+
+    <a href="q1.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var subtype = this.getAttribute('data-subtype');
+        localStorage.setItem('psoriasis_subtype', subtype);
+        var otherNote = document.getElementById('otherNote');
+        if (subtype === 'other') {
+          otherNote.classList.add('visible');
+          setTimeout(function() { window.location.href = 'q2.html'; }, 1200);
+        } else {
+          window.location.href = 'q2.html';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Psoriasis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background:
+        radial-gradient(ellipse 60% 50% at 15% 20%, rgba(232,168,74,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 60% at 88% 75%, rgba(196,123,43,0.16) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 40% at 50% 95%, rgba(242,224,200,0.30) 0%, transparent 80%),
+        linear-gradient(135deg, #FDF8F0 0%, #FAF2E4 45%, #F5EBD5 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    @keyframes bloom-in { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fade-in  { from { opacity: 0; } to   { opacity: 1; } }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+
+    .welcome-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 52px 24px 64px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-logo { margin-bottom: 40px; opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards; }
+
+    .stat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,123,43,0.10); border: 1px solid rgba(196,123,43,0.22);
+      border-radius: 9999px; padding: 6px 14px 6px 10px;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      color: var(--primary-dk); margin-bottom: 24px;
+      opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards;
+    }
+    .stat-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px; color: var(--ink-900);
+      line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.015em;
+    }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .hl-line:nth-child(1) { animation: write-reveal 0.55s ease-out 0.5s  forwards; }
+    .hl-line:nth-child(2) { animation: write-reveal 0.55s ease-out 1.0s forwards; }
+    .hl-line:nth-child(3) { animation: write-reveal 0.45s ease-out 1.5s forwards; }
+    .hl-line:nth-child(4) { animation: write-reveal 0.35s ease-out 1.85s forwards; }
+
+    .hero-sub {
+      font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 400;
+      color: var(--ink-700); line-height: 1.6; margin-bottom: 28px;
+      opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards;
+    }
+    .cta-section {
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards;
+    }
+    .cta-section .btn-primary { width: 100%; max-width: 360px; }
+    .trust-block.glass-card { opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards; margin-bottom: 32px; }
+
+    .trust-icon { width: 20px; height: 20px; min-width: 20px; stroke-width: 1.75; flex-shrink: 0; color: var(--primary); }
+
+    @media (max-width: 600px) {
+      .hero-headline { font-size: 28px; }
+      .hero-sub { font-size: 15px; }
+      .welcome-wrapper { padding: 36px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-wrapper">
+
+    <div class="nav-logo">
+      <span class="logo">Psoriasis Treatment Paths</span>
+    </div>
+
+    <div class="stat-pill">2 in 100 people in the UK have psoriasis</div>
+
+    <h1 class="hero-headline">
+      <span class="hl-line">Your skin is telling</span>
+      <span class="hl-line">you something.</span>
+      <span class="hl-line">Here's what the</span>
+      <span class="hl-line">science says.</span>
+    </h1>
+
+    <p class="hero-sub">Psoriasis is complex, visible, and often mismanaged. We help you understand the evidence behind every treatment — graded by strength — so you can make informed choices alongside your GP.</p>
+
+    <div class="trust-block glass-card">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        Every treatment traces back to real peer-reviewed research — not anecdote or influencer claims.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Evidence graded by strength — Strong, Good, Moderate, Limited — so you see what's well-supported vs. emerging.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Covers topical treatments, diet, supplements, mind &amp; body, and medical options.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Build a personalised plan — one trial at a time — so you know what's actually helping.
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <a href="start.html" class="btn-primary">Get started</a>
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+      <p class="disclaimer-note">This is an information tool, not a medical recommendation system. Always consult your doctor or dermatologist.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

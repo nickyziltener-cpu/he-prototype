@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — See a Doctor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(176,70,70,.3) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper" style="padding-top: 56px;">
+
+    <div style="font-size: 40px; margin-bottom: 20px; text-align: center;">⚠️</div>
+
+    <h1 class="stop-headline" style="text-align: center;">Please speak with a doctor first.</h1>
+
+    <p class="stop-body">The symptoms you've flagged need a clinical assessment before you try self-managing with lifestyle changes or supplements.</p>
+
+    <p class="stop-body">This isn't a reason to panic — but it is a reason to get checked out first.</p>
+
+    <div class="gp-card">
+      <div class="gp-card-heading">What to tell your GP or A&amp;E</div>
+      <ul>
+        <li>Describe your symptoms clearly — when they started, severity, anything that makes them better or worse</li>
+        <li>Mention any existing PCOS diagnosis or prior investigations</li>
+        <li>Bring a list of any supplements or medications you take</li>
+        <li>Ask specifically about ovarian torsion, ectopic pregnancy, or other acute causes if pain is severe</li>
+      </ul>
+    </div>
+
+    <a href="javascript:void(0)" onclick="goBack()" class="gp-link" style="background: var(--redflag); border-radius: 100px; font-size: 15px;">
+      Back to see your results →
+    </a>
+    <p class="disclaimer-note">Your results are waiting — come back after you've been seen if you'd like to explore evidence-based options.</p>
+
+  </div>
+
+  <script>
+    function goBack() {
+      var priya = localStorage.getItem('pcos_priya');
+      window.location.href = priya === '1' ? 'reveal-priya.html' : 'reveal.html';
+    }
+  </script>
+
+</body>
+</html>

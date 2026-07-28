@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mediterranean Diet · Treatment Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #EFF5EC 0%, #FAF6F0 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, var(--accent) 20%, transparent 70%);
+      opacity: .32; pointer-events: none; z-index: 0;
+    }
+    #tryBtn { font-family: 'Manrope', sans-serif; font-size: inherit; cursor: pointer; border: none; width: 100%; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="background:rgba(240,245,238,0.72);">
+    <div class="flow-nav">
+      <a href="#" id="backBtn" class="flow-back" onclick="history.back(); return false;">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        <span id="backLabel">Back</span>
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Diet
+      </span>
+      <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+    </div>
+    <h1 class="flow-hero-title">Mediterranean-style diet</h1>
+    <p class="flow-hero-sub">The most studied dietary approach for psoriasis. A 2025 randomised trial (MEDIPSO) found that <strong>47% of participants following a Mediterranean diet achieved 75% reduction in psoriasis severity</strong> — compared to 0% in the control group. Observational evidence has consistently pointed in the same direction.</p>
+  </div>
+
+  <div class="flow-body detail-body">
+
+    <div class="detail-section ani">
+      <div class="detail-label">Why diet matters in psoriasis</div>
+      <p class="detail-para">Psoriasis is fundamentally an inflammatory condition — and diet is one of the most modifiable factors influencing the body's inflammatory state. The Mediterranean diet reduces levels of pro-inflammatory cytokines (IL-6, TNF-α, CRP), which are the same signalling molecules that drive psoriatic plaques. Obesity, poor metabolic health, and high ultra-processed food intake all amplify psoriasis severity — the Mediterranean pattern addresses all three.</p>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">What a Mediterranean-style diet looks like</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Eat more of</div>
+          <div class="fodmap-items">Vegetables (especially leafy greens) · Legumes (lentils, chickpeas, beans) · Whole grains · Oily fish (salmon, mackerel, sardines — 2–3×/week) · Extra virgin olive oil · Nuts and seeds · Fresh fruit · Herbs and spices</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Eat less of</div>
+          <div class="fodmap-items">Red and processed meat · Ultra-processed foods · Refined carbohydrates and added sugar · Butter and saturated fats · Alcohol (especially spirits)</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Main anti-inflammatory mechanism</div>
+          <div class="fodmap-items">High polyphenol content (from vegetables, olive oil, and fruit) · Omega-3 to omega-6 ratio improvement · Improved insulin sensitivity and metabolic health</div>
+        </div>
+        <div class="fodmap-note">This isn't a strict diet with forbidden foods. It's an eating pattern — think of it as proportions and habits rather than rules.</div>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Where this evidence comes from</div>
+      <div class="evsum-card">
+        <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+        <div class="evsum-line">The MEDIPSO randomised trial (2025) assigned 19 participants to a Mediterranean diet intervention and found <strong>47.4% achieved PASI75</strong> (75% skin improvement) at 16 weeks versus 0% in controls. This is the first RCT for this intervention in psoriasis. The earlier Barrea et al. (2019) case-control study (n=62) showed consistent observational associations, and subsequent systematic reviews have confirmed the pattern across multiple studies.</div>
+        <div class="evsum-meaning">What this means — upgraded to Good evidence following the 2025 MEDIPSO trial. The trial is small (n=19), so this is a confident direction rather than settled science. The observational foundation has been solid for years. The diet has documented cardiovascular and metabolic benefits that operate independently of psoriasis — the risk-benefit is strongly positive.</div>
+        <div class="sources-list">
+          <div class="source-row">
+            <span class="source-badge">RCT</span>
+            <span class="source-ref">MEDIPSO trial, 2025 · <em>JAMA Dermatology</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40991259/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">Case-control</span>
+            <span class="source-ref">Barrea et al., 2019 · <em>Nutrition & Diabetes</em> 9(1):21</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/31189811/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">Review</span>
+            <span class="source-ref">Phan et al., 2019 · Diet and psoriasis · <em>Journal of Investigative Dermatology</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/30928069/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <p class="sources-note">Citations link to PubMed abstracts. Full papers may require journal access.</p>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">How to start</div>
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div>
+            <div class="step-title">Add before you restrict</div>
+            <div class="step-desc">Rather than cutting foods out, focus on adding vegetables, legumes, and fish first. This avoids the restriction mindset and is more sustainable.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div>
+            <div class="step-title">Switch your oil</div>
+            <div class="step-desc">Replacing vegetable and sunflower oil with extra virgin olive oil is one of the highest-impact, lowest-effort changes. Polyphenols in EVOO have direct anti-inflammatory action.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div>
+            <div class="step-title">Aim for 2–3 fish meals per week</div>
+            <div class="step-desc">Oily fish is the most concentrated dietary source of EPA and DHA — the omega-3s with the most direct anti-inflammatory evidence. Tinned sardines, mackerel, or salmon count.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-amber ani">
+      <div class="callout-label">Why Good, not Strong?</div>
+      <p class="detail-para sm">The 2025 MEDIPSO RCT upgraded this from Moderate to Good — but the trial enrolled 19 people. That's one well-designed study, not a body of replicated large trials. Strong evidence requires multiple independent RCTs with consistent results. We're honest about that distinction. The direction of the evidence is clear; the effect size in a larger replication may differ. What's not in doubt: the diet reduces inflammatory markers and has proven cardiovascular benefit — this will likely help your overall health regardless of what it does to your skin specifically.</p>
+    </div>
+
+  </div>
+
+  <div class="cta-bar-sticky">
+    <button class="cta-btn-full" id="tryBtn"
+      data-treatment-id="mediterranean-diet"
+      data-treatment-name="Mediterranean-style diet">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg>
+      Save to my plan
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      var ref = document.referrer;
+      var label = ref.includes('flow-a-start') ? 'Start' : ref.includes('flow-a-diet') ? 'Diet' : 'Back';
+      document.getElementById('backLabel').textContent = label;
+    })();
+  </script>
+  <script>
+    (function() {
+      var KEY  = 'psoriasis_selectedTreatments';
+      var TREATMENT_ID   = 'mediterranean-diet';
+      var TREATMENT_NAME = 'Mediterranean-style diet';
+      var btn = document.getElementById('tryBtn');
+      function render() {
+        var saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+        var isSaved = saved.some(function(t) { return t.id === TREATMENT_ID; });
+        if (isSaved) {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg> Saved · Remove';
+          btn.style.background = 'var(--accent)';
+        } else {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg> Save to my plan';
+          btn.style.background = '';
+        }
+      }
+      btn.addEventListener('click', function() {
+        var saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+        var idx = saved.findIndex(function(t) { return t.id === TREATMENT_ID; });
+        if (idx >= 0) { saved.splice(idx, 1); } else { saved.push({ id: TREATMENT_ID, name: TREATMENT_NAME }); }
+        localStorage.setItem(KEY, JSON.stringify(saved));
+        render();
+      });
+      render();
+    })();
+  </script>
+
+</div>
+
+</body>
+</html>

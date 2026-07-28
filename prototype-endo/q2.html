@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Treatment Preferences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes ember-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.22; transform: scale(1); } }
+    @keyframes aurora-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.12; transform: scale(1); } }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 280px; height: 280px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.2s forwards;
+    }
+    body::after {
+      content: ''; position: fixed; left: -40px; top: 30%; width: 200px; height: 200px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.5s forwards;
+    }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+    .chips-container, .micro-copy, .next-btn-wrap, .back-link, .progress-bar-container {
+      opacity: 0; animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+    .chip.selected {
+      border-color: var(--plum-500);
+      background: rgba(140,108,171,0.14);
+      color: var(--plum-600, #5e4d72);
+    }
+    .next-btn-wrap { margin-top: 28px; }
+    .micro-copy {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      color: var(--ink-500);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 60%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <h1 class="question-title">
+      <span class="hl-line">Which approaches</span>
+      <span class="hl-line">feel right for you?</span>
+    </h1>
+
+    <p class="micro-copy">Select all that interest you — you can always change this later.</p>
+
+    <div class="chips-container" style="margin-top: 8px;">
+      <button class="chip multi" data-pref="diet">
+        Diet &amp; nutrition
+        <span class="chip-sub">Anti-inflammatory eating, specific foods to prioritise or avoid</span>
+      </button>
+      <button class="chip multi" data-pref="supplements">
+        Supplements
+        <span class="chip-sub">Vitamins, minerals, and natural compounds</span>
+      </button>
+      <button class="chip multi" data-pref="mind-body">
+        Mind &amp; body
+        <span class="chip-sub">Pelvic physio, pain psychology, movement, breathwork</span>
+      </button>
+      <button class="chip multi" data-pref="medication">
+        Medical treatment
+        <span class="chip-sub">Hormonal therapy, NSAIDs, surgical options</span>
+      </button>
+    </div>
+
+    <div class="next-btn-wrap">
+      <button class="btn-primary" id="nextBtn" style="width:100%;opacity:0.45;cursor:not-allowed;" disabled>Continue →</button>
+    </div>
+
+    <a href="q1b.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    var selected = [];
+
+    document.querySelectorAll('.chip.multi').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var pref = this.getAttribute('data-pref');
+        var idx = selected.indexOf(pref);
+        if (idx >= 0) { selected.splice(idx, 1); this.classList.remove('selected'); }
+        else { selected.push(pref); this.classList.add('selected'); }
+        var btn = document.getElementById('nextBtn');
+        btn.disabled = selected.length === 0;
+        btn.style.opacity = selected.length === 0 ? '0.45' : '';
+        btn.style.cursor = selected.length === 0 ? 'not-allowed' : '';
+      });
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+      if (selected.length > 0) {
+        localStorage.setItem('treatmentPreferences', JSON.stringify(selected));
+        window.location.href = 'q3.html';
+      }
+    });
+  </script>
+
+</body>
+</html>

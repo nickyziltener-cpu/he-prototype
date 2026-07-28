@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Shortlist · Psoriasis Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #FDF4E6 0%, #FAF2E4 70%, #F5EBD5 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -80px; right: -80px; width: 420px; height: 420px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .28; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -80px; left: -80px; width: 340px; height: 340px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .24; pointer-events: none; z-index: 0;
+    }
+    .sl-card {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: rgba(255,255,255,.62); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255,255,255,.75); border-radius: 20px; padding: 18px 16px;
+      box-shadow: var(--shadow-card); cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .sl-card:hover { box-shadow: var(--shadow-raised); }
+    .sl-card.picked { background: rgba(196,123,43,.10); border-color: rgba(196,123,43,.35); }
+    .sl-check {
+      flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+      border: 2px solid rgba(196,123,43,.35); background: rgba(255,255,255,.6);
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .sl-card.picked .sl-check { background: var(--primary); border-color: var(--primary); }
+    .sl-check svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 2.5; fill: none; opacity: 0; transition: opacity 0.15s ease; }
+    .sl-card.picked .sl-check svg { opacity: 1; }
+    .sl-card-body { flex: 1; min-width: 0; }
+    .sl-card-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+    .sl-card-title { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-900); margin-bottom: 5px; line-height: 1.25; }
+    .sl-card-desc { font-size: 13px; line-height: 1.55; color: var(--ink-600); }
+    .sl-divider { display: flex; align-items: center; gap: 12px; margin: 4px 0 2px; }
+    .sl-divider::before, .sl-divider::after { content: ''; flex: 1; height: 1px; background: var(--border-hairline); }
+    .sl-divider-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; color: var(--ink-400); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+    .sl-swap-hint { font-size: 13px; font-weight: 600; color: var(--primary-dk); background: rgba(196,123,43,.10); border: 1px solid rgba(196,123,43,.22); border-radius: 12px; padding: 10px 14px; text-align: center; }
+    .sl-empty { text-align: center; padding: 48px 24px; color: var(--ink-500); font-size: 15px; line-height: 1.6; }
+    .sl-empty a { color: var(--primary); font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="padding-top:6px;background:rgba(253,244,230,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.45);">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Browse all
+      </a>
+    </div>
+    <div class="flow-count-pill" id="shortlistCountPill" style="background:rgba(196,123,43,0.14);color:var(--primary-dk);">0 saved</div>
+    <h1 class="flow-hero-title">Pick your top 3</h1>
+    <p class="flow-hero-sub">Ranked by evidence strength. We recommend starting with no more than 3 — trying too many changes at once makes it impossible to know what's actually helping.</p>
+  </div>
+
+  <div class="flow-body" style="display:flex;flex-direction:column;gap:10px;padding-bottom:110px;" id="cardList">
+  </div>
+
+  <div class="cta-bar-sticky">
+    <div class="sl-swap-hint" id="swapHint" style="display:none;margin-bottom:8px;">
+      Uncheck one above first, then tap to swap it in.
+    </div>
+    <a href="flow-b-plan.html" class="cta-btn-full" id="shortlistCta" style="opacity:0.4;pointer-events:none;">
+      Select treatments to continue
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var MAX = 3;
+
+  var ICONS = {
+    topical:   '<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.42 1.24 4.55 3.12 5.79L7.5 18h9l-.62-3.21A7 7 0 0 0 19 9c0-3.87-3.13-7-7-7z"/></svg>',
+    diet:      '<svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>',
+    supps:     '<svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>',
+    mindbody:  '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>',
+    medical:   '<svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>'
+  };
+
+  var CATALOG = {
+    'emollients':        { name: 'Emollients & moisturising',                  ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Topical',   icon: ICONS.topical,  desc: 'Foundation of all psoriasis management — reduces scaling, itch, and treatment burden.' },
+    'topical-steroids':  { name: 'Topical corticosteroids',                    ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Topical',   icon: ICONS.topical,  desc: 'First-line treatment for mild-to-moderate psoriasis. NICE recommended.' },
+    'calcipotriol':      { name: 'Vitamin D analogues (calcipotriol)',          ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Topical',   icon: ICONS.topical,  desc: 'Slows skin cell division — effective without the skin thinning risk of steroids.' },
+    'calbd-combo':       { name: 'Calcipotriol + betamethasone (Dovobet)',      ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Topical',   icon: ICONS.topical,  desc: 'The best-evidenced topical: 73% PASI reduction vs 49% and 63% for each ingredient alone.' },
+    'scalp-treatment':   { name: 'Scalp-specific treatments',                  ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Topical',   icon: ICONS.topical,  desc: 'Cochrane review (59 RCTs, n=11,561) — combination gel is the most effective option.' },
+    'phototherapy':      { name: 'Phototherapy (NB-UVB)',                      ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Medical',   icon: ICONS.medical,  desc: '70% PASI75 in the largest meta-analysis. Home devices now proven non-inferior to clinic.' },
+    'methotrexate':      { name: 'Methotrexate',                               ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Medical',   icon: ICONS.medical,  desc: 'Most widely used oral systemic worldwide. NICE first-line before biologics.' },
+    'il17-biologics':    { name: 'IL-17 inhibitors (secukinumab/ixekizumab)',  ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Medical',   icon: ICONS.medical,  desc: '70–74% of patients achieve PASI90. Among the most effective treatments available.' },
+    'il23-biologics':    { name: 'IL-23 inhibitors (risankizumab/guselkumab)', ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Medical',   icon: ICONS.medical,  desc: 'Best long-term remission data. Injections every 12 weeks. NICE-approved.' },
+    'cyclosporine':      { name: 'Cyclosporine',                               ev: 'ev-high', evLabel: 'Strong evidence',   evRank: 0, cat: 'Medical',   icon: ICONS.medical,  desc: 'Fast-acting oral treatment for rapid disease control — used for severe flares.' },
+    'apremilast':        { name: 'Apremilast (Otezla)',                        ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Medical',   icon: ICONS.medical,  desc: 'Oral tablet — no injections, no blood monitoring. For moderate disease.' },
+    'mediterranean-diet':{ name: 'Mediterranean-style diet',                   ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Diet',      icon: ICONS.diet,     desc: '47% PASI75 vs 0% in controls in the 2025 MEDIPSO RCT. Upgraded from Moderate.' },
+    'weight-management': { name: 'Weight management',                          ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Diet',      icon: ICONS.diet,     desc: 'Meta-analysis of 13 RCTs. Also improves biologic and methotrexate treatment response.' },
+    'alcohol-reduction': { name: 'Alcohol reduction',                          ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Diet',      icon: ICONS.diet,     desc: 'Dose-response association — heavy drinking worsens severity and reduces treatment efficacy.' },
+    'stress-management': { name: 'Stress management (MBSR)',                   ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Mind & Body', icon: ICONS.mindbody, desc: 'Kabat-Zinn\'s study showed 4× faster clearing in combination with phototherapy.' },
+    'cbt':               { name: 'CBT for psoriasis',                          ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Mind & Body', icon: ICONS.mindbody, desc: 'Addresses shame, avoidance, body image — shown to improve QoL and self-management.' },
+    'exercise':          { name: 'Regular exercise',                           ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Mind & Body', icon: ICONS.mindbody, desc: 'Reduces systemic inflammation. Particularly important given psoriasis cardiovascular risk.' },
+    'smoking-cessation': { name: 'Smoking cessation',                          ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Mind & Body', icon: ICONS.mindbody, desc: 'Smoking predicts worse severity and reduces biologic efficacy. Consistent across large cohorts.' },
+    'vitamin-d-oral':    { name: 'Vitamin D supplementation',                  ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Supplements', icon: ICONS.supps,   desc: 'Evidence contested — 2025 NMA of 21 trials found significant PASI reduction; 2023 meta-analyses were mixed.' },
+    'dithranol':         { name: 'Dithranol (anthralin)',                       ev: 'ev-good', evLabel: 'Good evidence',     evRank: 1, cat: 'Topical',   icon: ICONS.topical,  desc: 'Well-evidenced but rarely used now — stains, requires short-contact protocol.' },
+    'coal-tar':          { name: 'Coal tar preparations',                       ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Topical',   icon: ICONS.topical,  desc: 'Stronger evidence for scalp formulations than body plaques (NMA: no better than placebo on body).' },
+    'mahonia':           { name: 'Mahonia aquifolium (Oregon grape)',           ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Topical',   icon: ICONS.topical,  desc: 'OTC herbal topical. 3 clinical trials, 2 systematic reviews. Almost never discussed in NHS settings.' },
+    'curcumin':          { name: 'Turmeric / curcumin',                        ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Supplements', icon: ICONS.supps,   desc: 'Small RCTs show anti-inflammatory benefit. Grade B recommendation from 2023 dermatology review.' },
+    'omega-3':           { name: 'Omega-3 fatty acids',                        ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Supplements', icon: ICONS.supps,   desc: '2019 meta-analysis of 13 RCTs found no significant PASI effect. Better evidence for joint symptoms.' },
+    'gluten-free':       { name: 'Gluten-free diet',                           ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Diet',      icon: ICONS.diet,     desc: 'Relevant only if antibody-positive for anti-gliadin. No benefit in unselected patients.' },
+    'yoga':              { name: 'Yoga & relaxation',                          ev: 'ev-med',  evLabel: 'Moderate evidence', evRank: 2, cat: 'Mind & Body', icon: ICONS.mindbody, desc: 'Measurable QoL improvements in small trials. Combines exercise benefit with stress reduction.' },
+    'probiotics':        { name: 'Probiotics',                                 ev: 'ev-low',  evLabel: 'Limited evidence',  evRank: 3, cat: 'Supplements', icon: ICONS.supps,   desc: 'Inconsistent results across trials — some show PASI benefit, others no effect.' }
+  };
+
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem('psoriasis_selectedTreatments') || '[]'); } catch(e) { saved = []; }
+
+  var picked = [];
+  var cardList   = document.getElementById('cardList');
+  var pill       = document.getElementById('shortlistCountPill');
+  var cta        = document.getElementById('shortlistCta');
+  var swapHint   = document.getElementById('swapHint');
+
+  if (pill) pill.textContent = saved.length + ' saved';
+
+  if (saved.length === 0) {
+    cardList.innerHTML = '<div class="sl-empty">You haven\'t saved any treatments yet.<br><br><a href="flow-a-start.html">Go back and save some →</a></div>';
+  } else {
+    var sorted = saved.slice().sort(function(a, b) {
+      var ra = CATALOG[a.id] ? CATALOG[a.id].evRank : 99;
+      var rb = CATALOG[b.id] ? CATALOG[b.id].evRank : 99;
+      return ra - rb;
+    });
+
+    var lastRank = -1;
+    var RANK_LABELS = { 0: 'Strong evidence', 1: 'Good evidence', 2: 'Moderate evidence', 3: 'Limited evidence' };
+
+    sorted.forEach(function(t) {
+      var info = CATALOG[t.id];
+      var rank = info ? info.evRank : 99;
+      if (rank !== lastRank && lastRank !== -1) {
+        var div = document.createElement('div');
+        div.className = 'sl-divider';
+        div.innerHTML = '<span class="sl-divider-label">' + (RANK_LABELS[rank] || 'Other') + '</span>';
+        cardList.appendChild(div);
+      }
+      lastRank = rank;
+      var ev = info ? info.ev : 'ev-low';
+      var evLabel = info ? info.evLabel : '';
+      var cat = info ? info.cat : '';
+      var icon = info ? info.icon : '';
+      var desc = info ? info.desc : '';
+      var name = info ? info.name : t.name;
+      var card = document.createElement('div');
+      card.className = 'sl-card ani';
+      card.id = 'card-' + t.id;
+      card.innerHTML =
+        '<div class="sl-check"><svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg></div>' +
+        '<div class="sl-card-body">' +
+          '<div class="sl-card-meta"><span class="evchip-flow ' + ev + '"><span class="ev-dot"></span>' + evLabel + '</span><span class="chip-cat-flow">' + icon + cat + '</span></div>' +
+          '<div class="sl-card-title">' + name + '</div>' +
+          (desc ? '<div class="sl-card-desc">' + desc + '</div>' : '') +
+        '</div>';
+      card.addEventListener('click', function() { toggle(t.id); });
+      cardList.appendChild(card);
+    });
+
+    var note = document.createElement('div');
+    note.style.cssText = 'background:rgba(255,255,255,.45);border:1px solid var(--border-hairline);border-radius:14px;padding:14px 16px;font-size:13px;color:var(--ink-600);line-height:1.55;margin-top:4px;';
+    note.innerHTML = '<strong style="color:var(--ink-800);">Why start with 3?</strong> Trying changes one at a time means you can tell what\'s actually helping. Your plan will sequence these — start whichever feels right, then move to the next.';
+    cardList.appendChild(note);
+  }
+
+  function toggle(id) {
+    var idx = picked.indexOf(id);
+    if (idx !== -1) { picked.splice(idx, 1); }
+    else {
+      if (picked.length >= MAX) { showSwapHint(); return; }
+      picked.push(id);
+    }
+    updateUI();
+  }
+
+  function showSwapHint() {
+    swapHint.style.display = 'block';
+    clearTimeout(swapHint._t);
+    swapHint._t = setTimeout(function() { swapHint.style.display = 'none'; }, 3000);
+  }
+
+  function updateUI() {
+    saved.forEach(function(t) {
+      var card = document.getElementById('card-' + t.id);
+      if (!card) return;
+      if (picked.indexOf(t.id) !== -1) card.classList.add('picked');
+      else card.classList.remove('picked');
+    });
+    var n = picked.length;
+    if (n === 0) {
+      cta.style.opacity = '0.4'; cta.style.pointerEvents = 'none';
+      cta.innerHTML = 'Select treatments to continue <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    } else {
+      cta.style.opacity = '1'; cta.style.pointerEvents = 'auto';
+      cta.innerHTML = 'Create my plan with ' + n + ' treatment' + (n !== 1 ? 's' : '') + ' <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

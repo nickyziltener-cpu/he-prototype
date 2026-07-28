@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein Plan · Psoriasis-Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #FDF4E6 0%, #FAF2E4 65%, #F0F5EE 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -80px; width: 360px; height: 360px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 18%, transparent 70%);
+      opacity: .35; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -60px; left: -60px; width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .24; pointer-events: none; z-index: 0;
+    }
+    #planList .ptl-item:last-child .ptl-line { visibility: hidden; }
+    .drag-handle { cursor: grab; padding: 6px 4px; color: var(--ink-400); display: flex; align-items: center; flex-shrink: 0; touch-action: none; }
+    .drag-handle:active { cursor: grabbing; }
+    .drag-handle svg { width: 14px; height: 18px; fill: currentColor; }
+    .ptl-item--ghost { opacity: 0.35; }
+    .ptl-item--chosen .ptl-card { box-shadow: 0 8px 28px rgba(196,123,43,0.18); transform: scale(1.01); }
+    .ptl-item--drag * { pointer-events: none; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero">
+    <div style="display:flex;align-items:center;margin-bottom:14px;">
+      <span class="flow-count-pill" style="margin-bottom:0;background:rgba(196,123,43,0.14);color:var(--primary-dk);">✦ Plan erstellt</span>
+    </div>
+    <h1 class="flow-hero-title">Dein Plan</h1>
+    <p class="flow-hero-sub">Eine Erprobung nach der anderen — damit du weißt, was wirklich wirkt. Nicht mit der Reihenfolge zufrieden? Ziehe eine Behandlung, um die Sequenz zu ändern.</p>
+  </div>
+
+  <div class="flow-body" style="padding-bottom:140px;">
+
+    <div id="planList" class="plan-timeline ani">
+
+      <!-- Erprobung 1: Emollienzien -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker active"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card active-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status active-st" data-pos-label>Starte hier</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.42 1.24 4.55 3.12 5.79L7.5 18h9l-.62-3.21A7 7 0 0 0 19 9c0-3.87-3.13-7-7-7z"/></svg>
+              Topisch
+            </span>
+            <div class="drag-handle" title="Ziehen zum Umsortieren">
+              <svg viewBox="0 0 10 16">
+                <circle cx="2.5" cy="2.5" r="1.5"/><circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
+                <circle cx="2.5" cy="13.5" r="1.5"/><circle cx="7.5" cy="13.5" r="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="ptl-card-title">Emollienzien &amp; Feuchtigkeitspflege</div>
+          <div class="ptl-card-meta">Tägliche Gewohnheit · OTC — Apotheke · Auswertung nach 4–6 Wochen</div>
+          <div class="ptl-card-why">Geringer Aufwand, höchste Grundwirkung — alles andere funktioniert besser, wenn du das konsequent machst.</div>
+          <a href="flow-b-prepare.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:700;color:var(--primary-dk);text-decoration:none;" onclick="event.stopPropagation();">
+            Anleitung ansehen
+            <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Erprobung 2: MBSR -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st" data-pos-label>Dann</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+              Geist &amp; Körper
+            </span>
+            <div class="drag-handle" title="Ziehen zum Umsortieren">
+              <svg viewBox="0 0 10 16">
+                <circle cx="2.5" cy="2.5" r="1.5"/><circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
+                <circle cx="2.5" cy="13.5" r="1.5"/><circle cx="7.5" cy="13.5" r="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="ptl-card-title">Stressmanagement (MBSR)</div>
+          <div class="ptl-card-meta">8-wöchiges strukturiertes Programm · tägliche Praxis · online verfügbar</div>
+          <div class="ptl-card-why">Adressiert den Stress-Haut-Kreislauf — besonders wenn Stress ein bekannter Auslöser für dich ist.</div>
+        </div>
+      </div>
+
+      <!-- Erprobung 3: Mediterrane Ernährung -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st" data-pos-label>Schließlich</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+              Ernährung
+            </span>
+            <div class="drag-handle" title="Ziehen zum Umsortieren">
+              <svg viewBox="0 0 10 16">
+                <circle cx="2.5" cy="2.5" r="1.5"/><circle cx="7.5" cy="2.5" r="1.5"/>
+                <circle cx="2.5" cy="8" r="1.5"/><circle cx="7.5" cy="8" r="1.5"/>
+                <circle cx="2.5" cy="13.5" r="1.5"/><circle cx="7.5" cy="13.5" r="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="ptl-card-title">Mediterrane Ernährung</div>
+          <div class="ptl-card-meta">Langfristige Lebensstiländerung · ergänzt die Achtsamkeitspraxis</div>
+          <div class="ptl-card-why">Entzündungshemmende Ernährung — ergänzt sich gut mit der Achtsamkeitsarbeit aus Erprobung 2.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Prototyp-Hinweis -->
+    <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(253,244,230,0.7);border:1px solid rgba(196,123,43,0.24);border-radius:14px;padding:13px 14px;margin-bottom:2px;" class="ani">
+      <span style="font-size:15px;flex-shrink:0;margin-top:1px;">🧪</span>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:rgba(140,90,30,0.7);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Prototyp-Hinweis</div>
+        <div style="font-size:12px;color:var(--ink-600);line-height:1.55;">Dieser Plan verwendet <strong style="color:var(--ink-800);">Emollienzien, MBSR</strong> und <strong style="color:var(--ink-800);">Mediterrane Ernährung</strong>, um die vollständige Erfahrung zu demonstrieren. In der echten App spiegelt dein Plan genau das wider, was du in der Kurzliste ausgewählt hast.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan.html" class="tab-item active">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+  <div class="cta-bar-sticky">
+    <a href="flow-b-prepare.html" class="cta-btn-full">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      <span data-cta-label>Erprobung 1 starten · Emollienzien</span>
+    </a>
+    <a href="flow-a-shortlist.html" class="secondary-link" style="margin-top:12px;">Andere Behandlung wählen?</a>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script>
+  var POSITION_LABELS = ['Starte hier', 'Dann', 'Schließlich'];
+  function updatePositionLabels() {
+    var items = document.querySelectorAll('#planList .ptl-item');
+    items.forEach(function(item, i) {
+      var label = item.querySelector('[data-pos-label]');
+      if (label) label.textContent = POSITION_LABELS[i] || 'Später';
+      var card = item.querySelector('.ptl-card');
+      var status = item.querySelector('.ptl-status');
+      var marker = item.querySelector('.ptl-marker');
+      if (i === 0) {
+        card.classList.add('active-card');
+        if (status) status.className = 'ptl-status active-st';
+        if (marker) marker.className = 'ptl-marker active';
+      } else {
+        card.classList.remove('active-card');
+        if (status) status.className = 'ptl-status upcoming-st';
+        if (marker) marker.className = 'ptl-marker next';
+      }
+    });
+    var firstItem = document.querySelector('#planList .ptl-item:first-child');
+    var firstName = firstItem && firstItem.querySelector('.ptl-card-title');
+    var firstGuide = firstItem && firstItem.querySelector('a[href]');
+    var ctaLabel = document.querySelector('[data-cta-label]');
+    var ctaBtn = document.querySelector('.cta-btn-full');
+    if (firstName && ctaLabel) ctaLabel.textContent = 'Erprobung 1 starten · ' + firstName.textContent;
+    if (firstGuide && ctaBtn) ctaBtn.setAttribute('href', firstGuide.getAttribute('href'));
+  }
+  Sortable.create(document.getElementById('planList'), {
+    handle: '.drag-handle',
+    animation: 150,
+    ghostClass: 'ptl-item--ghost',
+    chosenClass: 'ptl-item--chosen',
+    dragClass: 'ptl-item--drag',
+    onEnd: updatePositionLabels
+  });
+</script>
+
+</body>
+</html>

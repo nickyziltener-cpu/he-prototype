@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Psoriasis (Schuppenflechte)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background:
+        radial-gradient(ellipse 60% 50% at 15% 20%, rgba(232,168,74,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 60% at 88% 75%, rgba(196,123,43,0.16) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 40% at 50% 95%, rgba(242,224,200,0.30) 0%, transparent 80%),
+        linear-gradient(135deg, #FDF8F0 0%, #FAF2E4 45%, #F5EBD5 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    @keyframes bloom-in { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fade-in  { from { opacity: 0; } to   { opacity: 1; } }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+
+    .welcome-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 52px 24px 64px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-logo { margin-bottom: 40px; opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards; }
+
+    .stat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,123,43,0.10); border: 1px solid rgba(196,123,43,0.22);
+      border-radius: 9999px; padding: 6px 14px 6px 10px;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      color: var(--primary-dk); margin-bottom: 24px;
+      opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards;
+    }
+    .stat-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px; color: var(--ink-900);
+      line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.015em;
+    }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .hl-line:nth-child(1) { animation: write-reveal 0.55s ease-out 0.5s  forwards; }
+    .hl-line:nth-child(2) { animation: write-reveal 0.55s ease-out 1.0s forwards; }
+    .hl-line:nth-child(3) { animation: write-reveal 0.45s ease-out 1.5s forwards; }
+    .hl-line:nth-child(4) { animation: write-reveal 0.35s ease-out 1.85s forwards; }
+
+    .hero-sub {
+      font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 400;
+      color: var(--ink-700); line-height: 1.6; margin-bottom: 28px;
+      opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards;
+    }
+    .cta-section {
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards;
+    }
+    .cta-section .btn-primary { width: 100%; max-width: 360px; }
+    .trust-block.glass-card { opacity: 0; animation: fade-in 1.4s ease-out 2.4s forwards; margin-bottom: 32px; }
+
+    .trust-icon { width: 20px; height: 20px; min-width: 20px; stroke-width: 1.75; flex-shrink: 0; color: var(--primary); }
+
+    @media (max-width: 600px) {
+      .hero-headline { font-size: 28px; }
+      .hero-sub { font-size: 15px; }
+      .welcome-wrapper { padding: 36px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-wrapper">
+
+    <div class="nav-logo">
+      <span class="logo">Psoriasis-Behandlungswege</span>
+    </div>
+
+    <div class="stat-pill">Psoriasis betrifft etwa 2 von 100 Menschen in Deutschland</div>
+
+    <h1 class="hero-headline">
+      <span class="hl-line">Deine Haut sendet</span>
+      <span class="hl-line">ein Signal.</span>
+      <span class="hl-line">Was die Wissenschaft</span>
+      <span class="hl-line">dazu sagt.</span>
+    </h1>
+
+    <p class="hero-sub">Psoriasis (Schuppenflechte) ist komplex, sichtbar und wird oft schlecht behandelt. Wir helfen dir, die Evidenz hinter jeder Behandlung zu verstehen — nach Stärke bewertet — damit du fundierte Entscheidungen gemeinsam mit deiner Dermatologin treffen kannst.</p>
+
+    <div class="trust-block glass-card">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        Jede Behandlung basiert auf echter, peer-reviewter Forschung — keine Anekdoten, keine Influencer-Behauptungen.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Evidenz nach Stärke bewertet — Stark, Gut, Moderat, Begrenzt — damit du siehst, was gut belegt und was noch neu ist.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Deckt topische Behandlungen, Ernährung, Nahrungsergänzung, Geist &amp; Körper und medizinische Optionen ab.
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" class="trust-icon" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Erstelle einen personalisierten Plan — eine Behandlung nach der anderen — damit du weißt, was wirklich hilft.
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <a href="start.html" class="btn-primary">Los geht's</a>
+      <a href="#" class="secondary-link">Schon ein Konto? Anmelden</a>
+      <p class="disclaimer-note">Dies ist ein Informationswerkzeug, kein medizinisches Empfehlungssystem. Sprich immer mit deiner Ärztin, deinem Arzt oder deiner Dermatologin.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

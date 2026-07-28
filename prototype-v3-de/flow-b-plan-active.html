@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Plan · Aktive Studie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 65%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 18%, transparent 70%);
+      opacity: .38;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .28;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .trial-progress-bar {
+      height: 5px;
+      border-radius: 100px;
+      background: rgba(140,108,171,.15);
+      overflow: hidden;
+      margin-top: 5px;
+    }
+    .trial-progress-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--plum-500), var(--plum-300));
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero">
+    <div style="display:flex;align-items:center;margin-bottom:14px;">
+      <span class="flow-count-pill flow-count-pill--plum" style="margin-bottom:0;">◉ Studie läuft</span>
+    </div>
+    <h1 class="flow-hero-title">Dein Plan</h1>
+    <p class="flow-hero-sub">Pfefferminzöl ist aktiv — weiter so. Studien 2 und 3 werden freigeschaltet, wenn du fertig bist.</p>
+  </div>
+
+  <!-- Plan list -->
+  <div class="flow-body" style="padding-bottom:140px;">
+
+    <div class="plan-timeline ani">
+
+      <!-- Trial 1 — AKTIV -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker active"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card active-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status active-st">Aktiv</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg>
+              Nahrungsergänzung
+            </span>
+          </div>
+          <div class="ptl-card-title">Pfefferminzöl</div>
+          <div class="ptl-card-meta">4 Wochen in Studien · typischerweise 8–12€ · magensaftresistent</div>
+
+          <!-- Inline progress -->
+          <div style="margin:12px 0 4px;">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-600);margin-bottom:5px;font-family:'JetBrains Mono',monospace;">
+              <span>Woche 2 von 4</span>
+              <span>50%</span>
+            </div>
+            <div class="trial-progress-bar">
+              <div class="trial-progress-fill" style="width:50%"></div>
+            </div>
+            <div style="font-size:11px;color:var(--ink-500);margin-top:5px;font-family:'JetBrains Mono',monospace;">11 von 14 Tagen dokumentiert</div>
+          </div>
+
+          <!-- Quick links -->
+          <div style="display:flex;gap:16px;margin-top:12px;">
+            <a href="flow-b-checkin.html" style="font-size:12px;font-weight:700;color:var(--plum-500);text-decoration:none;display:inline-flex;align-items:center;gap:4px;" onclick="event.stopPropagation();">
+              Heute eintragen
+              <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="flow-b-progress.html" style="font-size:12px;font-weight:700;color:var(--ink-500);text-decoration:none;display:inline-flex;align-items:center;gap:4px;" onclick="event.stopPropagation();">
+              Fortschritt ansehen
+              <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trial 2 — upcoming -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st">Dann</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+              Ernährung
+            </span>
+          </div>
+          <div class="ptl-card-title">Low-FODMAP-Diät</div>
+          <div class="ptl-card-meta">~8 Wochen in Studien · höherer Aufwand · mit Ernährungsberatung</div>
+          <div class="ptl-card-why">Stärkere Evidenzdecke — der zusätzliche Aufwand lohnt sich.</div>
+          <a href="flow-b-trial-fodmap.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:700;color:var(--ink-500);text-decoration:none;" onclick="event.stopPropagation();">
+            Leitfaden vorschau
+            <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Trial 3 — upcoming -->
+      <div class="ptl-item">
+        <div class="ptl-rail">
+          <span class="ptl-marker next"></span>
+          <span class="ptl-line"></span>
+        </div>
+        <div class="ptl-card">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="ptl-status upcoming-st">Zuletzt</span>
+            <span class="chip-cat-flow" style="margin-left:auto;">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2"/></svg>
+              Geist &amp; Körper
+            </span>
+          </div>
+          <div class="ptl-card-title">Darmgerichtete Hypnotherapie</div>
+          <div class="ptl-card-meta">8 Sitzungen in Studien · ~12 Wochen · Online-Programme verfügbar</div>
+          <div class="ptl-card-why">Spricht die Darm-Gehirn-Achse an — gut kombinierbar mit Ernährungsänderungen.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item active">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="#" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+  <!-- Sticky CTA -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-checkin.html" class="cta-btn-full">
+      <svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M5 4v16"/></svg>
+      Heutigen Check-in eintragen
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

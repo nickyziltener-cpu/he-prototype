@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today · Already Logged</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #f5f1f8 0%, #faf7f4 55%, #eef4f1 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--plum-300) 0%, var(--plum-500) 20%, transparent 70%);
+      opacity: .22;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -40px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--sage-300) 0%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <!-- Status bar -->
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero band — slightly plum-shifted -->
+  <div style="background:linear-gradient(170deg, #f3eef8 0%, #faf7f4 65%, #eef4f1 100%);padding:16px 24px 28px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-30px;right:-50px;width:180px;height:180px;background:radial-gradient(circle,var(--plum-300) 0%,var(--plum-500) 20%,transparent 70%);opacity:.28;pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;background:radial-gradient(circle,var(--sage-300) 0%,transparent 65%);opacity:.35;pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--ink-500);text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px;">Thursday, 18 Jun</div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:28px;line-height:1.1;letter-spacing:-.015em;color:var(--ink-900);margin-bottom:8px;">All logged.</h1>
+      <p style="font-size:14px;line-height:1.55;color:var(--ink-600);">That's 12 of 15 days. Keep it up.</p>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div style="padding:4px 20px 80px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;">
+
+    <!-- Primary card — Today's log summary (green-tinted border) -->
+    <div class="ani" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.85);border-left:3px solid var(--evidence-high);box-shadow:0 8px 24px -10px rgba(140,108,171,0.18);border-radius:18px;padding:18px;">
+      <!-- Logged stamp -->
+      <div style="font-size:11px;font-weight:700;color:var(--evidence-high);letter-spacing:.04em;margin-bottom:12px;">✓ Logged · 9:41am</div>
+      <!-- Two-column data -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+        <div style="background:rgba(74,122,106,.07);border-radius:12px;padding:10px 12px;">
+          <div style="font-size:10px;font-weight:700;color:var(--sage-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Symptoms</div>
+          <div style="font-size:15px;font-weight:700;color:var(--ink-900);">Mild</div>
+        </div>
+        <div style="background:rgba(74,122,106,.07);border-radius:12px;padding:10px 12px;">
+          <div style="font-size:10px;font-weight:700;color:var(--sage-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Peppermint oil</div>
+          <div style="font-size:15px;font-weight:700;color:var(--ink-900);">Taken all</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--ink-600);font-style:italic;margin-bottom:10px;">Bloating, stress noted.</div>
+      <a href="flow-b-checkin.html" style="font-size:12px;font-weight:600;color:var(--plum-500);text-decoration:underline;">Edit today's entry →</a>
+    </div>
+
+    <!-- Secondary card — Progress -->
+    <div class="ani" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.85);box-shadow:0 8px 24px -10px rgba(140,108,171,0.18);border-radius:18px;padding:18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--plum-500);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px;">Symptoms · last 14 days</div>
+      <!-- Mini trend bars — 14 bars trending downward -->
+      <div style="display:flex;align-items:flex-end;gap:4px;height:48px;margin-bottom:10px;">
+        <div style="flex:1;height:44px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--plum-700),var(--plum-300));opacity:.7;"></div>
+        <div style="flex:1;height:44px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--plum-700),var(--plum-300));opacity:.7;"></div>
+        <div style="flex:1;height:40px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--plum-700),var(--plum-300));opacity:.65;"></div>
+        <div style="flex:1;height:38px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--ember-500),var(--ember-300));opacity:.7;"></div>
+        <div style="flex:1;height:36px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--ember-500),var(--ember-300));opacity:.65;"></div>
+        <div style="flex:1;height:32px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--ember-500),var(--ember-300));opacity:.7;"></div>
+        <div style="flex:1;height:28px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--ember-300),#f7e0c8);opacity:.7;"></div>
+        <div style="flex:1;height:26px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.7;"></div>
+        <div style="flex:1;height:24px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.75;"></div>
+        <div style="flex:1;height:20px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.7;"></div>
+        <div style="flex:1;height:18px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.75;"></div>
+        <div style="flex:1;height:16px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.7;"></div>
+        <div style="flex:1;height:14px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.8;"></div>
+        <div style="flex:1;height:12px;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.8;"></div>
+      </div>
+      <div style="font-size:13px;color:var(--ink-600);line-height:1.5;margin-bottom:10px;">Week-over-week improvement. Trial review in 2 weeks.</div>
+      <a href="flow-b-progress.html" style="font-size:13px;font-weight:600;color:var(--plum-500);text-decoration:underline;">Full progress view →</a>
+    </div>
+
+    <!-- Tertiary card — next steps nudge -->
+    <div class="ani" style="background:rgba(255,255,255,0.60);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.75);box-shadow:0 4px 16px -8px rgba(140,108,171,0.12);border-radius:18px;padding:16px;">
+      <div style="font-size:14px;font-weight:700;color:var(--ink-900);font-family:'Manrope',sans-serif;margin-bottom:5px;">Low FODMAP is up next · Trial 2</div>
+      <div style="font-size:12px;color:var(--ink-600);line-height:1.55;margin-bottom:10px;">After your 4-week peppermint oil trial. 8 weeks, diet-based.</div>
+      <a href="flow-b-plan.html" style="font-size:13px;font-weight:600;color:var(--plum-500);text-decoration:underline;">See what's coming →</a>
+    </div>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-logged.html" class="tab-item active">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

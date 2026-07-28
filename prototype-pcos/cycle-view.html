@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cycle · PCOS Treatment Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #faf4f7 0%, #faf7f4 50%, #f0f7f2 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 15%, transparent 70%); opacity: .32; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+    .cycle-hero { padding: 18px 24px 14px; position: relative; z-index: 1; }
+    .cycle-hero-toprow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .cycle-hero-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--ink-900); }
+    .cycle-hero-sub { font-size: 13.5px; color: var(--ink-600); margin-top: 4px; }
+    .cycle-body { padding: 0 24px; position: relative; z-index: 1; }
+    .cv-section { margin-bottom: 22px; }
+    .cv-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .cv-section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: var(--ink-500); }
+    .phase-bar-expanded-wrapper { position: relative; margin-bottom: 10px; }
+    .phase-labels { display: flex; justify-content: space-between; font-size: 10px; font-weight: 500; color: var(--ink-500); margin-top: 6px; padding: 0 2px; }
+    .phase-label-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .phase-label-name { font-size: 10px; font-weight: 600; }
+    .phase-label-days { font-size: 9px; color: var(--ink-400); }
+    .you-are-here-label { position: absolute; bottom: -22px; right: 16%; transform: translateX(50%); font-size: 10px; font-weight: 700; color: var(--rose-500); white-space: nowrap; }
+    .phase-detail-card { background: rgba(184,84,114,0.07); border: 1px solid rgba(224,122,150,0.22); border-radius: 16px; padding: 14px 16px; margin-bottom: 10px; }
+    .phase-detail-name { font-size: 15px; font-weight: 800; color: var(--ink-900); margin-bottom: 4px; }
+    .phase-detail-day { font-size: 12.5px; color: var(--rose-500); font-weight: 600; margin-bottom: 8px; }
+    .phase-detail-text { font-size: 13px; color: var(--ink-700); line-height: 1.55; }
+    .phase-symptoms-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .phase-symptom-tag { font-size: 11.5px; font-weight: 600; color: var(--ink-700); background: rgba(224,122,150,0.12); border: 1px solid rgba(224,122,150,0.22); border-radius: 8px; padding: 3px 9px; }
+    .pcos-note { font-size: 12px; color: var(--ink-500); font-style: italic; margin-top: 8px; }
+    .symptom-log-card { background: rgba(255,255,255,0.62); border: 1px solid rgba(42,31,48,0.09); border-radius: 16px; overflow: hidden; }
+    .sym-log-row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid rgba(42,31,48,0.07); }
+    .sym-log-row:last-child { border-bottom: none; }
+    .sym-log-phase-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .sym-log-phase { font-size: 12px; font-weight: 600; color: var(--ink-700); width: 72px; flex-shrink: 0; }
+    .sym-log-tags { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
+    .sym-tag { font-size: 11px; font-weight: 500; color: var(--ink-600); background: rgba(42,31,48,0.06); border-radius: 6px; padding: 2px 7px; }
+    .sym-tag.prominent { background: rgba(224,122,150,0.14); color: var(--rose-700); }
+    .compare-card { background: rgba(168,165,212,0.10); border: 1px solid rgba(168,165,212,0.24); border-radius: 16px; padding: 16px; }
+    .compare-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .compare-row:last-child { margin-bottom: 0; }
+    .compare-metric { font-size: 12.5px; font-weight: 600; color: var(--ink-800); width: 90px; flex-shrink: 0; }
+    .compare-before { text-align: center; font-size: 11.5px; color: var(--ink-500); flex: 1; }
+    .compare-arrow { font-size: 14px; color: var(--sage-500); }
+    .compare-after { text-align: center; font-size: 13px; font-weight: 700; color: var(--ink-900); flex: 1; }
+    .compare-header { display: flex; gap: 10px; margin-bottom: 8px; }
+    .compare-col-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-500); }
+    .cycle-update-form { background: rgba(255,255,255,0.60); border: 1px solid rgba(42,31,48,0.10); border-radius: 16px; padding: 16px; }
+    .form-row { display: flex; gap: 10px; align-items: center; }
+    .form-label { font-size: 13px; font-weight: 600; color: var(--ink-800); flex: 1; }
+    .form-input { background: rgba(255,255,255,0.80); border: 1px solid rgba(42,31,48,0.14); border-radius: 10px; padding: 8px 12px; font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--ink-800); width: 130px; }
+    .form-save-btn { background: var(--rose-500); color: #fff; border: none; border-radius: 10px; padding: 9px 14px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+    .form-note { font-size: 11.5px; color: var(--ink-500); margin-top: 8px; line-height: 1.5; }
+    .checkin-cta-card { background: linear-gradient(135deg, rgba(224,122,150,0.14), rgba(184,84,114,0.08)); border: 1.5px solid rgba(224,122,150,0.30); border-radius: 18px; padding: 18px; display: flex; gap: 14px; align-items: center; margin-bottom: 20px; }
+    .checkin-cta-icon { font-size: 28px; flex-shrink: 0; }
+    .checkin-cta-body { flex: 1; }
+    .checkin-cta-title { font-size: 15px; font-weight: 800; color: var(--ink-900); margin-bottom: 3px; }
+    .checkin-cta-sub { font-size: 12.5px; color: var(--ink-600); line-height: 1.4; }
+    .checkin-cta-btn { background: var(--rose-500); color: #fff; border: none; border-radius: 12px; padding: 10px 16px; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 10px; }
+    .spacer-tb { height: 80px; }
+  </style>
+</head>
+<body>
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;"><span>9:41</span><span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span></div>
+
+  <div class="cycle-hero">
+    <div class="cycle-hero-toprow">
+      <div>
+        <div class="cycle-hero-title">Your cycle</div>
+        <div class="cycle-hero-sub">~Day 22 of an estimated 31-day cycle</div>
+      </div>
+      <div style="font-size:11px;font-weight:600;color:var(--rose-500);text-align:right;">Tracking<br><span style="font-size:14px;font-family:'DM Serif Display',serif;color:var(--ink-900);">4 weeks</span></div>
+    </div>
+  </div>
+
+  <div class="cycle-body">
+
+    <!-- Period start — first-class event card -->
+    <div class="cv-section" style="margin-bottom:18px;">
+      <div style="background:linear-gradient(135deg,rgba(224,122,150,0.12),rgba(184,84,114,0.06));border:1.5px solid rgba(224,122,150,0.30);border-radius:18px;padding:16px 18px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <div>
+            <div style="font-size:14px;font-weight:800;color:var(--ink-900);">Period started?</div>
+            <div style="font-size:12px;color:var(--ink-600);margin-top:2px;">Log your period start to keep your phase bar accurate</div>
+          </div>
+          <div style="font-size:26px;">🌸</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <input type="date" class="form-input" id="cycleStartInput" value="2026-07-02" style="flex:1;">
+          <button class="form-save-btn" onclick="saveCycleStart()">Update</button>
+        </div>
+        <div class="form-note">PCOS cycles are irregular — log each period start as it happens. This triggers a phase review summary.</div>
+      </div>
+    </div>
+
+    <!-- Expanded Phase Bar -->
+    <div class="cv-section">
+      <div class="cv-section-title" style="margin-bottom:12px;">Cycle phases</div>
+      <div class="phase-bar-expanded-wrapper">
+        <div class="phase-bar phase-bar-expanded">
+          <div class="phase-seg-menstrual"></div>
+          <div class="phase-seg-follicular"></div>
+          <div class="phase-seg-ovulatory"></div>
+          <div class="phase-seg-luteal"></div>
+          <div class="phase-you-are-here" style="right:16%;"></div>
+        </div>
+        <div class="you-are-here-label">You are here</div>
+      </div>
+      <div class="phase-labels" style="margin-top:28px;">
+        <div class="phase-label-item"><span class="phase-label-name" style="color:rgba(184,84,114,0.80);">Menstrual</span><span class="phase-label-days">~Days 1–5</span></div>
+        <div class="phase-label-item"><span class="phase-label-name" style="color:rgba(195,140,90,0.80);">Follicular</span><span class="phase-label-days">~Days 6–14</span></div>
+        <div class="phase-label-item"><span class="phase-label-name" style="color:rgba(120,110,180,0.85);">Ovulatory</span><span class="phase-label-days">~Days 13–16</span></div>
+        <div class="phase-label-item"><span class="phase-label-name" style="color:rgba(110,70,150,0.85);">Luteal</span><span class="phase-label-days">~Days 16–31</span></div>
+      </div>
+
+      <!-- PCOS irregularity note -->
+      <div style="font-size:12px;color:var(--ink-500);font-style:italic;margin-top:12px;padding:8px 12px;background:rgba(224,122,150,0.06);border-radius:10px;border:1px solid rgba(224,122,150,0.14);">
+        <strong style="font-style:normal;color:var(--rose-500);">PCOS note:</strong> The follicular phase is often extended in PCOS — that's what causes longer or irregular cycles. The tilde (~) marks estimated days, not fixed ones. Update your cycle start date to keep this accurate.
+      </div>
+    </div>
+
+    <!-- Current Phase Detail -->
+    <div class="cv-section">
+      <div class="cv-section-title">Now: Luteal phase</div>
+      <div class="phase-detail-card">
+        <div class="phase-detail-name">Luteal phase</div>
+        <div class="phase-detail-day">~Day 22 · ~9 days until next period (estimated)</div>
+        <div class="phase-detail-text">After ovulation, progesterone rises and your body prepares for either implantation or the next period. For PCOS users, this phase often comes with more symptoms — the ones logged below are what previous check-ins show for you.</div>
+        <div class="phase-symptoms-row">
+          <div class="phase-symptom-tag">Bloating</div>
+          <div class="phase-symptom-tag">Mood dip</div>
+          <div class="phase-symptom-tag">Fatigue</div>
+          <div class="phase-symptom-tag">Cravings</div>
+        </div>
+        <div class="pcos-note">Based on your last 4 check-ins during this phase</div>
+      </div>
+    </div>
+
+    <!-- Check-in CTA -->
+    <div class="checkin-cta-card">
+      <div class="checkin-cta-icon">📋</div>
+      <div class="checkin-cta-body">
+        <div class="checkin-cta-title">Log today's symptoms</div>
+        <div class="checkin-cta-sub">Haven't checked in today. Consistent tracking builds better pattern data.</div>
+        <a href="flow-b-checkin.html" class="checkin-cta-btn">Check in now</a>
+      </div>
+    </div>
+
+    <!-- Symptom Log by Phase -->
+    <div class="cv-section">
+      <div class="cv-section-header">
+        <div class="cv-section-title">Symptoms by phase</div>
+        <a href="flow-b-progress.html" style="font-size:11px;font-weight:600;color:var(--rose-500);text-decoration:none;">Full data →</a>
+      </div>
+      <div style="font-size:12.5px;color:var(--ink-600);margin-bottom:10px;">What you've logged so far — 4 weeks of data. More check-ins = clearer patterns.</div>
+      <div class="symptom-log-card">
+        <div class="sym-log-row">
+          <div class="sym-log-phase-dot" style="background:rgba(184,84,114,0.70);"></div>
+          <div class="sym-log-phase">Menstrual</div>
+          <div class="sym-log-tags">
+            <div class="sym-tag prominent">Cramps</div>
+            <div class="sym-tag prominent">Fatigue</div>
+          </div>
+        </div>
+        <div class="sym-log-row">
+          <div class="sym-log-phase-dot" style="background:rgba(195,140,90,0.65);"></div>
+          <div class="sym-log-phase">Follicular</div>
+          <div class="sym-log-tags">
+            <div class="sym-tag">Acne</div>
+            <div class="sym-tag">Good energy</div>
+          </div>
+        </div>
+        <div class="sym-log-row">
+          <div class="sym-log-phase-dot" style="background:rgba(120,110,180,0.70);"></div>
+          <div class="sym-log-phase">Ovulatory</div>
+          <div class="sym-log-tags">
+            <div class="sym-tag">Best mood</div>
+          </div>
+        </div>
+        <div class="sym-log-row">
+          <div class="sym-log-phase-dot" style="background:rgba(110,70,150,0.70);"></div>
+          <div class="sym-log-phase">Luteal</div>
+          <div class="sym-log-tags">
+            <div class="sym-tag prominent">Bloating</div>
+            <div class="sym-tag prominent">Mood dip</div>
+            <div class="sym-tag">Fatigue</div>
+            <div class="sym-tag">Cravings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Treatment comparison across phases -->
+    <div class="cv-section">
+      <div class="cv-section-title">Before vs. now (week 1 vs. week 4)</div>
+      <div class="compare-card">
+        <div style="display:flex;gap:10px;margin-bottom:10px;">
+          <div class="compare-metric"></div>
+          <div class="compare-col-header" style="flex:1;text-align:center;">Week 1</div>
+          <div style="width:20px;"></div>
+          <div class="compare-col-header" style="flex:1;text-align:center;">Week 4</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-metric">Bloating</div>
+          <div class="compare-before">5/5 days</div>
+          <div class="compare-arrow">→</div>
+          <div class="compare-after" style="color:var(--sage-500);">3/5 days ↓</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-metric">Energy</div>
+          <div class="compare-before">Low–Okay</div>
+          <div class="compare-arrow">→</div>
+          <div class="compare-after" style="color:var(--sage-500);">Okay–Good ↑</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-metric">Mood dip</div>
+          <div class="compare-before">4/5 days</div>
+          <div class="compare-arrow">→</div>
+          <div class="compare-after" style="color:var(--sage-500);">2/5 days ↓</div>
+        </div>
+        <div style="font-size:11.5px;color:var(--ink-500);margin-top:10px;font-style:italic;">Only 4 weeks of data — cycle data builds over several months. Keep tracking.</div>
+      </div>
+    </div>
+
+    <div class="spacer-tb"></div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="cycle-view.html" class="tab-item active"><span class="tab-icon">◯</span>Cycle</a>
+    <a href="flow-b-plan-active.html" class="tab-item"><span class="tab-icon">✦</span>My Plan</a>
+    <a href="flow-a-overview.html" class="tab-item"><span class="tab-icon">◉</span>Research</a>
+    <a href="#" class="tab-item"><span class="tab-icon">○</span>You</a>
+  </div>
+
+</div>
+<script>
+function saveCycleStart() {
+  var val = document.getElementById('cycleStartInput').value;
+  if (val) {
+    localStorage.setItem('pcos_cycleStart', val);
+    var d = new Date(val + 'T00:00:00');
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    alert('Cycle start updated to ' + d.getDate() + ' ' + months[d.getMonth()] + '. Phase bar will update.');
+  }
+}
+// Pre-fill from storage
+var stored = localStorage.getItem('pcos_cycleStart');
+if (stored) document.getElementById('cycleStartInput').value = stored;
+</script>
+</body>
+</html>

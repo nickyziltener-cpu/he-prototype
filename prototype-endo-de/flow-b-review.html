@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studie 1 abgeschlossen · Auswertung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 65%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 18%, transparent 70%);
+      opacity: .35;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 18%, transparent 70%);
+      opacity: .28;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero">
+    <div style="display:flex;align-items:center;margin-bottom:14px;">
+      <span class="flow-count-pill flow-count-pill--plum" style="margin-bottom:0;">✦ Studie 1 abgeschlossen · 4 Wochen</span>
+    </div>
+    <h1 class="flow-hero-title">Wie hat sich Wärme­therapie angefühlt?</h1>
+    <p class="flow-hero-sub">Deine Entscheidung — deine Aufzeichnungen sollen helfen, nicht entscheiden.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="flow-body">
+
+    <!-- How did it feel? -->
+    <div class="review-seg ani">
+      <div class="review-seg-opt active-opt" onclick="this.parentElement.querySelectorAll('.review-seg-opt').forEach(o=>o.classList.remove('active-opt'));this.classList.add('active-opt');">Geholfen</div>
+      <div class="review-seg-opt" onclick="this.parentElement.querySelectorAll('.review-seg-opt').forEach(o=>o.classList.remove('active-opt'));this.classList.add('active-opt');">Keine Änderung</div>
+      <div class="review-seg-opt" onclick="this.parentElement.querySelectorAll('.review-seg-opt').forEach(o=>o.classList.remove('active-opt'));this.classList.add('active-opt');">Schlechter</div>
+    </div>
+
+    <!-- Data card -->
+    <div class="result-card ani">
+      <div class="result-top">
+        <svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+        Das bestätigen deine Aufzeichnungen
+      </div>
+      <p class="detail-para sm">Über 4 Wochen haben sich deine Symptome von <strong>mittel auf leicht</strong> verbessert, und du hast sie an <strong>26 von 28 Tagen</strong> protokolliert. Das ist ein recht klares Signal für eine einzelne Veränderung.</p>
+    </div>
+
+    <!-- Keep going? -->
+    <div class="keep-block ani">
+      <div class="q-label-flow">Weiter damit, während du die nächste Studie startest?</div>
+      <div class="seg-control">
+        <div class="seg-opt-flow active positive">
+          <svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>
+          Weiter verwenden
+        </div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Pausieren</div>
+      </div>
+      <p class="found-note">Wenn sich alles stabil anfühlt, frag deine Gynäkolog:in, ob du noch alles brauchst, was du nimmst — sie kann dir helfen zu entscheiden, was du beibehältst.</p>
+    </div>
+
+    <!-- Up next -->
+    <div class="up-next-block ani">
+      <div class="up-next-label">Als nächstes · Studie 2</div>
+      <div class="up-next-title">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Entzündungshemmende Ernährung
+      </div>
+      <div class="up-next-meta">~8 Wochen · höherer Aufwand, deshalb haben wir sie aufgespart, bis du einen ersten Erfolg hattest. Wir richten einen Wochen-für-Wochen-Leitfaden ein und führen das Tagebuch parallel zur Wärmetherapie weiter.</div>
+      <a href="flow-b-plan.html" class="up-next-cta">
+        Studie 2 starten
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- GP share -->
+    <a href="#" class="share-link ani">
+      <svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+      Fortschritt mit meiner Gynäkolog:in teilen
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+</html>

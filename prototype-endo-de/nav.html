@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype v3 · Navigationsübersicht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--surface-page); min-height: 100vh; }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .22;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .nav-page { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; position: relative; z-index: 1; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--ink-900); margin-bottom: 6px; }
+    .nav-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--plum-500); margin-bottom: 40px; }
+    .flow-section { margin-bottom: 36px; }
+    .flow-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--plum-500);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .screen-list { display: flex; flex-direction: column; gap: 8px; }
+    .screen-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 4px 12px -6px rgba(140,108,171,.12);
+      text-decoration: none;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .screen-link:hover {
+      box-shadow: 0 8px 24px -10px rgba(140,108,171,.22);
+      border-color: rgba(140,108,171,.3);
+    }
+    .screen-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-500);
+      font-weight: 500;
+      flex-shrink: 0;
+      width: 28px;
+    }
+    .screen-info { flex: 1; }
+    .screen-title { font-size: 15px; font-weight: 700; color: var(--ink-900); }
+    .screen-desc { font-size: 12px; color: var(--ink-600); margin-top: 1px; }
+    .screen-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+    .tag-new { background: rgba(140,108,171,.12); color: var(--plum-700); }
+    .tag-updated { background: rgba(243,160,126,.12); color: var(--ember-700); }
+    .tag-base { background: rgba(42,31,48,.05); color: var(--ink-600); }
+    .arrow { color: var(--ink-400); }
+    .arrow svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+    .start-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--plum-500);
+      color: #fff;
+      border-radius: 100px;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 24px -10px rgba(140,108,171,.5);
+      display: inline-flex;
+    }
+    .start-cta svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; fill: none; }
+    .journey-note {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-600);
+      background: rgba(255,255,255,.6);
+      border: 1px solid var(--border-hairline);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 32px;
+    }
+    .journey-note strong { color: var(--ink-900); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<div class="nav-page">
+
+  <div class="nav-logo">Endometriose-Behandlungswege</div>
+  <div class="nav-meta">Prototype v3 · Vollständige Erfahrung · Juni 2026</div>
+
+  <div class="journey-note">
+    <strong>Empfohlener Weg:</strong> Beginne auf der Willkommensseite → beantworte die Fragen → gelange zur Evidenzbibliothek → klicke auf "Behandlungen auswählen" → wähle aus Flow A → erstelle deinen Plan → erkunde das Tagebuch aus Flow B.
+  </div>
+
+  <a href="index.html" class="start-cta">
+    Die vollständige Reise starten →
+    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+
+  <!-- Today (Home) -->
+  <div class="flow-section">
+    <div class="flow-label">Heute (Startseite)</div>
+    <div style="font-size:13px;color:var(--ink-600);line-height:1.55;background:rgba(255,255,255,.6);border:1px solid var(--border-hairline);border-radius:12px;padding:13px 15px;margin-bottom:12px;">Adaptive Startseite — 4 Nutzerzustände</div>
+    <div class="screen-list">
+      <a href="today-preplan.html" class="screen-link">
+        <span class="screen-num">T1</span>
+        <div class="screen-info">
+          <div class="screen-title">Vor dem Plan</div>
+          <div class="screen-desc">Noch keine Behandlung ausgewählt · erste Anmeldung</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="today-active.html" class="screen-link">
+        <span class="screen-num">T2</span>
+        <div class="screen-info">
+          <div class="screen-title">Aktiver Versuch · noch nicht eingetragen</div>
+          <div class="screen-desc">Täglicher Zustand · Eintrag erfassen</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="today-logged.html" class="screen-link">
+        <span class="screen-num">T3</span>
+        <div class="screen-info">
+          <div class="screen-title">Aktiver Versuch · heute eingetragen</div>
+          <div class="screen-desc">Bereits eingetragen · Fortschrittsfokus</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="today-between.html" class="screen-link">
+        <span class="screen-num">T4</span>
+        <div class="screen-info">
+          <div class="screen-title">Zwischen den Versuchen</div>
+          <div class="screen-desc">Versuch 1 abgeschlossen · Versuch 2 starten</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Onboarding -->
+  <div class="flow-section">
+    <div class="flow-label">Onboarding · Fragebogen</div>
+    <div class="screen-list">
+      <a href="index.html" class="screen-link">
+        <span class="screen-num">01</span>
+        <div class="screen-info">
+          <div class="screen-title">Willkommen</div>
+          <div class="screen-desc">Hero, Vertrauensblock, "Los geht's!"-Button</div>
+        </div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="start.html" class="screen-link">
+        <span class="screen-num">02</span>
+        <div class="screen-info"><div class="screen-title">Intro vor dem Fragebogen</div><div class="screen-desc">3-Minuten-Intro · führt zu F1</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q1.html" class="screen-link">
+        <span class="screen-num">02a</span>
+        <div class="screen-info"><div class="screen-title">F1 · Diagnose</div><div class="screen-desc">Diagnose bestätigt / Verdacht / Symptome und Fragen</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="priya-intro.html" class="screen-link">
+        <span class="screen-num">02b</span>
+        <div class="screen-info"><div class="screen-title">Priya-Zweig Intro</div><div class="screen-desc">Symptom-Fragebogen für den "Nicht sicher"-Pfad</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q2.html" class="screen-link">
+        <span class="screen-num">03</span>
+        <div class="screen-info"><div class="screen-title">F2 · Behandlungspräferenzen</div><div class="screen-desc">Ernährung / Nahrungsergänzung / Geist &amp; Körper / Medizinisch</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q3.html" class="screen-link">
+        <span class="screen-num">04</span>
+        <div class="screen-info"><div class="screen-title">F3 · Zusätzlicher Kontext</div><div class="screen-desc">Verhütung / Hormontherapie / Fertilität / OP / Schübe</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q4.html" class="screen-link">
+        <span class="screen-num">05</span>
+        <div class="screen-info"><div class="screen-title">F4 · Nahrungsauslöser</div><div class="screen-desc">Mehrfachauswahl bestimmter Lebensmittel</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="q5.html" class="screen-link">
+        <span class="screen-num">06</span>
+        <div class="screen-info"><div class="screen-title">F5 · Behandlungspräferenzen</div><div class="screen-desc">Ernährung / Nahrungsergänzung / Medikamente / Geist &amp; Körper</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="redflag.html" class="screen-link">
+        <span class="screen-num">07</span>
+        <div class="screen-info"><div class="screen-title">Warnsignal-Bildschirm</div><div class="screen-desc">Blut im Stuhl / ungeklärter Gewichtsverlust</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="reveal.html" class="screen-link">
+        <span class="screen-num">08</span>
+        <div class="screen-info"><div class="screen-title">Ergebnisse</div><div class="screen-desc">14 Ansätze · Untertyp + Vorschau · Konto-Gate</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+      <a href="account.html" class="screen-link">
+        <span class="screen-num">09</span>
+        <div class="screen-info"><div class="screen-title">Konto erstellen</div><div class="screen-desc">E-Mail / Google · DSGVO-Zustimmung</div></div>
+        <span class="screen-tag tag-base">v2</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Library -->
+  <div class="flow-section">
+    <div class="flow-label">Evidenzbibliothek</div>
+    <div class="screen-list">
+      <a href="flow-a-overview.html" class="screen-link">
+        <span class="screen-num">10</span>
+        <div class="screen-info">
+          <div class="screen-title">Evidenzbibliothek</div>
+          <div class="screen-desc">Kategorie-Kacheln · Evidenzfilter · Interventionskarten · "Behandlungen auswählen"</div>
+        </div>
+        <span class="screen-tag tag-updated">aktualisiert</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Flow A -->
+  <div class="flow-section">
+    <div class="flow-label">Flow A · Behandlungsauswahl</div>
+    <div class="screen-list">
+      <a href="flow-a-start.html" class="screen-link">
+        <span class="screen-num">A1</span>
+        <div class="screen-info"><div class="screen-title">Starte hier</div><div class="screen-desc">Top-3-Empfehlungen · Evidenz-Chips · Möchte ich ausprobieren</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-a-shortlist.html" class="screen-link">
+        <span class="screen-num">A1.5</span>
+        <div class="screen-info"><div class="screen-title">Kurzliste überprüfen</div><div class="screen-desc">3 Behandlungen bestätigen · Vorauswahl · Tauschen · "Meinen Plan erstellen"</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-a-overview.html" class="screen-link">
+        <span class="screen-num">A2</span>
+        <div class="screen-info"><div class="screen-title">Alle Behandlungskategorien</div><div class="screen-desc">4 Kategoriereihen · Evidenzzähler · Highlight</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-a-diet.html" class="screen-link">
+        <span class="screen-num">A3</span>
+        <div class="screen-info"><div class="screen-title">Kategorie Ernährung</div><div class="screen-desc">3 Listenkarten · nach Evidenz sortiert · "3 weitere anzeigen"</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-a-detail.html" class="screen-link">
+        <span class="screen-num">A4</span>
+        <div class="screen-info"><div class="screen-title">Behandlungsdetail</div><div class="screen-desc">Was es ist · Schritte · Evidenzzusammenfassung · PMID · Hausarzt-Karte</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Flow B -->
+  <div class="flow-section">
+    <div class="flow-label">Flow B · Plan &amp; Tagebuch</div>
+    <div class="screen-list">
+      <a href="flow-b-plan.html" class="screen-link">
+        <span class="screen-num">B1</span>
+        <div class="screen-info"><div class="screen-title">Dein Plan</div><div class="screen-desc">Grundlagenblock · 3-Versuchs-Zeitlinie · Arzt-Hinweis</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-trial.html" class="screen-link">
+        <span class="screen-num">B2</span>
+        <div class="screen-info"><div class="screen-title">Aktiver Versuch · Wärmetherapie</div><div class="screen-desc">Woche 2 von 4 · Was tun · Wo besorgen · Zeitkarte</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-checkin.html" class="screen-link">
+        <span class="screen-num">B3</span>
+        <div class="screen-info"><div class="screen-title">Täglicher Check-in · Nahrungsergänzung</div><div class="screen-desc">Adhärenz · Symptomschwere · Chips · Notizenfeld</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-progress.html" class="screen-link">
+        <span class="screen-num">B4</span>
+        <div class="screen-info"><div class="screen-title">Fortschritt &amp; Tagebuchverlauf</div><div class="screen-desc">Trenddiagramm · Eintragslog · Hausarzt-Zusammenfassung · Überprüfungsvorschau</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-review.html" class="screen-link">
+        <span class="screen-num">B5</span>
+        <div class="screen-info"><div class="screen-title">Versuchsauswertung</div><div class="screen-desc">Wie hat es sich angefühlt? · Datenbestätigung · Weiter/Pause · Als nächstes</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-weekly.html" class="screen-link">
+        <span class="screen-num">B6</span>
+        <div class="screen-info"><div class="screen-title">Wöchentlicher Check-in · Kursrhythmus</div><div class="screen-desc">Sitzungsprotokoll · Rhythmusblock · Sitzungsgefühl</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-manage.html" class="screen-link">
+        <span class="screen-num">B7</span>
+        <div class="screen-info"><div class="screen-title">Versuch verwalten</div><div class="screen-desc">Weiter / Pause / Stop-Optionen · Grundchips · Behandlungen tauschen</div></div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- You tab -->
+  <div class="flow-section">
+    <div class="flow-label">Ich · Profil &amp; Einstellungen</div>
+    <div class="screen-list">
+      <a href="you.html" class="screen-link">
+        <span class="screen-num">Y1</span>
+        <div class="screen-info">
+          <div class="screen-title">Ich</div>
+          <div class="screen-desc">Profilübersicht · Symptomverlauf · Profil aktualisieren · Benachrichtigungen · Hausarzt-Export · Evidenzgrade · Über die App</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Treatment comparison -->
+  <div class="flow-section">
+    <div class="flow-label">Behandlungsvergleich · Entzündungshemmende Ernährung vs. Wärmetherapie</div>
+    <div style="font-size:13px;color:var(--ink-600);line-height:1.55;background:rgba(255,255,255,.6);border:1px solid var(--border-hairline);border-radius:12px;padding:13px 15px;margin-bottom:12px;">
+      Die entzündungshemmende Ernährung ist eine aufwändigere 8-wöchige Ernährungsumstellung — anders im Rhythmus und kognitiven Aufwand als eine tägliche Intervention wie Wärmetherapie. Diese Bildschirme zeigen, wie Flow B sich an den jeweiligen Behandlungstyp anpasst.
+    </div>
+    <div class="screen-list">
+      <a href="flow-b-trial-fodmap.html" class="screen-link">
+        <span class="screen-num">C1</span>
+        <div class="screen-info">
+          <div class="screen-title">Aktiver Versuch · Entzündungshemmende Ernährung</div>
+          <div class="screen-desc">Phasentrack (Ernährungsumstellung → Auswertung) · Lebensmittellisten · Diätologen-Karte</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+      <a href="flow-b-weekly-fodmap.html" class="screen-link">
+        <span class="screen-num">C2</span>
+        <div class="screen-info">
+          <div class="screen-title">Wöchentlicher Check-in · Entzündungshemmende Ernährung</div>
+          <div class="screen-desc">Phasenrhythmusblock · Adherenzskala · "Was war schwierig?"-Chips · wöchentliche Symptomauswertung</div>
+        </div>
+        <span class="screen-tag tag-new">neu</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

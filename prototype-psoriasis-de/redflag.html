@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Kurzer Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .14; pointer-events: none; z-index: 0;
+    }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    .chips-container, .question-sub, .back-link, .progress-bar-container, h1, .flag-note {
+      opacity: 0; animation: fade-in 0.7s ease-out forwards;
+    }
+    h1 { animation-delay: 0.1s; }
+    .question-sub { animation-delay: 0.2s; }
+    .chips-container { animation-delay: 0.3s; }
+    .flag-note { animation-delay: 0.4s; }
+    .back-link { animation-delay: 0.5s; }
+
+    .flag-chip {
+      display: block; width: 100%; padding: 14px 16px; margin-bottom: 8px;
+      border: 1.5px solid rgba(44,31,14,0.14); background: rgba(255,255,255,0.60);
+      backdrop-filter: blur(10px); border-radius: 8px; font-size: 14px;
+      font-family: 'Manrope', sans-serif; color: var(--ink-900); cursor: pointer;
+      text-align: left; transition: all 0.12s ease;
+    }
+    .flag-chip.selected { background: rgba(192,57,43,0.10); border-color: var(--redflag); }
+    .flag-chip.none-chip { color: var(--ink-600); background: rgba(253,250,245,0.70); }
+    .flag-chip.none-chip.selected { background: rgba(123,158,107,0.10); border-color: var(--accent); color: var(--ink-900); }
+
+    .flag-note {
+      background: rgba(192,57,43,0.08); border: 1px solid rgba(192,57,43,0.20);
+      border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.55; color: var(--ink-700);
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 68%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px; position: relative; z-index: 1;">
+    <h1 class="question-title">Noch ein paar kurze Checks</h1>
+    <p class="question-sub">Diese Symptome sind selten — aber wichtig zu klären, bevor wir weitermachen.</p>
+
+    <p class="flag-note">Hast du aktuell eines dieser Symptome? (alles Zutreffende auswählen)</p>
+
+    <div id="flagChips" style="margin-bottom: 24px;">
+      <div class="flag-chip" data-val="erythrodermic">Flächenhafte Rötung, die den Großteil meines Körpers bedeckt</div>
+      <div class="flag-chip" data-val="fever_flare">Fieber zusammen mit einem Psoriasis-Schub</div>
+      <div class="flag-chip" data-val="pustular">Großflächige Blasen oder eitergefüllte Pusteln auf der Haut</div>
+      <div class="flag-chip" data-val="acute_arthritis">Plötzlich aufgetretene starke Gelenkschmerzen oder -schwellung</div>
+      <div class="flag-chip none-chip" data-val="none" id="noneChip">Nichts davon trifft auf mich zu</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+      <button class="btn-primary" id="continueBtn" onclick="handleContinue()">Weiter</button>
+      <a href="q3.html" class="back-link">← Zurück</a>
+    </div>
+  </div>
+
+  <script>
+    var selected = [];
+
+    document.querySelectorAll('.flag-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var val = this.getAttribute('data-val');
+        if (val === 'none') {
+          selected = ['none'];
+          document.querySelectorAll('.flag-chip').forEach(function(c) { c.classList.remove('selected'); });
+          this.classList.add('selected');
+        } else {
+          var noneChip = document.getElementById('noneChip');
+          noneChip.classList.remove('selected');
+          selected = selected.filter(function(v) { return v !== 'none'; });
+          if (this.classList.contains('selected')) {
+            this.classList.remove('selected');
+            selected = selected.filter(function(v) { return v !== val; });
+          } else {
+            this.classList.add('selected');
+            selected.push(val);
+          }
+        }
+      });
+    });
+
+    function handleContinue() {
+      localStorage.setItem('psoriasis_redflags', JSON.stringify(selected));
+      var hasRedFlag = selected.length > 0 && selected[0] !== 'none';
+      window.location.href = hasRedFlag ? 'redflag-stop.html' : 'q4.html';
+    }
+  </script>
+</body>
+</html>

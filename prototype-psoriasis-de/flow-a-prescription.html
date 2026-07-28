@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medizinisch &amp; Rezeptpflichtig · Psoriasis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #EEF2F8 0%, #F5F3EE 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(74,111,165,0.3) 0%, rgba(74,111,165,0.08) 30%, transparent 70%);
+      opacity: .50; pointer-events: none; z-index: 0;
+    }
+    .access-rx-dk {
+      display:inline-flex;align-items:center;font-size:11px;font-weight:600;
+      background:rgba(74,111,165,0.12);color:#2d4f7c;border-radius:6px;padding:2px 8px;
+      font-family:'JetBrains Mono',monospace;
+    }
+    .access-clinic-dk {
+      display:inline-flex;align-items:center;font-size:11px;font-weight:600;
+      background:rgba(120,80,160,0.10);color:#5a3490;border-radius:6px;padding:2px 8px;
+      font-family:'JetBrains Mono',monospace;
+    }
+    .rx-notice {
+      background:rgba(74,111,165,0.08);border:1px solid rgba(74,111,165,0.22);
+      border-radius:12px;padding:14px 16px;margin-bottom:4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="background:rgba(238,242,248,0.80);">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 gespeichert</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg" style="background:rgba(74,111,165,0.14);">
+        <svg viewBox="0 0 24 24" style="stroke:#4A6FA5;"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Medizinisch &amp; rezeptpflichtig</h1>
+        <p class="flow-hero-sub tight">6 Optionen — die wirksamsten verfügbaren Behandlungen. Alle erfordern eine Dermatologin. Diese Seiten helfen dir zu verstehen, was sie sind, und besser informiert in Termine zu gehen.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zugangskategorien -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;padding:8px 20px;position:relative;z-index:1;">
+    <span style="font-size:11px;color:var(--ink-600);margin-right:4px;font-family:'JetBrains Mono',monospace;font-weight:600;">ZUGANG:</span>
+    <span class="access-rx-dk">Rx — Dermatologie</span>
+    <span class="access-clinic-dk">Klinik — ambulant</span>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="rx-notice ani">
+      <p style="font-size:13px;line-height:1.6;color:#2d4f7c;margin:0;">Alle Behandlungen auf dieser Seite erfordern eine Überweisung zur Dermatologin. In Deutschland werden Biologika in der Regel bei mittelschwerer bis schwerer Psoriasis eingesetzt (PASI ≥10 mit unzureichendem Ansprechen auf herkömmliche Systemtherapien). Falls du glaubst, dass du in Frage kommst, hilft dir diese Seite, beim nächsten Termin gezielter nachzufragen.</p>
+    </div>
+
+    <!-- Phototherapie -->
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Phototherapie (NB-UVB)</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+            <span class="access-clinic-dk">Klinik</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Schmalband-UVB-Phototherapie erreicht in einer Metaanalyse von 2025 (1 322 Patientinnen) 70 % PASI75 — einer der höchsten Ansprechraten unter den Nicht-Biologika-Behandlungen. Ambulant in dermatologischen Sitzungen, typischerweise 2–3× pro Woche. Die randomisierte LITE-Studie 2024 zeigte, dass Heimgeräte genauso gut abschneiden wie klinikbasierte Behandlung. Falls du das noch nicht erhältst, frag deine Dermatologin gezielt danach — dieser Schritt wird oft übersprungen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="phototherapy" data-treatment-name="Phototherapie (NB-UVB)"></button>
+      </div>
+    </div>
+
+    <!-- Methotrexat -->
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Methotrexat (orales Systemtherapeutikum)</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+            <span class="access-rx-dk">Rx</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Weltweit meisteingesetzte orale Behandlung bei mittelschwerer bis schwerer Psoriasis. Einmal wöchentlich als Tablette, zusammen mit Folsäure zur Nebenwirkungsreduktion. Erfordert regelmäßige Leber- und Blutkontrollen. Erstlinien-Systemtherapeutikum vor Biologika. Eine Netzwerk-Metaanalyse 2023 bestätigt die Wirksamkeit. Gewichtsreduktion verbessert das Methotrexat-Ansprechen deutlich — wenn du es nimmst und Übergewicht hast, lohnt es sich, das mit deiner Dermatologin zu besprechen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="methotrexate" data-treatment-name="Methotrexat"></button>
+      </div>
+    </div>
+
+    <!-- Apremilast -->
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Apremilast (Otezla) — oraler PDE4-Hemmer</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-good"><span class="ev-dot"></span>Gute Evidenz</span>
+            <span class="access-rx-dk">Rx</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Eine tägliche Tablette — keine Injektionen, kein Blutmonitoring. Positioniert zwischen Systemtherapeutika und Biologika. PASI75 bei rund 33 % der Teilnehmenden nach 16 Wochen (geringer als Biologika, aber sinnvoll bei mittelschwerer Erkrankung). Die Zulassungsstudien ESTEEM 1 (n=844) und ESTEEM 2 (n=413) bestätigen die Wirksamkeit. Oft die richtige Wahl für Menschen, die Injektionen vermeiden möchten oder Methotrexat nicht vertragen haben.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="apremilast" data-treatment-name="Apremilast (Otezla)"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Zusätzliche Optionen verbergen':'3 weitere Optionen anzeigen'">3 weitere Optionen anzeigen</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <!-- IL-17-Biologika -->
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">IL-17-Inhibitoren (Secukinumab / Ixekizumab)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+              <span class="access-rx-dk">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Zu den wirksamsten Psoriasis-Behandlungen, die derzeit verfügbar sind. 70–74 % der Patientinnen erreichen PASI90 (90 % Hautklärung). Secukinumab (Cosentyx) und Ixekizumab (Taltz) sind beide zugelassen. Monatliche Injektionen nach einer Initialdosierungsphase. Falls du mittelschwere bis schwere Psoriasis hast und noch nicht darüber informiert wurdest, frag gezielt nach — die Zulassung richtet sich nach PASI ≥10 und unzureichendem Ansprechen auf andere Therapien.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="il17-biologics" data-treatment-name="IL-17-Inhibitoren (Secukinumab / Ixekizumab)"></button>
+        </div>
+      </div>
+
+      <!-- IL-23-Biologika -->
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">IL-23-Inhibitoren (Risankizumab / Guselkumab)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+              <span class="access-rx-dk">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Die neueste und möglicherweise langlebigste Biologika-Generation bei Psoriasis. Risankizumab (Skyrizi) hat die besten Langzeitremissionsdaten — Drug-Survival-Analysen zeigen die höchsten Verbleibsraten nach 3 und 5 Jahren. PASI90 bei ~73 % nach 16 Wochen. Injektionen alle 12 Wochen nach Initialdosierung. Wenn du seit Jahren auf einem älteren Biologikum bist und nur teilweise ansprichst, ist diese Generation das Gespräch wert.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="il23-biologics" data-treatment-name="IL-23-Inhibitoren (Risankizumab / Guselkumab)"></button>
+        </div>
+      </div>
+
+      <!-- Ciclosporin -->
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Ciclosporin (kurzfristiges Systemtherapeutikum)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Starke Evidenz</span>
+              <span class="access-rx-dk">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Eine schnell wirkende orale Behandlung — häufig eingesetzt, um bei einem schweren Schub rasch Kontrolle zu gewinnen, besonders wenn jemand die Haut schnell klären muss (z. B. bei einem wichtigen Lebensereignis). Für die Langzeitanwendung nicht empfohlen, da Nieren und Blutdruck mit der Zeit belastet werden. Erfordert Monitoring. Sinnvoll als Überbrückung, bis langfristige Behandlungen etabliert sind.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="cyclosporine" data-treatment-name="Ciclosporin"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:rgba(74,111,165,0.07);border:1px solid rgba(74,111,165,0.20);border-radius:12px;padding:14px 16px;margin-top:8px;" class="ani">
+      <p style="font-size:13px;line-height:1.6;color:var(--ink-700);">Die Evidenz zu diesen Behandlungen zu lesen gibt dir eine bessere Sprache für deine Dermatologie-Termine. Du musst nicht auf bestimmte Präparate bestehen — aber zu wissen, welche Optionen es gibt und warum sie sich unterscheiden, hilft dir, die richtigen Fragen zu stellen.</p>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

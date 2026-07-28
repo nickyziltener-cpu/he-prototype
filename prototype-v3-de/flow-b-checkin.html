@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Täglicher Check-in · RDS-Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 220px;
+      background: linear-gradient(180deg, rgba(140,108,171,0.04) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Head (quiet, no bloom) -->
+  <div class="ci-head" style="position:relative;z-index:1;">
+    <div style="margin-bottom:14px;">
+      <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(140,108,171,.10);border:1px solid rgba(140,108,171,.18);border-radius:100px;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--plum-700);letter-spacing:.04em;">
+        <svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Am Ende des Tages eintragen
+      </span>
+    </div>
+    <h1 class="flow-hero-title sm">Wie geht es deinem Darm heute?</h1>
+    <p class="flow-hero-sub tight">Dauert etwa 20 Sekunden. Je mehr du dokumentierst, desto klarer das Bild für dich und deinen Hausarzt/-ärztin.</p>
+  </div>
+
+  <!-- Check-in body -->
+  <div class="ci-body" style="position:relative;z-index:1;">
+
+    <!-- Q1: Did you take peppermint oil? -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Hast du heute Pfefferminzöl genommen?</div>
+      <div class="seg-control">
+        <div class="seg-opt-flow active positive">
+          <svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>
+          Ja, alle 3
+        </div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Teils / keine</div>
+      </div>
+    </div>
+
+    <!-- Q2: Symptoms overall -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Wie waren deine Symptome insgesamt?</div>
+      <div class="seg-control">
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Keine</div>
+        <div class="seg-opt-flow active" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Leicht</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Mittel</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Stark</div>
+      </div>
+    </div>
+
+    <!-- Q3: Anything in particular? -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Etwas Besonderes? <span class="opt-tag">optional</span></div>
+      <div class="sym-chips">
+        <span class="sym-chip active" onclick="this.classList.toggle('active')">Blähungen</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Krämpfe</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Drang</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Verstopfung</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Müdigkeit</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Übelkeit</span>
+      </div>
+    </div>
+
+    <!-- Q4: Notes -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Notizen <span class="opt-tag">optional</span></div>
+      <textarea class="note-textarea" placeholder="Noch etwas festhalten…">Stressiger Tag bei der Arbeit — Blähungen haben sich bis zum Abend gelegt.</textarea>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-progress.html" class="cta-btn-full">
+      Check-in speichern
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today · Active Trial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 60%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -80px;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 18%, transparent 70%);
+      opacity: .32;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: .22;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <!-- Status bar -->
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div style="padding:22px 24px 24px;position:relative;z-index:1;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--ink-500);text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px;">Thursday, 18 Jun</div>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:32px;line-height:1.1;letter-spacing:-.015em;color:var(--ink-900);margin-bottom:10px;text-wrap:balance;">Good to see you.</h1>
+    <p style="font-size:14px;line-height:1.6;color:var(--ink-700);">You're 2 weeks into your peppermint oil trial. Log takes 20 seconds.</p>
+  </div>
+
+  <!-- Body -->
+  <div style="padding:4px 20px 100px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;">
+
+    <!-- Primary card — Log today (plum: plan, commitment) -->
+    <div class="ani" style="background:rgba(140,108,171,.10);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(140,108,171,.22);box-shadow:0 10px 28px -10px rgba(140,108,171,.26);border-radius:22px;padding:20px;">
+
+      <!-- Header row -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <span style="display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--plum-700);background:rgba(140,108,171,.16);padding:4px 10px;border-radius:100px;letter-spacing:.07em;text-transform:uppercase;">◉ Trial 1 · Week 2 of 4</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-500);font-weight:500;letter-spacing:.04em;">14 days left</span>
+      </div>
+
+      <!-- Treatment name -->
+      <div style="font-family:'DM Serif Display',serif;font-size:24px;color:var(--ink-900);margin-bottom:18px;line-height:1.15;">Peppermint oil</div>
+
+      <!-- Streak -->
+      <div style="margin-bottom:20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <span style="font-size:12px;color:var(--ink-700);font-weight:600;letter-spacing:.01em;">Days logged</span>
+          <span style="font-size:12px;color:var(--plum-700);font-weight:700;">11 / 14</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--plum-500),var(--plum-300));box-shadow:0 2px 8px rgba(140,108,171,.55);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid rgba(140,108,171,.28);background:rgba(140,108,171,.06);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid rgba(140,108,171,.28);background:rgba(140,108,171,.06);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid rgba(140,108,171,.28);background:rgba(140,108,171,.06);flex-shrink:0;"></span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a href="flow-b-checkin.html" style="display:block;width:100%;background:var(--plum-500);color:#fff;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;padding:16px 20px;border-radius:100px;text-align:center;text-decoration:none;box-shadow:0 10px 24px -8px rgba(140,108,171,.55);letter-spacing:-.01em;">Log today's check-in →</a>
+    </div>
+
+    <!-- Secondary card — Progress snapshot (sage: calm, health trending) -->
+    <div class="ani" style="background:rgba(107,154,139,.09);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(107,154,139,.22);box-shadow:0 6px 18px -8px rgba(107,154,139,.20);border-radius:22px;padding:18px 20px;">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--evidence-high);text-transform:uppercase;letter-spacing:.2em;">Symptoms this week</span>
+        <a href="flow-b-progress.html" style="font-size:12px;font-weight:600;color:var(--sage-500);text-decoration:none;letter-spacing:.01em;">View all →</a>
+      </div>
+
+      <!-- Trend bars with day labels — last 7 days, all sage (week 2 improving) -->
+      <div style="display:flex;align-items:flex-end;gap:5px;padding-bottom:8px;border-bottom:1px solid rgba(107,154,139,.18);">
+        <!-- M -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:100%;height:22px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.78;"></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">M</span>
+        </div>
+        <!-- T -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:100%;height:22px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.74;"></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">T</span>
+        </div>
+        <!-- W -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:100%;height:22px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.70;"></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">W</span>
+        </div>
+        <!-- T -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:100%;height:13px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.78;"></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">T</span>
+        </div>
+        <!-- F -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:100%;height:13px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.60;"></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">F</span>
+        </div>
+        <!-- S -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:100%;height:13px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--sage-500),var(--sage-300));opacity:.55;"></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">S</span>
+        </div>
+        <!-- S — today, pending -->
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:100%;height:36px;display:flex;align-items:flex-end;">
+            <div style="width:100%;height:8px;border-radius:5px 5px 0 0;background:rgba(107,154,139,.16);border:1.5px dashed rgba(107,154,139,.35);box-sizing:border-box;"></div>
+          </div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--sage-500);font-weight:700;">S</span>
+        </div>
+      </div>
+
+      <!-- Summary line -->
+      <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sage-500);flex-shrink:0;"></span>
+        <span style="font-size:13px;color:var(--ink-700);font-weight:500;line-height:1.4;">Trending calmer — keep going.</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item active">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

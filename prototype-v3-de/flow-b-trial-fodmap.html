@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Low-FODMAP-Diät · Studie 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #eef4f0 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Phase track ── */
+    .phase-track {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 16px -8px rgba(74,122,106,.18);
+    }
+    .phase-col {
+      flex: 1;
+    }
+    .phase-col.active .phase-label {
+      color: var(--evidence-high);
+    }
+    .phase-col.inactive .phase-label {
+      color: var(--ink-500);
+    }
+    .phase-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .phase-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 8px;
+    }
+    .phase-col.inactive .phase-title {
+      color: var(--ink-600);
+    }
+    .phase-dots {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 7px;
+    }
+    .phase-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+    }
+    .phase-dot.done {
+      background: var(--evidence-high);
+    }
+    .phase-dot.current {
+      background: var(--evidence-high);
+      box-shadow: 0 0 0 2px rgba(74,122,106,.25);
+    }
+    .phase-dot.empty {
+      background: rgba(74,122,106,.18);
+    }
+    .phase-dot.future {
+      background: rgba(42,31,48,.1);
+    }
+    .phase-sub {
+      font-size: 11px;
+      color: var(--ink-600);
+      line-height: 1.45;
+    }
+    .phase-col.active .phase-sub {
+      color: var(--ink-700);
+    }
+    .phase-divider {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      padding-top: 22px;
+      color: var(--ink-400);
+      flex-shrink: 0;
+    }
+    .phase-divider svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ── FODMAP food table ── */
+    .fodmap-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .fodmap-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(42,31,48,.06);
+    }
+    .fodmap-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .fodmap-group-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-500);
+      flex-shrink: 0;
+      width: 76px;
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+    .fodmap-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      flex: 1;
+    }
+    .fodmap-tag {
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(184,112,74,.08);
+      color: var(--ember-700);
+      padding: 3px 9px;
+      border-radius: 100px;
+      border: 1px solid rgba(184,112,74,.18);
+      white-space: nowrap;
+    }
+
+    /* ── Safe foods ── */
+    .safe-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .safe-tag {
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(74,122,106,.08);
+      color: var(--evidence-high);
+      padding: 3px 9px;
+      border-radius: 100px;
+      border: 1px solid rgba(74,122,106,.18);
+      white-space: nowrap;
+    }
+
+    /* ── Dietitian card ── */
+    .dietitian-card {
+      background: rgba(74,122,106,.07);
+      border: 1px solid rgba(74,122,106,.2);
+      border-radius: 18px;
+      padding: 18px 18px;
+    }
+    .dietitian-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--evidence-high);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .dietitian-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 6px;
+    }
+    .dietitian-body {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-700);
+      margin-bottom: 14px;
+    }
+    .dietitian-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .dietitian-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .dietitian-row-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(74,122,106,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--evidence-high);
+    }
+    .dietitian-row-icon svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    .dietitian-row-body {
+      flex: 1;
+    }
+    .dietitian-row-t {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 1px;
+    }
+    .dietitian-row-d {
+      font-size: 12px;
+      color: var(--ink-600);
+      line-height: 1.45;
+    }
+
+    /* ── Monash app callout ── */
+    .app-callout {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 14px;
+      padding: 13px 14px;
+    }
+    .app-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--sage-300), var(--sage-500));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .app-icon svg {
+      width: 18px; height: 18px;
+      stroke: #fff;
+      stroke-width: 2;
+      fill: none;
+    }
+    .app-callout-body {
+      flex: 1;
+    }
+    .app-callout-t {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-900);
+      margin-bottom: 1px;
+    }
+    .app-callout-d {
+      font-size: 12px;
+      color: var(--ink-500);
+    }
+    .app-callout-cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--evidence-high);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-bottom:24px;">
+    <div class="flow-nav">
+      <a href="flow-b-plan.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Studie 2 von 3
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Ernährung
+      </span>
+      <span class="evchip-flow ev-strong"><span class="ev-dot"></span>Starke Evidenz</span>
+    </div>
+    <h1 class="flow-hero-title">Low-FODMAP-Diät</h1>
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span>Woche 2 von 8</span>
+        <span>25%</span>
+      </div>
+      <div class="progress-bar-hero">
+        <div class="progress-fill-hero" style="width:25%;background:var(--evidence-high)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="flow-body detail-body">
+
+    <!-- Phase progress -->
+    <div class="phase-track ani">
+      <div class="phase-col active">
+        <span class="phase-label">Jetzt</span>
+        <div class="phase-title">Eliminationsphase</div>
+        <div class="phase-dots">
+          <span class="phase-dot done"></span>
+          <span class="phase-dot current"></span>
+          <span class="phase-dot empty"></span>
+          <span class="phase-dot empty"></span>
+          <span class="phase-dot empty"></span>
+          <span class="phase-dot empty"></span>
+        </div>
+        <div class="phase-sub">Wochen 1–6 · Strikte Vermeidung<br>Woche 2 · noch 4 Wochen</div>
+      </div>
+      <div class="phase-divider">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </div>
+      <div class="phase-col inactive">
+        <span class="phase-label">Demnächst</span>
+        <div class="phase-title">Wiedereinführung</div>
+        <div class="phase-dots">
+          <span class="phase-dot future"></span>
+          <span class="phase-dot future"></span>
+          <span class="phase-dot future"></span>
+        </div>
+        <div class="phase-sub">Wochen 7–9+ · Systematisches Testen von Lebensmittelgruppen, eine nach der anderen</div>
+      </div>
+    </div>
+
+    <!-- What to avoid -->
+    <div class="detail-section ani">
+      <div class="detail-label">Was zu vermeiden — Eliminationsphase</div>
+      <p class="detail-para" style="margin-bottom:14px;">Fermentierbare Kohlenhydrate, die Darmbakterien ernähren und bei RDS Symptome auslösen. Es gibt fünf Gruppen zu lernen — das klingt nach viel, aber Muster entwickeln sich schnell.</p>
+
+      <div class="fodmap-table">
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Fruktane</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Knoblauch</span>
+            <span class="fodmap-tag">Zwiebeln</span>
+            <span class="fodmap-tag">Weizen</span>
+            <span class="fodmap-tag">Roggen</span>
+            <span class="fodmap-tag">Frühlingszwiebeln</span>
+            <span class="fodmap-tag">Schalotten</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Laktose</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Kuhmilch</span>
+            <span class="fodmap-tag">Weichkäse</span>
+            <span class="fodmap-tag">Joghurt</span>
+            <span class="fodmap-tag">Eis</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Fruktose</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Äpfel</span>
+            <span class="fodmap-tag">Birnen</span>
+            <span class="fodmap-tag">Mango</span>
+            <span class="fodmap-tag">Honig</span>
+            <span class="fodmap-tag">Trockenfrüchte</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Hülsenfrüchte</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Kichererbsen</span>
+            <span class="fodmap-tag">Linsen</span>
+            <span class="fodmap-tag">Kidneybohnen</span>
+            <span class="fodmap-tag">Hummus</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Polyole</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Steinobst</span>
+            <span class="fodmap-tag">Pilze</span>
+            <span class="fodmap-tag">Blumenkohl</span>
+            <span class="fodmap-tag">Zuckerfreier Kaugummi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Safe foods -->
+    <div class="detail-section ani">
+      <div class="detail-label">Sicher weiter zu essen</div>
+      <div class="safe-row">
+        <span class="safe-tag">Reis</span>
+        <span class="safe-tag">Haferflocken</span>
+        <span class="safe-tag">Kartoffeln</span>
+        <span class="safe-tag">Eier</span>
+        <span class="safe-tag">Fleisch &amp; Fisch</span>
+        <span class="safe-tag">Hartkäse</span>
+        <span class="safe-tag">Laktosefreie Milch</span>
+        <span class="safe-tag">Karotten</span>
+        <span class="safe-tag">Paprika</span>
+        <span class="safe-tag">Spinat</span>
+        <span class="safe-tag">Zucchini</span>
+        <span class="safe-tag">Bananen</span>
+        <span class="safe-tag">Orangen</span>
+        <span class="safe-tag">Erdbeeren</span>
+        <span class="safe-tag">Heidelbeeren</span>
+        <span class="safe-tag">Sauerteigbrot</span>
+      </div>
+      <p class="detail-para sm" style="margin-top:10px;color:var(--ink-600);">Das ist keine Hungerdiät — die meisten Proteine, viele Gemüsesorten und einige Getreidesorten sind erlaubt. Die Monash-App hat eine vollständige geprüfte Liste.</p>
+    </div>
+
+    <!-- Monash app -->
+    <div class="app-callout ani">
+      <div class="app-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/><path d="M9 12h6M9 16h4"/></svg>
+      </div>
+      <div class="app-callout-body">
+        <div class="app-callout-t">Monash FODMAP App</div>
+        <div class="app-callout-d">Der Goldstandard-Lebensmittelchecker · ~9 € · entwickelt vom Forschungsteam, das die Diät erfunden hat</div>
+      </div>
+      <span class="app-callout-cta">Lohnt sich →</span>
+    </div>
+
+    <!-- Give it time -->
+    <div class="detail-section ani">
+      <div class="detail-label">Gib ihm Zeit</div>
+      <div class="time-card">
+        <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <p class="detail-para sm">Studien führen die Eliminationsphase <strong>6 Wochen</strong> lang durch, bevor sie die Ergebnisse auswerten. Du bist in Woche 2 — dokumentiere jede Woche weiter, und wir schauen in Woche 6 gemeinsam darauf. Die Wiedereinführung zeigt dir dann genau, welche Lebensmittel deine persönlichen Auslöser sind.</p>
+      </div>
+    </div>
+
+    <!-- Dietitian section -->
+    <div class="dietitian-card ani">
+      <div class="dietitian-label">Unterstützung erhalten</div>
+      <div class="dietitian-title">Eine Ernährungsberatung macht das deutlich effektiver</div>
+      <div class="dietitian-body">Studien zeigen bessere Ergebnisse mit professioneller Begleitung — teilweise wegen der Genauigkeit, teilweise weil sie die Unsicherheit beim Hinterfragen jeder Mahlzeit reduziert.</div>
+      <div class="dietitian-rows">
+        <div class="dietitian-row">
+          <div class="dietitian-row-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="dietitian-row-body">
+            <div class="dietitian-row-t">NHS-Überweisung zur Ernährungsberatung</div>
+            <div class="dietitian-row-d">Bitte deinen Hausarzt/-ärztin um eine Überweisung — erwähne, dass du das Low-FODMAP-Protokoll bei RDS ausprobierst. Kostenlos über den NHS.</div>
+          </div>
+        </div>
+        <div class="dietitian-row">
+          <div class="dietitian-row-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div class="dietitian-row-body">
+            <div class="dietitian-row-t">Direkt zu einer FODMAP-Ernährungsberatung</div>
+            <div class="dietitian-row-d">Private Sitzungen ab ~90 €. Achte auf „FODMAP-geschult" oder „RDS-Ernährungsberatung" — nicht alle Fachleute sind mit diesem Protokoll vertraut.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;" class="ani">
+      <a href="flow-b-progress.html" style="font-size:13px;font-weight:600;color:var(--evidence-high);text-decoration:none;display:flex;align-items:center;gap:4px;">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        Fortschritt ansehen
+      </a>
+      <a href="flow-b-manage.html" style="font-size:13px;font-weight:600;color:var(--ink-600);text-decoration:none;display:flex;align-items:center;gap:4px;">
+        <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Studie verwalten
+      </a>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-weekly-fodmap.html" class="cta-btn-full" style="background:var(--evidence-high);">
+      <svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M5 4v16"/></svg>
+      Wochenbericht zur Einhaltung
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

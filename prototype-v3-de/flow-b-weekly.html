@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wöchentlicher Check-in · Hypnotherapie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(168,165,212,0.07) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Head -->
+  <div class="ci-head" style="position:relative;z-index:1;">
+    <div class="flow-nav">
+      <a href="flow-b-plan.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Heute · Di. 14. Jun.
+      </a>
+    </div>
+    <h1 class="flow-hero-title sm">Wie geht es deinem Darm heute?</h1>
+    <p class="flow-hero-sub tight">Symptome dokumentierst du täglich. Sitzungen nur, wenn du sie durchführst — kein täglicher Druck.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="ci-body" style="position:relative;z-index:1;">
+
+    <!-- Cadence block (course treatment) -->
+    <div class="cadence-block ani">
+      <div class="cad-top">
+        <span class="chip-cat-flow">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+          Lebensstil · Kurs
+        </span>
+        <span class="cad-progress">Sitzung 3 von 8</span>
+      </div>
+      <div class="cad-title">Darmgerichtete Hypnotherapie</div>
+      <div class="cad-row">
+        <div>
+          <div class="cad-target">Diese Woche · 1 von 2 Sitzungen</div>
+          <div class="cad-dots">
+            <span class="cad-dot done"></span>
+            <span class="cad-dot"></span>
+          </div>
+        </div>
+        <button class="cad-btn">+ Sitzung eintragen</button>
+      </div>
+      <span class="log-tag">Eingetragen je Sitzung</span>
+    </div>
+
+    <!-- Q: Symptoms overall (logged daily) -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">
+        Wie waren deine Symptome insgesamt?
+        <span class="log-tag inline">täglich eingetragen</span>
+      </div>
+      <div class="seg-control">
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Keine</div>
+        <div class="seg-opt-flow active" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Leicht</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Mittel</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Stark</div>
+      </div>
+    </div>
+
+    <!-- Q: Anything particular? -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Etwas Besonderes? <span class="opt-tag">optional</span></div>
+      <div class="sym-chips">
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Blähungen</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Krämpfe</span>
+        <span class="sym-chip active" onclick="this.classList.toggle('active')">Drang</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Verstopfung</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Müdigkeit</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Übelkeit</span>
+      </div>
+    </div>
+
+    <!-- How was the session? (only when session logged) -->
+    <div class="q-block-flow ani" style="background:rgba(168,165,212,.08);border:1px solid rgba(168,165,212,.2);border-radius:16px;padding:14px;">
+      <div class="q-label-flow" style="font-size:13px;color:var(--ink-700);">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--aurora-500);display:block;margin-bottom:6px;">Nach deiner Sitzung</span>
+        Wie war die heutige Hypnotherapie-Sitzung?
+      </div>
+      <div class="seg-control">
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Schwer einzusteigen</div>
+        <div class="seg-opt-flow active" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">OK</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Sehr entspannt</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-progress.html" class="cta-btn-full">
+      Check-in speichern
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

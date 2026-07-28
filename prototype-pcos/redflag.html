@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Safety Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: -40px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .14; pointer-events: none; z-index: 0; }
+    .rf-screen-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--redflag); background: rgba(176,70,70,.08); padding: 5px 10px; border-radius: 100px; margin-bottom: 20px; display: inline-flex; }
+
+    .rf-chips { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+    .rf-chip {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(255,255,255,.60); backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(42,31,48,.12); border-radius: 10px;
+      padding: 12px 14px; cursor: pointer; transition: border-color .12s ease;
+    }
+    .rf-chip:hover { border-color: rgba(176,70,70,.35); background: rgba(176,70,70,.04); }
+    .rf-chip.selected { border-color: var(--redflag); background: rgba(176,70,70,.06); }
+    .rf-check { width: 20px; height: 20px; border-radius: 4px; border: 2px solid rgba(42,31,48,.2); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; }
+    .rf-chip.selected .rf-check { background: var(--redflag); border-color: var(--redflag); }
+    .rf-chip.selected .rf-check::after { content: '✓'; color: #fff; font-size: 12px; font-weight: 700; }
+    .rf-chip-text { font-size: 14px; color: var(--ink-800); line-height: 1.45; }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 86%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <div class="rf-screen-label">Safety check</div>
+    <h1 class="question-title">Before we show your results — a quick safety question.</h1>
+    <p class="question-sub">Some symptoms need a doctor's attention first. Are you currently experiencing any of the following?</p>
+
+    <div class="rf-chips" id="rfChips">
+      <div class="rf-chip" onclick="toggle(this)">
+        <div class="rf-check"></div>
+        <div class="rf-chip-text">Sudden severe pelvic or abdominal pain</div>
+      </div>
+      <div class="rf-chip" onclick="toggle(this)">
+        <div class="rf-check"></div>
+        <div class="rf-chip-text">Unexplained very heavy or prolonged bleeding</div>
+      </div>
+      <div class="rf-chip" onclick="toggle(this)">
+        <div class="rf-check"></div>
+        <div class="rf-chip-text">Rapid unexplained weight loss</div>
+      </div>
+      <div class="rf-chip" onclick="toggle(this)">
+        <div class="rf-check"></div>
+        <div class="rf-chip-text">Symptoms that feel very new or much more severe than usual</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 10px;">
+      <a id="noneBtn" href="javascript:void(0)" onclick="goToReveal()" class="btn-primary" style="background: var(--rose-500); box-shadow: 0 10px 24px -10px rgba(224,122,150,.45); border-radius: 100px; max-width: 100%; font-size: 15px;">
+        None of these apply → See my results
+      </a>
+      <button id="flagBtn" onclick="goToStop()" class="btn-primary" style="display: none; background: var(--redflag); border-radius: 100px; max-width: 100%; font-size: 15px; border: none; cursor: pointer; padding: 14px 24px; color: white; font-family: 'Manrope', sans-serif; font-weight: 600;">
+        One or more of these apply
+      </button>
+    </div>
+
+    <a href="q4.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    var selected = [];
+
+    function toggle(chip) {
+      chip.classList.toggle('selected');
+      var text = chip.querySelector('.rf-chip-text').textContent;
+      var idx = selected.indexOf(text);
+      if (idx > -1) { selected.splice(idx, 1); } else { selected.push(text); }
+      document.getElementById('flagBtn').style.display = selected.length > 0 ? 'block' : 'none';
+      document.getElementById('noneBtn').style.display = selected.length > 0 ? 'none' : 'block';
+    }
+
+    function goToReveal() {
+      var priya = localStorage.getItem('pcos_priya');
+      window.location.href = priya === '1' ? 'reveal-priya.html' : 'reveal.html';
+    }
+
+    function goToStop() {
+      window.location.href = 'redflag-stop.html';
+    }
+  </script>
+
+</body>
+</html>

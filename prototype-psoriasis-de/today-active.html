@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heute · Aktive Erprobung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #FDF4E6 0%, #FAF2E4 60%, #EFF5EC 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -80px; width: 340px; height: 340px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 18%, transparent 70%);
+      opacity: .30; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -60px; left: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .20; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div style="padding:22px 24px 24px;position:relative;z-index:1;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--ink-500);text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px;">Donnerstag, 25. Jul</div>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:32px;line-height:1.1;letter-spacing:-.015em;color:var(--ink-900);margin-bottom:10px;">Schön, dich zu sehen.</h1>
+    <p style="font-size:14px;line-height:1.6;color:var(--ink-700);">Woche 3 deiner Feuchtigkeitspflege-Erprobung. Das Check-in dauert 30 Sekunden.</p>
+  </div>
+
+  <div style="padding:4px 20px 100px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;">
+
+    <!-- Primäre Karte — Heute eintragen -->
+    <div class="ani" style="background:rgba(196,123,43,.10);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(196,123,43,.22);box-shadow:0 10px 28px -10px rgba(196,123,43,.24);border-radius:22px;padding:20px;">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <span style="display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--primary-dk);background:rgba(196,123,43,.16);padding:4px 10px;border-radius:100px;letter-spacing:.07em;text-transform:uppercase;">◉ Erprobung 1 · Woche 3 von 6</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-500);font-weight:500;letter-spacing:.04em;">21 Tage verbleibend</span>
+      </div>
+
+      <div style="font-family:'DM Serif Display',serif;font-size:24px;color:var(--ink-900);margin-bottom:18px;line-height:1.15;">Emollienzien &amp; Feuchtigkeitspflege</div>
+
+      <!-- Streak-Punkte -->
+      <div style="margin-bottom:20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <span style="font-size:12px;color:var(--ink-700);font-weight:600;letter-spacing:.01em;">Dokumentierte Tage</span>
+          <span style="font-size:12px;color:var(--primary-dk);font-weight:700;">17 / 21</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
+          <!-- 17 gefüllte Punkte -->
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-lt));box-shadow:0 2px 6px rgba(196,123,43,.40);flex-shrink:0;"></span>
+          <!-- 4 leere Punkte -->
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;border:2px solid rgba(196,123,43,.28);background:rgba(196,123,43,.06);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;border:2px solid rgba(196,123,43,.28);background:rgba(196,123,43,.06);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;border:2px solid rgba(196,123,43,.28);background:rgba(196,123,43,.06);flex-shrink:0;"></span>
+          <span style="display:inline-block;width:16px;height:16px;border-radius:50%;border:2px solid rgba(196,123,43,.28);background:rgba(196,123,43,.06);flex-shrink:0;"></span>
+        </div>
+      </div>
+
+      <a href="flow-b-checkin.html" style="display:block;width:100%;background:var(--primary);color:#fff;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;padding:16px 20px;border-radius:100px;text-align:center;text-decoration:none;box-shadow:0 10px 24px -8px rgba(196,123,43,.50);letter-spacing:-.01em;">Heutiges Check-in eintragen →</a>
+    </div>
+
+    <!-- Fortschnitts-Snapshot-Karte -->
+    <div class="ani" style="background:rgba(123,158,107,.09);backdrop-filter:blur(20px);border:1px solid rgba(123,158,107,.22);border-radius:22px;padding:18px 20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.2em;">Haut diese Woche</span>
+        <a href="flow-b-progress.html" style="font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;letter-spacing:.01em;">Alle ansehen →</a>
+      </div>
+      <!-- Mini-Trendbalken -->
+      <div style="display:flex;align-items:flex-end;gap:5px;padding-bottom:8px;border-bottom:1px solid rgba(123,158,107,.18);">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:22px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--accent),var(--accent-lt));opacity:.78;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">Mo</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:18px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--accent),var(--accent-lt));opacity:.74;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">Di</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:18px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--accent),var(--accent-lt));opacity:.70;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">Mi</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:13px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--accent),var(--accent-lt));opacity:.78;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">Do</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:13px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--accent),var(--accent-lt));opacity:.60;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">Fr</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:10px;border-radius:5px 5px 0 0;background:linear-gradient(to top,var(--accent),var(--accent-lt));opacity:.55;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-500);">Sa</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:36px;display:flex;align-items:flex-end;"><div style="width:100%;height:8px;border-radius:5px 5px 0 0;background:rgba(123,158,107,.16);border:1.5px dashed rgba(123,158,107,.35);box-sizing:border-box;"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);font-weight:700;">So</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;"></span>
+        <span style="font-size:13px;color:var(--ink-700);font-weight:500;line-height:1.4;">Positiver Trend — weiter so.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-active.html" class="tab-item active">
+      <span class="tab-icon">⌂</span>
+      Tagebuch
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Forschung
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      Ich
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

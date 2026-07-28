@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medizinisch &amp; chirurgisch · Behandlungsoptionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #f0eff7 0%, #faf7f4 70%, #eeecf6 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--plum-300, #c8b8d8) 0%, var(--plum-500) 20%, transparent 70%);
+      opacity: .25; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#f0eff7 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero flow-hero--dark">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Behandlungsoptionen
+      </a>
+      <span class="selection-badge" data-header-counter>0 gespeichert</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-dark">
+        <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Medizinisch &amp; chirurgisch</h1>
+        <p class="flow-hero-sub tight">6 Optionen — alle erfordern zuerst ein Gespräch mit deiner Gynäkolog:in.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="callout-amber ani" style="margin-bottom: 4px;">
+      <div class="callout-label">Zuerst mit einer Ärztin sprechen</div>
+      <p class="detail-para sm">Alle Optionen in diesem Bereich erfordern eine ärztliche Beurteilung. Wir zeigen dir die Evidenz, damit du ein besser informiertes Gespräch führen kannst — nicht, um sie selbst zu verschreiben.</p>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Schlüssellochoperation zur Entfernung von Herden</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Starke Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Der Goldstandard für Diagnose und Behandlung von Endometriose. Eine Chirurgin macht kleine Schnitte im Bauch und entfernt mithilfe einer winzigen Kamera und Instrumenten die Endometriose-Herde. Das vollständige Entfernen des Gewebes an der Wurzel — statt nur die Oberfläche zu verbrennen — ist leitliniengerecht und hat die stärkste Evidenz für anhaltende Schmerzlinderung. Es ist auch die einzige Möglichkeit, eine Endometriose-Diagnose definitiv zu bestätigen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="laparoscopy" data-treatment-name="Laparoskopische Exzisionschirurgie"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Hormonspritzen zur Östrogenblockade (Zoladex, Prostap)</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Starke Evidenz (kurzfristig)</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Monatliche Spritzen (oder Implantate), die vorübergehend die Östrogenproduktion abschalten — der Körper kommt in einen reversiblen wechseljahresähnlichen Zustand, der Endometriose-Herde von dem Hormon abschneidet, das sie zum Wachsen brauchen. Sehr effektiv gegen Schmerzen, aber meist auf 3–6-monatige Kuren begrenzt, da Nebenwirkungen wie Hitzewallungen und Knochendichteverlust auftreten können. Oft zusammen mit niedrig dosierter Hormonersatztherapie verschrieben, um diese Nebenwirkungen abzumildern.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="gnrh-agonists" data-treatment-name="GnRH-Agonisten"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Mirena-Spirale (Hormon-Spirale)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Gibt Progesteron direkt in die Gebärmutter ab und reduziert Menstruationsblutungen und die Aktivität von Endometriose-Herden. Mehrere Studien belegen eine signifikante Schmerzreduktion — und es bietet gleichzeitig langfristige Verhütung. Eine der verträglichsten Hormonoptionen für viele Frauen.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="mirena-iud" data-treatment-name="Mirena IUD"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Weniger anzeigen':'3 weitere Optionen anzeigen'">3 weitere Optionen anzeigen</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Kombinierte orale Kontrazeptiva (Pille)</div>
+            <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Oft die erste medizinische Behandlung bei Endometriose. Unterdrückt östrogengesteuertes Läsionswachstum und reduziert Menstruationsblutungen und Schmerzen. Die kontinuierliche Einnahme (ohne pillenfreie Woche) ist für das Schmerzmanagement oft wirksamer als die zyklische Einnahme.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="combined-pill" data-treatment-name="Kombinierte orale Kontrazeptiva"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Gestagen-Monotherapie</div>
+            <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Gute Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Umfasst die Minipille (z. B. Cerazette), die Depo-Provera-Spritze und Dienogest — ein Gestagen, das in einigen Ländern speziell für Endometriose zugelassen ist. Unterdrückt Endometriose-Gewebewachstum direkt. Oft bevorzugt, wenn Östrogen nicht geeignet ist. Die Auswirkungen auf die Familienplanung variieren je nach Präparat — bitte mit deiner Gynäkolog:in besprechen.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="progesterone-therapy" data-treatment-name="Gestagen-Monotherapie"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Ibuprofen und Naproxen (Entzündungshemmer)</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Begrenzte Evidenz</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Entzündungshemmende Schmerzmittel, die die schmerzverursachenden Verbindungen reduzieren, die Menstruationskrämpfe auslösen. Ein Cochrane-Review fand keine Studienevidenz dafür, dass Ibuprofen oder Naproxen endometriose-spezifische Schmerzen lindern. Sie wirken bei allgemeinen Regelschmerzen, weshalb sie weit verbreitet eingesetzt werden. Ehrliche Einschätzung: wirksam bei Krämpfen, für den tieferen, chronischen Schmerz der Endometriose selbst noch nicht belegt.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="nsaids" data-treatment-name="NSAIDs (Ibuprofen, Naproxen)"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Noch nichts hinzugefügt</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Meinen Plan erstellen
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

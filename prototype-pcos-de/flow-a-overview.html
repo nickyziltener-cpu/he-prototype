@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alle ansehen · PCOS Behandlungswege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #faf7f4 0%, #f3ecf1 100%); min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 360px; height: 360px; background: radial-gradient(circle, var(--rose-300) 0%, transparent 70%); opacity: .22; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 280px; height: 280px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero" style="border-bottom: 1px solid rgba(255,255,255,0.45);">
+    <div class="flow-nav">
+      <a href="flow-a-start.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Forschung
+      </a>
+      <span id="selBadge" class="selection-badge"></span>
+    </div>
+    <div class="flow-count-pill">17 Behandlungswege</div>
+    <h1 class="flow-hero-title sm">Nach Kategorie suchen</h1>
+    <p class="flow-hero-sub" style="margin-top:8px;">Jeder Ansatz ist evidenzbewertet und basiert auf peer-reviewter Forschung.</p>
+  </div>
+
+  <div class="flow-body">
+
+    <a href="flow-a-supplements.html" class="catrow-flow ani" style="background: var(--category-supplements-wash);">
+      <div class="cat-icon-flow bg-ember">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M20.56 12a8.56 8.56 0 1 0-8.56 8.56"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Nahrungsergänzungsmittel</div>
+        <div class="catrow-meta-flow"><strong>3 Starke</strong> · 7 gesamt — Inositol, Pfefferminze, NAC und mehr</div>
+      </div>
+      <div class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="flow-a-diet.html" class="catrow-flow ani" style="background: var(--category-dietary-wash);">
+      <div class="cat-icon-flow bg-sage">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Ernährung &amp; Nutrition</div>
+        <div class="catrow-meta-flow"><strong>2 Starke</strong> · 4 gesamt — Niedrig-GI, Mediterran, entzündungshemmend</div>
+      </div>
+      <div class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="flow-a-mindbody.html" class="catrow-flow ani" style="background: var(--category-psychological-wash);">
+      <div class="cat-icon-flow bg-plum">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Geist &amp; Körper</div>
+        <div class="catrow-meta-flow"><strong>2 Starke</strong> · 5 gesamt — Bewegung, Yoga, Stressmanagement</div>
+      </div>
+      <div class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="flow-a-medical.html" class="catrow-flow ani" style="background: var(--category-medication-wash);">
+      <div class="cat-icon-flow bg-dark">
+        <svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </div>
+      <div class="catrow-body">
+        <div class="catrow-title-flow">Medizinische Behandlungen</div>
+        <div class="catrow-meta-flow"><strong>2 Starke</strong> · 5 gesamt — Alle über Ärztin oder Arzt</div>
+      </div>
+      <div class="catrow-chev"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></div>
+    </a>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <a href="cycle-view.html" class="tab-item">
+      <span class="tab-icon">◯</span>Zyklus
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item">
+      <span class="tab-icon">✦</span>Mein Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item active">
+      <span class="tab-icon">◉</span>Forschung
+    </a>
+    <a href="#" class="tab-item">
+      <span class="tab-icon">○</span>Ich
+    </a>
+  </div>
+
+</div>
+
+<script>
+var KEY = 'pcos_selectedTreatments';
+function getSelected() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; } }
+var sel = getSelected();
+var badge = document.getElementById('selBadge');
+if (sel.length > 0) { badge.textContent = sel.length + ' gespeichert'; }
+</script>
+
+</body>
+</html>

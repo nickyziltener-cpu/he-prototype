@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Dein Symptombild</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--hero-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.40; transform: scale(1); }
+    }
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.40; transform: scale(1); }
+    }
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: ember-bloom 1.4s ease-out 0.3s forwards;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -80px; left: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: aurora-bloom 1.4s ease-out 0.6s forwards;
+    }
+
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .reveal-headline .hl-line:nth-child(1) { animation: write-reveal 0.6s ease-out 0.4s forwards; }
+    .reveal-headline .hl-line:nth-child(2) { animation: write-reveal 0.6s ease-out 0.9s forwards; }
+
+    .reveal-summary, .glass-card, .account-prompt, .cta-section {
+      opacity: 0; animation: fade-in 1.2s ease-out 1.1s forwards;
+    }
+
+    .reveal-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 56px 24px 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gp-prep-toggle {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; background: none; border: none; padding: 16px 20px;
+      cursor: pointer; text-align: left;
+    }
+    .gp-prep-toggle-left { display: flex; align-items: center; gap: 12px; }
+    .gp-prep-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(107,91,125,0.10);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .gp-prep-title { font-weight: 700; font-size: 15px; color: var(--ink-900); margin-bottom: 2px; }
+    .gp-prep-subtitle { font-size: 13px; color: var(--ink-600); }
+    .gp-chevron { width: 18px; height: 18px; color: var(--plum-500); flex-shrink: 0; transition: transform 0.25s ease; }
+    .gp-chevron.open { transform: rotate(180deg); }
+    .gp-prep-body { display: none; padding: 0 20px 20px; border-top: 1px solid rgba(107,91,125,0.12); }
+    .gp-prep-body.open { display: block; }
+    .gp-prep-section { margin-top: 16px; }
+    .gp-prep-section-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      color: var(--plum-500); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px;
+    }
+    .gp-prep-item {
+      display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;
+      font-size: 13px; color: var(--ink-700); line-height: 1.5;
+    }
+    .gp-prep-item::before { content: '·'; color: var(--plum-400); font-size: 16px; line-height: 1.3; flex-shrink: 0; }
+
+    .cta-section { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .cta-section .btn-primary { width: 100%; }
+
+    .reveal-headline { font-size: 26px; line-height: 1.3; margin-bottom: 20px; }
+
+    .account-prompt-heading {
+      font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400;
+      color: var(--plum-500); line-height: 1.2; margin-bottom: 10px;
+    }
+
+    .section-divider {
+      display: flex; align-items: center; gap: 14px; margin: 36px 0 32px;
+      opacity: 0; animation: fade-in 1.2s ease-out 1.1s forwards;
+    }
+    .section-divider::before, .section-divider::after {
+      content: ''; flex: 1; height: 1px; background: rgba(107,91,125,0.18);
+    }
+    .section-divider-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+      color: var(--plum-400); text-transform: uppercase; letter-spacing: 0.2em; white-space: nowrap;
+    }
+
+    .bg-blob-centre { filter: blur(80px); top: 10%; transform: translate(-50%, 0); }
+
+    .delay-stat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--plum-500);
+      background: rgba(107,91,125,0.08);
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="bg-blob-centre" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M300,80 C420,60 520,140 540,260 C560,380 480,480 360,510 C240,540 120,480 80,360 C40,240 100,120 180,90 C220,74 260,96 300,80 Z" fill="rgba(168,165,212,0.10)"/>
+  </svg>
+
+  <div class="reveal-wrapper">
+    <h1 class="reveal-headline">
+      <span class="hl-line">Deine Symptome passen zu mehreren</span>
+      <span class="hl-line">Endometriose-Hinweisen.</span>
+    </h1>
+
+    <p class="reveal-summary">Basierend auf dem, was du beschrieben hast, zeigen wir dir, wie deine Symptome zu den ESHRE-Leitlinien passen — dem europäischen Standard, den Spezialist:innen bei der Abklärung von Endometriose verwenden.</p>
+
+    <!-- ESHRE criteria expandable -->
+    <div class="glass-card" style="padding: 0; margin-bottom: 24px; overflow: hidden;">
+      <button class="gp-prep-toggle" id="eshreToggle" aria-expanded="false">
+        <div class="gp-prep-toggle-left">
+          <div class="gp-prep-icon">
+            <i data-lucide="clipboard-list" style="width: 18px; height: 18px; color: var(--plum-500);"></i>
+          </div>
+          <div>
+            <p class="gp-prep-title">ESHRE-Klinische Indikatoren</p>
+            <p class="gp-prep-subtitle">Wie deine Symptome dem europäischen Diagnosestandard entsprechen</p>
+          </div>
+        </div>
+        <i data-lucide="chevron-down" class="gp-chevron" id="eshreChevron"></i>
+      </button>
+      <div class="gp-prep-body" id="eshrePrepBody">
+        <div id="criteriaRows" style="margin-top: 4px;"></div>
+        <div class="delay-stat" style="margin-top:12px;">
+          Die durchschnittliche Zeit von den ersten Symptomen bis zur Endometriose-Diagnose beträgt <strong>7–9 Jahre</strong>. Viele Betroffene werden mehrmals abgewiesen, bevor sie überwiesen werden. Wenn du deine Indikatoren kennst, kannst du dich besser selbst vertreten.
+        </div>
+      </div>
+    </div>
+
+    <!-- GP prep expandable -->
+    <div class="glass-card" style="padding: 0; margin-bottom: 24px; overflow: hidden;">
+      <button class="gp-prep-toggle" id="gpPrepToggle" aria-expanded="false">
+        <div class="gp-prep-toggle-left">
+          <div class="gp-prep-icon">
+            <i data-lucide="stethoscope" style="width: 18px; height: 18px; color: var(--plum-500);"></i>
+          </div>
+          <div>
+            <p class="gp-prep-title">Vorbereitung auf deinen Arzttermin</p>
+            <p class="gp-prep-subtitle">Was du dokumentieren, sagen und fragen solltest</p>
+          </div>
+        </div>
+        <i data-lucide="chevron-down" class="gp-chevron" id="gpChevron"></i>
+      </button>
+      <div class="gp-prep-body" id="gpPrepBody">
+        <div class="gp-prep-section">
+          <p class="gp-prep-section-label">Vorher — 1–2 Zyklen dokumentieren</p>
+          <div class="gp-prep-item">An welchen Tagen deines Zyklus die Symptome am schlimmsten sind</div>
+          <div class="gp-prep-item">Schmerzstärke von 1–10 an deinen schlimmsten Tagen</div>
+          <div class="gp-prep-item">Welche Aktivitäten du absagen oder einschränken musstest</div>
+          <div class="gp-prep-item">Schmerzen beim Sex, beim Stuhlgang oder beim Wasserlassen</div>
+        </div>
+        <div class="gp-prep-section">
+          <p class="gp-prep-section-label">Was du deiner Ärztin / deinem Arzt sagen solltest</p>
+          <div class="gp-prep-item">Wie lange du die Symptome schon hast und wie sie dein Leben beeinflussen</div>
+          <div class="gp-prep-item">Dass dein Schmerz zyklusabhängig ist — mit deinem Menstruationszyklus verbunden</div>
+          <div class="gp-prep-item">Ob Endometriose oder Myome in deiner Familie vorkommen</div>
+          <div class="gp-prep-item">Dass der Schmerz für dich nicht "normal" ist — auch wenn dir das schon einmal gesagt wurde</div>
+        </div>
+        <div class="gp-prep-section">
+          <p class="gp-prep-section-label">Fragen, die du stellen kannst</p>
+          <div class="gp-prep-item">"Könnte das Endometriose sein? Meine Symptome passen zu mehreren ESHRE-Indikatoren."</div>
+          <div class="gp-prep-item">"Kann ich zu einer Gynäkolog:in überwiesen werden — idealerweise mit Endometriose-Expertise?"</div>
+          <div class="gp-prep-item">"Wäre ein transvaginaler Ultraschall als erster Untersuchungsschritt sinnvoll?"</div>
+          <div class="gp-prep-item">"Was kann ich tun, um meinen Schmerz zu lindern, während ich auf eine Überweisung warte?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider">
+      <span class="section-divider-label">Was als nächstes kommt</span>
+    </div>
+
+    <div class="account-prompt">
+      <p class="account-prompt-heading">Während du auf deine Diagnose hinarbeitest, haben wir 18 Behandlungswege gefunden, die zu deinen Symptomen passen.</p>
+      <p class="account-prompt-sub">Erstelle ein kostenloses Konto, um darauf zuzugreifen.</p>
+    </div>
+
+    <div style="display: flex; align-items: flex-start; gap: 10px; background: rgba(107,91,125,0.08); border: 1px solid rgba(107,91,125,0.18); border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; opacity: 0; animation: fade-in 1.2s ease-out 1.1s forwards;">
+      <i data-lucide="info" style="width: 16px; height: 16px; color: var(--plum-500); flex-shrink: 0; margin-top: 1px;"></i>
+      <p style="font-size: 13px; color: var(--ink-700); margin: 0; line-height: 1.5;">Diese Ansätze basieren auf dem, was du beschrieben hast, nicht auf einer bestätigten Diagnose. Wir empfehlen, vor dem Beginn einer neuen Behandlung mit deiner Hausärztin / deinem Hausarzt oder einer Gynäkolog:in zu sprechen.</p>
+    </div>
+
+    <div class="cta-section">
+      <a href="account.html" class="btn-primary">Mein kostenloses Konto erstellen</a>
+      <a href="account.html" class="secondary-link">Schon ein Konto? Anmelden</a>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script>
+    document.getElementById('gpPrepToggle').addEventListener('click', function() {
+      var body    = document.getElementById('gpPrepBody');
+      var chevron = document.getElementById('gpChevron');
+      var isOpen  = body.classList.toggle('open');
+      chevron.classList.toggle('open', isOpen);
+      this.setAttribute('aria-expanded', isOpen);
+    });
+    document.getElementById('eshreToggle').addEventListener('click', function() {
+      var body    = document.getElementById('eshrePrepBody');
+      var chevron = document.getElementById('eshreChevron');
+      var isOpen  = body.classList.toggle('open');
+      chevron.classList.toggle('open', isOpen);
+      this.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
+  <script>
+    var rawSymptoms = localStorage.getItem('endo_symptoms');
+    var symptoms = rawSymptoms ? JSON.parse(rawSymptoms) : [];
+
+    var criteria = [
+      {
+        key: 'dysmenorrhoea',
+        metText:  'Dysmenorrhoe — schmerzhafte Perioden, die den Alltag erheblich beeinträchtigen',
+        noteText: 'Keine schmerzhaften Perioden angegeben — es lohnt sich, zyklischen Beckenschmerz mit der Ärztin / dem Arzt zu besprechen'
+      },
+      {
+        key: 'chronic-pelvic-pain',
+        metText:  'Chronische Beckenschmerzen — Schmerzen zwischen den Perioden seit 6+ Monaten',
+        noteText: 'Keine Beckenschmerzen zwischen den Perioden angegeben'
+      },
+      {
+        key: 'dyspareunia',
+        metText:  'Dyspareunie — tiefe Schmerzen beim oder nach dem Sex',
+        noteText: 'Keine Schmerzen beim Sex angegeben'
+      },
+      {
+        key: 'bowel-bladder',
+        metText:  'Dyschezie / Dysurie — zyklische Darm- oder Blasenschmerzen',
+        noteText: 'Keine Darm- oder Blasenschmerzen angegeben'
+      }
+    ];
+
+    var container = document.getElementById('criteriaRows');
+    criteria.forEach(function(c) {
+      var met = symptoms.indexOf(c.key) >= 0;
+      var row = document.createElement('div');
+      row.className = 'criteria-row ' + (met ? 'criteria-met' : 'criteria-note');
+      row.innerHTML =
+        '<span class="criteria-icon">' + (met ? '✓' : '→') + '</span>' +
+        '<span class="criteria-text">' + (met ? c.metText : c.noteText) + '</span>';
+      container.appendChild(row);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topical Treatments · Psoriasis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: linear-gradient(170deg, #FDF4E6 0%, #FAF2E4 70%, #F5EBD5 100%); min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 20%, transparent 70%);
+      opacity: .30; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-amber">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.42 1.24 4.55 3.12 5.79L7.5 18h9l-.62-3.21A7 7 0 0 0 19 9c0-3.87-3.13-7-7-7z"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Topical treatments</h1>
+        <p class="flow-hero-sub tight">8 options · 5 with Strong evidence. Includes OTC options a dermatologist may not mention.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Access key -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;padding:8px 20px;position:relative;z-index:1;">
+    <span style="font-size:11px;color:var(--ink-600);margin-right:4px;font-family:'JetBrains Mono',monospace;font-weight:600;">ACCESS:</span>
+    <span class="access-rx" style="font-size:11px;padding:2px 8px;">Rx — prescription</span>
+    <span class="access-otc" style="font-size:11px;padding:2px 8px;">OTC — pharmacy</span>
+    <span class="access-clinic" style="font-size:11px;padding:2px 8px;">Clinic</span>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Emollients &amp; moisturising</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+            <span class="access-otc">OTC</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Daily moisturising reduces scaling, relieves itch, and significantly reduces the amount of topical treatment needed. Foundation of all psoriasis management. Simple, safe, evidence-graded.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail.html" class="learn-more">Learn more <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="emollients" data-treatment-name="Emollients &amp; moisturising"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Topical corticosteroids</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+            <span class="access-rx">Rx</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">First-line treatment for most mild-to-moderate psoriasis. Reduce inflammation and slow skin cell turnover. Potency matched to site and severity. Prescribed by your GP or dermatologist.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="topical-steroids" data-treatment-name="Topical corticosteroids"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Vitamin D analogues (calcipotriol)</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+            <span class="access-rx">Rx</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Calcipotriol slows skin cell division via vitamin D receptor binding. Widely used alone and as the basis of the most evidence-backed combination product. Doesn't cause skin thinning. Well tolerated for long-term maintenance.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="calcipotriol" data-treatment-name="Vitamin D analogues (calcipotriol)"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Calcipotriol + betamethasone (Dovobet / Enstilar)</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+            <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+            <span class="access-rx">Rx</span>
+          </div>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">The combination outperforms either ingredient alone — 73% PASI reduction vs 49% for calcipotriol and 63% for steroid separately. Available as ointment (Dovobet), gel (Xamiol), or aerosol foam (Enstilar). The best-evidenced topical in psoriasis by network meta-analysis. If you're using these as separate products, ask your dermatologist about the combination.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="calbd-combo" data-treatment-name="Calcipotriol + betamethasone (Dovobet)"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra options':'Show 4 more options'">Show 4 more options</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Coal tar preparations</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-med"><span class="ev-dot"></span>Moderate evidence</span>
+              <span class="access-otc">OTC</span>
+              <span class="access-rx">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">One of the oldest psoriasis treatments, still widely used — particularly for scalp. Anti-proliferative and anti-inflammatory. Network meta-analysis found body-plaque efficacy no better than placebo; evidence is stronger for scalp formulations. Available OTC (medicated shampoos) and by prescription at higher concentrations.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="coal-tar" data-treatment-name="Coal tar preparations"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Dithranol (anthralin)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-good"><span class="ev-dot"></span>Good evidence</span>
+              <span class="access-rx">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Effective for chronic plaque psoriasis. Applied for short contact periods (10–30 minutes). Can stain skin and clothing. Less commonly used due to inconvenience, but well-evidenced.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="dithranol" data-treatment-name="Dithranol"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Phototherapy (UVB / PUVA)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+              <span class="access-clinic">Clinic</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Narrowband UVB is a dermatologist-led treatment for moderate-to-severe plaque psoriasis — very well evidenced. Delivered in outpatient sessions. PUVA (UV + psoralen) is reserved for specific cases.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="phototherapy" data-treatment-name="Phototherapy (UVB/PUVA)"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Scalp-specific treatments</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+              <span class="access-otc">OTC</span>
+              <span class="access-rx">Rx</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">The Cochrane review of scalp psoriasis (59 RCTs, n=11,561) found calcipotriol-betamethasone gel/foam is the most effective topical for the scalp — superior to either ingredient alone. Targeted treatment dramatically improves quality of life. If scalp is your most distressing site, ask specifically about Xamiol gel or Enstilar foam.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="scalp-treatment" data-treatment-name="Scalp-specific treatments"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Salicylic acid (keratolytic)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-med"><span class="ev-dot"></span>Moderate evidence</span>
+              <span class="access-otc">OTC</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Descales thick plaques and enhances penetration of other topicals — applying before steroids or vitamin D analogues helps them reach deeper layers. Evidence is as an enabler rather than standalone treatment. No placebo-controlled trials for solo use. Widely available in body washes and lotions.</div>
+
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Mahonia aquifolium (Oregon grape — topical)</div>
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <span class="evchip-flow ev-med"><span class="ev-dot"></span>Moderate evidence</span>
+              <span class="access-otc">OTC</span>
+            </div>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">An herbal extract applied topically to psoriatic plaques. Three published clinical trials and two systematic reviews support efficacy — a 2013 meta-analysis found a relative risk of 3.37 vs placebo across 5 studies. Almost never discussed in NHS settings. Available as Reliéva or similar OTC herbal creams. Genuinely under-discussed.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="mahonia" data-treatment-name="Mahonia aquifolium (Oregon grape)"></button>
+        </div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="salicylic-acid" data-treatment-name="Salicylic acid"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:rgba(196,123,43,0.08);border:1px solid rgba(196,123,43,0.22);border-radius:12px;padding:14px 16px;margin-top:8px;" class="ani">
+      <p style="font-size:13px;line-height:1.6;color:var(--ink-700);">If you're already using prescribed topicals, the detail screens can help you understand what the evidence says — and give you better language for your next dermatology appointment.</p>
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

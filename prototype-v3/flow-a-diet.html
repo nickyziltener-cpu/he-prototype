@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet · Treatment Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f5f0ed 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .30;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#fbeee5 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero flow-hero--sage">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 of 3 chosen</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-ember">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Diet</h1>
+        <p class="flow-hero-sub tight">6 options, ranked by how strong the research is for IBS-C.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="flow-body">
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Low FODMAP diet</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Strong evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">An 8-week elimination-and-reintroduction trial. The most studied dietary change for IBS — 50–80% see meaningful symptom relief.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail.html" class="learn-more">Learn more <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="low-fodmap" data-treatment-name="Low FODMAP diet"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Mediterranean diet</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">An anti-inflammatory eating pattern linked to lower symptom severity and better gut diversity. Especially relevant for IBS-C.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="mediterranean" data-treatment-name="Mediterranean diet"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Soluble fibre (psyllium)</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Gradually adding soluble fibre eases constipation-dominant symptoms. Works for most subtypes — the unsexy one that actually helps.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="psyllium" data-treatment-name="Soluble fibre (psyllium)"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra options':'Show 3 more options'">Show 3 more options</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Gluten restriction</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Some people with IBS-D see improvement — though it's unclear whether gluten itself or the FODMAPs in wheat are the real driver. A useful trial if Low FODMAP alone doesn't resolve symptoms.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="gluten-free" data-treatment-name="Gluten restriction"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Low-fat diet</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Reducing dietary fat can ease post-meal pain and urgency — fat is a potent trigger of gut contractions. Modest but consistent effect seen in trials, particularly for IBS-D.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="low-fat-diet" data-treatment-name="Low-fat diet"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Specific carbohydrate diet (SCD)</div>
+            <span class="evchip-flow ev-low" style="margin-top:6px;"><span class="ev-dot"></span>Limited evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">A more restrictive approach that eliminates most complex carbohydrates. Small studies show benefit but no large RCTs yet. Better evidence exists for related dietary approaches.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="scd-diet" data-treatment-name="Specific carbohydrate diet"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Selection tray -->
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

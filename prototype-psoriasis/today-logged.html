@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today · Check-in Logged</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #EFF5EC 0%, #FAF6F0 60%, #F5EBD5 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -80px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, var(--accent) 18%, transparent 70%);
+      opacity: .22; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div style="padding:22px 24px 24px;position:relative;z-index:1;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--ink-500);text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px;">Thursday, 25 Jul · 8:47 PM</div>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:32px;line-height:1.1;letter-spacing:-.015em;color:var(--ink-900);margin-bottom:10px;">Logged. Day 21.</h1>
+    <p style="font-size:14px;line-height:1.6;color:var(--ink-700);">See you tomorrow. Consistent logging builds the picture that matters.</p>
+  </div>
+
+  <div style="padding:4px 20px 100px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;">
+
+    <!-- Today's summary -->
+    <div class="ani" style="background:rgba(123,158,107,.10);backdrop-filter:blur(20px);border:1px solid rgba(123,158,107,.22);border-radius:22px;padding:18px 20px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;">Today's entry</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:13px;color:var(--ink-600);">Compared to yesterday</span>
+          <span style="font-size:13px;font-weight:700;color:var(--accent);">Better</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:13px;color:var(--ink-600);">Applied emollient</span>
+          <span style="font-size:13px;font-weight:700;color:var(--ink-800);">Yes, both times</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:13px;color:var(--ink-600);">Symptoms</span>
+          <span style="font-size:13px;font-weight:700;color:var(--ink-800);">Itching only</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(123,158,107,.16);font-size:12px;font-style:italic;color:var(--ink-500);">"Applied twice today. Hands much better than last week."</div>
+    </div>
+
+    <!-- Progress snapshot -->
+    <div class="ani" style="background:rgba(255,255,255,.50);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.64);border-radius:20px;padding:16px 18px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="font-size:15px;font-weight:700;color:var(--ink-900);">Trial 1 · 17 of 42 days</div>
+        <a href="flow-b-progress.html" style="font-size:12px;font-weight:600;color:var(--primary-dk);text-decoration:none;">Full progress →</a>
+      </div>
+      <div class="progress-bar-hero"><div class="progress-fill-hero" style="width:40%;"></div></div>
+    </div>
+
+    <!-- Dermatologist prompt -->
+    <div class="gp-dark-card ani">
+      <div class="gp-dark-label">For your dermatologist</div>
+      <div class="gp-dark-title">3 weeks of data — you're building something useful</div>
+      <p class="gp-dark-sub">At week 6 you'll have a structured report ready to bring to your next appointment. The trend data answers questions your dermatologist will actually ask: consistency, flare frequency, symptom pattern.</p>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-logged.html" class="tab-item active">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan-active.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

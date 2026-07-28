@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today · Pre-Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #FDF4E6 0%, #FAF2E4 60%, #EFF5EC 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -80px; width: 340px; height: 340px;
+      background: radial-gradient(circle, var(--primary-lt) 0%, var(--primary) 18%, transparent 70%);
+      opacity: .28; pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; bottom: -60px; left: -60px; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--accent-lt) 0%, transparent 70%);
+      opacity: .20; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div style="padding:22px 24px 24px;position:relative;z-index:1;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--ink-500);text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px;">Thursday, 25 Jul</div>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:30px;line-height:1.1;letter-spacing:-.015em;color:var(--ink-900);margin-bottom:10px;">Welcome.</h1>
+    <p style="font-size:14px;line-height:1.6;color:var(--ink-700);">Your results are ready. Let's turn them into a plan that works for you.</p>
+  </div>
+
+  <div style="padding:4px 20px 100px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;">
+
+    <!-- Primary CTA card -->
+    <div class="ani" style="background:rgba(196,123,43,.10);backdrop-filter:blur(20px);border:1px solid rgba(196,123,43,.22);box-shadow:0 10px 28px -10px rgba(196,123,43,.22);border-radius:22px;padding:20px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--primary-dk);text-transform:uppercase;letter-spacing:.10em;margin-bottom:12px;">Your next step</div>
+      <div style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink-900);margin-bottom:10px;line-height:1.2;">Build your treatment plan</div>
+      <p style="font-size:14px;line-height:1.6;color:var(--ink-700);margin-bottom:16px;">You've saved <strong>3 treatments</strong>. Now pick which order to try them — one at a time — and start tracking how your skin responds.</p>
+      <a href="flow-a-shortlist.html" style="display:block;width:100%;background:var(--primary);color:#fff;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;padding:16px 20px;border-radius:100px;text-align:center;text-decoration:none;box-shadow:0 10px 24px -8px rgba(196,123,43,.45);">Build my plan →</a>
+    </div>
+
+    <!-- Research card -->
+    <div class="ani" style="background:rgba(255,255,255,.55);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.70);border-radius:20px;padding:16px 18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--ink-500);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;">Meanwhile</div>
+      <div style="font-size:15px;font-weight:700;color:var(--ink-900);margin-bottom:6px;">18 evidence-based approaches</div>
+      <p style="font-size:13px;line-height:1.55;color:var(--ink-600);margin-bottom:12px;">Explore the full research library. Every treatment card cites its sources — dig as deep as you want.</p>
+      <a href="flow-a-overview.html" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--primary-dk);text-decoration:none;">Browse the research <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;"><path d="M9 5l7 7-7 7"/></svg></a>
+    </div>
+
+  </div>
+
+  <div class="tab-bar">
+    <a href="today-preplan.html" class="tab-item active">
+      <span class="tab-icon">⌂</span>
+      Journal
+    </a>
+    <a href="flow-b-plan.html" class="tab-item">
+      <span class="tab-icon">✦</span>
+      My Plan
+    </a>
+    <a href="flow-a-overview.html" class="tab-item">
+      <span class="tab-icon">◉</span>
+      Research
+    </a>
+    <a href="you.html" class="tab-item">
+      <span class="tab-icon">○</span>
+      You
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind &amp; Body · Treatment Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #f0ecf5 0%, #faf7f4 70%, #ede8f4 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, #c8c6e8 20%, transparent 70%);
+      opacity: .35; pointer-events: none; z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;background:linear-gradient(170deg,#f0ecf5 0%,#faf7f4 100%);">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <div class="flow-hero flow-hero--aurora">
+    <div class="flow-nav">
+      <a href="flow-a-overview.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Treatment options
+      </a>
+      <span class="selection-badge" data-header-counter>0 saved</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="cat-icon-flow lg bg-aurora">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h1 class="flow-hero-title sm">Mind &amp; Body</h1>
+        <p class="flow-hero-sub tight">6 options, ranked by strength of evidence for endometriosis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-body">
+
+    <div class="lcard-flow ani" style="background: var(--category-psychological-wash); border-color: rgba(181,152,201,0.3);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Pelvic floor physiotherapy</div>
+          <span class="evchip-flow ev-high" style="margin-top:6px;"><span class="ev-dot"></span>Strong evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Specialist physiotherapy targeting the pelvic floor muscles. In endometriosis, chronic pain causes the pelvic floor to tense and lock tight — which amplifies pain on its own, even when the underlying condition isn't flaring. A 2024 systematic review confirmed significant pain reduction — with effect sizes comparable to hormonal treatments, and none of the side effects.</div>
+      <div class="lcard-foot-flow">
+        <a href="flow-a-detail-hypnotherapy.html" class="learn-more">Learn more <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a>
+        <button class="try-btn" data-treatment-id="pelvic-physio" data-treatment-name="Pelvic floor physiotherapy"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">Pain psychology / CBT</div>
+          <span class="evchip-flow ev-good" style="margin-top:6px;"><span class="ev-dot"></span>Good evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">Structured therapy that changes how the brain and body respond to chronic pain. Strong evidence for quality-of-life improvement in endometriosis — particularly for the spiral of fear and dread around pain, and the depression and anxiety that often accompany it.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="cbt-pain" data-treatment-name="Pain psychology / CBT"></button>
+      </div>
+    </div>
+
+    <div class="lcard-flow ani">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <div class="lcard-title-flow">TENS machine</div>
+          <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+        </div>
+      </div>
+      <div class="lcard-desc-flow">A small device that sends gentle electrical pulses through the skin to block pain signals and trigger your body's natural painkillers (endorphins). A meta-analysis of 13 trials confirmed effectiveness for period pain. Endo-specific trials are limited, but the mechanism is the same and it's widely used alongside other treatments. Low-risk, home-use, no drug interactions.</div>
+      <div class="lcard-foot-flow">
+        <button class="try-btn" data-treatment-id="tens" data-treatment-name="TENS machine"></button>
+      </div>
+    </div>
+
+    <button class="show-more-btn ani" onclick="var p=this.nextElementSibling;var show=p.style.display==='none';p.style.display=show?'flex':'none';this.textContent=show?'Hide extra options':'Show 3 more options'">Show 3 more options</button>
+    <div class="more-cards" style="display:none;flex-direction:column;gap:12px;">
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Heat therapy</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Heat relaxes uterine muscle and reduces prostaglandin-driven cramping. One RCT found continuous low-level heat was as effective as ibuprofen for menstrual pain. Highly accessible and can be combined with other approaches.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="heat-therapy" data-treatment-name="Heat therapy"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Yoga &amp; gentle movement</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Moderate evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Pelvic-focused yoga consistently shows pain and quality-of-life improvement in endometriosis. Combines gentle pelvic stretching with calming the body's stress response — two things that independently reduce pain.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="yoga-endo" data-treatment-name="Yoga & gentle movement"></button>
+        </div>
+      </div>
+
+      <div class="lcard-flow">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div>
+            <div class="lcard-title-flow">Acupuncture</div>
+            <span class="evchip-flow ev-med" style="margin-top:6px;"><span class="ev-dot"></span>Mixed evidence</span>
+          </div>
+        </div>
+        <div class="lcard-desc-flow">Some trials show meaningful pain reduction for endometriosis and period pain; others show no benefit over placebo acupuncture. Effect on inflammation markers is more consistent. Worth considering if other non-hormonal options haven't been enough.</div>
+        <div class="lcard-foot-flow">
+          <button class="try-btn" data-treatment-id="acupuncture-endo" data-treatment-name="Acupuncture"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="selection-tray">
+    <div class="tray-info" data-tray-left>
+      <span class="tray-empty-label">Nothing added yet</span>
+    </div>
+    <a href="flow-a-shortlist.html" class="tray-cta-btn tray-cta-disabled" data-tray-cta>
+      Create my plan
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<script src="selection.js"></script>
+</body>
+</html>

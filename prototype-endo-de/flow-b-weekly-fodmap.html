@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wöchentlicher Check-in · Entzündungshemmende Ernährung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(74,122,106,0.06) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .phase-cadence { background: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.9); border-radius: 18px; padding: 16px 18px; box-shadow: 0 4px 12px -6px rgba(74,122,106,.14); }
+    .phase-cad-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .phase-cad-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--evidence-high); }
+    .phase-cad-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-600); font-weight: 500; }
+    .phase-cad-title { font-size: 16px; font-weight: 700; color: var(--ink-900); margin-bottom: 12px; }
+    .phase-week-track { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+    .pw-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .pw-dot.done { background: var(--evidence-high); }
+    .pw-dot.current { background: var(--evidence-high); box-shadow: 0 0 0 2px rgba(74,122,106,.25); }
+    .pw-dot.remaining { background: rgba(74,122,106,.18); }
+    .pw-label { font-size: 11px; color: var(--ink-500); margin-left: 4px; font-family: 'JetBrains Mono', monospace; }
+    .phase-cad-footer { font-size: 12px; color: var(--ink-600); line-height: 1.5; padding-top: 10px; border-top: 1px solid rgba(42,31,48,.06); }
+    .phase-cad-footer strong { color: var(--ink-900); }
+
+    .adh-control { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .adh-opt { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.75); border: 1.5px solid rgba(42,31,48,.1); border-radius: 12px; padding: 11px 13px; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+    .adh-opt.active { border-color: var(--evidence-high); background: rgba(74,122,106,.07); }
+    .adh-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; }
+    .adh-text { flex: 1; }
+    .adh-title { font-size: 13px; font-weight: 700; color: var(--ink-900); line-height: 1.2; }
+    .adh-sub { font-size: 11px; color: var(--ink-500); margin-top: 1px; }
+    .adh-opt.active .adh-title { color: var(--evidence-high); }
+
+    .catch-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .catch-chip { font-size: 12px; font-weight: 600; background: rgba(255,255,255,.8); border: 1.5px solid rgba(42,31,48,.1); color: var(--ink-700); padding: 6px 12px; border-radius: 100px; cursor: pointer; transition: background .12s, border-color .12s, color .12s; }
+    .catch-chip.active { background: rgba(184,112,74,.1); border-color: rgba(184,112,74,.35); color: var(--ember-700); }
+
+    .milestone-note { display: flex; align-items: flex-start; gap: 10px; background: rgba(74,122,106,.06); border: 1px solid rgba(74,122,106,.16); border-radius: 14px; padding: 13px 14px; }
+    .milestone-note svg { width: 16px; height: 16px; stroke: var(--evidence-high); stroke-width: 2; fill: none; flex-shrink: 0; margin-top: 1px; }
+    .milestone-note-body { font-size: 13px; color: var(--ink-700); line-height: 1.55; }
+    .milestone-note-body strong { color: var(--ink-900); }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Head -->
+  <div class="ci-head" style="position:relative;z-index:1;">
+    <div class="flow-nav">
+      <a href="flow-b-trial-fodmap.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Woche 2 · KW 9. Jun
+      </a>
+    </div>
+    <h1 class="flow-hero-title sm">Wie war diese Woche?</h1>
+    <p class="flow-hero-sub tight">Eine wöchentliche Auswertung — keine tägliche Note. Trage ein, wie es gelaufen ist, nicht wie perfekt es war.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="ci-body" style="position:relative;z-index:1;">
+
+    <!-- Phase cadence block -->
+    <div class="phase-cadence ani">
+      <div class="phase-cad-top">
+        <span class="phase-cad-label">Ernährungsumstellung</span>
+        <span class="phase-cad-count">Woche 2 von 8</span>
+      </div>
+      <div class="phase-cad-title">Entzündungshemmende Ernährung</div>
+      <div class="phase-week-track">
+        <span class="pw-dot done"></span>
+        <span class="pw-dot current"></span>
+        <span class="pw-dot remaining"></span>
+        <span class="pw-dot remaining"></span>
+        <span class="pw-dot remaining"></span>
+        <span class="pw-dot remaining"></span>
+        <span class="pw-dot remaining"></span>
+        <span class="pw-dot remaining"></span>
+        <span class="pw-label">8 Wo.</span>
+      </div>
+      <div class="phase-cad-footer">
+        <strong>Noch 6 Wochen.</strong> Entzündungen brauchen Zeit, sich zu verschieben — trage jede Woche ein und wir werten die Ergebnisse gemeinsam in Woche 8 aus.
+      </div>
+    </div>
+
+    <!-- Adherence question -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Wie gut hast du die entzündungshemmende Ernährung diese Woche eingehalten?</div>
+      <div class="adh-control">
+        <div class="adh-opt" onclick="this.closest('.adh-control').querySelectorAll('.adh-opt').forEach(o=>o.classList.remove('active'));this.classList.add('active');">
+          <span class="adh-icon">✦</span>
+          <div class="adh-text">
+            <div class="adh-title">Streng</div>
+            <div class="adh-sub">Alles kontrolliert</div>
+          </div>
+        </div>
+        <div class="adh-opt active" onclick="this.closest('.adh-control').querySelectorAll('.adh-opt').forEach(o=>o.classList.remove('active'));this.classList.add('active');">
+          <span class="adh-icon">○</span>
+          <div class="adh-text">
+            <div class="adh-title">Größtenteils</div>
+            <div class="adh-sub">Einige Ausrutscher</div>
+          </div>
+        </div>
+        <div class="adh-opt" onclick="this.closest('.adh-control').querySelectorAll('.adh-opt').forEach(o=>o.classList.remove('active'));this.classList.add('active');">
+          <span class="adh-icon">◐</span>
+          <div class="adh-text">
+            <div class="adh-title">Teilweise</div>
+            <div class="adh-sub">Schwierige Woche</div>
+          </div>
+        </div>
+        <div class="adh-opt" onclick="this.closest('.adh-control').querySelectorAll('.adh-opt').forEach(o=>o.classList.remove('active'));this.classList.add('active');">
+          <span class="adh-icon">×</span>
+          <div class="adh-text">
+            <div class="adh-title">Schwer</div>
+            <div class="adh-sub">Unmöglich erschienen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What caught you out? -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Was hat es diese Woche schwerer gemacht? <span class="opt-tag">optional</span></div>
+      <div class="catch-chips">
+        <span class="catch-chip" onclick="this.classList.toggle('active')">Lust auf rotes Fleisch</span>
+        <span class="catch-chip active" onclick="this.classList.toggle('active')">Essen gehen</span>
+        <span class="catch-chip" onclick="this.classList.toggle('active')">Zuckerhunger</span>
+        <span class="catch-chip" onclick="this.classList.toggle('active')">Alkohol</span>
+        <span class="catch-chip" onclick="this.classList.toggle('active')">Kosten für fetten Fisch</span>
+        <span class="catch-chip active" onclick="this.classList.toggle('active')">Soziale Situationen</span>
+        <span class="catch-chip" onclick="this.classList.toggle('active')">Fertig-/Verarbeitete Lebensmittel</span>
+        <span class="catch-chip" onclick="this.classList.toggle('active')">Wusste nicht was kochen</span>
+      </div>
+    </div>
+
+    <!-- Symptoms this week -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">
+        Wie waren deine Symptome insgesamt diese Woche?
+        <span class="log-tag inline">wöchentlicher Durchschnitt</span>
+      </div>
+      <div class="seg-control">
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Keine</div>
+        <div class="seg-opt-flow active" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Leicht</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Mittel</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Stark</div>
+      </div>
+    </div>
+
+    <!-- Specific symptoms -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Etwas Bestimmtes? <span class="opt-tag">optional</span></div>
+      <div class="sym-chips">
+        <span class="sym-chip active" onclick="this.classList.toggle('active')">Beckenschmerzen</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Erschöpfung</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Blähungen</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Rückenschmerzen</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Übelkeit</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Gehirnnebel</span>
+      </div>
+    </div>
+
+    <!-- Milestone note -->
+    <div class="milestone-note ani">
+      <svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+      <div class="milestone-note-body">
+        <strong>Woche-8-Meilenstein:</strong> Wenn du die Ernährungsumstellungsphase abgeschlossen hast, machen wir eine vollständige Auswertung — wie sich die Symptome über zwei volle Zyklen verändert haben und was langfristig beizubehalten ist.
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Notizen <span class="opt-tag">optional</span></div>
+      <textarea class="note-textarea" placeholder="Zweimal auswärts essen war schwer — brauche bessere Strategien für Restaurants…"></textarea>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-progress.html" class="cta-btn-full" style="background:var(--evidence-high);">
+      Wöchentliche Auswertung speichern
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

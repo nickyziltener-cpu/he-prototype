@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Your Evidence Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+    }
+
+    /* Nav */
+    .lib-nav {
+      background: white;
+      border-bottom: 1px solid var(--border-hairline);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .lib-nav-inner {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--plum-500);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Manrope', sans-serif;
+      flex-shrink: 0;
+    }
+
+    /* Personalisation banner */
+    .personalization-banner {
+      background: rgba(140,108,171,0.08);
+      padding: 14px 24px;
+    }
+
+    .personalization-inner {
+      max-width: 940px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .personalization-text {
+      font-size: 15px;
+      font-family: 'Manrope', sans-serif;
+      color: var(--ink-800);
+      line-height: 1.5;
+    }
+
+    .edit-link {
+      font-size: 13px;
+      color: var(--plum-500);
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .edit-link:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    /* Main layout */
+    .lib-main {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    /* Sidebar */
+    .lib-sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 92px;
+    }
+
+    .sidebar-results-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--plum-500);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .filter-section {
+      margin-bottom: 24px;
+    }
+
+    .filter-section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-700);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .filter-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 0;
+    }
+
+    .filter-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--plum-500);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .filter-item label {
+      font-size: 14px;
+      color: var(--ink-800);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .filter-count {
+      font-size: 12px;
+      color: var(--ink-500);
+      margin-left: 2px;
+    }
+
+    .sidebar-subtype-note {
+      font-size: 12px;
+      color: var(--ink-600);
+      line-height: 1.55;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .reset-link {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--plum-500);
+      text-decoration: none;
+      margin-top: 16px;
+      font-weight: 500;
+    }
+
+    .reset-link:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    /* Mobile filter toggle */
+    .mobile-filter-toggle {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: white;
+      border: 1px solid var(--border-hairline);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-800);
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .mobile-filter-toggle .chevron {
+      font-size: 12px;
+      color: var(--ink-500);
+      transition: transform 0.2s ease;
+    }
+
+    .mobile-filter-toggle.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Card grid */
+    .lib-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Gut-brain contextual card */
+    .context-card {
+      background: #FEF9F0;
+      border: 1px solid rgba(184,112,74,0.2);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+
+    .context-card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ember-700);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .context-card-heading {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--ink-900);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .context-card-body {
+      font-size: 13px;
+      color: var(--ink-700);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .context-card-cta {
+      font-size: 14px;
+      color: var(--plum-500);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .context-card-cta:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    /* Card grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .explore-all {
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    .explore-all a {
+      font-size: 14px;
+      color: var(--plum-500);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .explore-all a:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .lib-main {
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 16px 48px;
+      }
+
+      .lib-sidebar {
+        width: 100%;
+        position: static;
+      }
+
+      .sidebar-filters {
+        display: none;
+      }
+
+      .sidebar-filters.open {
+        display: block;
+        padding: 16px 0 8px;
+      }
+
+      .mobile-filter-toggle {
+        display: flex;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .personalization-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .personalization-text {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .lib-nav-inner {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="lib-nav">
+    <div class="lib-nav-inner">
+      <span class="logo">Health Empowerment</span>
+      <div class="avatar" aria-label="Profile — N">N</div>
+    </div>
+  </nav>
+
+  <!-- Personalisation banner -->
+  <div class="personalization-banner">
+    <div class="personalization-inner">
+      <p class="personalization-text">
+        Based on what you told us — IBS-C, stress is a significant trigger, you've tried low-FODMAP and probiotics — here's where the strongest evidence points for your situation.
+      </p>
+      <a href="#" class="edit-link">Edit →</a>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="lib-main">
+
+    <!-- Sidebar -->
+    <aside class="lib-sidebar">
+
+      <!-- Mobile toggle -->
+      <button class="mobile-filter-toggle" id="filterToggle" aria-expanded="false">
+        Filter results
+        <span class="chevron">&#9660;</span>
+      </button>
+
+      <div class="sidebar-filters" id="sidebarFilters">
+        <span class="sidebar-results-label">Showing results for IBS-C</span>
+
+        <div class="filter-section">
+          <p class="filter-section-title">Treatment type</p>
+          <div class="filter-item">
+            <input type="checkbox" id="f-diet" checked>
+            <label for="f-diet">Diet <span class="filter-count">(3)</span></label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="f-supplements" checked>
+            <label for="f-supplements">Supplements <span class="filter-count">(2)</span></label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="f-lifestyle" checked>
+            <label for="f-lifestyle">Lifestyle <span class="filter-count">(2)</span></label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="f-psych" checked>
+            <label for="f-psych">Psychological therapies <span class="filter-count">(2)</span></label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="f-medication">
+            <label for="f-medication">Medication <span class="filter-count">(1)</span></label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <p class="filter-section-title">Evidence grade</p>
+          <div class="filter-item">
+            <input type="checkbox" id="f-strong" checked>
+            <label for="f-strong">Strong evidence</label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="f-good" checked>
+            <label for="f-good">Good evidence</label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="f-moderate" checked>
+            <label for="f-moderate">Moderate evidence</label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="f-limited">
+            <label for="f-limited">Limited evidence</label>
+          </div>
+        </div>
+
+        <p class="sidebar-subtype-note">Results filtered for IBS-C. Interventions with strong evidence for your subtype are shown first.</p>
+
+        <a href="#" class="reset-link">Reset filters</a>
+      </div>
+
+    </aside>
+
+    <!-- Content -->
+    <main class="lib-content">
+
+      <!-- Gut-brain contextual card (full width) -->
+      <div class="context-card">
+        <span class="context-card-label">Why the gut-brain connection matters for you</span>
+        <h2 class="context-card-heading">The gut-brain axis: why stress directly affects your gut</h2>
+        <p class="context-card-body">Research shows the gut and brain communicate through a direct neural highway — the vagus nerve. For many people with IBS, stress doesn't just make symptoms feel worse: it physiologically changes gut motility and sensitivity. This is why psychological interventions like gut-directed hypnotherapy and CBT have strong evidence for IBS — they work on the mechanism, not just the symptoms.</p>
+        <a href="#" class="context-card-cta">See the evidence for psychological interventions →</a>
+      </div>
+
+      <!-- Intervention cards -->
+      <div class="cards-grid">
+
+        <!-- Card 1: Low-FODMAP Diet -->
+        <div class="intervention-card">
+          <span class="card-category">Dietary</span>
+          <h3 class="card-title">Low-FODMAP Diet</h3>
+          <div class="card-badges">
+            <span class="evidence-badge badge-strong"><span class="badge-dot"></span>Strong evidence</span>
+            <span class="subtype-tag">Most relevant for IBS-C</span>
+          </div>
+          <p class="card-description">Temporarily remove high-FODMAP foods to identify your specific triggers.</p>
+          <a href="#" class="card-cta">See the evidence →</a>
+        </div>
+
+        <!-- Card 2: Peppermint Oil -->
+        <div class="intervention-card">
+          <span class="card-category">Supplement</span>
+          <h3 class="card-title">Peppermint Oil</h3>
+          <div class="card-badges">
+            <span class="evidence-badge badge-strong"><span class="badge-dot"></span>Strong evidence</span>
+            <span class="subtype-tag">Applies to all subtypes</span>
+          </div>
+          <p class="card-description">Enteric-coated peppermint oil capsules reduce abdominal pain and bloating.</p>
+          <a href="#" class="card-cta">See the evidence →</a>
+        </div>
+
+        <!-- Card 3: Gut-Directed Hypnotherapy -->
+        <div class="intervention-card">
+          <span class="card-category">Psychological</span>
+          <h3 class="card-title">Gut-Directed Hypnotherapy (GDH)</h3>
+          <div class="card-badges">
+            <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+            <span class="subtype-tag">Applies to all subtypes</span>
+          </div>
+          <p class="card-description">A structured psychological intervention with strong IBS-specific protocols — distinct from general hypnotherapy.</p>
+          <a href="#" class="card-cta">See the evidence →</a>
+        </div>
+
+        <!-- Card 4: Soluble Fibre -->
+        <div class="intervention-card">
+          <span class="card-category">Dietary</span>
+          <h3 class="card-title">Soluble Fibre (Psyllium)</h3>
+          <div class="card-badges">
+            <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence</span>
+            <span class="subtype-tag">Most relevant for IBS-C</span>
+          </div>
+          <p class="card-description">Psyllium husk normalises stool consistency and reduces overall symptom severity in IBS-C.</p>
+          <a href="#" class="card-cta">See the evidence →</a>
+        </div>
+
+      </div>
+
+      <div class="explore-all">
+        <a href="#">Explore all categories →</a>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // Mobile filter toggle
+    var filterToggle = document.getElementById('filterToggle');
+    var sidebarFilters = document.getElementById('sidebarFilters');
+
+    filterToggle.addEventListener('click', function() {
+      var isOpen = sidebarFilters.classList.contains('open');
+      if (isOpen) {
+        sidebarFilters.classList.remove('open');
+        filterToggle.classList.remove('open');
+        filterToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        sidebarFilters.classList.add('open');
+        filterToggle.classList.add('open');
+        filterToggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  </script>
+
+</body>
+</html>

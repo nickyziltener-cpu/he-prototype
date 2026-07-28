@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Täglicher Check-in · Low FODMAP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--surface-page);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 220px;
+      background: linear-gradient(180deg, rgba(74,122,106,0.05) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* ── Studienfortschritt ── */
+    .trial-banner { background: rgba(74,122,106,.07); border: 1px solid rgba(74,122,106,.16); border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .trial-banner-phase { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--evidence-high); margin-bottom: 2px; }
+    .trial-banner-week { font-size: 13px; font-weight: 700; color: var(--ink-900); }
+    .trial-dots { display: flex; gap: 5px; flex-shrink: 0; }
+    .trial-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(74,122,106,.18); }
+    .trial-dot.current { background: var(--evidence-high); box-shadow: 0 0 0 2px rgba(74,122,106,.22); }
+
+    /* ── Lebensmittel-Referenz ── */
+    details.food-ref { background: rgba(255,255,255,.7); border: 1px solid rgba(42,31,48,.08); border-radius: 14px; overflow: hidden; }
+    details.food-ref > summary { list-style: none; cursor: pointer; -webkit-tap-highlight-color: transparent; display: flex; align-items: center; gap: 10px; padding: 11px 14px; }
+    details.food-ref > summary::-webkit-details-marker { display: none; }
+    details.food-ref > summary::marker { display: none; }
+    .food-ref-label { font-size: 13px; font-weight: 600; color: var(--ink-700); flex: 1; }
+    .food-ref-chevron { width: 14px; height: 14px; stroke: var(--ink-400); stroke-width: 2; fill: none; flex-shrink: 0; transition: transform .2s ease; }
+    details[open].food-ref > summary .food-ref-chevron { transform: rotate(180deg); }
+    .food-ref-body { padding: 0 14px 14px; border-top: 1px solid rgba(42,31,48,.06); }
+    .food-ref-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(42,31,48,.05); }
+    .food-ref-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .food-ref-group { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-400); flex-shrink: 0; width: 64px; padding-top: 4px; }
+    .food-ref-tags { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; }
+    .food-ref-tag { font-size: 11px; font-weight: 600; background: rgba(184,112,74,.08); color: var(--ember-700); padding: 2px 8px; border-radius: 100px; border: 1px solid rgba(184,112,74,.16); white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Head -->
+  <div class="ci-head" style="position:relative;z-index:1;">
+    <div style="margin-bottom:14px;">
+      <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(74,122,106,.10);border:1px solid rgba(74,122,106,.18);border-radius:100px;padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--evidence-high);letter-spacing:.04em;">
+        <svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Am Ende des Tages eintragen
+      </span>
+    </div>
+    <h1 class="flow-hero-title sm">Wie geht es deinem Darm heute?</h1>
+    <p class="flow-hero-sub tight">Dauert etwa 20 Sekunden. Je mehr du dokumentierst, desto klarer das Bild für dich und deinen Hausarzt/-ärztin.</p>
+  </div>
+
+  <!-- Check-in body -->
+  <div class="ci-body" style="position:relative;z-index:1;">
+
+    <!-- Q1: Diet adherence -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Hast du heute die Low-FODMAP-Diät eingehalten?</div>
+      <div class="seg-control">
+        <div class="seg-opt-flow active positive">
+          <svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>
+          Ja, strikt
+        </div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Teils / nein</div>
+      </div>
+    </div>
+
+    <!-- Studienfortschritt -->
+    <div class="trial-banner ani">
+      <div class="trial-banner-left">
+        <div class="trial-banner-phase">Eliminationsphase</div>
+        <div class="trial-banner-week">Woche 1 von 6</div>
+      </div>
+      <div class="trial-dots">
+        <span class="trial-dot current"></span>
+        <span class="trial-dot"></span>
+        <span class="trial-dot"></span>
+        <span class="trial-dot"></span>
+        <span class="trial-dot"></span>
+        <span class="trial-dot"></span>
+      </div>
+    </div>
+
+    <!-- Lebensmittel-Referenz -->
+    <details class="food-ref ani">
+      <summary>
+        <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:var(--ember-600);stroke-width:2;fill:none;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span class="food-ref-label">Zu vermeidende Lebensmittel — antippen zum Nachschlagen</span>
+        <svg class="food-ref-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="food-ref-body">
+        <div class="food-ref-row">
+          <div class="food-ref-group">Fructane</div>
+          <div class="food-ref-tags">
+            <span class="food-ref-tag">Knoblauch</span>
+            <span class="food-ref-tag">Zwiebeln</span>
+            <span class="food-ref-tag">Weizen</span>
+            <span class="food-ref-tag">Roggen</span>
+            <span class="food-ref-tag">Schalotten</span>
+            <span class="food-ref-tag">Lauch (weiß)</span>
+            <span class="food-ref-tag">Frühlingszwiebeln (weiß)</span>
+          </div>
+        </div>
+        <div class="food-ref-row">
+          <div class="food-ref-group">Hülsen&shy;früchte</div>
+          <div class="food-ref-tags">
+            <span class="food-ref-tag">Kichererbsen</span>
+            <span class="food-ref-tag">Linsen</span>
+            <span class="food-ref-tag">Kidneybohnen</span>
+            <span class="food-ref-tag">Sojabohnen</span>
+            <span class="food-ref-tag">Gebackene Bohnen</span>
+          </div>
+        </div>
+        <div class="food-ref-row">
+          <div class="food-ref-group">Laktose</div>
+          <div class="food-ref-tags">
+            <span class="food-ref-tag">Kuhmilch</span>
+            <span class="food-ref-tag">Joghurt</span>
+            <span class="food-ref-tag">Weichkäse</span>
+            <span class="food-ref-tag">Eis</span>
+            <span class="food-ref-tag">Frischkäse</span>
+          </div>
+        </div>
+        <div class="food-ref-row">
+          <div class="food-ref-group">Fruktose</div>
+          <div class="food-ref-tags">
+            <span class="food-ref-tag">Äpfel</span>
+            <span class="food-ref-tag">Birnen</span>
+            <span class="food-ref-tag">Mango</span>
+            <span class="food-ref-tag">Honig</span>
+            <span class="food-ref-tag">Agave</span>
+            <span class="food-ref-tag">Trockenfrüchte</span>
+          </div>
+        </div>
+        <div class="food-ref-row">
+          <div class="food-ref-group">Polyole</div>
+          <div class="food-ref-tags">
+            <span class="food-ref-tag">Pfirsiche</span>
+            <span class="food-ref-tag">Pflaumen</span>
+            <span class="food-ref-tag">Pilze</span>
+            <span class="food-ref-tag">Blumenkohl</span>
+            <span class="food-ref-tag">Zuckerfreier Kaugummi</span>
+            <span class="food-ref-tag">Brombeeren</span>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Q2: Symptoms overall -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Wie waren deine Symptome insgesamt?</div>
+      <div class="seg-control">
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Keine</div>
+        <div class="seg-opt-flow active" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Leicht</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Mittel</div>
+        <div class="seg-opt-flow" onclick="this.parentElement.querySelectorAll('.seg-opt-flow').forEach(o=>o.classList.remove('active'));this.classList.add('active');">Stark</div>
+      </div>
+    </div>
+
+    <!-- Q3: Anything in particular? -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Etwas Besonderes? <span class="opt-tag">optional</span></div>
+      <div class="sym-chips">
+        <span class="sym-chip active" onclick="this.classList.toggle('active')">Blähungen</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Krämpfe</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Drang</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Verstopfung</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Müdigkeit</span>
+        <span class="sym-chip" onclick="this.classList.toggle('active')">Übelkeit</span>
+      </div>
+    </div>
+
+    <!-- Q4: Notes -->
+    <div class="q-block-flow ani">
+      <div class="q-label-flow">Notizen <span class="opt-tag">optional</span></div>
+      <textarea class="note-textarea" placeholder="Noch etwas festhalten…">Musste auswärts essen — Knoblauch vermieden, aber konnte nicht alles prüfen.</textarea>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-progress.html" class="cta-btn-full" style="background:var(--evidence-high);">
+      Check-in speichern
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

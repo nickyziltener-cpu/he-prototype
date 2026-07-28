@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — How Long?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--onboarding-band); position: relative; overflow-x: hidden; }
+    @keyframes write-reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes ember-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.22; transform: scale(1); } }
+    @keyframes aurora-bloom { from { opacity: 0; transform: scale(0.88); } to { opacity: 0.12; transform: scale(1); } }
+    body::before {
+      content: ''; position: fixed; top: -40px; right: -60px; width: 280px; height: 280px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: ember-bloom 1.2s ease-out 0.2s forwards;
+    }
+    body::after {
+      content: ''; position: fixed; left: -40px; top: 30%; width: 200px; height: 200px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0; pointer-events: none; z-index: 0;
+      animation: aurora-bloom 1.2s ease-out 0.5s forwards;
+    }
+    .hl-line { display: block; clip-path: inset(0 100% 0 0); }
+    .question-title .hl-line:nth-child(1) { animation: write-reveal 0.5s ease-out 0.3s forwards; }
+    .question-title .hl-line:nth-child(2) { animation: write-reveal 0.5s ease-out 0.7s forwards; }
+    .chips-container, .back-link, .progress-bar-container {
+      opacity: 0; animation: fade-in 1.0s ease-out 0.9s forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 42%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <h1 class="question-title">
+      <span class="hl-line">How long have these</span>
+      <span class="hl-line">symptoms been with you?</span>
+    </h1>
+
+    <div class="chips-container" style="margin-top: 24px;">
+      <button class="chip" data-next="q2.html" data-duration="under1y">
+        Less than a year
+      </button>
+      <button class="chip" data-next="q2.html" data-duration="1_3y">
+        1–3 years
+      </button>
+      <button class="chip" data-next="q2.html" data-duration="3_7y">
+        3–7 years
+      </button>
+      <button class="chip" data-next="q2.html" data-duration="over7y">
+        7+ years
+        <span class="chip-sub">You're not alone — the average diagnostic delay is 7–9 years</span>
+      </button>
+    </div>
+
+    <a href="q1a.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        localStorage.setItem('endo_duration', this.getAttribute('data-duration'));
+        var next = this.getAttribute('data-next');
+        if (next) window.location.href = next;
+      });
+    });
+  </script>
+
+</body>
+</html>

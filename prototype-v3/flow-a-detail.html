@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Low FODMAP Diet · Treatment Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #fbeee5 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: .38;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sources-list {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px solid rgba(42,31,48,0.08);
+      padding-top: 14px;
+    }
+    .source-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+    }
+    .source-badge {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.3px;
+      color: var(--ink-600);
+      background: rgba(42,31,48,0.06);
+      border-radius: 4px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+    .source-ref {
+      flex: 1;
+      color: var(--ink-600);
+      line-height: 1.4;
+    }
+    .source-ref em {
+      font-style: italic;
+    }
+    .source-link {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ember-600, #b8704a);
+      text-decoration: none;
+    }
+    .source-link:hover { text-decoration: underline; }
+    .sources-note {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      color: var(--ink-500);
+      margin-top: 8px;
+      font-style: italic;
+    }
+    #tryBtn {
+      font-family: 'Manrope', sans-serif;
+      font-size: inherit;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-bottom:24px;">
+    <div class="flow-nav">
+      <a href="#" id="backBtn" class="flow-back" onclick="history.back(); return false;">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        <span id="backLabel">Back</span>
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Diet
+      </span>
+      <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+    </div>
+    <h1 class="flow-hero-title">Low FODMAP diet</h1>
+    <p class="flow-hero-sub">A short-term elimination diet that removes fermentable carbohydrates linked to IBS symptoms. In the largest meta-analysis of 7 RCTs, <strong>57% of participants saw meaningful symptom relief</strong> — vs 26% on a control diet.</p>
+  </div>
+
+  <!-- Detail body -->
+  <div class="flow-body detail-body">
+
+    <div class="detail-section ani">
+      <div class="detail-label">What it is</div>
+      <p class="detail-para">FODMAPs are a group of carbs that ferment in the gut and can trigger bloating, pain and irregular bowel movements. The diet removes them for a few weeks, then reintroduces them one at a time so you can find your personal triggers.</p>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">How research suggests using it</div>
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div>
+            <div class="step-title">Strict elimination</div>
+            <div class="step-desc">Remove all high-FODMAP foods for 4–8 weeks. Common culprits: onions, garlic, beans, wheat, lactose-heavy dairy.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div>
+            <div class="step-title">Reintroduce one at a time</div>
+            <div class="step-desc">Add food groups back individually over 3 days each to find what your gut tolerates.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div>
+            <div class="step-title">Personalise long-term</div>
+            <div class="step-desc">Most people settle at a personal tolerance — not a forever-restricted plate.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Where this evidence comes from</div>
+      <div class="evsum-card">
+        <span class="evchip-flow ev-high"><span class="ev-dot"></span>Strong evidence</span>
+        <div class="evsum-line">A 2022 meta-analysis of 7 RCTs (n=1,242) found that <strong>57% of participants</strong> saw meaningful symptom relief, vs <strong>26%</strong> on a control diet — consistent across all included trials.</div>
+        <div class="evsum-meaning">What this means — a meta-analysis pools and re-analyses multiple independent trials. Consistent effects across 7 separate trial populations is much harder to explain by chance. That's why this is graded <strong>Strong</strong>.</div>
+        <div class="sources-list">
+          <div class="source-row">
+            <span class="source-badge">Meta-analysis</span>
+            <span class="source-ref">Staudacher et al., 2022 · <em>Gut</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/31552966/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">RCT</span>
+            <span class="source-ref">Halmos et al., 2014 · <em>Gastroenterology</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/24076059/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+          <div class="source-row">
+            <span class="source-badge">RCT</span>
+            <span class="source-ref">Eswaran et al., 2016 · <em>American Journal of Gastroenterology</em></span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28244665/" class="source-link" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <p class="sources-note">Citations link to PubMed abstracts. Full papers may require journal access.</p>
+      </div>
+    </div>
+
+    <!-- Expandable FODMAP list -->
+    <div class="detail-section ani">
+      <div class="detail-label">Examples of high-FODMAP foods to avoid during elimination</div>
+      <button class="fodmap-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        <span>See examples by category</span>
+        <svg class="fodmap-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="fodmap-list">
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Vegetables</div>
+          <div class="fodmap-items">Onions · Garlic · Shallots · Leek · Asparagus · Artichoke · Cauliflower · Mushrooms · Celery (large amounts)</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Fruit</div>
+          <div class="fodmap-items">Apples · Pears · Mangoes · Cherries · Peaches · Nectarines · Watermelon · Dried fruit</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Grains &amp; bread</div>
+          <div class="fodmap-items">Wheat · Rye · Barley — including most bread, pasta, couscous, and crackers made from them</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Dairy</div>
+          <div class="fodmap-items">Cow's milk · Soft cheeses (ricotta, cottage) · Yoghurt · Custard · Ice cream</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Legumes</div>
+          <div class="fodmap-items">Kidney beans · Lentils · Chickpeas · Baked beans · Black beans</div>
+        </div>
+        <div class="fodmap-group">
+          <div class="fodmap-group-title">Sweeteners</div>
+          <div class="fodmap-items">Honey · Agave · High-fructose corn syrup · Sorbitol · Mannitol · Xylitol (common in sugar-free products)</div>
+        </div>
+        <div class="fodmap-note">This is a selection of common examples — not a complete list. The full FODMAP database (500+ foods with portion thresholds) is maintained by Monash University. A registered dietitian can give you a full reference sheet.</div>
+      </div>
+    </div>
+
+    <div class="callout-amber ani">
+      <div class="callout-label">Worth knowing</div>
+      <p class="detail-para sm">The elimination phase is a short diagnostic tool — not a permanent way of eating. Broad long-term restriction can affect gut microbiome diversity. The reintroduction phase is how you find your actual triggers. Once you know what's causing symptoms, permanently avoiding just those foods is completely fine — and that's the goal.</p>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <button class="cta-btn-full" id="tryBtn"
+      data-treatment-id="low-fodmap"
+      data-treatment-name="Low FODMAP diet">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg>
+      Save to my plan
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      var ref = document.referrer;
+      var label = ref.includes('flow-a-start') ? 'Start' : ref.includes('flow-a-diet') ? 'Diet' : 'Back';
+      document.getElementById('backLabel').textContent = label;
+    })();
+  </script>
+  <script>
+    (function() {
+      var TREATMENT_ID   = 'low-fodmap';
+      var TREATMENT_NAME = 'Low FODMAP diet';
+      var btn = document.getElementById('tryBtn');
+
+      function render() {
+        var saved = JSON.parse(localStorage.getItem('selectedTreatments') || '[]');
+        var isSaved = saved.some(function(t) { return t.id === TREATMENT_ID; });
+        if (isSaved) {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg> Saved · Remove';
+          btn.style.background = 'var(--sage-500, #4a7a6a)';
+        } else {
+          btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.5A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 7 2.5C19 15.4 12 20 12 20z"/></svg> Save to my plan';
+          btn.style.background = '';
+        }
+      }
+
+      btn.addEventListener('click', function() {
+        var saved = JSON.parse(localStorage.getItem('selectedTreatments') || '[]');
+        var idx = saved.findIndex(function(t) { return t.id === TREATMENT_ID; });
+        if (idx >= 0) {
+          saved.splice(idx, 1);
+        } else {
+          if (saved.length < 3) {
+            saved.push({ id: TREATMENT_ID, name: TREATMENT_NAME });
+          }
+        }
+        localStorage.setItem('selectedTreatments', JSON.stringify(saved));
+        render();
+      });
+
+      render();
+    })();
+  </script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Let's Start</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--pcos-hero-band); display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+    body::before { content: ''; position: fixed; top: -60px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, var(--rose-300) 0%, var(--rose-500) 20%, transparent 70%); opacity: .22; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -60px; left: -60px; width: 280px; height: 280px; background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%); opacity: .18; pointer-events: none; z-index: 0; }
+    .start-wrap { max-width: 480px; margin: 0 auto; padding: 52px 24px 64px; position: relative; z-index: 1; }
+    .start-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-700); background: rgba(224,122,150,.12); padding: 5px 12px; border-radius: 100px; margin-bottom: 24px; display: inline-flex; }
+    .start-headline { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--ink-900); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 14px; }
+    .start-sub { font-size: 15px; color: var(--ink-700); line-height: 1.6; margin-bottom: 32px; }
+    .start-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .start-step { display: flex; gap: 14px; align-items: flex-start; background: rgba(255,255,255,.60); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.85); border-radius: 14px; padding: 14px; }
+    .start-step-num { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--rose-500), var(--rose-300)); color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .start-step-text { font-size: 14px; color: var(--ink-700); line-height: 1.5; }
+    .start-step-text strong { color: var(--ink-900); font-weight: 600; }
+    .start-cta { display: block; width: 100%; padding: 16px 24px; background: var(--rose-500); color: white; border: none; border-radius: 100px; font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; box-shadow: 0 12px 28px -10px rgba(224,122,150,.55); margin-bottom: 12px; }
+    .start-cta:hover { background: var(--rose-700); }
+  </style>
+</head>
+<body>
+  <div class="start-wrap">
+    <div class="start-count">5 questions · about 2 minutes</div>
+    <h1 class="start-headline">Let's understand your PCOS picture.</h1>
+    <p class="start-sub">A few questions about your experience, symptoms, and goals — so we can surface the evidence that's most relevant to you.</p>
+
+    <div class="start-steps">
+      <div class="start-step">
+        <div class="start-step-num">1</div>
+        <div class="start-step-text"><strong>Your diagnosis status</strong> — helps us route you to the most relevant evidence.</div>
+      </div>
+      <div class="start-step">
+        <div class="start-step-num">2</div>
+        <div class="start-step-text"><strong>Your main concerns</strong> — PCOS affects people very differently. We personalise to what matters to you.</div>
+      </div>
+      <div class="start-step">
+        <div class="start-step-num">3</div>
+        <div class="start-step-text"><strong>Your goals</strong> — cycle regularity, skin, weight, fertility, energy. We surface the paths most relevant to your priority.</div>
+      </div>
+      <div class="start-step">
+        <div class="start-step-num">4</div>
+        <div class="start-step-text"><strong>Your treatment preferences</strong> — so we lead with what you're open to exploring.</div>
+      </div>
+    </div>
+
+    <a href="q1.html" class="start-cta">Start →</a>
+    <a href="index.html" class="back-link" style="display: block; text-align: center; margin-top: 4px;">← Back</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Your Symptom Picture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: var(--hero-band);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes ember-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.40; transform: scale(1); }
+    }
+
+    @keyframes aurora-bloom {
+      from { opacity: 0; transform: scale(0.88); }
+      to   { opacity: 0.40; transform: scale(1); }
+    }
+
+    @keyframes write-reveal {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Reveal: ember top-right 420px 40%, aurora bottom-left 360px 40% */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -60px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, var(--ember-300) 0%, var(--ember-500) 20%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: ember-bloom 1.4s ease-out 0.3s forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -80px;
+      left: -80px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, var(--aurora-500) 0%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora-bloom 1.4s ease-out 0.6s forwards;
+    }
+
+    .hl-line {
+      display: block;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    .reveal-headline .hl-line:nth-child(1) { animation: write-reveal 0.6s ease-out 0.4s forwards; }
+    .reveal-headline .hl-line:nth-child(2) { animation: write-reveal 0.6s ease-out 0.9s forwards; }
+
+    .reveal-summary,
+    .glass-card,
+    .gp-prep-card,
+    .evidence-tease,
+    .account-prompt,
+    .cta-section {
+      opacity: 0;
+      animation: fade-in 1.2s ease-out 1.1s forwards;
+    }
+
+    .reveal-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 56px 24px 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .partial-match-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      color: var(--plum-500);
+      text-align: center;
+      display: block;
+      margin-bottom: 16px;
+      opacity: 0;
+      line-height: 1.1;
+      animation: fade-in 1.2s ease-out 1.1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .criteria-mono-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--plum-500);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+    }
+
+    .gp-prep-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .gp-prep-card-text p:first-child {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--ink-900);
+      margin-bottom: 4px;
+    }
+
+    .gp-prep-card-text p:last-child {
+      font-size: 13px;
+      color: var(--ink-600);
+    }
+
+    .gp-prep-link {
+      font-size: 14px;
+      color: var(--plum-500);
+      font-weight: 500;
+      white-space: nowrap;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .gp-prep-link:hover {
+      color: var(--plum-700);
+      text-decoration: underline;
+    }
+
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-section .btn-primary {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Aurora-tint blob centred -->
+  <svg class="bg-blob-centre" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M300,80 C420,60 520,140 540,260 C560,380 480,480 360,510 C240,540 120,480 80,360 C40,240 100,120 180,90 C220,74 260,96 300,80 Z" fill="rgba(168,165,212,0.10)"/>
+  </svg>
+
+  <div class="reveal-wrapper">
+    <span class="partial-match-label">Partial match</span>
+
+    <h1 class="reveal-headline">
+      <span class="hl-line">Your symptoms match several IBS criteria.</span>
+      <span class="hl-line">That's worth taking to your doctor.</span>
+    </h1>
+
+    <p class="reveal-summary">Based on what you described, here's how your symptoms line up with the Rome IV framework. That is the clinical standard doctors use to diagnose IBS.</p>
+
+    <!-- Rome IV criteria card -->
+    <div class="glass-card" style="padding: 20px; margin-bottom: 24px;">
+      <p class="criteria-mono-label">Rome IV criteria check</p>
+
+      <div class="criteria-row criteria-met">
+        <span class="criteria-icon">✓</span>
+        <span class="criteria-text">Abdominal pain or discomfort linked to bowel movements</span>
+      </div>
+      <div class="criteria-row criteria-met">
+        <span class="criteria-icon">✓</span>
+        <span class="criteria-text">Change in stool frequency or consistency</span>
+      </div>
+      <div class="criteria-row criteria-met">
+        <span class="criteria-icon">✓</span>
+        <span class="criteria-text">Symptoms present for 6+ months — meets the Rome IV time threshold</span>
+      </div>
+      <div class="criteria-row criteria-note">
+        <span class="criteria-icon">→</span>
+        <span class="criteria-text">A GP can confirm whether your symptom pattern meets the full criteria</span>
+      </div>
+    </div>
+
+    <!-- GP prep card -->
+    <div class="glass-card gp-prep-card" style="padding: 16px; margin-bottom: 24px;">
+      <div class="gp-prep-card-text">
+        <p>Preparing for your GP appointment</p>
+        <p>A guide to getting the most from a GP conversation about your gut symptoms.</p>
+      </div>
+      <a href="#" class="gp-prep-link">Read →</a>
+    </div>
+
+    <p style="font-size: 14px; color: var(--ink-700); text-align: center; margin-bottom: 16px;">We've also found evidence-based approaches that may help while you're getting a diagnosis.</p>
+
+    <!-- Diagnosis caveat banner -->
+    <div style="display: flex; align-items: flex-start; gap: 10px; background: rgba(107,91,125,0.08); border: 1px solid rgba(107,91,125,0.18); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px;">
+      <i data-lucide="info" style="width: 16px; height: 16px; color: var(--plum-500); flex-shrink: 0; margin-top: 1px;"></i>
+      <p style="font-size: 13px; color: var(--ink-700); margin: 0; line-height: 1.5;">These are based on your symptom picture, not a confirmed diagnosis. Once your GP confirms your IBS subtype, we'll refine them to match you more precisely.</p>
+    </div>
+
+    <!-- Evidence tease -->
+    <div class="evidence-tease glass-card">
+      <div class="tease-item">
+        <span class="tease-name">Gut-directed hypnotherapy</span>
+        <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence for IBS</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-name">Peppermint oil</span>
+        <span class="evidence-badge badge-strong"><span class="badge-dot"></span>Strong evidence for all subtypes</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-name">Stress management</span>
+        <span class="evidence-badge badge-good"><span class="badge-dot"></span>Good evidence for IBS</span>
+      </div>
+    </div>
+
+    <div class="account-prompt">
+      <p class="account-prompt-heading">Your results are ready. Create a free account to access them.</p>
+      <p class="account-prompt-sub">We'll save your profile and show you the full picture once you've seen your GP.</p>
+    </div>
+
+    <div class="cta-section">
+      <a href="account.html" class="btn-primary">Create my free account</a>
+      <a href="#" class="secondary-link">Already have an account? Sign in</a>
+    </div>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

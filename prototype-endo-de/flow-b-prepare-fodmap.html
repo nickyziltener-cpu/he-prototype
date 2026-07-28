@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorbereitung auf entzündungshemmende Ernährung · Endometriose-Behandlungspfade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(170deg, #eef4f0 0%, #faf7f4 70%, #f1ecf3 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--sage-300) 0%, var(--sage-500) 20%, transparent 70%);
+      opacity: .35;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .fodmap-table { display: flex; flex-direction: column; gap: 0; }
+    .fodmap-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(42,31,48,.06); }
+    .fodmap-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .fodmap-group-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-500); flex-shrink: 0; width: 76px; padding-top: 3px; line-height: 1.4; }
+    .fodmap-tags { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
+    .fodmap-tag { font-size: 12px; font-weight: 600; background: rgba(184,112,74,.08); color: var(--ember-700); padding: 3px 9px; border-radius: 100px; border: 1px solid rgba(184,112,74,.18); white-space: nowrap; }
+    .safe-row { display: flex; flex-wrap: wrap; gap: 5px; }
+    .safe-tag { font-size: 12px; font-weight: 600; background: rgba(74,122,106,.08); color: var(--evidence-high); padding: 3px 9px; border-radius: 100px; border: 1px solid rgba(74,122,106,.18); white-space: nowrap; }
+    .journal-ready-box { background: rgba(168,200,181,.12); border: 1px solid rgba(107,154,139,.25); border-radius: 16px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+    .journal-ready-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--sage-300), var(--sage-500)); display: flex; align-items: center; justify-content: center; }
+    .journal-ready-icon svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; fill: none; }
+    .journal-ready-title { font-size: 13px; font-weight: 700; color: var(--sage-500); margin-bottom: 5px; }
+    .journal-ready-body { font-size: 13px; line-height: 1.55; color: var(--ink-700); }
+  </style>
+</head>
+<body>
+
+<div class="screen-wrap">
+
+  <div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:13px;font-weight:700;color:var(--ink-900);position:relative;z-index:1;">
+    <span>9:41</span>
+    <span style="font-size:11px;letter-spacing:1px;color:var(--ink-700)">●●● ◐ ▮</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="flow-hero" style="padding-bottom:24px;">
+    <div class="flow-nav">
+      <a href="flow-b-plan.html" class="flow-back">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+        Mein Plan
+      </a>
+    </div>
+    <div class="chip-row-flow">
+      <span class="chip-cat-flow">
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7.5"/></svg>
+        Ernährung
+      </span>
+      <span class="evchip-flow ev-med"><span class="ev-dot"></span>Moderate Evidenz</span>
+    </div>
+    <h1 class="flow-hero-title">Vorbereitung auf die entzündungshemmende Ernährung</h1>
+  </div>
+
+  <!-- Body -->
+  <div class="flow-body detail-body">
+
+    <div class="detail-section ani">
+      <div class="detail-label">Was es ist</div>
+      <p class="detail-para">Endometriose ist eine Entzündungserkrankung — und was du isst, kann das Gleichgewicht der Prostaglandine verschieben, die Schmerzen verursachen. Dies ist keine Eliminationsdiät. Es ist eine <strong>schrittweise Ernährungsumstellung</strong>: mehr entzündungshemmende Lebensmittel über 8 Wochen, weniger von den Lebensmitteln, die Entzündungen fördern. Keine strikten Regeln, nur eine Richtung.</p>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Erhöhen — diese reduzieren Entzündungen</div>
+      <div class="fodmap-table">
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Omega-3</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Lachs</span>
+            <span class="safe-tag">Makrele</span>
+            <span class="safe-tag">Sardinen</span>
+            <span class="safe-tag">Walnüsse</span>
+            <span class="safe-tag">Leinsamen</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Gemüse</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Blattgemüse</span>
+            <span class="safe-tag">Brokkoli</span>
+            <span class="safe-tag">Beeren</span>
+            <span class="safe-tag">Kurkuma</span>
+            <span class="safe-tag">Ingwer</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Fette</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Natives Olivenöl extra</span>
+            <span class="safe-tag">Avocado</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Vollkorn</div>
+          <div class="fodmap-tags">
+            <span class="safe-tag">Hafer</span>
+            <span class="safe-tag">Brauner Reis</span>
+            <span class="safe-tag">Quinoa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Reduzieren — diese fördern Entzündungen</div>
+      <div class="fodmap-table">
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Fleisch</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Rotes Fleisch</span>
+            <span class="fodmap-tag">Verarbeitetes Fleisch</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Zucker</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Raffinierter Zucker</span>
+            <span class="fodmap-tag">Weißbrot</span>
+            <span class="fodmap-tag">Gebäck</span>
+          </div>
+        </div>
+        <div class="fodmap-row">
+          <div class="fodmap-group-name">Sonstiges</div>
+          <div class="fodmap-tags">
+            <span class="fodmap-tag">Alkohol</span>
+            <span class="fodmap-tag">Transfette</span>
+            <span class="fodmap-tag">Frittiertes Essen</span>
+          </div>
+        </div>
+      </div>
+      <p class="detail-para sm" style="margin-top:10px;color:var(--ink-600);">Perfektion ist nicht das Ziel. Schrittweise Veränderungen in die richtige Richtung — konsequent protokolliert — zeigen uns, was wirkt.</p>
+    </div>
+
+    <div class="detail-section ani">
+      <div class="detail-label">Wie lange es dauert</div>
+      <div class="time-card">
+        <span class="time-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <p class="detail-para sm">Studien laufen in der Regel <strong>8 Wochen</strong>, bevor die Ergebnisse ausgewertet werden. Entzündungen brauchen Zeit, um sich zu verändern — bleib durch zwei vollständige Zyklen dabei, bevor du Schlüsse ziehst.</p>
+      </div>
+    </div>
+
+    <div class="gp-dark-card ani">
+      <div style="position:relative;z-index:1;">
+        <div class="gp-dark-title">Ernährungsberaterin hinzuziehen</div>
+        <div class="gp-dark-desc">Eine Ernährungsberaterin kann den Ansatz auf deine spezifischen Symptome abstimmen und dir helfen, dauerhafte Gewohnheiten aufzubauen. Bitte deine Gynäkolog:in um eine Überweisung oder suche nach einer Ernährungsberaterin mit Erfahrung bei chronischen Schmerzen oder Frauengesundheit.</div>
+      </div>
+    </div>
+
+    <div class="journal-ready-box ani">
+      <div class="journal-ready-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div>
+        <div class="journal-ready-title">Dein wöchentliches Tagebuch beginnt hier</div>
+        <div class="journal-ready-body">Wenn du unten tippst, richten wir deinen wöchentlichen Check-in für diese Studie ein. Trage jede Woche ein, wie du gegessen hast und wie du dich gefühlt hast — in Woche 8 werten wir die Ergebnisse gemeinsam aus.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA bar -->
+  <div class="cta-bar-sticky">
+    <a href="flow-b-checkin-fodmap.html" class="cta-btn-full" style="background:var(--evidence-high);">
+      Ich bin bereit, die Ernährung umzustellen
+    </a>
+    <a href="flow-a-shortlist.html" class="secondary-link" style="margin-top:12px;">Eine andere Behandlung wählen?</a>
+  </div>
+
+</div>
+
+</body>
+</html>

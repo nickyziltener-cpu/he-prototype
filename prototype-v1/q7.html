@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Knowledge Level</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" style="width: 78%;"></div>
+  </div>
+
+  <div class="page-wrapper" style="padding-top: 64px;">
+    <div style="margin-bottom: 4px;">
+      <span class="section-label">Question 7 of 9</span>
+    </div>
+
+    <h1 class="question-title">Where are you in your IBS research journey?</h1>
+
+    <div class="chips-container" style="margin-top: 24px;">
+      <button class="chip" data-next="redflag.html">Just starting — I'm still figuring out the basics</button>
+      <button class="chip" data-next="redflag.html">I know a fair bit — I've done my research</button>
+      <button class="chip" data-next="redflag.html">I've been managing this for years and have tried a lot</button>
+    </div>
+
+    <p class="micro-copy">This helps us pitch the explanations at the right level.</p>
+
+    <a href="q6.html" class="back-link">← Back</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        document.querySelectorAll('.chip').forEach(function(c) {
+          c.classList.remove('selected');
+        });
+        this.classList.add('selected');
+        var next = this.getAttribute('data-next');
+        setTimeout(function() {
+          window.location.href = next;
+        }, 200);
+      });
+    });
+  </script>
+</body>
+</html>
