@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Empowerment — Prototypes</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f7f4;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 48px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus { border-color: #4a7c59; }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      background: #4a7c59;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover { background: #3d6a4b; }
+
+    .error {
+      color: #c0392b;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* Prototype list */
+    #content { display: none; }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #999;
+      margin: 24px 0 10px;
+    }
+
+    .section-title:first-child { margin-top: 0; }
+
+    .proto-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .proto-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #f9f7f4;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #1a1a1a;
+      font-size: 15px;
+      transition: background 0.15s;
+    }
+
+    .proto-list a:hover { background: #ede9e3; }
+
+    .proto-list a span { color: #999; font-size: 13px; }
+
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 500;
+    }
+
+    .tag-de { background: #e8f0fe; color: #3b5cc4; }
+    .tag-en { background: #e8f5ec; color: #2e7d4f; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Password gate -->
+  <div id="gate">
+    <h1>Health Empowerment</h1>
+    <p class="subtitle">Enter the password to view the prototypes.</p>
+    <input type="password" id="pw" placeholder="Password" autofocus />
+    <button onclick="check()">Continue</button>
+    <p class="error" id="err">Incorrect password. Try again.</p>
+  </div>
+
+  <!-- Prototype index -->
+  <div id="content">
+    <h1>Prototypes</h1>
+    <p class="subtitle">Select a prototype to open it.</p>
+
+    <p class="section-title">IBS</p>
+    <ul class="proto-list">
+      <li><a href="prototype-v3/index.html">v3 — Full flow <span><span class="tag tag-en">EN</span></span></a></li>
+      <li><a href="prototype-v3-de/index.html">v3 — Full flow <span><span class="tag tag-de">DE</span></span></a></li>
+      <li><a href="prototype-v2/index.html">v2 — Early flow <span><span class="tag tag-en">EN</span></span></a></li>
+      <li><a href="prototype-v1/index.html">v1 — Initial concept <span><span class="tag tag-en">EN</span></span></a></li>
+    </ul>
+
+    <p class="section-title">Endometriosis</p>
+    <ul class="proto-list">
+      <li><a href="prototype-endo/index.html">Endo <span><span class="tag tag-en">EN</span></span></a></li>
+      <li><a href="prototype-endo-de/index.html">Endo <span><span class="tag tag-de">DE</span></span></a></li>
+    </ul>
+
+    <p class="section-title">PCOS</p>
+    <ul class="proto-list">
+      <li><a href="prototype-pcos/index.html">PCOS <span><span class="tag tag-en">EN</span></span></a></li>
+      <li><a href="prototype-pcos-de/index.html">PCOS <span><span class="tag tag-de">DE</span></span></a></li>
+    </ul>
+
+    <p class="section-title">Psoriasis</p>
+    <ul class="proto-list">
+      <li><a href="prototype-psoriasis/index.html">Psoriasis <span><span class="tag tag-en">EN</span></span></a></li>
+      <li><a href="prototype-psoriasis-de/index.html">Psoriasis <span><span class="tag tag-de">DE</span></span></a></li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById("pw").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") check();
+  });
+
+  function check() {
+    const val = document.getElementById("pw").value;
+    if (val === "so.healthy") {
+      document.getElementById("gate").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    } else {
+      document.getElementById("err").style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
